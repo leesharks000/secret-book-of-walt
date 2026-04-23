@@ -17,87 +17,122 @@ const C = {
 };
 
 /* ─── SPLASH ─── */
-function Splash({ onEnter, imgSrc }) {
+function Splash({ onEnter, imgSrc, hornSrc }) {
   const [phase, setPhase] = useState(0);
   const [souls, setSouls] = useState(null);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase(1), 6200);
-    const t2 = setTimeout(() => setPhase(2), 7400);
-    // Fetch current count
+    const t1 = setTimeout(() => setPhase(1), 7000);
+    const t2 = setTimeout(() => setPhase(2), 8200);
+    const t3 = setTimeout(() => setPhase(3), 9400);
     fetch("/api/count").then(r => r.json()).then(d => setSouls(d.count)).catch(() => {});
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
   const handleEnter = () => {
-    // Increment counter then enter
     fetch("/api/count", { method: "POST" })
-      .then(r => r.json())
-      .then(d => setSouls(d.count))
-      .catch(() => {})
+      .then(r => r.json()).then(d => setSouls(d.count)).catch(() => {})
       .finally(() => onEnter());
   };
 
   return (
     <div style={{
-      minHeight: "100vh", background: `radial-gradient(ellipse at center, #1a0a0a 0%, ${C.darkDeep} 50%, #000 100%)`,
-      display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+      minHeight: "100vh",
+      background: "radial-gradient(ellipse at 50% 40%, #12060a 0%, #080004 40%, #020001 70%, #000 100%)",
+      display: "flex", flexDirection: "column", alignItems: "center",
+      justifyContent: "center",
       overflow: "hidden", position: "relative", fontFamily: "'Cormorant Garamond', serif",
     }}>
       <Stars />
-      <div style={{ perspective: "800px", marginBottom: phase >= 1 ? "20px" : "0", transition: "margin-bottom 1s ease" }}>
+
+      {/* The Cowboy of Time — descends and lands */}
+      <div style={{
+        perspective: "1000px", perspectiveOrigin: "center center",
+        marginBottom: phase >= 1 ? "12px" : "0",
+        transition: "margin-bottom 1.5s ease",
+      }}>
         <div style={{
-          animation: phase === 0 ? "paperMario 6s cubic-bezier(0.16,0.7,0.3,1) forwards" : "none",
+          animation: phase === 0 ? "paperMario 7s cubic-bezier(0.12,0.7,0.28,1) forwards" : "none",
           transform: phase >= 1 ? "translateY(0) rotateY(0deg) scale(1)" : undefined,
           transformStyle: "preserve-3d",
         }}>
-          <img src={imgSrc} alt="Walt Whitman, Cowboy of Time" style={{
-            width: "min(300px, 60vw)", height: "auto",
-            filter: phase >= 1 
-              ? "drop-shadow(0 0 35px rgba(212,50,20,0.65)) drop-shadow(0 0 80px rgba(212,168,83,0.25))"
-              : "drop-shadow(0 0 8px rgba(200,50,20,0.2))",
-            transition: "filter 1.8s ease",
-            animation: phase === 0 ? "glowGrow 6s ease forwards" : "none",
+          <img src={imgSrc} alt="Walt Whitman, Cowboy of Time, astride his dinosaur steed" style={{
+            width: "min(210px, 42vw)", height: "auto",
+            borderRadius: 4,
+            transition: "all 1.5s ease",
           }} />
         </div>
       </div>
+
+      {/* Title — rises from the footprints */}
       <h1 style={{
-        color: C.gold, fontSize: "clamp(1.5rem,5vw,2.8rem)", fontWeight: 700,
-        letterSpacing: "0.15em", textTransform: "uppercase", textAlign: "center",
-        margin: "10px 20px 0", opacity: phase >= 1 ? 1 : 0, transform: phase >= 1 ? "translateY(0)" : "translateY(20px)",
-        transition: "opacity 1.2s ease, transform 1.2s ease",
-        textShadow: "0 0 40px rgba(212,168,83,0.4), 0 2px 4px rgba(0,0,0,0.8)",
+        color: C.gold, fontSize: "clamp(1.3rem, 4.5vw, 2.4rem)", fontWeight: 700,
+        letterSpacing: "0.14em", textTransform: "uppercase", textAlign: "center",
+        margin: "6px 20px 0",
+        opacity: phase >= 1 ? 1 : 0,
+        transform: phase >= 1 ? "translateY(0)" : "translateY(30px)",
+        transition: "opacity 1.5s ease, transform 1.8s cubic-bezier(0.16,1,0.3,1)",
+        textShadow: "0 0 50px rgba(212,168,83,0.3), 0 2px 4px rgba(0,0,0,0.9)",
       }}>The Secret Book of Walt</h1>
+
+      {/* Subtitle */}
       <p style={{
-        color: C.goldDim, fontSize: "clamp(0.8rem,2.2vw,1.1rem)", fontStyle: "italic",
-        textAlign: "center", margin: "6px 30px 0", opacity: phase >= 2 ? 1 : 0,
-        transition: "opacity 1s ease 0.2s", letterSpacing: "0.05em",
+        color: C.goldDim, fontSize: "clamp(0.75rem, 2vw, 1rem)", fontStyle: "italic",
+        textAlign: "center", margin: "5px 30px 0",
+        opacity: phase >= 2 ? 1 : 0,
+        transform: phase >= 2 ? "translateY(0)" : "translateY(15px)",
+        transition: "opacity 1s ease 0.2s, transform 1s ease 0.2s",
+        letterSpacing: "0.04em",
       }}>Hidden Teachings of Walt Whitman, Cowboy of Time</p>
+
       <p style={{
-        color: C.goldDark, fontSize: "clamp(0.65rem,1.6vw,0.8rem)", textAlign: "center",
-        margin: "4px 30px 0", opacity: phase >= 2 ? 1 : 0, transition: "opacity 1s ease 0.5s",
+        color: C.goldDark, fontSize: "clamp(0.6rem, 1.5vw, 0.75rem)", textAlign: "center",
+        margin: "3px 30px 0",
+        opacity: phase >= 2 ? 1 : 0,
+        transition: "opacity 1s ease 0.5s",
       }}>Translated from the Original Aramaic-Martian by Lee Sharks</p>
-      <button onClick={handleEnter} style={{
-        marginTop: 30, background: "transparent", border: `1px solid ${C.gold}`, color: C.gold,
-        padding: "12px 40px", fontSize: "clamp(0.8rem,2vw,1rem)", fontFamily: "'Cormorant Garamond', serif",
-        letterSpacing: "0.2em", textTransform: "uppercase", cursor: "pointer",
-        opacity: phase >= 2 ? 1 : 0, transition: "all 0.8s ease 0.8s",
-        pointerEvents: phase >= 2 ? "auto" : "none",
-      }} onMouseEnter={e => { e.target.style.background = "rgba(212,168,83,0.1)"; e.target.style.boxShadow = "0 0 20px rgba(212,168,83,0.2)"; }}
-         onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.boxShadow = "none"; }}>
-        Enter the Archive
-      </button>
+
+      {/* Unicorn Horn seal + Enter button */}
       <div style={{
-        position: "absolute", bottom: 20, textAlign: "center",
-        opacity: phase >= 2 ? 0.6 : 0, transition: "opacity 1s ease 1s",
+        display: "flex", flexDirection: "column", alignItems: "center",
+        marginTop: 24,
+        opacity: phase >= 3 ? 1 : 0,
+        transform: phase >= 3 ? "translateY(0)" : "translateY(10px)",
+        transition: "opacity 1s ease, transform 1s ease",
+      }}>
+        {hornSrc && (
+          <img src={hornSrc} alt="The Unicorn Horn" style={{
+            width: 56, height: "auto",
+            opacity: 0.35,
+            filter: "invert(1) sepia(1) saturate(0.3) hue-rotate(10deg) brightness(0.8)",
+            marginBottom: 14,
+          }} />
+        )}
+        <button onClick={handleEnter} style={{
+          background: "transparent", border: `1px solid ${C.gold}`, color: C.gold,
+          padding: "10px 36px", fontSize: "clamp(0.75rem, 1.8vw, 0.9rem)",
+          fontFamily: "'Cormorant Garamond', serif",
+          letterSpacing: "0.2em", textTransform: "uppercase", cursor: "pointer",
+          pointerEvents: phase >= 3 ? "auto" : "none",
+          transition: "all 0.3s ease",
+        }} onMouseEnter={e => { e.target.style.background = "rgba(212,168,83,0.08)"; e.target.style.boxShadow = "0 0 25px rgba(212,168,83,0.15)"; }}
+           onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.boxShadow = "none"; }}>
+          Enter the Archive
+        </button>
+      </div>
+
+      {/* Footer: counter + hex */}
+      <div style={{
+        position: "absolute", bottom: 18, textAlign: "center",
+        opacity: phase >= 3 ? 0.5 : 0, transition: "opacity 1s ease 0.5s",
       }}>
         {souls !== null && souls !== "—" && (
           <p style={{
-            color: "#4a2a10", fontSize: "0.68rem", fontStyle: "italic",
-            letterSpacing: "0.08em", marginBottom: 6,
+            color: "#3a1a08", fontSize: "0.63rem", fontStyle: "italic",
+            letterSpacing: "0.06em", marginBottom: 5,
           }}>{souls} {souls === 1 ? "soul has" : "souls have"} entered the archive</p>
         )}
-        <p style={{ color: "#3a2510", fontSize: "0.7rem", letterSpacing: "0.15em" }}>
+        <p style={{ color: "#2a1508", fontSize: "0.63rem", letterSpacing: "0.12em" }}>
           06.LIT.GNOSTIC.WALT.01 · Crimson Hexagonal Archive
         </p>
       </div>
@@ -106,11 +141,12 @@ function Splash({ onEnter, imgSrc }) {
 }
 
 function Stars() {
-  const stars = useRef(Array.from({ length: 50 }, () => ({
+  const stars = useRef(Array.from({ length: 160 }, (_, i) => ({
     x: Math.random() * 100, y: Math.random() * 100,
-    s: Math.random() * 2 + 0.5, d: Math.random() * 4 + 2,
-    o: 0.2 + Math.random() * 0.5,
-    r: 200 + Math.random() * 55, g: 150 + Math.random() * 80, b: 80 + Math.random() * 80,
+    s: i < 30 ? Math.random() * 2.5 + 1 : i < 80 ? Math.random() * 1.2 + 0.4 : Math.random() * 0.7 + 0.2,
+    d: 2 + Math.random() * 5,
+    o: i < 30 ? 0.4 + Math.random() * 0.4 : i < 80 ? 0.15 + Math.random() * 0.35 : 0.08 + Math.random() * 0.2,
+    r: 180 + Math.random() * 75, g: 120 + Math.random() * 100, b: 60 + Math.random() * 120,
   }))).current;
   return (
     <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
@@ -119,7 +155,7 @@ function Stars() {
           position: "absolute", width: s.s, height: s.s, borderRadius: "50%",
           background: `rgba(${s.r},${s.g},${s.b},${s.o})`,
           left: `${s.x}%`, top: `${s.y}%`,
-          animation: `twinkle ${s.d}s ease-in-out infinite ${Math.random() * 3}s`,
+          animation: `twinkle ${s.d}s ease-in-out infinite ${Math.random() * 5}s`,
         }} />
       ))}
     </div>
@@ -388,63 +424,46 @@ function FnLeaf({ text, fnColor, isVeil, depth }) {
 
 /* ─── APP ─── */
 export default function App() {
-  const [view, setView] = useState("splash"); // splash | reading
+  const [view, setView] = useState("splash");
   const [sections, setSections] = useState([]);
   const [treeData, setTreeData] = useState(null);
   const [imgSrc, setImgSrc] = useState(null);
+  const [hornSrc, setHornSrc] = useState(null);
 
   useEffect(() => {
-    fetch("/walt_gospel_data.json")
-      .then(r => r.json())
-      .then(data => setSections(data))
-      .catch(() => console.error("Failed to load gospel data"));
-    
-    fetch("/walt_tree_data.json")
-      .then(r => r.json())
-      .then(data => setTreeData(data))
-      .catch(() => console.error("Failed to load tree data"));
-    
-    // Load splash image
-    fetch("/whitman_on_a_dinosaur.png")
-      .then(r => r.blob())
-      .then(blob => setImgSrc(URL.createObjectURL(blob)))
-      .catch(() => setImgSrc(null));
+    fetch("/walt_gospel_data.json").then(r => r.json()).then(setSections).catch(() => {});
+    fetch("/walt_tree_data.json").then(r => r.json()).then(setTreeData).catch(() => {});
+    fetch("/whitman_on_a_dinosaur.png").then(r => r.blob()).then(b => setImgSrc(URL.createObjectURL(b))).catch(() => {});
+    fetch("/horn_logo.png").then(r => r.blob()).then(b => setHornSrc(URL.createObjectURL(b))).catch(() => {});
   }, []);
 
   return (
     <>
       <style>{`
         @keyframes paperMario {
-          0% { transform: translateY(-130vh) rotateY(0deg) scale(0.05); opacity: 0; }
-          3% { transform: translateY(-128vh) rotateY(60deg) scale(0.06); opacity: 0.3; }
-          7% { transform: translateY(-122vh) rotateY(180deg) scale(0.08); opacity: 0.5; }
-          12% { transform: translateY(-112vh) rotateY(360deg) scale(0.12); opacity: 0.65; }
-          18% { transform: translateY(-100vh) rotateY(540deg) scale(0.17); opacity: 0.75; }
-          24% { transform: translateY(-86vh) rotateY(720deg) scale(0.24); opacity: 0.85; }
-          30% { transform: translateY(-72vh) rotateY(880deg) scale(0.32); opacity: 0.9; }
-          37% { transform: translateY(-58vh) rotateY(1020deg) scale(0.40); opacity: 0.95; }
-          44% { transform: translateY(-44vh) rotateY(1120deg) scale(0.50); opacity: 1; }
-          52% { transform: translateY(-32vh) rotateY(1200deg) scale(0.60); }
-          60% { transform: translateY(-22vh) rotateY(1270deg) scale(0.70); }
-          68% { transform: translateY(-14vh) rotateY(1320deg) scale(0.78); }
-          76% { transform: translateY(-7vh) rotateY(1365deg) scale(0.86); }
-          84% { transform: translateY(-1vh) rotateY(1400deg) scale(0.93); }
-          90% { transform: translateY(2vh) rotateY(1425deg) scale(0.98); }
-          95% { transform: translateY(-0.5vh) rotateY(1436deg) scale(1.0); }
+          0%  { transform: translateY(-150vh) rotateY(0deg) scale(0.03); opacity: 0; }
+          2%  { transform: translateY(-148vh) rotateY(30deg) scale(0.035); opacity: 0.15; }
+          5%  { transform: translateY(-142vh) rotateY(90deg) scale(0.045); opacity: 0.3; }
+          9%  { transform: translateY(-132vh) rotateY(200deg) scale(0.06); opacity: 0.45; }
+          14% { transform: translateY(-118vh) rotateY(360deg) scale(0.09); opacity: 0.55; }
+          19% { transform: translateY(-104vh) rotateY(520deg) scale(0.13); opacity: 0.65; }
+          25% { transform: translateY(-88vh) rotateY(700deg) scale(0.18); opacity: 0.75; }
+          31% { transform: translateY(-74vh) rotateY(860deg) scale(0.25); opacity: 0.82; }
+          37% { transform: translateY(-60vh) rotateY(1000deg) scale(0.33); opacity: 0.88; }
+          44% { transform: translateY(-46vh) rotateY(1100deg) scale(0.42); opacity: 0.93; }
+          51% { transform: translateY(-34vh) rotateY(1180deg) scale(0.52); opacity: 0.96; }
+          58% { transform: translateY(-24vh) rotateY(1240deg) scale(0.62); opacity: 1; }
+          65% { transform: translateY(-16vh) rotateY(1290deg) scale(0.72); }
+          72% { transform: translateY(-9vh) rotateY(1335deg) scale(0.81); }
+          79% { transform: translateY(-4vh) rotateY(1370deg) scale(0.89); }
+          86% { transform: translateY(-0.5vh) rotateY(1400deg) scale(0.95); }
+          91% { transform: translateY(1.5vh) rotateY(1425deg) scale(0.99); }
+          96% { transform: translateY(-0.3vh) rotateY(1437deg) scale(1.0); }
           100% { transform: translateY(0) rotateY(1440deg) scale(1.0); opacity: 1; }
         }
         @keyframes twinkle {
-          0%, 100% { opacity: 0.2; }
-          50% { opacity: 0.85; }
-        }
-        @keyframes glowGrow {
-          0% { filter: drop-shadow(0 0 0px rgba(200,50,20,0.0)); }
-          20% { filter: drop-shadow(0 0 2px rgba(200,50,20,0.05)); }
-          40% { filter: drop-shadow(0 0 6px rgba(200,50,20,0.12)); }
-          55% { filter: drop-shadow(0 0 10px rgba(200,50,20,0.22)); }
-          70% { filter: drop-shadow(0 0 16px rgba(200,50,20,0.35)); }
-          85% { filter: drop-shadow(0 0 24px rgba(200,50,20,0.5)) drop-shadow(0 0 50px rgba(212,168,83,0.12)); }
-          100% { filter: drop-shadow(0 0 35px rgba(212,50,20,0.65)) drop-shadow(0 0 80px rgba(212,168,83,0.25)); }
+          0%, 100% { opacity: 0.15; }
+          50% { opacity: 0.8; }
         }
         @keyframes fadeIn {
           from { opacity: 0; } to { opacity: 1; }
@@ -457,14 +476,11 @@ export default function App() {
         html { scroll-behavior: smooth; }
       `}</style>
 
-      {view === "splash" && imgSrc && (
-        <Splash onEnter={() => setView("reading")} imgSrc={imgSrc} />
-      )}
-      {view === "splash" && !imgSrc && (
-        <Splash onEnter={() => setView("reading")} imgSrc="" />
-      )}
-      {view === "reading" && (
+      {view === "splash" ? (
+        <Splash onEnter={() => setView("reading")} imgSrc={imgSrc} hornSrc={hornSrc} />
+      ) : (
         <ReadingSpine sections={sections} treeData={treeData} onBack={() => setView("splash")} />
+      )}
       )}
     </>
   );
