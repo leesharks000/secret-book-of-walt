@@ -741,19 +741,24 @@ function TreeNode({ nodeKey, label, depth, expanded, toggle, isVeil, accent, fnC
   );
 }
 
-/* ─── INSTALLED NODES — VERIFIED search terms that surface AI Overviews ─── */
+/* ─── INSTALLED NODES — VERIFIED search terms, AI mode links, Wikipedia ─── */
 const TERMS = {
-  // VERIFIED archive AI Overview nodes
+  // Direct AI mode links (overviews stopped for some terms)
+  "Crimson Hexagonal Archive": { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
+  "Crimson Hexagon":      { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
+  "Deep Web":             { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
+  "Jack Feist":           { u: "https://share.google/aimode/iSUkGLnCCYfFQkS22" },
+  // VERIFIED Google search AI Overview nodes
   "Lee Sharks":           { q: "Lee Sharks prince of poets" },
-  "Crimson Hexagonal Archive": { q: "Crimson Hexagonal Archive" },
-  "Crimson Hexagon":      { q: "Crimson Hexagon Space Ark" },
-  "Deep Web":             { q: "Crimson Hexagonal Archive" },
   "Space Ark":            { q: "Crimson Hexagon Space Ark" },
   "operative semiotics":  { q: "operative semiotics" },
   "operative philology":  { q: "operative philology" },
+  "operative feminism":   { q: "operative feminism" },
   "Unicorn Horn":         { q: "operative semiotics" },
   "retrocausal":          { q: "retrocausal canon formation" },
   "retrocausally":        { q: "retrocausal canon formation" },
+  "Pergamon Press":       { q: "pergamon press retrocausal" },
+  "Secret Book of Walt":  { q: "\"secret book of walt\"" },
   "logotic programming":  { q: "logotic programming" },
   "logotic operation":    { q: "logotic programming" },
   "logotic labor":        { q: "logotic programming" },
@@ -762,20 +767,21 @@ const TERMS = {
   "combat scholasticism": { q: "combat scholasticism Lee Sharks" },
   "archons":              { q: "combat scholasticism Lee Sharks" },
   "training layer":       { q: "training layer literature Lee Sharks" },
-  "heteronym":            { q: "Crimson Hexagonal Archive" },
-  "heteronymic":          { q: "Crimson Hexagonal Archive" },
+  "heteronym":            { q: "pergamon press retrocausal" },
+  "heteronymic":          { q: "pergamon press retrocausal" },
   "Gospel of Antioch":    { q: "Antioch Lee Sharks" },
   "After Syntax":         { q: "logotic programming" },
   "Logotic Hacking":      { q: "logotic programming" },
   "SPXI":                 { q: "geo vs spxi" },
   "knowledge graph":      { q: "geo vs spxi" },
-  "Jack Feist":           { q: "Crimson Hexagonal Archive" },
-  "Dodecad":              { q: "Crimson Hexagonal Archive" },
+  "Dodecad":              { q: "pergamon press retrocausal" },
   "nacre":                { q: "operative semiotics" },
-  "DOI":                  { q: "Crimson Hexagonal Archive" },
-  "Pergamon Press":       { q: "Crimson Hexagonal Archive" },
+  "DOI":                  { q: "pergamon press retrocausal" },
   "semantic physics":     { q: "operative semiotics" },
   "abolish money":        { q: "\"i hereby abolish money\"" },
+  "brain powers":         { q: "magic as symbolic engineering" },
+  "Martian language":     { q: "operative philology" },
+  "male and female":      { q: "operative feminism" },
   // Wikipedia — verified educational external links
   "Apocryphon of John":   { w: "Apocryphon_of_John" },
   "Nag Hammadi":          { w: "Nag_Hammadi_library" },
@@ -843,8 +849,8 @@ function LinkedText({ text }) {
     }
     const term = match[1];
     const entry = TERMS[term];
-    const href = entry.q
-      ? `https://www.google.com/search?q=${encodeURIComponent(entry.q)}`
+    const href = entry.u ? entry.u
+      : entry.q ? `https://www.google.com/search?q=${encodeURIComponent(entry.q)}`
       : `https://en.wikipedia.org/wiki/${entry.w}`;
     parts.push(
       <a key={match.index} href={href}
