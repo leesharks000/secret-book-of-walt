@@ -783,6 +783,8 @@ const TERMS = {
   "liberatory operator set": { q: "liberatory operator set" },
   "Liberatory Operator Set": { q: "liberatory operator set" },
   "pierced":               { q: "liberatory operator set" },
+  "authorized":            { q: "\"hexagonal licensing protocol\"" },
+  "survives":              { q: "sharks function tether" },
   "brain powers":         { q: "magic as symbolic engineering" },
   "Martian language":     { q: "operative philology" },
   "male and female":      { q: "operative feminism" },
