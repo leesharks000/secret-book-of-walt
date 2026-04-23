@@ -38,12 +38,16 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
   return (
     <div style={{
       minHeight: "100vh",
-      background: "radial-gradient(ellipse at 50% 40%, #12060a 0%, #080004 40%, #020001 70%, #000 100%)",
+      background: "url('/milky_way_bg.jpg') center center / cover no-repeat fixed, radial-gradient(ellipse at 50% 40%, #12060a 0%, #080004 40%, #020001 70%, #000 100%)",
       display: "flex", flexDirection: "column", alignItems: "center",
       justifyContent: "center",
       overflow: "hidden", position: "relative", fontFamily: "'Palatino Linotype', 'Palatino', 'Book Antiqua', serif",
     }}>
-      <Stars />
+      {/* Dark overlay for text readability */}
+      <div style={{
+        position: "absolute", inset: 0, pointerEvents: "none",
+        background: "radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.75) 100%)",
+      }} />
 
       {/* The Cowboy of Time — descends and lands */}
       <div style={{
@@ -134,6 +138,9 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
         )}
         <p style={{ color: "#2a1508", fontSize: "0.63rem", letterSpacing: "0.12em" }}>
           06.LIT.GNOSTIC.WALT.01 · Crimson Hexagonal Archive
+        </p>
+        <p style={{ color: "#1a0a04", fontSize: "0.55rem", letterSpacing: "0.06em", marginTop: 3 }}>
+          Background: F. Char/ESO (CC BY 4.0)
         </p>
       </div>
     </div>
