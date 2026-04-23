@@ -26,8 +26,8 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
 
   useEffect(() => {
     const t1 = setTimeout(() => setPhase(1), 9200);
-    const t2 = setTimeout(() => setPhase(2), 10400);
-    const t3 = setTimeout(() => setPhase(3), 11600);
+    const t2 = setTimeout(() => setPhase(2), 10200);
+    const t3 = setTimeout(() => setPhase(3), 11200);
     fetch("/api/count").then(r => r.json()).then(d => setSouls(d.count)).catch(() => {});
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
@@ -46,21 +46,21 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
       justifyContent: "center",
       overflow: "hidden", position: "relative", fontFamily: "'Palatino Linotype', 'Palatino', 'Book Antiqua', serif",
     }}>
-      {/* Subtle edge vignette only — does NOT cover center content */}
+      {/* Subtle edge vignette */}
       <div style={{
         position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0,
         background: "radial-gradient(ellipse at 50% 45%, transparent 0%, transparent 40%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.7) 100%)",
       }} />
 
-      {/* The Cowboy of Time — descends and lands */}
+      {/* The Cowboy of Time — emerges from galactic distance, zooming toward us */}
       <div style={{
-        perspective: "1000px", perspectiveOrigin: "center center",
-        marginBottom: phase >= 1 ? "20px" : "0",
+        perspective: "1200px", perspectiveOrigin: "center center",
+        marginBottom: phase >= 1 ? "12px" : "0",
         transition: "margin-bottom 1.5s ease",
         position: "relative", zIndex: 1,
       }}>
         <div style={{
-          animation: phase === 0 ? "paperMario 9s cubic-bezier(0.08,0.72,0.25,1) forwards" : "none",
+          animation: phase === 0 ? "waltDescent 9s cubic-bezier(0.12,0.8,0.25,1) forwards" : "none",
           transform: phase >= 1 ? "translate3d(0,0,0) rotateY(0deg) scale(1)" : undefined,
           transformStyle: "preserve-3d",
           willChange: phase === 0 ? "transform, opacity" : "auto",
@@ -73,7 +73,7 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
         </div>
       </div>
 
-      {/* Skip link for repeat visitors or impatient souls */}
+      {/* Skip link */}
       {phase === 0 && (
         <button onClick={() => { setPhase(1); setTimeout(() => setPhase(2), 400); setTimeout(() => setPhase(3), 800); }}
           style={{ position: "absolute", top: 16, right: 16, background: "none", border: "none",
@@ -82,11 +82,11 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
           }}>skip descent</button>
       )}
 
-      {/* Title — smaller, lower, rises from the footprints */}
+      {/* Title */}
       <h1 style={{
         color: C.gold, fontSize: "clamp(1rem, 3.5vw, 1.8rem)", fontWeight: 700,
         letterSpacing: "0.12em", textTransform: "uppercase", textAlign: "center",
-        margin: "24px 20px 0",
+        margin: "16px 20px 0",
         opacity: phase >= 1 ? 1 : 0,
         transform: phase >= 1 ? "translateY(0)" : "translateY(30px)",
         transition: "opacity 1.5s ease, transform 1.8s cubic-bezier(0.16,1,0.3,1)",
@@ -113,10 +113,10 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
         position: "relative", zIndex: 1,
       }}>Translated from the Original Aramaic-Martian by Lee Sharks</p>
 
-      {/* Unicorn Horn seal + Enter button */}
+      {/* Unicorn Horn seal + Enter button — tighter spacing */}
       <div style={{
         display: "flex", flexDirection: "column", alignItems: "center",
-        marginTop: 24,
+        marginTop: 10,
         opacity: phase >= 3 ? 1 : 0,
         transform: phase >= 3 ? "translateY(0)" : "translateY(10px)",
         transition: "opacity 1s ease, transform 1s ease",
@@ -127,7 +127,7 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
             width: 56, height: "auto",
             opacity: 0.35,
             filter: "invert(1) sepia(1) saturate(0.3) hue-rotate(10deg) brightness(0.8)",
-            marginBottom: 14,
+            marginBottom: 6,
           }} />
         )}
         <button onClick={handleEnter} style={{
@@ -942,23 +942,24 @@ export default function App() {
         @media (prefers-reduced-motion: reduce) {
           * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
         }
-        @keyframes paperMario {
-          0%   { transform: translate3d(0,-160vh,0) rotateY(0deg) scale(0.08); opacity: 0.6; }
-          5%   { transform: translate3d(0,-145vh,0) rotateY(80deg) scale(0.10); opacity: 0.7; }
-          10%  { transform: translate3d(0,-128vh,0) rotateY(200deg) scale(0.14); opacity: 0.75; }
-          16%  { transform: translate3d(0,-110vh,0) rotateY(360deg) scale(0.19); opacity: 0.8; }
-          22%  { transform: translate3d(0,-92vh,0) rotateY(520deg) scale(0.25); opacity: 0.85; }
-          28%  { transform: translate3d(0,-76vh,0) rotateY(670deg) scale(0.32); opacity: 0.88; }
-          34%  { transform: translate3d(0,-62vh,0) rotateY(800deg) scale(0.40); opacity: 0.92; }
-          40%  { transform: translate3d(0,-48vh,0) rotateY(920deg) scale(0.48); opacity: 0.95; }
-          47%  { transform: translate3d(0,-36vh,0) rotateY(1020deg) scale(0.56); opacity: 0.98; }
-          54%  { transform: translate3d(0,-26vh,0) rotateY(1110deg) scale(0.63); opacity: 1; }
-          61%  { transform: translate3d(0,-18vh,0) rotateY(1190deg) scale(0.71); }
-          68%  { transform: translate3d(0,-11vh,0) rotateY(1260deg) scale(0.79); }
-          75%  { transform: translate3d(0,-6vh,0) rotateY(1320deg) scale(0.86); }
-          82%  { transform: translate3d(0,-2vh,0) rotateY(1370deg) scale(0.92); }
-          88%  { transform: translate3d(0,0.5vh,0) rotateY(1410deg) scale(0.97); }
-          94%  { transform: translate3d(0,-0.2vh,0) rotateY(1435deg) scale(0.99); }
+        @keyframes waltDescent {
+          0%   { transform: translate3d(0,-25vh,0) rotateY(0deg) scale(0.03); opacity: 0; }
+          3%   { transform: translate3d(0,-24vh,0) rotateY(30deg) scale(0.035); opacity: 0.3; }
+          6%   { transform: translate3d(0,-22vh,0) rotateY(80deg) scale(0.05); opacity: 0.4; }
+          10%  { transform: translate3d(0,-19vh,0) rotateY(150deg) scale(0.07); opacity: 0.5; }
+          16%  { transform: translate3d(0,-16vh,0) rotateY(260deg) scale(0.11); opacity: 0.58; }
+          22%  { transform: translate3d(0,-13vh,0) rotateY(380deg) scale(0.16); opacity: 0.65; }
+          29%  { transform: translate3d(0,-10vh,0) rotateY(510deg) scale(0.24); opacity: 0.73; }
+          36%  { transform: translate3d(0,-7vh,0) rotateY(640deg) scale(0.33); opacity: 0.80; }
+          44%  { transform: translate3d(0,-5vh,0) rotateY(770deg) scale(0.43); opacity: 0.86; }
+          52%  { transform: translate3d(0,-3vh,0) rotateY(890deg) scale(0.54); opacity: 0.91; }
+          60%  { transform: translate3d(0,-2vh,0) rotateY(1000deg) scale(0.64); opacity: 0.95; }
+          68%  { transform: translate3d(0,-1vh,0) rotateY(1100deg) scale(0.74); opacity: 0.98; }
+          76%  { transform: translate3d(0,-0.5vh,0) rotateY(1190deg) scale(0.83); opacity: 1; }
+          83%  { transform: translate3d(0,-0.2vh,0) rotateY(1270deg) scale(0.90); }
+          89%  { transform: translate3d(0,0vh,0) rotateY(1340deg) scale(0.95); }
+          94%  { transform: translate3d(0,0.2vh,0) rotateY(1400deg) scale(0.98); }
+          97%  { transform: translate3d(0,0vh,0) rotateY(1430deg) scale(0.99); }
           100% { transform: translate3d(0,0,0) rotateY(1440deg) scale(1.0); opacity: 1; }
         }
         @keyframes fadeIn {
