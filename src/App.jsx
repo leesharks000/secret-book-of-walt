@@ -20,24 +20,17 @@ const C = {
 };
 
 /* ─── SPLASH ─── */
-function Splash({ onEnter, imgSrc, hornSrc, skipAnimation }) {
-  const [phase, setPhase] = useState(skipAnimation ? 3 : 0);
+function Splash({ onEnter, imgSrc, hornSrc }) {
+  const [phase, setPhase] = useState(0);
   const [souls, setSouls] = useState(null);
 
   useEffect(() => {
-    if (skipAnimation) return;
     const t1 = setTimeout(() => setPhase(1), 9200);
     const t2 = setTimeout(() => setPhase(2), 10400);
     const t3 = setTimeout(() => setPhase(3), 11600);
     fetch("/api/count").then(r => r.json()).then(d => setSouls(d.count)).catch(() => {});
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
-  }, [skipAnimation]);
-
-  useEffect(() => {
-    if (skipAnimation) {
-      fetch("/api/count").then(r => r.json()).then(d => setSouls(d.count)).catch(() => {});
-    }
-  }, [skipAnimation]);
+  }, []);
 
   const handleEnter = () => {
     fetch("/api/count", { method: "POST" })
@@ -806,9 +799,7 @@ export default function App() {
     }).catch(() => setLoadError("The archive is not responding. The veil may be too thick."));
   }, []);
 
-  const hasVisited = typeof window !== 'undefined' && localStorage.getItem('walt_visited');
   const handleEnter = useCallback(() => {
-    try { localStorage.setItem('walt_visited', '1'); } catch(e) {}
     setView("reading");
   }, []);
 
@@ -857,7 +848,7 @@ export default function App() {
       `}</style>
 
       {view === "splash" ? (
-        <Splash onEnter={handleEnter} imgSrc={waltImg} hornSrc={hornImg} skipAnimation={!!hasVisited} />
+        <Splash onEnter={handleEnter} imgSrc={waltImg} hornSrc={hornImg} />
       ) : loadError ? (
         <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#020001", color: C.goldDim, fontFamily: "'Palatino Linotype', serif", textAlign: "center", padding: 40 }}>
           <div>
