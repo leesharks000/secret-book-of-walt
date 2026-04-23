@@ -601,10 +601,10 @@ export default function App() {
     <>
       <style>{`
         @keyframes paperMario {
-          0%   { transform: translateY(-180vh) rotateY(0deg) scale(0.03); opacity: 0; }
-          1%   { transform: translateY(-176vh) rotateY(20deg) scale(0.035); opacity: 0.25; }
-          3%   { transform: translateY(-168vh) rotateY(60deg) scale(0.045); opacity: 0.4; }
-          6%   { transform: translateY(-155vh) rotateY(130deg) scale(0.06); opacity: 0.5; }
+          0%   { transform: translateY(-180vh) rotateY(0deg) scale(0.04); opacity: 0.35; }
+          1%   { transform: translateY(-175vh) rotateY(25deg) scale(0.05); opacity: 0.45; }
+          3%   { transform: translateY(-167vh) rotateY(70deg) scale(0.06); opacity: 0.5; }
+          6%   { transform: translateY(-154vh) rotateY(150deg) scale(0.08); opacity: 0.55; }
           10%  { transform: translateY(-140vh) rotateY(240deg) scale(0.08); opacity: 0.58; }
           14%  { transform: translateY(-125vh) rotateY(360deg) scale(0.11); opacity: 0.65; }
           19%  { transform: translateY(-108vh) rotateY(500deg) scale(0.15); opacity: 0.72; }
