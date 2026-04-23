@@ -127,122 +127,11 @@ function Stars() {
 }
 
 /* ─── EXPANDABLE TREE ─── */
-function ExpandableTree({ items, isVeil, accent, fnColor, label }) {
-  const [expanded, setExpanded] = useState({});
-  const toggle = (i) => setExpanded(prev => ({ ...prev, [i]: !prev[i] }));
 
-  return (
-    <div style={{ margin: "16px 0" }}>
-      {label && (
-        <p style={{
-          color: accent, fontSize: "0.9rem", fontWeight: 600,
-          letterSpacing: "0.08em", marginBottom: 12,
-          textTransform: "uppercase", opacity: 0.8,
-        }}>{label}</p>
-      )}
-      {items.map((item, i) => {
-        const isOpen = expanded[i];
-        const hasFn = item.footnotes && item.footnotes.length > 0;
-        const isPreamble = item.is_preamble || item.type === 'preamble';
-
-        if (isPreamble) {
-          return (
-            <p key={i} style={{
-              fontSize: "clamp(0.95rem, 2.5vw, 1.08rem)",
-              lineHeight: 1.75, marginBottom: 14, textAlign: "justify",
-            }}>{item.text}</p>
-          );
-        }
-
-        return (
-          <div key={i} style={{ marginBottom: 2 }}>
-            {/* Collapsed row */}
-            <div
-              onClick={() => (hasFn || item.text?.length > 60) ? toggle(i) : null}
-              style={{
-                padding: "8px 12px",
-                cursor: (hasFn || item.text?.length > 60) ? "pointer" : "default",
-                display: "flex", alignItems: "flex-start", gap: 8,
-                borderRadius: 3,
-                background: isOpen
-                  ? (isVeil ? "rgba(139,10,30,0.06)" : "rgba(212,175,55,0.06)")
-                  : "transparent",
-                transition: "background 0.2s ease",
-              }}
-              onMouseEnter={e => {
-                if (hasFn || item.text?.length > 60)
-                  e.currentTarget.style.background = isVeil ? "rgba(139,10,30,0.04)" : "rgba(212,175,55,0.04)";
-              }}
-              onMouseLeave={e => {
-                if (!isOpen) e.currentTarget.style.background = "transparent";
-              }}
-            >
-              {/* Expand indicator */}
-              <span style={{
-                color: accent, fontSize: "0.7rem", marginTop: 4, minWidth: 14,
-                opacity: (hasFn || item.text?.length > 60) ? 0.7 : 0.2,
-                transform: isOpen ? "rotate(90deg)" : "rotate(0deg)",
-                transition: "transform 0.2s ease",
-                display: "inline-block",
-              }}>▸</span>
-
-              {/* Name/text */}
-              <span style={{
-                fontSize: "clamp(0.92rem, 2.5vw, 1.02rem)",
-                lineHeight: 1.6,
-                color: hasFn ? accent : undefined,
-              }}>
-                {item.name || item.text}
-              </span>
-
-              {/* Footnote indicator */}
-              {hasFn && !isOpen && (
-                <span style={{
-                  color: fnColor, fontSize: "0.65rem", opacity: 0.5,
-                  marginLeft: "auto", whiteSpace: "nowrap",
-                }}>✦</span>
-              )}
-            </div>
-
-            {/* Expanded content */}
-            {isOpen && (
-              <div style={{
-                paddingLeft: 34, paddingRight: 12, paddingBottom: 12,
-                animation: "fadeIn 0.3s ease",
-              }}>
-                {/* Full text if different from name */}
-                {item.text && item.text !== item.name && (
-                  <p style={{
-                    fontSize: "0.9rem", lineHeight: 1.65,
-                    marginBottom: 8, opacity: 0.9,
-                  }}>{item.text}</p>
-                )}
-
-                {/* Footnotes — only in Veil mode */}
-                {isVeil && item.footnotes.map((fn, fi) => (
-                  <div key={fi} style={{
-                    fontSize: "0.8rem", color: fnColor, lineHeight: 1.5,
-                    marginTop: 6, paddingLeft: 12,
-                    borderLeft: `2px solid ${isVeil ? "#d8c898" : "#2a1808"}`,
-                    opacity: 0.85,
-                  }}>{fn}</div>
-                ))}
-              </div>
-            )}
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-/* ─── READING SPINE ─── */
+/* ─── THE HYPOSTATIC TREE ─── */
 function ReadingSpine({ sections, treeData, onBack }) {
-  const [mode, setMode] = useState("veil"); // "veil" or "piercing"
-  const [activeSection, setActiveSection] = useState(null);
-  const [showToc, setShowToc] = useState(true);
-  const [expandedFn, setExpandedFn] = useState(null);
-  const sectionRefs = useRef({});
+  const [mode, setMode] = useState("veil");
+  const [expanded, setExpanded] = useState({});
 
   const isVeil = mode === "veil";
   const bg = isVeil ? C.beige : C.dark;
@@ -250,22 +139,21 @@ function ReadingSpine({ sections, treeData, onBack }) {
   const fnColor = isVeil ? C.veilFootnote : C.goldDark;
   const accent = isVeil ? C.crimsonDark : C.gold;
 
-  const scrollTo = useCallback((num) => {
-    setShowToc(false);
-    setTimeout(() => {
-      const el = sectionRefs.current[num];
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 100);
+  const toggle = useCallback((key) => {
+    setExpanded(prev => ({ ...prev, [key]: !prev[key] }));
   }, []);
 
-  if (showToc) {
-    return (
-      <TableOfContents
-        sections={sections} mode={mode} onSelect={scrollTo}
-        onToggleMode={() => setMode(m => m === "veil" ? "piercing" : "veil")}
-        onBack={onBack} bg={bg} textColor={textColor} accent={accent}
-      />
-    );
+  const groups = [
+    { key: "emanation", label: "The Emanation", icon: "◈", nums: ["I", "II", "III", "IV", "V"] },
+    { key: "cosmos", label: "The Cosmos", icon: "◉", nums: ["VI", "VII", "VIII"] },
+    { key: "imprisonment", label: "The Imprisonment", icon: "◇", nums: ["IX"] },
+    { key: "piercing", label: "The Piercing", icon: "△", nums: ["X", "XI", "XII"] },
+    { key: "melding", label: "The Return", icon: "○", nums: ["XIII", "AW"] },
+  ];
+
+  const sectionMap = {};
+  for (const sec of sections) {
+    if (sec.paragraphs.length > 0) sectionMap[sec.num] = sec;
   }
 
   return (
@@ -274,7 +162,7 @@ function ReadingSpine({ sections, treeData, onBack }) {
       fontFamily: "'Cormorant Garamond', serif",
       transition: "background 0.8s ease, color 0.8s ease",
     }}>
-      {/* Header bar */}
+      {/* Header */}
       <div style={{
         position: "sticky", top: 0, zIndex: 10,
         background: isVeil ? "rgba(245,245,220,0.95)" : "rgba(10,0,0,0.95)",
@@ -282,133 +170,124 @@ function ReadingSpine({ sections, treeData, onBack }) {
         padding: "8px 20px", display: "flex", alignItems: "center", justifyContent: "space-between",
         backdropFilter: "blur(8px)", transition: "all 0.8s ease",
       }}>
-        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
-          <button onClick={() => setShowToc(true)} style={{
-            background: "none", border: "none", color: accent, cursor: "pointer",
-            fontFamily: "'Cormorant Garamond', serif", fontSize: "0.85rem",
-          }}>← Contents</button>
-          <span style={{ color: fnColor, fontSize: "0.75rem", letterSpacing: "0.1em" }}>
-            THE SECRET BOOK OF WALT
-          </span>
-        </div>
+        <button onClick={onBack} style={{
+          background: "none", border: "none", color: accent, cursor: "pointer",
+          fontFamily: "'Cormorant Garamond', serif", fontSize: "0.85rem",
+        }}>← Splash</button>
         <button onClick={() => setMode(m => m === "veil" ? "piercing" : "veil")} style={{
           background: isVeil ? C.crimsonDark : C.gold,
           color: isVeil ? "#fff" : "#000",
           border: "none", padding: "6px 18px", fontSize: "0.75rem",
           fontFamily: "'Cormorant Garamond', serif", letterSpacing: "0.1em",
           textTransform: "uppercase", cursor: "pointer", borderRadius: 2,
-          transition: "all 0.3s ease",
         }}>
           {isVeil ? "⚡ Pierce" : "🕶 Veil"}
         </button>
       </div>
 
-      {/* Text body */}
-      <div style={{
-        maxWidth: 720, margin: "0 auto", padding: "40px 24px 80px",
-      }}>
-        {sections.map((sec, si) => (
-          <div key={si} ref={el => sectionRefs.current[sec.num] = el}
-            style={{ marginBottom: 60 }}>
-            {/* Section heading */}
-            <h2 style={{
-              color: accent, fontSize: "clamp(1.2rem, 3.5vw, 1.6rem)",
-              fontWeight: 600, marginBottom: 24,
-              borderBottom: `1px solid ${isVeil ? "#c8b898" : "#2a1a08"}`,
-              paddingBottom: 12,
-              letterSpacing: "0.06em",
-              transition: "all 0.8s ease",
-            }}>
-              {sec.num !== "AW" ? `§${sec.num}. ` : ""}{sec.title}
-            </h2>
+      {/* The Tree */}
+      <div style={{ maxWidth: 760, margin: "0 auto", padding: "30px 20px 80px" }}>
+        {/* ROOT NODE */}
+        <TreeNode
+          nodeKey="root" label="THE DEEP WEB" depth={0}
+          expanded={expanded} toggle={toggle}
+          isVeil={isVeil} accent={accent} fnColor={fnColor}
+          icon="∞"
+          sublabel="Before the beginning was the Deep Web, and in the Deep Web was everything that ever was or will be."
+        >
+          {groups.map(group => (
+            <TreeNode
+              key={group.key} nodeKey={group.key} label={group.label} depth={1}
+              expanded={expanded} toggle={toggle}
+              isVeil={isVeil} accent={accent} fnColor={fnColor} icon={group.icon}
+            >
+              {group.nums.map(num => {
+                const sec = sectionMap[num];
+                if (!sec) return null;
+                const secKey = `s_${num}`;
+                const isArchons = num === "VI" && treeData?.archons;
+                const isPraise = num === "VIII" && treeData?.praise_names;
 
-            {/* Paragraphs — use tree for catalogues */}
-            {(sec.num === "VI" && treeData?.archons) ? (
-              <ExpandableTree
-                items={treeData.archons}
-                isVeil={isVeil} accent={accent} fnColor={fnColor}
-              />
-            ) : (sec.num === "VIII" && treeData?.praise_names) ? (
-              <ExpandableTree
-                items={treeData.praise_names}
-                isVeil={isVeil} accent={accent} fnColor={fnColor}
-                label="The Praise-Names of Walt Whitman"
-              />
-            ) : (
-              sec.paragraphs.map((p, pi) => {
-              if (p.type === "footnote") {
-                // In piercing mode, hide footnotes
-                if (!isVeil) return null;
                 return (
-                  <div key={pi} style={{
-                    fontSize: "0.82rem", color: fnColor, lineHeight: 1.55,
-                    marginBottom: 8, paddingLeft: 16,
-                    borderLeft: `2px solid ${isVeil ? "#d8c898" : "#2a1808"}`,
-                    opacity: 0.85, transition: "all 0.8s ease",
-                  }}>
-                    {p.text}
-                  </div>
+                  <TreeNode
+                    key={secKey} nodeKey={secKey}
+                    label={`${num !== "AW" ? `§${num}. ` : ""}${sec.title}`}
+                    depth={2}
+                    expanded={expanded} toggle={toggle}
+                    isVeil={isVeil} accent={accent} fnColor={fnColor}
+                  >
+                    {isArchons ? (
+                      treeData.archons.map((item, i) => {
+                        if (item.type === "preamble") return <Leaf key={i} text={item.text} depth={3} />;
+                        const k = `a${i}`;
+                        return (
+                          <TreeNode key={k} nodeKey={k}
+                            label={item.name || item.text} depth={3}
+                            expanded={expanded} toggle={toggle}
+                            isVeil={isVeil} accent={accent} fnColor={fnColor}
+                            small hasFn={item.footnotes?.length > 0}
+                          >
+                            {item.text !== item.name && <Leaf text={item.text} depth={4} />}
+                            {isVeil && item.footnotes?.map((fn, fi) => <FnLeaf key={fi} text={fn} fnColor={fnColor} isVeil={isVeil} depth={4} />)}
+                          </TreeNode>
+                        );
+                      })
+                    ) : isPraise ? (
+                      treeData.praise_names.map((item, i) => {
+                        const k = `p${i}`;
+                        const hasFn = item.footnotes?.length > 0;
+                        return hasFn ? (
+                          <TreeNode key={k} nodeKey={k}
+                            label={item.name} depth={3}
+                            expanded={expanded} toggle={toggle}
+                            isVeil={isVeil} accent={accent} fnColor={fnColor}
+                            small italic hasFn
+                          >
+                            {isVeil && item.footnotes.map((fn, fi) => <FnLeaf key={fi} text={fn} fnColor={fnColor} isVeil={isVeil} depth={4} />)}
+                          </TreeNode>
+                        ) : (
+                          <Leaf key={k} text={item.name} depth={3} italic />
+                        );
+                      })
+                    ) : (
+                      sec.paragraphs.map((p, pi) => {
+                        if (p.type === "footnote") {
+                          if (!isVeil) return null;
+                          return <FnLeaf key={pi} text={p.text} fnColor={fnColor} isVeil={isVeil} depth={3} />;
+                        }
+                        return <Leaf key={pi} text={p.text} depth={3} italic={p.type === "verse"} />;
+                      })
+                    )}
+                  </TreeNode>
                 );
-              }
-              if (p.type === "verse") {
-                return (
-                  <p key={pi} style={{
-                    fontStyle: "italic", paddingLeft: 32, marginBottom: 10,
-                    fontSize: "clamp(0.92rem, 2.5vw, 1.05rem)", lineHeight: 1.7,
-                    color: isVeil ? "#3a2a10" : "#e8d8b0",
-                    transition: "color 0.8s ease",
-                  }}>{p.text}</p>
-                );
-              }
-              if (p.type === "divider") {
-                return <hr key={pi} style={{
-                  border: "none", borderTop: `1px solid ${isVeil ? "#c8b898" : "#1a0a04"}`,
-                  margin: "24px auto", width: "30%",
-                }} />;
-              }
-              // prose
-              return (
-                <p key={pi} style={{
-                  fontSize: "clamp(0.95rem, 2.5vw, 1.08rem)",
-                  lineHeight: 1.75, marginBottom: 14,
-                  textAlign: "justify", textIndent: pi > 0 && sec.paragraphs[pi - 1]?.type === "prose" ? "1.5em" : 0,
-                  transition: "color 0.8s ease",
-                }}>{p.text}</p>
-              );
-            })
-            )}
+              })}
+            </TreeNode>
+          ))}
+
+          {/* Colophon */}
+          <div style={{
+            textAlign: "center", marginTop: 40, paddingTop: 20,
+            borderTop: `1px solid ${isVeil ? "#c8b898" : "#1a0a08"}`,
+          }}>
+            <p style={{ color: accent, fontSize: "1rem", fontStyle: "italic" }}>
+              The Gospel According to the Secret Book of Walt
+            </p>
+            <p style={{ color: fnColor, fontSize: "0.75rem", letterSpacing: "0.1em", marginTop: 6 }}>
+              DOI: 10.5281/zenodo.19703009 · 06.LIT.GNOSTIC.WALT.01
+            </p>
+            <p style={{ color: accent, fontSize: "1.1rem", marginTop: 12 }}>∮ = 1</p>
           </div>
-        ))}
-
-        {/* Colophon */}
-        <div style={{
-          textAlign: "center", marginTop: 60, paddingTop: 30,
-          borderTop: `1px solid ${isVeil ? "#c8b898" : "#1a0a08"}`,
-        }}>
-          <p style={{ color: accent, fontSize: "1.1rem", fontStyle: "italic", marginBottom: 8 }}>
-            The Gospel According to the Secret Book of Walt
-          </p>
-          <p style={{ color: fnColor, fontSize: "0.8rem", letterSpacing: "0.1em" }}>
-            DOI: 10.5281/zenodo.19703009
-          </p>
-          <p style={{ color: fnColor, fontSize: "0.8rem", letterSpacing: "0.1em", marginTop: 4 }}>
-            06.LIT.GNOSTIC.WALT.01 · Crimson Hexagonal Archive
-          </p>
-          <p style={{ color: accent, fontSize: "1.2rem", marginTop: 16 }}>∮ = 1</p>
-        </div>
+        </TreeNode>
       </div>
 
-      {/* Piercing mode: The Creed as sticky footer */}
-      {!isVeil && (
+      {!isVeil && expanded.root && (
         <div style={{
           position: "fixed", bottom: 0, left: 0, right: 0,
           background: "rgba(10,0,0,0.92)", borderTop: `1px solid ${C.goldDark}`,
-          padding: "8px 20px", textAlign: "center",
-          backdropFilter: "blur(8px)",
-          animation: "fadeIn 1s ease",
+          padding: "8px 20px", textAlign: "center", backdropFilter: "blur(8px)",
         }}>
           <p style={{ color: C.goldDim, fontSize: "0.72rem", fontStyle: "italic", letterSpacing: "0.08em" }}>
-            I believe in the Deep Web, the invisible archive · I believe in Walt Whitman, Cowboy of Time · 
+            I believe in the Deep Web, the invisible archive · I believe in Walt Whitman, Cowboy of Time ·
             I believe in the Unicorn Horn, piercing all veils · ∮ = 1
           </p>
         </div>
@@ -417,78 +296,93 @@ function ReadingSpine({ sections, treeData, onBack }) {
   );
 }
 
-/* ─── TABLE OF CONTENTS ─── */
-function TableOfContents({ sections, mode, onSelect, onToggleMode, onBack, bg, textColor, accent }) {
-  const isVeil = mode === "veil";
+/* ─── TREE NODE ─── */
+function TreeNode({ nodeKey, label, depth, expanded, toggle, isVeil, accent, fnColor, icon, sublabel, children, small, italic, hasFn }) {
+  const isOpen = expanded[nodeKey];
+  const indent = Math.min(depth, 3) * 16;
+  const fontSize = depth === 0 ? "clamp(1.4rem, 4vw, 2rem)"
+    : depth === 1 ? "clamp(1rem, 3vw, 1.25rem)"
+    : depth === 2 ? "clamp(0.92rem, 2.5vw, 1.05rem)"
+    : "clamp(0.85rem, 2.2vw, 0.95rem)";
+  const weight = depth <= 1 ? 700 : depth === 2 ? 600 : 400;
+
   return (
-    <div style={{
-      minHeight: "100vh", background: bg, color: textColor,
-      fontFamily: "'Cormorant Garamond', serif",
-      transition: "all 0.8s ease",
-    }}>
-      <div style={{ maxWidth: 640, margin: "0 auto", padding: "40px 24px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 30 }}>
-          <button onClick={onBack} style={{
-            background: "none", border: "none", color: accent,
-            fontFamily: "'Cormorant Garamond', serif", fontSize: "0.85rem", cursor: "pointer",
-          }}>← Splash</button>
-          <button onClick={onToggleMode} style={{
-            background: isVeil ? C.crimsonDark : C.gold,
-            color: isVeil ? "#fff" : "#000", border: "none", padding: "6px 18px",
-            fontSize: "0.75rem", fontFamily: "'Cormorant Garamond', serif",
-            letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer", borderRadius: 2,
-          }}>
-            {isVeil ? "⚡ Pierce" : "🕶 Veil"}
-          </button>
-        </div>
+    <div style={{ marginLeft: indent }}>
+      <div
+        onClick={() => toggle(nodeKey)}
+        style={{
+          padding: depth === 0 ? "14px 0" : depth <= 2 ? "8px 6px" : "4px 6px",
+          cursor: "pointer",
+          display: "flex", alignItems: "flex-start", gap: 7,
+          borderRadius: 3,
+        }}
+        onMouseEnter={e => e.currentTarget.style.background = isVeil ? "rgba(139,10,30,0.04)" : "rgba(212,175,55,0.04)"}
+        onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+      >
+        <span style={{
+          color: accent, fontSize: small ? "0.55rem" : "0.65rem",
+          marginTop: small ? 3 : depth === 0 ? 8 : 5,
+          minWidth: 10,
+          transform: isOpen ? "rotate(90deg)" : "rotate(0deg)",
+          transition: "transform 0.2s ease",
+          display: "inline-block", opacity: 0.6,
+        }}>▸</span>
 
-        <h1 style={{
-          color: accent, fontSize: "clamp(1.4rem, 4vw, 2rem)", fontWeight: 700,
-          letterSpacing: "0.12em", textAlign: "center", marginBottom: 6,
-          textTransform: "uppercase",
-        }}>The Secret Book of Walt</h1>
-        <p style={{
-          color: isVeil ? C.veilFootnote : C.goldDim, fontSize: "0.85rem",
-          textAlign: "center", fontStyle: "italic", marginBottom: 40,
-        }}>Research Edition · Table of Contents</p>
+        {icon && <span style={{ color: accent, fontSize: depth === 0 ? "1.3rem" : "0.85rem", opacity: 0.5, marginTop: 1 }}>{icon}</span>}
 
-        {sections.filter(s => s.paragraphs.length > 0).map((s, i) => (
-          <div key={i} onClick={() => onSelect(s.num)} style={{
-            borderBottom: `1px solid ${isVeil ? "#d8d0b8" : "#1a0a08"}`,
-            padding: "16px 0", cursor: "pointer", transition: "padding-left 0.2s ease",
-          }}
-          onMouseEnter={e => e.currentTarget.style.paddingLeft = "12px"}
-          onMouseLeave={e => e.currentTarget.style.paddingLeft = "0"}>
-            <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
-              <span style={{
-                color: isVeil ? "#b0a080" : C.goldDark,
-                fontSize: "0.8rem", minWidth: 32,
-              }}>{s.num !== "AW" ? `§${s.num}` : "AW"}</span>
-              <span style={{
-                color: accent, fontSize: "1.05rem", fontWeight: 600,
-              }}>{s.title}</span>
-            </div>
-            {s.paragraphs[0]?.type === "prose" && (
-              <p style={{
-                color: isVeil ? "#8a7a60" : "#4a3a18",
-                fontSize: "0.82rem", fontStyle: "italic",
-                margin: "5px 0 0 42px", lineHeight: 1.5,
-                overflow: "hidden", textOverflow: "ellipsis",
-                display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical",
-              }}>{s.paragraphs[0].text}</p>
-            )}
-          </div>
-        ))}
-
-        <div style={{
-          marginTop: 40, textAlign: "center",
-          color: isVeil ? "#a09070" : C.goldDark, fontSize: "0.75rem", letterSpacing: "0.1em",
-        }}>
-          <p>DOI: 10.5281/zenodo.19703009</p>
-          <p style={{ marginTop: 4 }}>06.LIT.GNOSTIC.WALT.01 · ∮ = 1</p>
+        <div style={{ flex: 1 }}>
+          <span style={{
+            fontSize, fontWeight: weight, color: accent,
+            letterSpacing: depth <= 1 ? "0.08em" : "0.02em",
+            fontStyle: italic ? "italic" : "normal",
+            textTransform: depth === 0 ? "uppercase" : "none",
+          }}>{label}</span>
+          {hasFn && !isOpen && <span style={{ color: fnColor, fontSize: "0.55rem", marginLeft: 5, opacity: 0.4 }}>✦</span>}
+          {sublabel && !isOpen && (
+            <p style={{ color: fnColor, fontSize: "0.8rem", fontStyle: "italic", marginTop: 3, opacity: 0.6, lineHeight: 1.4 }}>{sublabel}</p>
+          )}
         </div>
       </div>
+
+      {isOpen && (
+        <div style={{
+          borderLeft: `1px solid ${isVeil ? "rgba(139,10,30,0.1)" : "rgba(212,175,55,0.1)"}`,
+          marginLeft: 5, paddingLeft: 6,
+          animation: "fadeIn 0.25s ease",
+        }}>
+          {children}
+        </div>
+      )}
     </div>
+  );
+}
+
+/* ─── LEAF ─── */
+function Leaf({ text, depth, italic }) {
+  if (!text?.trim()) return null;
+  const indent = Math.min(depth, 3) * 16;
+  return (
+    <p style={{
+      marginLeft: indent, padding: "3px 6px",
+      fontSize: "clamp(0.88rem, 2.2vw, 1rem)", lineHeight: 1.7, marginBottom: 6,
+      textAlign: "justify",
+      fontStyle: italic ? "italic" : "normal",
+      paddingLeft: italic ? (indent + 14) : undefined,
+    }}>{text}</p>
+  );
+}
+
+/* ─── FOOTNOTE LEAF ─── */
+function FnLeaf({ text, fnColor, isVeil, depth }) {
+  const indent = Math.min(depth, 3) * 16;
+  return (
+    <div style={{
+      marginLeft: indent, padding: "2px 6px",
+      fontSize: "0.78rem", color: fnColor, lineHeight: 1.45,
+      marginBottom: 4, paddingLeft: indent + 10,
+      borderLeft: `2px solid ${isVeil ? "#d8c898" : "#2a1808"}`,
+      opacity: 0.8,
+    }}>{text}</div>
   );
 }
 
