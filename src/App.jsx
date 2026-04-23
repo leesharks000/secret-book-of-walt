@@ -22,9 +22,9 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
   const [souls, setSouls] = useState(null);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase(1), 7000);
-    const t2 = setTimeout(() => setPhase(2), 8200);
-    const t3 = setTimeout(() => setPhase(3), 9400);
+    const t1 = setTimeout(() => setPhase(1), 9200);
+    const t2 = setTimeout(() => setPhase(2), 10400);
+    const t3 = setTimeout(() => setPhase(3), 11600);
     fetch("/api/count").then(r => r.json()).then(d => setSouls(d.count)).catch(() => {});
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
@@ -56,12 +56,12 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
         transition: "margin-bottom 1.5s ease",
       }}>
         <div style={{
-          animation: phase === 0 ? "paperMario 7s cubic-bezier(0.12,0.7,0.28,1) forwards" : "none",
+          animation: phase === 0 ? "paperMario 9s cubic-bezier(0.08,0.72,0.25,1) forwards" : "none",
           transform: phase >= 1 ? "translateY(0) rotateY(0deg) scale(1)" : undefined,
           transformStyle: "preserve-3d",
         }}>
           <img src={imgSrc} alt="Walt Whitman, Cowboy of Time, astride his dinosaur steed" style={{
-            width: "min(210px, 42vw)", height: "auto",
+            width: "min(175px, 35vw)", height: "auto",
             borderRadius: 4,
             transition: "all 1.5s ease",
           }} />
@@ -147,27 +147,7 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
   );
 }
 
-function Stars() {
-  const stars = useRef(Array.from({ length: 160 }, (_, i) => ({
-    x: Math.random() * 100, y: Math.random() * 100,
-    s: i < 30 ? Math.random() * 2.5 + 1 : i < 80 ? Math.random() * 1.2 + 0.4 : Math.random() * 0.7 + 0.2,
-    d: 2 + Math.random() * 5,
-    o: i < 30 ? 0.4 + Math.random() * 0.4 : i < 80 ? 0.15 + Math.random() * 0.35 : 0.08 + Math.random() * 0.2,
-    r: 180 + Math.random() * 75, g: 120 + Math.random() * 100, b: 60 + Math.random() * 120,
-  }))).current;
-  return (
-    <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
-      {stars.map((s, i) => (
-        <div key={i} style={{
-          position: "absolute", width: s.s, height: s.s, borderRadius: "50%",
-          background: `rgba(${s.r},${s.g},${s.b},${s.o})`,
-          left: `${s.x}%`, top: `${s.y}%`,
-          animation: `twinkle ${s.d}s ease-in-out infinite ${Math.random() * 5}s`,
-        }} />
-      ))}
-    </div>
-  );
-}
+
 
 /* ─── EXPANDABLE TREE ─── */
 
@@ -578,7 +558,7 @@ export default function App() {
     }).catch(() => {});
 
     fetch("/walt_tree_data.json").then(r => r.json()).then(setTreeData).catch(() => {});
-    fetch("/whitman_on_a_dinosaur.png").then(r => r.blob()).then(b => setImgSrc(URL.createObjectURL(b))).catch(() => {});
+    fetch("/whitman_on_a_dinosaur.jpg").then(r => r.blob()).then(b => setImgSrc(URL.createObjectURL(b))).catch(() => {});
     fetch("/horn_logo.png").then(r => r.blob()).then(b => setHornSrc(URL.createObjectURL(b))).catch(() => {});
   }, []);
 
@@ -586,29 +566,30 @@ export default function App() {
     <>
       <style>{`
         @keyframes paperMario {
-          0%  { transform: translateY(-150vh) rotateY(0deg) scale(0.03); opacity: 0; }
-          2%  { transform: translateY(-148vh) rotateY(30deg) scale(0.035); opacity: 0.15; }
-          5%  { transform: translateY(-142vh) rotateY(90deg) scale(0.045); opacity: 0.3; }
-          9%  { transform: translateY(-132vh) rotateY(200deg) scale(0.06); opacity: 0.45; }
-          14% { transform: translateY(-118vh) rotateY(360deg) scale(0.09); opacity: 0.55; }
-          19% { transform: translateY(-104vh) rotateY(520deg) scale(0.13); opacity: 0.65; }
-          25% { transform: translateY(-88vh) rotateY(700deg) scale(0.18); opacity: 0.75; }
-          31% { transform: translateY(-74vh) rotateY(860deg) scale(0.25); opacity: 0.82; }
-          37% { transform: translateY(-60vh) rotateY(1000deg) scale(0.33); opacity: 0.88; }
-          44% { transform: translateY(-46vh) rotateY(1100deg) scale(0.42); opacity: 0.93; }
-          51% { transform: translateY(-34vh) rotateY(1180deg) scale(0.52); opacity: 0.96; }
-          58% { transform: translateY(-24vh) rotateY(1240deg) scale(0.62); opacity: 1; }
-          65% { transform: translateY(-16vh) rotateY(1290deg) scale(0.72); }
-          72% { transform: translateY(-9vh) rotateY(1335deg) scale(0.81); }
-          79% { transform: translateY(-4vh) rotateY(1370deg) scale(0.89); }
-          86% { transform: translateY(-0.5vh) rotateY(1400deg) scale(0.95); }
-          91% { transform: translateY(1.5vh) rotateY(1425deg) scale(0.99); }
-          96% { transform: translateY(-0.3vh) rotateY(1437deg) scale(1.0); }
+          0%   { transform: translateY(-180vh) rotateY(0deg) scale(0.015); opacity: 0; }
+          1%   { transform: translateY(-178vh) rotateY(15deg) scale(0.017); opacity: 0.08; }
+          3%   { transform: translateY(-172vh) rotateY(45deg) scale(0.02); opacity: 0.15; }
+          5%   { transform: translateY(-165vh) rotateY(90deg) scale(0.025); opacity: 0.22; }
+          8%   { transform: translateY(-155vh) rotateY(160deg) scale(0.035); opacity: 0.3; }
+          11%  { transform: translateY(-142vh) rotateY(250deg) scale(0.05); opacity: 0.38; }
+          15%  { transform: translateY(-128vh) rotateY(360deg) scale(0.07); opacity: 0.46; }
+          19%  { transform: translateY(-114vh) rotateY(480deg) scale(0.10); opacity: 0.53; }
+          23%  { transform: translateY(-100vh) rotateY(600deg) scale(0.14); opacity: 0.60; }
+          28%  { transform: translateY(-86vh) rotateY(720deg) scale(0.19); opacity: 0.67; }
+          33%  { transform: translateY(-72vh) rotateY(830deg) scale(0.25); opacity: 0.74; }
+          38%  { transform: translateY(-60vh) rotateY(930deg) scale(0.32); opacity: 0.80; }
+          44%  { transform: translateY(-48vh) rotateY(1020deg) scale(0.40); opacity: 0.86; }
+          50%  { transform: translateY(-38vh) rotateY(1090deg) scale(0.48); opacity: 0.91; }
+          56%  { transform: translateY(-28vh) rotateY(1150deg) scale(0.56); opacity: 0.95; }
+          62%  { transform: translateY(-20vh) rotateY(1210deg) scale(0.64); opacity: 0.98; }
+          68%  { transform: translateY(-14vh) rotateY(1265deg) scale(0.72); opacity: 1; }
+          74%  { transform: translateY(-8vh) rotateY(1315deg) scale(0.80); }
+          80%  { transform: translateY(-4vh) rotateY(1355deg) scale(0.87); }
+          86%  { transform: translateY(-1vh) rotateY(1390deg) scale(0.93); }
+          91%  { transform: translateY(1vh) rotateY(1420deg) scale(0.97); }
+          95%  { transform: translateY(-0.3vh) rotateY(1435deg) scale(0.99); }
+          98%  { transform: translateY(0.1vh) rotateY(1439deg) scale(1.0); }
           100% { transform: translateY(0) rotateY(1440deg) scale(1.0); opacity: 1; }
-        }
-        @keyframes twinkle {
-          0%, 100% { opacity: 0.15; }
-          50% { opacity: 0.8; }
         }
         @keyframes fadeIn {
           from { opacity: 0; } to { opacity: 1; }
