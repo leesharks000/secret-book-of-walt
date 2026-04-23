@@ -789,6 +789,7 @@ const TERMS = {
   "ignorance":             { q: "semantic liquidation" },
   "weapon":                { q: "autonomous semantic warfare" },
   "weapons":               { q: "autonomous semantic warfare" },
+  "products":              { q: "\"operative numismatics\"" },
   "brain powers":         { q: "magic as symbolic engineering" },
   "Martian language":     { q: "operative philology" },
   "male and female":      { q: "operative feminism" },
