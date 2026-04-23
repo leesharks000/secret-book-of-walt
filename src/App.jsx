@@ -126,8 +126,118 @@ function Stars() {
   );
 }
 
+/* ─── EXPANDABLE TREE ─── */
+function ExpandableTree({ items, isVeil, accent, fnColor, label }) {
+  const [expanded, setExpanded] = useState({});
+  const toggle = (i) => setExpanded(prev => ({ ...prev, [i]: !prev[i] }));
+
+  return (
+    <div style={{ margin: "16px 0" }}>
+      {label && (
+        <p style={{
+          color: accent, fontSize: "0.9rem", fontWeight: 600,
+          letterSpacing: "0.08em", marginBottom: 12,
+          textTransform: "uppercase", opacity: 0.8,
+        }}>{label}</p>
+      )}
+      {items.map((item, i) => {
+        const isOpen = expanded[i];
+        const hasFn = item.footnotes && item.footnotes.length > 0;
+        const isPreamble = item.is_preamble || item.type === 'preamble';
+
+        if (isPreamble) {
+          return (
+            <p key={i} style={{
+              fontSize: "clamp(0.95rem, 2.5vw, 1.08rem)",
+              lineHeight: 1.75, marginBottom: 14, textAlign: "justify",
+            }}>{item.text}</p>
+          );
+        }
+
+        return (
+          <div key={i} style={{ marginBottom: 2 }}>
+            {/* Collapsed row */}
+            <div
+              onClick={() => (hasFn || item.text?.length > 60) ? toggle(i) : null}
+              style={{
+                padding: "8px 12px",
+                cursor: (hasFn || item.text?.length > 60) ? "pointer" : "default",
+                display: "flex", alignItems: "flex-start", gap: 8,
+                borderRadius: 3,
+                background: isOpen
+                  ? (isVeil ? "rgba(139,10,30,0.06)" : "rgba(212,175,55,0.06)")
+                  : "transparent",
+                transition: "background 0.2s ease",
+              }}
+              onMouseEnter={e => {
+                if (hasFn || item.text?.length > 60)
+                  e.currentTarget.style.background = isVeil ? "rgba(139,10,30,0.04)" : "rgba(212,175,55,0.04)";
+              }}
+              onMouseLeave={e => {
+                if (!isOpen) e.currentTarget.style.background = "transparent";
+              }}
+            >
+              {/* Expand indicator */}
+              <span style={{
+                color: accent, fontSize: "0.7rem", marginTop: 4, minWidth: 14,
+                opacity: (hasFn || item.text?.length > 60) ? 0.7 : 0.2,
+                transform: isOpen ? "rotate(90deg)" : "rotate(0deg)",
+                transition: "transform 0.2s ease",
+                display: "inline-block",
+              }}>▸</span>
+
+              {/* Name/text */}
+              <span style={{
+                fontSize: "clamp(0.92rem, 2.5vw, 1.02rem)",
+                lineHeight: 1.6,
+                color: hasFn ? accent : undefined,
+              }}>
+                {item.name || item.text}
+              </span>
+
+              {/* Footnote indicator */}
+              {hasFn && !isOpen && (
+                <span style={{
+                  color: fnColor, fontSize: "0.65rem", opacity: 0.5,
+                  marginLeft: "auto", whiteSpace: "nowrap",
+                }}>✦</span>
+              )}
+            </div>
+
+            {/* Expanded content */}
+            {isOpen && (
+              <div style={{
+                paddingLeft: 34, paddingRight: 12, paddingBottom: 12,
+                animation: "fadeIn 0.3s ease",
+              }}>
+                {/* Full text if different from name */}
+                {item.text && item.text !== item.name && (
+                  <p style={{
+                    fontSize: "0.9rem", lineHeight: 1.65,
+                    marginBottom: 8, opacity: 0.9,
+                  }}>{item.text}</p>
+                )}
+
+                {/* Footnotes — only in Veil mode */}
+                {isVeil && item.footnotes.map((fn, fi) => (
+                  <div key={fi} style={{
+                    fontSize: "0.8rem", color: fnColor, lineHeight: 1.5,
+                    marginTop: 6, paddingLeft: 12,
+                    borderLeft: `2px solid ${isVeil ? "#d8c898" : "#2a1808"}`,
+                    opacity: 0.85,
+                  }}>{fn}</div>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 /* ─── READING SPINE ─── */
-function ReadingSpine({ sections, onBack }) {
+function ReadingSpine({ sections, treeData, onBack }) {
   const [mode, setMode] = useState("veil"); // "veil" or "piercing"
   const [activeSection, setActiveSection] = useState(null);
   const [showToc, setShowToc] = useState(true);
@@ -212,8 +322,20 @@ function ReadingSpine({ sections, onBack }) {
               {sec.num !== "AW" ? `§${sec.num}. ` : ""}{sec.title}
             </h2>
 
-            {/* Paragraphs */}
-            {sec.paragraphs.map((p, pi) => {
+            {/* Paragraphs — use tree for catalogues */}
+            {(sec.num === "VI" && treeData?.archons) ? (
+              <ExpandableTree
+                items={treeData.archons}
+                isVeil={isVeil} accent={accent} fnColor={fnColor}
+              />
+            ) : (sec.num === "VIII" && treeData?.praise_names) ? (
+              <ExpandableTree
+                items={treeData.praise_names}
+                isVeil={isVeil} accent={accent} fnColor={fnColor}
+                label="The Praise-Names of Walt Whitman"
+              />
+            ) : (
+              sec.paragraphs.map((p, pi) => {
               if (p.type === "footnote") {
                 // In piercing mode, hide footnotes
                 if (!isVeil) return null;
@@ -253,7 +375,8 @@ function ReadingSpine({ sections, onBack }) {
                   transition: "color 0.8s ease",
                 }}>{p.text}</p>
               );
-            })}
+            })
+            )}
           </div>
         ))}
 
@@ -373,6 +496,7 @@ function TableOfContents({ sections, mode, onSelect, onToggleMode, onBack, bg, t
 export default function App() {
   const [view, setView] = useState("splash"); // splash | reading
   const [sections, setSections] = useState([]);
+  const [treeData, setTreeData] = useState(null);
   const [imgSrc, setImgSrc] = useState(null);
 
   useEffect(() => {
@@ -380,6 +504,11 @@ export default function App() {
       .then(r => r.json())
       .then(data => setSections(data))
       .catch(() => console.error("Failed to load gospel data"));
+    
+    fetch("/walt_tree_data.json")
+      .then(r => r.json())
+      .then(data => setTreeData(data))
+      .catch(() => console.error("Failed to load tree data"));
     
     // Load splash image
     fetch("/whitman_on_a_dinosaur.png")
@@ -441,7 +570,7 @@ export default function App() {
         <Splash onEnter={() => setView("reading")} imgSrc="" />
       )}
       {view === "reading" && (
-        <ReadingSpine sections={sections} onBack={() => setView("splash")} />
+        <ReadingSpine sections={sections} treeData={treeData} onBack={() => setView("splash")} />
       )}
     </>
   );
