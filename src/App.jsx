@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import waltImg from "./whitman_on_a_dinosaur.jpg";
+import waltImg from "./whitman_on_a_dinosaur.png";
 import milkyWayBg from "./milky_way_bg.jpg";
 import hornImg from "./horn_logo.png";
 
@@ -905,27 +905,22 @@ export default function App() {
           * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
         }
         @keyframes paperMario {
-          0%   { transform: translate3d(0,-180vh,0) rotateY(0deg) scale(0.04); opacity: 0.35; }
-          1%   { transform: translate3d(0,-175vh,0) rotateY(25deg) scale(0.05); opacity: 0.45; }
-          3%   { transform: translate3d(0,-167vh,0) rotateY(70deg) scale(0.06); opacity: 0.5; }
-          6%   { transform: translate3d(0,-154vh,0) rotateY(150deg) scale(0.08); opacity: 0.55; }
-          10%  { transform: translate3d(0,-140vh,0) rotateY(240deg) scale(0.08); opacity: 0.58; }
-          14%  { transform: translate3d(0,-125vh,0) rotateY(360deg) scale(0.11); opacity: 0.65; }
-          19%  { transform: translate3d(0,-108vh,0) rotateY(500deg) scale(0.15); opacity: 0.72; }
-          24%  { transform: translate3d(0,-92vh,0) rotateY(640deg) scale(0.20); opacity: 0.78; }
-          29%  { transform: translate3d(0,-78vh,0) rotateY(770deg) scale(0.27); opacity: 0.83; }
-          35%  { transform: translate3d(0,-64vh,0) rotateY(890deg) scale(0.34); opacity: 0.88; }
-          41%  { transform: translate3d(0,-52vh,0) rotateY(990deg) scale(0.42); opacity: 0.92; }
-          47%  { transform: translate3d(0,-40vh,0) rotateY(1070deg) scale(0.50); opacity: 0.95; }
-          53%  { transform: translate3d(0,-30vh,0) rotateY(1140deg) scale(0.58); opacity: 0.98; }
-          59%  { transform: translate3d(0,-22vh,0) rotateY(1200deg) scale(0.65); opacity: 1; }
-          65%  { transform: translate3d(0,-15vh,0) rotateY(1255deg) scale(0.72); }
-          71%  { transform: translate3d(0,-9vh,0) rotateY(1305deg) scale(0.79); }
-          77%  { transform: translate3d(0,-5vh,0) rotateY(1345deg) scale(0.86); }
-          83%  { transform: translate3d(0,-2vh,0) rotateY(1380deg) scale(0.92); }
-          88%  { transform: translate3d(0,0.5vh,0) rotateY(1410deg) scale(0.96); }
-          93%  { transform: translate3d(0,-0.3vh,0) rotateY(1430deg) scale(0.99); }
-          97%  { transform: translate3d(0,0.1vh,0) rotateY(1438deg) scale(1.0); }
+          0%   { transform: translate3d(0,-160vh,0) rotateY(0deg) scale(0.08); opacity: 0.6; }
+          5%   { transform: translate3d(0,-145vh,0) rotateY(80deg) scale(0.10); opacity: 0.7; }
+          10%  { transform: translate3d(0,-128vh,0) rotateY(200deg) scale(0.14); opacity: 0.75; }
+          16%  { transform: translate3d(0,-110vh,0) rotateY(360deg) scale(0.19); opacity: 0.8; }
+          22%  { transform: translate3d(0,-92vh,0) rotateY(520deg) scale(0.25); opacity: 0.85; }
+          28%  { transform: translate3d(0,-76vh,0) rotateY(670deg) scale(0.32); opacity: 0.88; }
+          34%  { transform: translate3d(0,-62vh,0) rotateY(800deg) scale(0.40); opacity: 0.92; }
+          40%  { transform: translate3d(0,-48vh,0) rotateY(920deg) scale(0.48); opacity: 0.95; }
+          47%  { transform: translate3d(0,-36vh,0) rotateY(1020deg) scale(0.56); opacity: 0.98; }
+          54%  { transform: translate3d(0,-26vh,0) rotateY(1110deg) scale(0.63); opacity: 1; }
+          61%  { transform: translate3d(0,-18vh,0) rotateY(1190deg) scale(0.71); }
+          68%  { transform: translate3d(0,-11vh,0) rotateY(1260deg) scale(0.79); }
+          75%  { transform: translate3d(0,-6vh,0) rotateY(1320deg) scale(0.86); }
+          82%  { transform: translate3d(0,-2vh,0) rotateY(1370deg) scale(0.92); }
+          88%  { transform: translate3d(0,0.5vh,0) rotateY(1410deg) scale(0.97); }
+          94%  { transform: translate3d(0,-0.2vh,0) rotateY(1435deg) scale(0.99); }
           100% { transform: translate3d(0,0,0) rotateY(1440deg) scale(1.0); opacity: 1; }
         }
         @keyframes fadeIn {
