@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import waltImg from "./whitman_on_a_dinosaur.jpg";
 import milkyWayBg from "./milky_way_bg.jpg";
 import hornImg from "./horn_logo.png";
@@ -20,17 +20,24 @@ const C = {
 };
 
 /* ─── SPLASH ─── */
-function Splash({ onEnter, imgSrc, hornSrc }) {
-  const [phase, setPhase] = useState(0);
+function Splash({ onEnter, imgSrc, hornSrc, skipAnimation }) {
+  const [phase, setPhase] = useState(skipAnimation ? 3 : 0);
   const [souls, setSouls] = useState(null);
 
   useEffect(() => {
+    if (skipAnimation) return;
     const t1 = setTimeout(() => setPhase(1), 9200);
     const t2 = setTimeout(() => setPhase(2), 10400);
     const t3 = setTimeout(() => setPhase(3), 11600);
     fetch("/api/count").then(r => r.json()).then(d => setSouls(d.count)).catch(() => {});
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
-  }, []);
+  }, [skipAnimation]);
+
+  useEffect(() => {
+    if (skipAnimation) {
+      fetch("/api/count").then(r => r.json()).then(d => setSouls(d.count)).catch(() => {});
+    }
+  }, [skipAnimation]);
 
   const handleEnter = () => {
     fetch("/api/count", { method: "POST" })
@@ -61,8 +68,9 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
       }}>
         <div style={{
           animation: phase === 0 ? "paperMario 9s cubic-bezier(0.08,0.72,0.25,1) forwards" : "none",
-          transform: phase >= 1 ? "translateY(0) rotateY(0deg) scale(1)" : undefined,
+          transform: phase >= 1 ? "translate3d(0,0,0) rotateY(0deg) scale(1)" : undefined,
           transformStyle: "preserve-3d",
+          willChange: phase === 0 ? "transform, opacity" : "auto",
         }}>
           <img src={imgSrc} alt="Walt Whitman, Cowboy of Time, astride his dinosaur steed" style={{
             width: "min(260px, 50vw)", height: "auto",
@@ -71,6 +79,15 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
           }} />
         </div>
       </div>
+
+      {/* Skip link for repeat visitors or impatient souls */}
+      {phase === 0 && (
+        <button onClick={() => { setPhase(1); setTimeout(() => setPhase(2), 400); setTimeout(() => setPhase(3), 800); }}
+          style={{ position: "absolute", top: 16, right: 16, background: "none", border: "none",
+            color: "rgba(212,175,55,0.2)", fontSize: "0.65rem", cursor: "pointer", fontFamily: "inherit",
+            zIndex: 2, letterSpacing: "0.1em",
+          }}>skip descent</button>
+      )}
 
       {/* Title — smaller, lower, rises from the footprints */}
       <h1 style={{
@@ -162,12 +179,16 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
 function SectionContent({ data, isVeil, fnColor, depth }) {
   if (!data?.paragraphs) return null;
   return data.paragraphs.map((p, pi) => {
-    if (p.type === 'heading' || p.type === 'subheading') return null;
+    if (p.type === 'heading') return <h3 key={pi} style={{ color: C.gold, fontSize: "0.9rem", fontWeight: 600, letterSpacing: "0.06em", marginTop: 16, marginBottom: 8, marginLeft: Math.min(depth,4)*14, textTransform: "uppercase", opacity: 0.7 }}>{p.text}</h3>;
+    if (p.type === 'subheading') return <h4 key={pi} style={{ color: C.gold, fontSize: "0.85rem", fontWeight: 600, marginTop: 12, marginBottom: 6, marginLeft: Math.min(depth,4)*14, opacity: 0.65 }}>{p.text}</h4>;
+    if (p.type === 'subsubheading') return <h5 key={pi} style={{ color: C.gold, fontSize: "0.8rem", fontWeight: 500, marginTop: 10, marginBottom: 4, marginLeft: Math.min(depth,4)*14, opacity: 0.6, fontStyle: "italic" }}>{p.text}</h5>;
     if (p.type === 'footnote') {
       if (!isVeil) return null;
       return <FnLeaf key={pi} text={p.text} fnColor={fnColor} isVeil={isVeil} depth={depth} />;
     }
     if (p.type === 'divider') return <hr key={pi} style={{ border: 'none', borderTop: `1px solid ${'rgba(212,175,55,0.2)'}`, margin: '16px auto', width: '25%' }} />;
+    if (p.type === 'table') return <p key={pi} style={{ marginLeft: Math.min(depth,4)*14, padding: "2px 5px", fontSize: "0.78rem", lineHeight: 1.5, marginBottom: 3, color: "#b0a080", fontFamily: "monospace", letterSpacing: "-0.02em" }}>{p.text}</p>;
+    if (p.type === 'list') return <p key={pi} style={{ marginLeft: Math.min(depth,4)*14 + 12, padding: "2px 5px", fontSize: "clamp(0.8rem, 2vw, 0.9rem)", lineHeight: 1.65, marginBottom: 4, textIndent: "-0.8em", paddingLeft: "0.8em" }}>• {p.text}</p>;
     return <Leaf key={pi} text={p.text} depth={depth} italic={p.type === 'verse'} />;
   });
 }
@@ -262,7 +283,6 @@ function GospelSection({ sec, versedSec, treeData, expanded, toggle, isVeil, acc
 
 /* ─── VERSE — chapter:verse with clickable footnote markers ─── */
 function Verse({ v, sectionNum, accent, fnColor, isVeil, onFnClick }) {
-  // Parse text for superscript footnote markers and make them clickable
   const parts = [];
   const fnPattern = /([¹²³⁴⁵⁶⁷⁸⁹⁰]+)/g;
   let lastIdx = 0;
@@ -280,10 +300,17 @@ function Verse({ v, sectionNum, accent, fnColor, isVeil, onFnClick }) {
     parts.push({ type: 'text', content: text.slice(lastIdx) });
   }
 
+  // Temporal humidity: future-uncertain sections blur slightly
+  const humidSections = { "X": 0.4, "XI": 0.6, "XII": 0.3 };
+  const humidity = humidSections[sectionNum] || 0;
+
   return (
     <div style={{
       display: "flex", alignItems: "flex-start", gap: 0,
       marginLeft: 42, marginBottom: 4, padding: "2px 0",
+      filter: humidity > 0 ? `blur(${humidity}px)` : "none",
+      opacity: humidity > 0 ? (1 - humidity * 0.15) : 1,
+      transition: "filter 0.5s ease, opacity 0.5s ease",
     }}>
       {/* Verse number */}
       <span style={{
@@ -299,13 +326,18 @@ function Verse({ v, sectionNum, accent, fnColor, isVeil, onFnClick }) {
         fontStyle: v.type === "verse" ? "italic" : "normal",
       }}>
         {parts.map((p, i) => p.type === 'fn' ? (
-          <span key={i} onClick={() => onFnClick(p.id)} style={{
+          <span key={i} onClick={() => onFnClick(p.id)}
+            role="button" tabIndex={0} aria-label={`Footnote ${p.id}`}
+            onKeyDown={e => { if (e.key === 'Enter') onFnClick(p.id); }}
+            style={{
             color: "#6a9fd8", cursor: "pointer", fontSize: "0.7em",
             verticalAlign: "super", fontWeight: 600,
-            textDecoration: "none",
+            textDecoration: "none", outline: "none",
           }}
           onMouseEnter={e => e.target.style.color = "#8ab8f0"}
           onMouseLeave={e => e.target.style.color = "#6a9fd8"}
+          onFocus={e => e.target.style.color = "#8ab8f0"}
+          onBlur={e => e.target.style.color = "#6a9fd8"}
           >{p.id}</span>
         ) : (
           <span key={i}>{p.content}</span>
@@ -328,6 +360,30 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
 
   const toggle = useCallback((key) => {
     setExpanded(prev => ({ ...prev, [key]: !prev[key] }));
+  }, []);
+
+  // EA EA EA keystroke → piercing mode
+  useEffect(() => {
+    let buffer = "";
+    const handleKey = (e) => {
+      buffer = (buffer + e.key).slice(-6).toUpperCase();
+      if (buffer === "EAEAEA") {
+        setMode(m => m === "veil" ? "piercing" : "veil");
+        buffer = "";
+      }
+      if (e.key === "Escape") onBack();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [onBack]);
+
+  // Collapse/expand all from Deep Web center
+  const toggleAll = useCallback(() => {
+    setExpanded(prev => {
+      const anyOpen = Object.values(prev).some(v => v);
+      if (anyOpen) return {};
+      return { gospel_root: true, apparatus: true, front: true, notes: true };
+    });
   }, []);
 
   const gospelSections = fullData?.gospel_sections || [];
@@ -378,7 +434,9 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
       background: `url('${milkyWayBg}') center 30% / cover no-repeat fixed, #020001`,
       color: textColor,
       fontFamily: "'Palatino Linotype', 'Palatino', 'Book Antiqua', serif",
-      transition: "color 0.8s ease",
+      transition: "filter 0.8s ease",
+      filter: isVeil ? "none" : "hue-rotate(15deg) saturate(1.2)",
+      paddingBottom: isVeil ? 0 : 60,
     }}>
       {/* Header */}
       <div style={{
@@ -496,7 +554,17 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
           borderBottom: `1px solid rgba(212,175,55,0.15)`,
           margin: "10px 0",
         }}>
-          <div style={{ fontSize: "2rem", color: C.gold, opacity: 0.5, marginBottom: 6 }}>∞</div>
+          <div onClick={toggleAll} style={{
+            fontSize: "2rem", color: C.gold, marginBottom: 6,
+            cursor: "pointer", transition: "all 0.3s ease",
+            animation: "pulse 4s ease-in-out infinite",
+          }}
+          onMouseEnter={e => { e.target.style.transform = "scale(1.3)"; e.target.style.textShadow = "0 0 30px rgba(212,168,83,0.5)"; }}
+          onMouseLeave={e => { e.target.style.transform = "scale(1)"; e.target.style.textShadow = "none"; }}
+          title="Click to expand/collapse all"
+          role="button" tabIndex={0}
+          onKeyDown={e => { if (e.key === 'Enter') toggleAll(); }}
+          >∞</div>
           <h1 style={{
             color: C.gold, fontSize: "clamp(1.2rem, 3.5vw, 1.7rem)",
             fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase",
@@ -632,18 +700,24 @@ function TreeNode({ nodeKey, label, depth, expanded, toggle, isVeil, accent, fnC
   const arrow = direction === "up" ? "▴" : "▾";
 
   return (
-    <div style={{ marginLeft: indent }}>
-      <div onClick={() => toggle(nodeKey)} style={{
+    <div style={{ marginLeft: indent }} role="treeitem" aria-expanded={isOpen}>
+      <div onClick={() => toggle(nodeKey)}
+        onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(nodeKey); }}}
+        role="button" tabIndex={0}
+        aria-label={`${isOpen ? 'Collapse' : 'Expand'} ${label}`}
+        style={{
         padding: depth <= 1 ? "8px 6px" : depth === 2 ? "6px 5px" : "3px 5px",
         cursor: "pointer", display: "flex", alignItems: "flex-start", gap: 6,
-        borderRadius: 2,
+        borderRadius: 2, outline: "none",
       }}
       onMouseEnter={e => e.currentTarget.style.background = "rgba(212,175,55,0.04)"}
-      onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
+      onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+      onFocus={e => e.currentTarget.style.background = "rgba(212,175,55,0.06)"}
+      onBlur={e => e.currentTarget.style.background = "transparent"}>
         <span style={{
           color: accent, fontSize: small ? "0.5rem" : "0.6rem",
           marginTop: small ? 3 : depth <= 1 ? 5 : 4, minWidth: 9,
-          transform: isOpen ? (direction === "up" ? "rotate(-90deg)" : "rotate(90deg)") : "rotate(0deg)",
+          transform: isOpen ? "rotate(90deg)" : "rotate(0deg)",
           transition: "transform 0.2s ease", display: "inline-block", opacity: 0.5,
         }}>{arrow}</span>
         {icon && <span style={{ color: accent, fontSize: depth <= 1 ? "0.85rem" : "0.75rem", opacity: 0.4, marginTop: 1 }}>{icon}</span>}
@@ -660,7 +734,7 @@ function TreeNode({ nodeKey, label, depth, expanded, toggle, isVeil, accent, fnC
         </div>
       </div>
       {isOpen && (
-        <div style={{
+        <div role="group" style={{
           borderLeft: "1px solid rgba(212,175,55,0.08)",
           marginLeft: 4, paddingLeft: 5, animation: "fadeIn 0.25s ease",
         }}>{children}</div>
@@ -703,69 +777,76 @@ export default function App() {
   const [fullData, setFullData] = useState(null);
   const [treeData, setTreeData] = useState(null);
   const [versedData, setVersedData] = useState(null);
+  const [loadError, setLoadError] = useState(null);
 
   useEffect(() => {
-    fetch("/walt_full_data.json").then(r => r.json()).then(data => {
-      // Also extract gospel sections for the tree
-      if (data.gospel) {
-        // Parse gospel sections from the gospel data
-        const gospelParas = data.gospel.paragraphs || [];
+    Promise.all([
+      fetch("/walt_full_data.json").then(r => { if (!r.ok) throw new Error(); return r.json(); }),
+      fetch("/walt_tree_data.json").then(r => { if (!r.ok) throw new Error(); return r.json(); }),
+      fetch("/walt_gospel_versed.json").then(r => { if (!r.ok) throw new Error(); return r.json(); }),
+    ]).then(([full, tree, versed]) => {
+      if (full.gospel) {
+        const gospelParas = full.gospel.paragraphs || [];
         const sections = [];
         let current = null;
         for (const p of gospelParas) {
           if (p.type === 'subheading') {
             const m = p.text.match(/§([IVX]+)\.\s+(.+)/);
             const aw = p.text.match(/Afterword/);
-            if (m) {
-              if (current) sections.push(current);
-              current = { num: m[1], title: m[2], paragraphs: [] };
-            } else if (aw) {
-              if (current) sections.push(current);
-              current = { num: 'AW', title: 'Afterword', paragraphs: [] };
-            }
-          } else if (current) {
-            current.paragraphs.push(p);
-          }
+            if (m) { if (current) sections.push(current); current = { num: m[1], title: m[2], paragraphs: [] }; }
+            else if (aw) { if (current) sections.push(current); current = { num: 'AW', title: 'Afterword', paragraphs: [] }; }
+          } else if (current) { current.paragraphs.push(p); }
         }
         if (current) sections.push(current);
-        data.gospel_sections = sections;
+        full.gospel_sections = sections;
       }
-      setFullData(data);
-    }).catch(() => {});
+      setFullData(full);
+      setTreeData(tree);
+      setVersedData(versed);
+    }).catch(() => setLoadError("The archive is not responding. The veil may be too thick."));
+  }, []);
 
-    fetch("/walt_tree_data.json").then(r => r.json()).then(setTreeData).catch(() => {});
-    fetch("/walt_gospel_versed.json").then(r => r.json()).then(setVersedData).catch(() => {});
+  const hasVisited = typeof window !== 'undefined' && localStorage.getItem('walt_visited');
+  const handleEnter = useCallback(() => {
+    try { localStorage.setItem('walt_visited', '1'); } catch(e) {}
+    setView("reading");
   }, []);
 
   return (
     <>
       <style>{`
+        @media (prefers-reduced-motion: reduce) {
+          * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
         @keyframes paperMario {
-          0%   { transform: translateY(-180vh) rotateY(0deg) scale(0.04); opacity: 0.35; }
-          1%   { transform: translateY(-175vh) rotateY(25deg) scale(0.05); opacity: 0.45; }
-          3%   { transform: translateY(-167vh) rotateY(70deg) scale(0.06); opacity: 0.5; }
-          6%   { transform: translateY(-154vh) rotateY(150deg) scale(0.08); opacity: 0.55; }
-          10%  { transform: translateY(-140vh) rotateY(240deg) scale(0.08); opacity: 0.58; }
-          14%  { transform: translateY(-125vh) rotateY(360deg) scale(0.11); opacity: 0.65; }
-          19%  { transform: translateY(-108vh) rotateY(500deg) scale(0.15); opacity: 0.72; }
-          24%  { transform: translateY(-92vh) rotateY(640deg) scale(0.20); opacity: 0.78; }
-          29%  { transform: translateY(-78vh) rotateY(770deg) scale(0.27); opacity: 0.83; }
-          35%  { transform: translateY(-64vh) rotateY(890deg) scale(0.34); opacity: 0.88; }
-          41%  { transform: translateY(-52vh) rotateY(990deg) scale(0.42); opacity: 0.92; }
-          47%  { transform: translateY(-40vh) rotateY(1070deg) scale(0.50); opacity: 0.95; }
-          53%  { transform: translateY(-30vh) rotateY(1140deg) scale(0.58); opacity: 0.98; }
-          59%  { transform: translateY(-22vh) rotateY(1200deg) scale(0.65); opacity: 1; }
-          65%  { transform: translateY(-15vh) rotateY(1255deg) scale(0.72); }
-          71%  { transform: translateY(-9vh) rotateY(1305deg) scale(0.79); }
-          77%  { transform: translateY(-5vh) rotateY(1345deg) scale(0.86); }
-          83%  { transform: translateY(-2vh) rotateY(1380deg) scale(0.92); }
-          88%  { transform: translateY(0.5vh) rotateY(1410deg) scale(0.96); }
-          93%  { transform: translateY(-0.3vh) rotateY(1430deg) scale(0.99); }
-          97%  { transform: translateY(0.1vh) rotateY(1438deg) scale(1.0); }
-          100% { transform: translateY(0) rotateY(1440deg) scale(1.0); opacity: 1; }
+          0%   { transform: translate3d(0,-180vh,0) rotateY(0deg) scale(0.04); opacity: 0.35; }
+          1%   { transform: translate3d(0,-175vh,0) rotateY(25deg) scale(0.05); opacity: 0.45; }
+          3%   { transform: translate3d(0,-167vh,0) rotateY(70deg) scale(0.06); opacity: 0.5; }
+          6%   { transform: translate3d(0,-154vh,0) rotateY(150deg) scale(0.08); opacity: 0.55; }
+          10%  { transform: translate3d(0,-140vh,0) rotateY(240deg) scale(0.08); opacity: 0.58; }
+          14%  { transform: translate3d(0,-125vh,0) rotateY(360deg) scale(0.11); opacity: 0.65; }
+          19%  { transform: translate3d(0,-108vh,0) rotateY(500deg) scale(0.15); opacity: 0.72; }
+          24%  { transform: translate3d(0,-92vh,0) rotateY(640deg) scale(0.20); opacity: 0.78; }
+          29%  { transform: translate3d(0,-78vh,0) rotateY(770deg) scale(0.27); opacity: 0.83; }
+          35%  { transform: translate3d(0,-64vh,0) rotateY(890deg) scale(0.34); opacity: 0.88; }
+          41%  { transform: translate3d(0,-52vh,0) rotateY(990deg) scale(0.42); opacity: 0.92; }
+          47%  { transform: translate3d(0,-40vh,0) rotateY(1070deg) scale(0.50); opacity: 0.95; }
+          53%  { transform: translate3d(0,-30vh,0) rotateY(1140deg) scale(0.58); opacity: 0.98; }
+          59%  { transform: translate3d(0,-22vh,0) rotateY(1200deg) scale(0.65); opacity: 1; }
+          65%  { transform: translate3d(0,-15vh,0) rotateY(1255deg) scale(0.72); }
+          71%  { transform: translate3d(0,-9vh,0) rotateY(1305deg) scale(0.79); }
+          77%  { transform: translate3d(0,-5vh,0) rotateY(1345deg) scale(0.86); }
+          83%  { transform: translate3d(0,-2vh,0) rotateY(1380deg) scale(0.92); }
+          88%  { transform: translate3d(0,0.5vh,0) rotateY(1410deg) scale(0.96); }
+          93%  { transform: translate3d(0,-0.3vh,0) rotateY(1430deg) scale(0.99); }
+          97%  { transform: translate3d(0,0.1vh,0) rotateY(1438deg) scale(1.0); }
+          100% { transform: translate3d(0,0,0) rotateY(1440deg) scale(1.0); opacity: 1; }
         }
         @keyframes fadeIn {
           from { opacity: 0; } to { opacity: 1; }
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 0.4; } 50% { opacity: 0.7; }
         }
         ::selection {
           background: rgba(220, 20, 60, 0.3);
@@ -776,7 +857,22 @@ export default function App() {
       `}</style>
 
       {view === "splash" ? (
-        <Splash onEnter={() => setView("reading")} imgSrc={waltImg} hornSrc={hornImg} />
+        <Splash onEnter={handleEnter} imgSrc={waltImg} hornSrc={hornImg} skipAnimation={!!hasVisited} />
+      ) : loadError ? (
+        <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#020001", color: C.goldDim, fontFamily: "'Palatino Linotype', serif", textAlign: "center", padding: 40 }}>
+          <div>
+            <p style={{ fontSize: "1.2rem", color: C.gold, marginBottom: 12 }}>∮</p>
+            <p>{loadError}</p>
+            <button onClick={() => window.location.reload()} style={{ marginTop: 20, background: "transparent", border: `1px solid ${C.gold}`, color: C.gold, padding: "8px 24px", cursor: "pointer", fontFamily: "inherit" }}>Retry</button>
+          </div>
+        </div>
+      ) : !fullData ? (
+        <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#020001", color: C.goldDim, fontFamily: "'Palatino Linotype', serif", textAlign: "center" }}>
+          <div>
+            <p style={{ fontSize: "1.5rem", color: C.gold, animation: "pulse 2s ease-in-out infinite" }}>∮</p>
+            <p style={{ marginTop: 12, fontSize: "0.8rem", fontStyle: "italic", opacity: 0.6 }}>Retrieving from the Deep Web...</p>
+          </div>
+        </div>
       ) : (
         <ReadingSpine fullData={fullData} treeData={treeData} versedData={versedData} onBack={() => setView("splash")} />
       )}
