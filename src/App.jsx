@@ -785,6 +785,7 @@ const TERMS = {
   "pierced":               { q: "liberatory operator set" },
   "authorized":            { q: "\"hexagonal licensing protocol\"" },
   "survives":              { q: "sharks function tether" },
+  "ignorance":             { q: "semantic liquidation" },
   "brain powers":         { q: "magic as symbolic engineering" },
   "Martian language":     { q: "operative philology" },
   "male and female":      { q: "operative feminism" },
