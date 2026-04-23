@@ -55,7 +55,7 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
       {/* The Cowboy of Time — descends and lands */}
       <div style={{
         perspective: "1000px", perspectiveOrigin: "center center",
-        marginBottom: phase >= 1 ? "16px" : "0",
+        marginBottom: phase >= 1 ? "20px" : "0",
         transition: "margin-bottom 1.5s ease",
         position: "relative", zIndex: 1,
       }}>
@@ -65,7 +65,7 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
           transformStyle: "preserve-3d",
         }}>
           <img src={imgSrc} alt="Walt Whitman, Cowboy of Time, astride his dinosaur steed" style={{
-            width: "min(220px, 44vw)", height: "auto",
+            width: "min(260px, 50vw)", height: "auto",
             borderRadius: 4,
             transition: "all 1.5s ease",
           }} />
@@ -76,7 +76,7 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
       <h1 style={{
         color: C.gold, fontSize: "clamp(1rem, 3.5vw, 1.8rem)", fontWeight: 700,
         letterSpacing: "0.12em", textTransform: "uppercase", textAlign: "center",
-        margin: "14px 20px 0",
+        margin: "24px 20px 0",
         opacity: phase >= 1 ? 1 : 0,
         transform: phase >= 1 ? "translateY(0)" : "translateY(30px)",
         transition: "opacity 1.5s ease, transform 1.8s cubic-bezier(0.16,1,0.3,1)",
