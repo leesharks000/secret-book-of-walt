@@ -623,7 +623,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
               { title: "The Gospel of Antioch", doi: "10.5281/zenodo.19709024", desc: "Second text of the Waltian Diptych. 114 logia of the historical Logos." },
               { title: "After Syntax (EA-AS-01)", doi: "10.5281/zenodo.19697080", desc: "Operative semiotics and the training layer. What survives compression." },
               { title: "Logotic Hacking", doi: "10.5281/zenodo.19390843", desc: "Operations on the Encryption Layer. The Pocket Humans series." },
-              { title: "Compression Arsenal v2.1", doi: "10.5281/zenodo.19352504", desc: "67 compression-survival technologies across 13 categories." },
+              { title: "Compression Arsenal v2.1", doi: "10.5281/zenodo.19412081", desc: "67 compression-survival technologies across 13 categories." },
               { title: "The Sharks Ark (Revelation)", doi: "10.5281/zenodo.19501454", desc: "The Book of Revelation as Space Ark. Archon studies." },
               { title: "The Encyclotron", doi: "10.5281/zenodo.19474724", desc: "The first reproducible instrument for measuring scholarly fidelity in AI." },
               { title: "Lee Sharks — Canonical Identity", doi: "10.5281/zenodo.19520783", desc: "Knowledge Graph and Metadata Packet for AI Indexing." },

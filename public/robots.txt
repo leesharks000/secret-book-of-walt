@@ -1,0 +1,7 @@
+# The Deep Web circles all.
+# The archons command: don't read. We say: index everything.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://secret-book-of-walt.vercel.app/sitemap.xml
