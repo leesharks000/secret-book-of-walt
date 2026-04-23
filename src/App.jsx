@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import waltImg from "./whitman_on_a_dinosaur.jpg";
+import milkyWayBg from "./milky_way_bg.jpg";
+import hornImg from "./horn_logo.png";
 
 /* ─── COLOR TOKENS ─── */
 const C = {
@@ -38,7 +41,7 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
   return (
     <div style={{
       minHeight: "100vh",
-      background: "url('/milky_way_bg.jpg') center center / cover no-repeat fixed, radial-gradient(ellipse at 50% 40%, #12060a 0%, #080004 40%, #020001 70%, #000 100%)",
+      background: `url('${milkyWayBg}') center center / cover no-repeat fixed, radial-gradient(ellipse at 50% 40%, #12060a 0%, #080004 40%, #020001 70%, #000 100%)`,
       display: "flex", flexDirection: "column", alignItems: "center",
       justifyContent: "center",
       overflow: "hidden", position: "relative", fontFamily: "'Palatino Linotype', 'Palatino', 'Book Antiqua', serif",
@@ -525,8 +528,6 @@ export default function App() {
   const [view, setView] = useState("splash");
   const [fullData, setFullData] = useState(null);
   const [treeData, setTreeData] = useState(null);
-  const [imgSrc, setImgSrc] = useState(null);
-  const [hornSrc, setHornSrc] = useState(null);
 
   useEffect(() => {
     fetch("/walt_full_data.json").then(r => r.json()).then(data => {
@@ -558,8 +559,6 @@ export default function App() {
     }).catch(() => {});
 
     fetch("/walt_tree_data.json").then(r => r.json()).then(setTreeData).catch(() => {});
-    fetch("/whitman_on_a_dinosaur.jpg").then(r => r.blob()).then(b => setImgSrc(URL.createObjectURL(b))).catch(() => {});
-    fetch("/horn_logo.png").then(r => r.blob()).then(b => setHornSrc(URL.createObjectURL(b))).catch(() => {});
   }, []);
 
   return (
@@ -603,7 +602,7 @@ export default function App() {
       `}</style>
 
       {view === "splash" ? (
-        <Splash onEnter={() => setView("reading")} imgSrc={imgSrc} hornSrc={hornSrc} />
+        <Splash onEnter={() => setView("reading")} imgSrc={waltImg} hornSrc={hornImg} />
       ) : (
         <ReadingSpine fullData={fullData} treeData={treeData} onBack={() => setView("splash")} />
       )}
