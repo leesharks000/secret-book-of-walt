@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import waltImg from "./whitman_on_a_dinosaur.png";
 import milkyWayBg from "./milky_way_bg.jpg";
+import milkyWaySplash from "./milky_way_splash.jpg";
 import hornImg from "./horn_logo.png";
 
 /* ─── COLOR TOKENS ─── */
@@ -41,7 +42,7 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
   return (
     <div style={{
       minHeight: "100vh",
-      background: `url('${milkyWayBg}') center 45% / cover no-repeat fixed, radial-gradient(ellipse at 50% 40%, #12060a 0%, #080004 40%, #020001 70%, #000 100%)`,
+      background: `url('${milkyWaySplash}') center center / cover no-repeat fixed, radial-gradient(ellipse at 50% 40%, #12060a 0%, #080004 40%, #020001 70%, #000 100%)`,
       display: "flex", flexDirection: "column", alignItems: "center",
       justifyContent: "center",
       overflow: "hidden", position: "relative", fontFamily: "'Palatino Linotype', 'Palatino', 'Book Antiqua', serif",
@@ -786,6 +787,8 @@ const TERMS = {
   "authorized":            { q: "\"hexagonal licensing protocol\"" },
   "survives":              { q: "sharks function tether" },
   "ignorance":             { q: "semantic liquidation" },
+  "weapon":                { q: "autonomous semantic warfare" },
+  "weapons":               { q: "autonomous semantic warfare" },
   "brain powers":         { q: "magic as symbolic engineering" },
   "Martian language":     { q: "operative philology" },
   "male and female":      { q: "operative feminism" },
