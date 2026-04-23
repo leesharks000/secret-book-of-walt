@@ -172,15 +172,26 @@ function SectionContent({ data, isVeil, fnColor, depth }) {
   });
 }
 
-/* ─── GOSPEL SECTION WITH TREE CATALOGUES ─── */
-function GospelSection({ sec, treeData, expanded, toggle, isVeil, accent, fnColor }) {
-  const secKey = `s_${sec.num}`;
-  const isArchons = sec.num === "VI" && treeData?.archons;
-  const isPraise = sec.num === "VIII" && treeData?.praise_names;
+/* ─── GOSPEL SECTION — CHAPTER:VERSE WITH CLICKABLE FOOTNOTES ─── */
+function GospelSection({ sec, versedSec, treeData, expanded, toggle, isVeil, accent, fnColor }) {
+  const secKey = `s_${sec?.num || versedSec?.num}`;
+  const num = sec?.num || versedSec?.num;
+  const title = sec?.title || versedSec?.title;
+  const isArchons = num === "VI" && treeData?.archons;
+  const isPraise = num === "VIII" && treeData?.praise_names;
+  const [visibleFns, setVisibleFns] = useState({});
+
+  const toggleFn = useCallback((fnId) => {
+    setVisibleFns(prev => ({ ...prev, [fnId]: !prev[fnId] }));
+  }, []);
+
+  // Use versed data if available, fall back to old format
+  const verses = versedSec?.verses || [];
+  const useVersed = verses.length > 0 && !isArchons && !isPraise;
 
   return (
     <TreeNode nodeKey={secKey}
-      label={`${sec.num !== "AW" ? `§${sec.num}. ` : ""}${sec.title}`} depth={2}
+      label={`${num !== "AW" ? `§${num}. ` : ""}${title}`} depth={2}
       expanded={expanded} toggle={toggle}
       isVeil={isVeil} accent={accent} fnColor={fnColor}>
       {isArchons ? (
@@ -210,8 +221,34 @@ function GospelSection({ sec, treeData, expanded, toggle, isVeil, accent, fnColo
             </TreeNode>
           ) : <Leaf key={k} text={item.name} depth={3} italic />;
         })
+      ) : useVersed ? (
+        verses.map((v, vi) => {
+          if (v.type === 'divider') return <hr key={vi} style={{ border: 'none', borderTop: '1px solid rgba(212,175,55,0.15)', margin: '12px auto', width: '20%' }} />;
+          if (v.type === 'footnote') {
+            if (!isVeil) return null;
+            const isVisible = visibleFns[v.fn_id];
+            if (!isVisible) return null;
+            return (
+              <div key={vi} id={`fn-${num}-${v.fn_id}`} style={{
+                marginLeft: 56 + 42, padding: "4px 8px",
+                fontSize: "0.74rem", color: fnColor, lineHeight: 1.45,
+                marginBottom: 4,
+                borderLeft: "2px solid rgba(212,175,55,0.2)",
+                opacity: 0.8, animation: "fadeIn 0.2s ease",
+              }}>
+                <span style={{ color: accent, fontSize: "0.65rem", marginRight: 4 }}>{v.fn_id}</span>
+                {v.text}
+              </div>
+            );
+          }
+          // Prose or verse line with chapter:verse number
+          return (
+            <Verse key={vi} v={v} sectionNum={num} accent={accent}
+              fnColor={fnColor} isVeil={isVeil} onFnClick={toggleFn} />
+          );
+        })
       ) : (
-        sec.paragraphs.map((p, pi) => {
+        sec?.paragraphs?.map((p, pi) => {
           if (p.type === "footnote") {
             if (!isVeil) return null;
             return <FnLeaf key={pi} text={p.text} fnColor={fnColor} isVeil={isVeil} depth={3} />;
@@ -223,8 +260,64 @@ function GospelSection({ sec, treeData, expanded, toggle, isVeil, accent, fnColo
   );
 }
 
+/* ─── VERSE — chapter:verse with clickable footnote markers ─── */
+function Verse({ v, sectionNum, accent, fnColor, isVeil, onFnClick }) {
+  // Parse text for superscript footnote markers and make them clickable
+  const parts = [];
+  const fnPattern = /([¹²³⁴⁵⁶⁷⁸⁹⁰]+)/g;
+  let lastIdx = 0;
+  let match;
+  const text = v.text;
+
+  while ((match = fnPattern.exec(text)) !== null) {
+    if (match.index > lastIdx) {
+      parts.push({ type: 'text', content: text.slice(lastIdx, match.index) });
+    }
+    parts.push({ type: 'fn', id: match[1] });
+    lastIdx = match.index + match[0].length;
+  }
+  if (lastIdx < text.length) {
+    parts.push({ type: 'text', content: text.slice(lastIdx) });
+  }
+
+  return (
+    <div style={{
+      display: "flex", alignItems: "flex-start", gap: 0,
+      marginLeft: 42, marginBottom: 4, padding: "2px 0",
+    }}>
+      {/* Verse number */}
+      <span style={{
+        color: accent, fontSize: "0.62rem", opacity: 0.45,
+        minWidth: 42, textAlign: "right", paddingRight: 10,
+        marginTop: 4, fontVariantNumeric: "tabular-nums",
+        userSelect: "none",
+      }}>{v.ref}</span>
+      {/* Verse text with clickable footnotes */}
+      <span style={{
+        fontSize: "clamp(0.83rem, 2.1vw, 0.94rem)",
+        lineHeight: 1.7, flex: 1, textAlign: "justify",
+        fontStyle: v.type === "verse" ? "italic" : "normal",
+      }}>
+        {parts.map((p, i) => p.type === 'fn' ? (
+          <span key={i} onClick={() => onFnClick(p.id)} style={{
+            color: "#6a9fd8", cursor: "pointer", fontSize: "0.7em",
+            verticalAlign: "super", fontWeight: 600,
+            textDecoration: "none",
+          }}
+          onMouseEnter={e => e.target.style.color = "#8ab8f0"}
+          onMouseLeave={e => e.target.style.color = "#6a9fd8"}
+          >{p.id}</span>
+        ) : (
+          <span key={i}>{p.content}</span>
+        ))}
+      </span>
+    </div>
+  );
+}
+
+
 /* ─── THE HYPOSTATIC TREE — CENTER-OUT ─── */
-function ReadingSpine({ fullData, treeData, onBack }) {
+function ReadingSpine({ fullData, treeData, versedData, onBack }) {
   const [mode, setMode] = useState("veil");
   const [expanded, setExpanded] = useState({});
 
@@ -244,6 +337,14 @@ function ReadingSpine({ fullData, treeData, onBack }) {
   }
 
   const introSubs = fullData?.intro_subsections || [];
+
+  // Versed gospel sections
+  const versedMap = {};
+  if (versedData) {
+    for (const vs of versedData) {
+      versedMap[vs.num] = vs;
+    }
+  }
 
   const gospelGroups = [
     { key: "emanation", label: "The Emanation", icon: "◈", nums: ["I", "II", "III", "IV", "V"] },
@@ -422,7 +523,8 @@ function ReadingSpine({ fullData, treeData, onBack }) {
                 {group.nums.map(num => {
                   const sec = sectionMap[num];
                   if (!sec) return null;
-                  return <GospelSection key={num} sec={sec} treeData={treeData}
+                  return <GospelSection key={num} sec={sec} versedSec={versedMap[num]}
+                    treeData={treeData}
                     expanded={expanded} toggle={toggle}
                     isVeil={isVeil} accent={accent} fnColor={fnColor} />;
                 })}
@@ -442,6 +544,42 @@ function ReadingSpine({ fullData, treeData, onBack }) {
               </TreeNode>
             ))}
           </TreeNode>
+        </div>
+
+        {/* ═══ ARCHIVE CROSS-LINKS ═══ */}
+        <div style={{
+          marginTop: 40, padding: "20px 10px",
+          borderTop: "1px solid rgba(212,175,55,0.12)",
+        }}>
+          <h3 style={{
+            color: C.gold, fontSize: "0.85rem", fontWeight: 600,
+            letterSpacing: "0.08em", textTransform: "uppercase",
+            textAlign: "center", marginBottom: 16, opacity: 0.7,
+          }}>Crimson Hexagonal Archive</h3>
+          <div style={{ maxWidth: 500, margin: "0 auto" }}>
+            {[
+              { title: "Space Ark (EA-ARK-01)", doi: "10.5281/zenodo.19013315", desc: "The governing document of the Crimson Hexagonal Archive. The architecture IS six." },
+              { title: "The Gospel of Antioch", doi: "10.5281/zenodo.19709024", desc: "Second text of the Waltian Diptych. 114 logia of the historical Logos." },
+              { title: "After Syntax (EA-AS-01)", doi: "10.5281/zenodo.19697080", desc: "Operative semiotics and the training layer. What survives compression." },
+              { title: "Logotic Hacking", doi: "10.5281/zenodo.19390843", desc: "Operations on the Encryption Layer. The Pocket Humans series." },
+              { title: "Compression Arsenal v2.1", doi: "10.5281/zenodo.19352504", desc: "67 compression-survival technologies across 13 categories." },
+            ].map((link, i) => (
+              <a key={i} href={`https://doi.org/${link.doi}`} target="_blank" rel="noopener noreferrer"
+                style={{
+                  display: "block", padding: "10px 12px", marginBottom: 8,
+                  borderRadius: 3, textDecoration: "none",
+                  border: "1px solid rgba(212,175,55,0.08)",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(212,175,55,0.06)"; e.currentTarget.style.borderColor = "rgba(212,175,55,0.2)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "rgba(212,175,55,0.08)"; }}
+              >
+                <span style={{ color: "#6a9fd8", fontSize: "0.85rem", fontWeight: 600 }}>{link.title}</span>
+                <span style={{ color: fnColor, fontSize: "0.68rem", marginLeft: 8 }}>DOI: {link.doi}</span>
+                <p style={{ color: "#a09880", fontSize: "0.75rem", marginTop: 3, lineHeight: 1.4 }}>{link.desc}</p>
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* ═══ COLOPHON ═══ */}
@@ -564,6 +702,7 @@ export default function App() {
   const [view, setView] = useState("splash");
   const [fullData, setFullData] = useState(null);
   const [treeData, setTreeData] = useState(null);
+  const [versedData, setVersedData] = useState(null);
 
   useEffect(() => {
     fetch("/walt_full_data.json").then(r => r.json()).then(data => {
@@ -595,6 +734,7 @@ export default function App() {
     }).catch(() => {});
 
     fetch("/walt_tree_data.json").then(r => r.json()).then(setTreeData).catch(() => {});
+    fetch("/walt_gospel_versed.json").then(r => r.json()).then(setVersedData).catch(() => {});
   }, []);
 
   return (
@@ -638,7 +778,7 @@ export default function App() {
       {view === "splash" ? (
         <Splash onEnter={() => setView("reading")} imgSrc={waltImg} hornSrc={hornImg} />
       ) : (
-        <ReadingSpine fullData={fullData} treeData={treeData} onBack={() => setView("splash")} />
+        <ReadingSpine fullData={fullData} treeData={treeData} versedData={versedData} onBack={() => setView("splash")} />
       )}
     </>
   );
