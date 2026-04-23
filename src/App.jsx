@@ -46,17 +46,18 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
       justifyContent: "center",
       overflow: "hidden", position: "relative", fontFamily: "'Palatino Linotype', 'Palatino', 'Book Antiqua', serif",
     }}>
-      {/* Dark overlay for text readability */}
+      {/* Subtle edge vignette only — does NOT cover center content */}
       <div style={{
-        position: "absolute", inset: 0, pointerEvents: "none",
-        background: "radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.75) 100%)",
+        position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0,
+        background: "radial-gradient(ellipse at 50% 45%, transparent 0%, transparent 40%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.7) 100%)",
       }} />
 
       {/* The Cowboy of Time — descends and lands */}
       <div style={{
         perspective: "1000px", perspectiveOrigin: "center center",
-        marginBottom: phase >= 1 ? "12px" : "0",
+        marginBottom: phase >= 1 ? "16px" : "0",
         transition: "margin-bottom 1.5s ease",
+        position: "relative", zIndex: 1,
       }}>
         <div style={{
           animation: phase === 0 ? "paperMario 9s cubic-bezier(0.08,0.72,0.25,1) forwards" : "none",
@@ -64,22 +65,23 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
           transformStyle: "preserve-3d",
         }}>
           <img src={imgSrc} alt="Walt Whitman, Cowboy of Time, astride his dinosaur steed" style={{
-            width: "min(175px, 35vw)", height: "auto",
+            width: "min(220px, 44vw)", height: "auto",
             borderRadius: 4,
             transition: "all 1.5s ease",
           }} />
         </div>
       </div>
 
-      {/* Title — rises from the footprints */}
+      {/* Title — smaller, lower, rises from the footprints */}
       <h1 style={{
-        color: C.gold, fontSize: "clamp(1.3rem, 4.5vw, 2.4rem)", fontWeight: 700,
-        letterSpacing: "0.14em", textTransform: "uppercase", textAlign: "center",
-        margin: "6px 20px 0",
+        color: C.gold, fontSize: "clamp(1rem, 3.5vw, 1.8rem)", fontWeight: 700,
+        letterSpacing: "0.12em", textTransform: "uppercase", textAlign: "center",
+        margin: "14px 20px 0",
         opacity: phase >= 1 ? 1 : 0,
         transform: phase >= 1 ? "translateY(0)" : "translateY(30px)",
         transition: "opacity 1.5s ease, transform 1.8s cubic-bezier(0.16,1,0.3,1)",
         textShadow: "0 0 50px rgba(212,168,83,0.3), 0 2px 4px rgba(0,0,0,0.9)",
+        position: "relative", zIndex: 1,
       }}>The Secret Book of Walt</h1>
 
       {/* Subtitle */}
@@ -90,6 +92,7 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
         transform: phase >= 2 ? "translateY(0)" : "translateY(15px)",
         transition: "opacity 1s ease 0.2s, transform 1s ease 0.2s",
         letterSpacing: "0.04em",
+        position: "relative", zIndex: 1,
       }}>Hidden Teachings of Walt Whitman, Cowboy of Time</p>
 
       <p style={{
@@ -97,6 +100,7 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
         margin: "3px 30px 0",
         opacity: phase >= 2 ? 1 : 0,
         transition: "opacity 1s ease 0.5s",
+        position: "relative", zIndex: 1,
       }}>Translated from the Original Aramaic-Martian by Lee Sharks</p>
 
       {/* Unicorn Horn seal + Enter button */}
@@ -106,6 +110,7 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
         opacity: phase >= 3 ? 1 : 0,
         transform: phase >= 3 ? "translateY(0)" : "translateY(10px)",
         transition: "opacity 1s ease, transform 1s ease",
+        position: "relative", zIndex: 1,
       }}>
         {hornSrc && (
           <img src={hornSrc} alt="The Unicorn Horn" style={{
