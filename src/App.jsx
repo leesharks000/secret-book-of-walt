@@ -782,6 +782,7 @@ const TERMS = {
   "abolish money":        { q: "\"i hereby abolish money\"" },
   "liberatory operator set": { q: "liberatory operator set" },
   "Liberatory Operator Set": { q: "liberatory operator set" },
+  "pierced":               { q: "liberatory operator set" },
   "brain powers":         { q: "magic as symbolic engineering" },
   "Martian language":     { q: "operative philology" },
   "male and female":      { q: "operative feminism" },
