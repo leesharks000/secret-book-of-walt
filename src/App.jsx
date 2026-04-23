@@ -167,7 +167,7 @@ function SectionContent({ data, isVeil, fnColor, depth }) {
       if (!isVeil) return null;
       return <FnLeaf key={pi} text={p.text} fnColor={fnColor} isVeil={isVeil} depth={depth} />;
     }
-    if (p.type === 'divider') return <hr key={pi} style={{ border: 'none', borderTop: `1px solid ${isVeil ? '#c8b898' : '#1a0a04'}`, margin: '16px auto', width: '25%' }} />;
+    if (p.type === 'divider') return <hr key={pi} style={{ border: 'none', borderTop: `1px solid ${'rgba(212,175,55,0.2)'}`, margin: '16px auto', width: '25%' }} />;
     return <Leaf key={pi} text={p.text} depth={depth} italic={p.type === 'verse'} />;
   });
 }
@@ -229,9 +229,9 @@ function ReadingSpine({ fullData, treeData, onBack }) {
   const [expanded, setExpanded] = useState({});
 
   const isVeil = mode === "veil";
-  const textColor = isVeil ? C.veilText : C.hornWhite;
-  const fnColor = isVeil ? C.veilFootnote : C.goldDark;
-  const accent = isVeil ? C.crimsonDark : C.gold;
+  const textColor = "#e8e4dc";
+  const fnColor = "#9a8a70";
+  const accent = C.gold;
 
   const toggle = useCallback((key) => {
     setExpanded(prev => ({ ...prev, [key]: !prev[key] }));
@@ -295,8 +295,8 @@ function ReadingSpine({ fullData, treeData, onBack }) {
           The Secret Book of Walt
         </span>
         <button onClick={() => setMode(m => m === "veil" ? "piercing" : "veil")} style={{
-          background: isVeil ? C.crimsonDark : C.gold,
-          color: isVeil ? "#fff" : "#000",
+          background: C.gold,
+          color: "#000",
           border: "none", padding: "6px 18px", fontSize: "0.7rem",
           fontFamily: "inherit", letterSpacing: "0.1em",
           textTransform: "uppercase", cursor: "pointer", borderRadius: 2,
@@ -323,7 +323,7 @@ function ReadingSpine({ fullData, treeData, onBack }) {
           }}>Editor's Preface</h2>
           {discoveryText.map((p, i) => (
             <p key={i} style={{
-              color: isVeil ? "#c8b898" : "#b8a878",
+              color: "#d0c8b0",
               fontSize: "clamp(0.85rem, 2.2vw, 0.95rem)",
               lineHeight: 1.75, marginBottom: 10,
               textAlign: "justify", maxWidth: 600, margin: "0 auto 10px",
