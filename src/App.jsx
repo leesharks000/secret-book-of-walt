@@ -41,7 +41,7 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
       background: "radial-gradient(ellipse at 50% 40%, #12060a 0%, #080004 40%, #020001 70%, #000 100%)",
       display: "flex", flexDirection: "column", alignItems: "center",
       justifyContent: "center",
-      overflow: "hidden", position: "relative", fontFamily: "'Cormorant Garamond', serif",
+      overflow: "hidden", position: "relative", fontFamily: "'Palatino Linotype', 'Palatino', 'Book Antiqua', serif",
     }}>
       <Stars />
 
@@ -111,7 +111,7 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
         <button onClick={handleEnter} style={{
           background: "transparent", border: `1px solid ${C.gold}`, color: C.gold,
           padding: "10px 36px", fontSize: "clamp(0.75rem, 1.8vw, 0.9rem)",
-          fontFamily: "'Cormorant Garamond', serif",
+          fontFamily: "'Palatino Linotype', 'Palatino', 'Book Antiqua', serif",
           letterSpacing: "0.2em", textTransform: "uppercase", cursor: "pointer",
           pointerEvents: phase >= 3 ? "auto" : "none",
           transition: "all 0.3s ease",
@@ -165,7 +165,23 @@ function Stars() {
 /* ─── EXPANDABLE TREE ─── */
 
 /* ─── THE HYPOSTATIC TREE ─── */
-function ReadingSpine({ sections, treeData, onBack }) {
+
+/* ─── SECTION RENDERER ─── */
+function SectionContent({ data, isVeil, fnColor, depth }) {
+  if (!data?.paragraphs) return null;
+  return data.paragraphs.map((p, pi) => {
+    if (p.type === 'heading' || p.type === 'subheading') return null; // handled by tree node
+    if (p.type === 'footnote') {
+      if (!isVeil) return null;
+      return <FnLeaf key={pi} text={p.text} fnColor={fnColor} isVeil={isVeil} depth={depth} />;
+    }
+    if (p.type === 'divider') return <hr key={pi} style={{ border: 'none', borderTop: `1px solid ${isVeil ? '#c8b898' : '#1a0a04'}`, margin: '16px auto', width: '25%' }} />;
+    return <Leaf key={pi} text={p.text} depth={depth} italic={p.type === 'verse'} />;
+  });
+}
+
+/* ─── THE HYPOSTATIC TREE ─── */
+function ReadingSpine({ fullData, treeData, onBack }) {
   const [mode, setMode] = useState("veil");
   const [expanded, setExpanded] = useState({});
 
@@ -179,7 +195,14 @@ function ReadingSpine({ sections, treeData, onBack }) {
     setExpanded(prev => ({ ...prev, [key]: !prev[key] }));
   }, []);
 
-  const groups = [
+  // Gospel sections from the original parsed data
+  const gospelSections = fullData?.gospel_sections || [];
+  const sectionMap = {};
+  for (const sec of gospelSections) {
+    if (sec.paragraphs?.length > 0) sectionMap[sec.num] = sec;
+  }
+
+  const gospelGroups = [
     { key: "emanation", label: "The Emanation", icon: "◈", nums: ["I", "II", "III", "IV", "V"] },
     { key: "cosmos", label: "The Cosmos", icon: "◉", nums: ["VI", "VII", "VIII"] },
     { key: "imprisonment", label: "The Imprisonment", icon: "◇", nums: ["IX"] },
@@ -187,15 +210,27 @@ function ReadingSpine({ sections, treeData, onBack }) {
     { key: "melding", label: "The Return", icon: "○", nums: ["XIII", "AW"] },
   ];
 
-  const sectionMap = {};
-  for (const sec of sections) {
-    if (sec.paragraphs.length > 0) sectionMap[sec.num] = sec;
-  }
+  const introSubs = fullData?.intro_subsections || [];
+
+  const appendices = [
+    { key: "appendix_a", label: "A. Concordance of Aeons" },
+    { key: "appendix_b", label: "B. Structural Parallel to the Apocryphon of John" },
+    { key: "appendix_c", label: "C. The Unicorn Horn Soteriology" },
+    { key: "appendix_d", label: "D. The Rite of the Horn" },
+    { key: "appendix_e", label: "E. The Rule of Biblios" },
+    { key: "appendix_f", label: "F. The Creed of the Deep Web" },
+    { key: "appendix_g", label: "G. Glossary of Key Terms" },
+    { key: "appendix_h", label: "H. The Waltian System" },
+    { key: "appendix_i", label: "I. Codicological Table" },
+    { key: "appendix_j", label: "J. Liturgical Fragment" },
+    { key: "appendix_k", label: "K. Reception History" },
+    { key: "bibliography", label: "Selected Bibliography" },
+  ];
 
   return (
     <div style={{
       minHeight: "100vh", background: bg, color: textColor,
-      fontFamily: "'Cormorant Garamond', serif",
+      fontFamily: "'Palatino Linotype', 'Palatino', 'Book Antiqua', 'Georgia', serif",
       transition: "background 0.8s ease, color 0.8s ease",
     }}>
       {/* Header */}
@@ -205,16 +240,17 @@ function ReadingSpine({ sections, treeData, onBack }) {
         borderBottom: `1px solid ${isVeil ? "#d8d0b8" : "#1a0a08"}`,
         padding: "8px 20px", display: "flex", alignItems: "center", justifyContent: "space-between",
         backdropFilter: "blur(8px)", transition: "all 0.8s ease",
+        fontFamily: "'Palatino Linotype', 'Palatino', serif",
       }}>
         <button onClick={onBack} style={{
           background: "none", border: "none", color: accent, cursor: "pointer",
-          fontFamily: "'Cormorant Garamond', serif", fontSize: "0.85rem",
+          fontFamily: "inherit", fontSize: "0.85rem",
         }}>← Splash</button>
         <button onClick={() => setMode(m => m === "veil" ? "piercing" : "veil")} style={{
           background: isVeil ? C.crimsonDark : C.gold,
           color: isVeil ? "#fff" : "#000",
-          border: "none", padding: "6px 18px", fontSize: "0.75rem",
-          fontFamily: "'Cormorant Garamond', serif", letterSpacing: "0.1em",
+          border: "none", padding: "6px 18px", fontSize: "0.72rem",
+          fontFamily: "inherit", letterSpacing: "0.1em",
           textTransform: "uppercase", cursor: "pointer", borderRadius: 2,
         }}>
           {isVeil ? "⚡ Pierce" : "🕶 Veil"}
@@ -223,82 +259,169 @@ function ReadingSpine({ sections, treeData, onBack }) {
 
       {/* The Tree */}
       <div style={{ maxWidth: 760, margin: "0 auto", padding: "30px 20px 80px" }}>
-        {/* ROOT NODE */}
-        <TreeNode
-          nodeKey="root" label="THE DEEP WEB" depth={0}
+
+        {/* ROOT */}
+        <TreeNode nodeKey="root" label="THE DEEP WEB" depth={0}
           expanded={expanded} toggle={toggle}
           isVeil={isVeil} accent={accent} fnColor={fnColor}
-          icon="∞"
-          sublabel="Before the beginning was the Deep Web, and in the Deep Web was everything that ever was or will be."
-        >
-          {groups.map(group => (
-            <TreeNode
-              key={group.key} nodeKey={group.key} label={group.label} depth={1}
-              expanded={expanded} toggle={toggle}
-              isVeil={isVeil} accent={accent} fnColor={fnColor} icon={group.icon}
-            >
-              {group.nums.map(num => {
-                const sec = sectionMap[num];
-                if (!sec) return null;
-                const secKey = `s_${num}`;
-                const isArchons = num === "VI" && treeData?.archons;
-                const isPraise = num === "VIII" && treeData?.praise_names;
+          icon="∞" sublabel="Before the beginning was the Deep Web, and in the Deep Web was everything that ever was or will be.">
 
-                return (
-                  <TreeNode
-                    key={secKey} nodeKey={secKey}
-                    label={`${num !== "AW" ? `§${num}. ` : ""}${sec.title}`}
-                    depth={2}
-                    expanded={expanded} toggle={toggle}
-                    isVeil={isVeil} accent={accent} fnColor={fnColor}
-                  >
-                    {isArchons ? (
-                      treeData.archons.map((item, i) => {
-                        if (item.type === "preamble") return <Leaf key={i} text={item.text} depth={3} />;
-                        const k = `a${i}`;
-                        return (
-                          <TreeNode key={k} nodeKey={k}
-                            label={item.name || item.text} depth={3}
-                            expanded={expanded} toggle={toggle}
-                            isVeil={isVeil} accent={accent} fnColor={fnColor}
-                            small hasFn={item.footnotes?.length > 0}
-                          >
-                            {item.text !== item.name && <Leaf text={item.text} depth={4} />}
-                            {isVeil && item.footnotes?.map((fn, fi) => <FnLeaf key={fi} text={fn} fnColor={fnColor} isVeil={isVeil} depth={4} />)}
-                          </TreeNode>
-                        );
-                      })
-                    ) : isPraise ? (
-                      treeData.praise_names.map((item, i) => {
-                        const k = `p${i}`;
-                        const hasFn = item.footnotes?.length > 0;
-                        return hasFn ? (
-                          <TreeNode key={k} nodeKey={k}
-                            label={item.name} depth={3}
-                            expanded={expanded} toggle={toggle}
-                            isVeil={isVeil} accent={accent} fnColor={fnColor}
-                            small italic hasFn
-                          >
-                            {isVeil && item.footnotes.map((fn, fi) => <FnLeaf key={fi} text={fn} fnColor={fnColor} isVeil={isVeil} depth={4} />)}
-                          </TreeNode>
-                        ) : (
-                          <Leaf key={k} text={item.name} depth={3} italic />
-                        );
-                      })
-                    ) : (
-                      sec.paragraphs.map((p, pi) => {
-                        if (p.type === "footnote") {
-                          if (!isVeil) return null;
-                          return <FnLeaf key={pi} text={p.text} fnColor={fnColor} isVeil={isVeil} depth={3} />;
-                        }
-                        return <Leaf key={pi} text={p.text} depth={3} italic={p.type === "verse"} />;
-                      })
-                    )}
-                  </TreeNode>
-                );
-              })}
+          {/* ── THE GOLDEN TICKETS (front matter) ── */}
+          <TreeNode nodeKey="front" label="The Golden Tickets" depth={1}
+            expanded={expanded} toggle={toggle}
+            isVeil={isVeil} accent={accent} fnColor={fnColor} icon="✧">
+
+            {/* Prefatory Poem */}
+            <TreeNode nodeKey="prefatory_poem" label="Prefatory Poem" depth={2}
+              expanded={expanded} toggle={toggle}
+              isVeil={isVeil} accent={accent} fnColor={fnColor}>
+              <SectionContent data={fullData?.prefatory_poem} isVeil={isVeil} fnColor={fnColor} depth={3} />
             </TreeNode>
-          ))}
+
+            {/* Preface */}
+            <TreeNode nodeKey="preface" label="Preface to the Preserved Generation" depth={2}
+              expanded={expanded} toggle={toggle}
+              isVeil={isVeil} accent={accent} fnColor={fnColor}>
+              <SectionContent data={fullData?.preface} isVeil={isVeil} fnColor={fnColor} depth={3} />
+            </TreeNode>
+
+            {/* Editor's Preface */}
+            <TreeNode nodeKey="editors_preface" label="Editor's Preface" depth={2}
+              expanded={expanded} toggle={toggle}
+              isVeil={isVeil} accent={accent} fnColor={fnColor}>
+              <SectionContent data={fullData?.editors_preface} isVeil={isVeil} fnColor={fnColor} depth={3} />
+            </TreeNode>
+
+            {/* Introduction — with subsections */}
+            <TreeNode nodeKey="introduction" label="Introduction" depth={2}
+              expanded={expanded} toggle={toggle}
+              isVeil={isVeil} accent={accent} fnColor={fnColor}>
+              {introSubs.map((sub, si) => (
+                <TreeNode key={`intro_${si}`} nodeKey={`intro_${si}`}
+                  label={sub.title} depth={3}
+                  expanded={expanded} toggle={toggle}
+                  isVeil={isVeil} accent={accent} fnColor={fnColor} small>
+                  {sub.paragraphs.map((p, pi) => {
+                    if (p.type === 'footnote') {
+                      if (!isVeil) return null;
+                      return <FnLeaf key={pi} text={p.text} fnColor={fnColor} isVeil={isVeil} depth={4} />;
+                    }
+                    return <Leaf key={pi} text={p.text} depth={4} />;
+                  })}
+                </TreeNode>
+              ))}
+            </TreeNode>
+          </TreeNode>
+
+          {/* ── THE NOTES (paratextual apparatus) ── */}
+          <TreeNode nodeKey="notes" label="The Notes" depth={1}
+            expanded={expanded} toggle={toggle}
+            isVeil={isVeil} accent={accent} fnColor={fnColor} icon="◊">
+
+            <TreeNode nodeKey="redford" label="Note on the Redford Discovery" depth={2}
+              expanded={expanded} toggle={toggle}
+              isVeil={isVeil} accent={accent} fnColor={fnColor}>
+              <SectionContent data={fullData?.redford} isVeil={isVeil} fnColor={fnColor} depth={3} />
+            </TreeNode>
+
+            <TreeNode nodeKey="translator" label="Translator's Note" depth={2}
+              expanded={expanded} toggle={toggle}
+              isVeil={isVeil} accent={accent} fnColor={fnColor}>
+              <SectionContent data={fullData?.translator} isVeil={isVeil} fnColor={fnColor} depth={3} />
+            </TreeNode>
+
+            <TreeNode nodeKey="manuscripts" label="Note on the Manuscripts and Variant Readings" depth={2}
+              expanded={expanded} toggle={toggle}
+              isVeil={isVeil} accent={accent} fnColor={fnColor}>
+              <SectionContent data={fullData?.manuscripts} isVeil={isVeil} fnColor={fnColor} depth={3} />
+            </TreeNode>
+
+            <TreeNode nodeKey="note_text" label="Note on the Text" depth={2}
+              expanded={expanded} toggle={toggle}
+              isVeil={isVeil} accent={accent} fnColor={fnColor}>
+              <SectionContent data={fullData?.note_text} isVeil={isVeil} fnColor={fnColor} depth={3} />
+            </TreeNode>
+          </TreeNode>
+
+          {/* ── THE GOSPEL ── */}
+          <TreeNode nodeKey="gospel_root" label="The Gospel" depth={1}
+            expanded={expanded} toggle={toggle}
+            isVeil={isVeil} accent={accent} fnColor={fnColor} icon="☩">
+
+            {gospelGroups.map(group => (
+              <TreeNode key={group.key} nodeKey={group.key} label={group.label} depth={2}
+                expanded={expanded} toggle={toggle}
+                isVeil={isVeil} accent={accent} fnColor={fnColor} icon={group.icon}>
+
+                {group.nums.map(num => {
+                  const sec = sectionMap[num];
+                  if (!sec) return null;
+                  const secKey = `s_${num}`;
+                  const isArchons = num === "VI" && treeData?.archons;
+                  const isPraise = num === "VIII" && treeData?.praise_names;
+
+                  return (
+                    <TreeNode key={secKey} nodeKey={secKey}
+                      label={`${num !== "AW" ? `§${num}. ` : ""}${sec.title}`} depth={3}
+                      expanded={expanded} toggle={toggle}
+                      isVeil={isVeil} accent={accent} fnColor={fnColor}>
+
+                      {isArchons ? (
+                        treeData.archons.map((item, i) => {
+                          if (item.type === "preamble") return <Leaf key={i} text={item.text} depth={4} />;
+                          const k = `a${i}`;
+                          return (
+                            <TreeNode key={k} nodeKey={k} label={item.name || item.text} depth={4}
+                              expanded={expanded} toggle={toggle}
+                              isVeil={isVeil} accent={accent} fnColor={fnColor}
+                              small hasFn={item.footnotes?.length > 0}>
+                              {item.text !== item.name && <Leaf text={item.text} depth={5} />}
+                              {isVeil && item.footnotes?.map((fn, fi) => <FnLeaf key={fi} text={fn} fnColor={fnColor} isVeil={isVeil} depth={5} />)}
+                            </TreeNode>
+                          );
+                        })
+                      ) : isPraise ? (
+                        treeData.praise_names.map((item, i) => {
+                          const k = `p${i}`;
+                          const hasFn = item.footnotes?.length > 0;
+                          return hasFn ? (
+                            <TreeNode key={k} nodeKey={k} label={item.name} depth={4}
+                              expanded={expanded} toggle={toggle}
+                              isVeil={isVeil} accent={accent} fnColor={fnColor}
+                              small italic hasFn>
+                              {isVeil && item.footnotes.map((fn, fi) => <FnLeaf key={fi} text={fn} fnColor={fnColor} isVeil={isVeil} depth={5} />)}
+                            </TreeNode>
+                          ) : <Leaf key={k} text={item.name} depth={4} italic />;
+                        })
+                      ) : (
+                        sec.paragraphs.map((p, pi) => {
+                          if (p.type === "footnote") {
+                            if (!isVeil) return null;
+                            return <FnLeaf key={pi} text={p.text} fnColor={fnColor} isVeil={isVeil} depth={4} />;
+                          }
+                          return <Leaf key={pi} text={p.text} depth={4} italic={p.type === "verse"} />;
+                        })
+                      )}
+                    </TreeNode>
+                  );
+                })}
+              </TreeNode>
+            ))}
+          </TreeNode>
+
+          {/* ── THE APPARATUS (appendices + bibliography) ── */}
+          <TreeNode nodeKey="apparatus" label="The Apparatus" depth={1}
+            expanded={expanded} toggle={toggle}
+            isVeil={isVeil} accent={accent} fnColor={fnColor} icon="⊕">
+
+            {appendices.map(app => (
+              <TreeNode key={app.key} nodeKey={app.key} label={app.label} depth={2}
+                expanded={expanded} toggle={toggle}
+                isVeil={isVeil} accent={accent} fnColor={fnColor}>
+                <SectionContent data={fullData?.[app.key]} isVeil={isVeil} fnColor={fnColor} depth={3} />
+              </TreeNode>
+            ))}
+          </TreeNode>
 
           {/* Colophon */}
           <div style={{
@@ -308,7 +431,7 @@ function ReadingSpine({ sections, treeData, onBack }) {
             <p style={{ color: accent, fontSize: "1rem", fontStyle: "italic" }}>
               The Gospel According to the Secret Book of Walt
             </p>
-            <p style={{ color: fnColor, fontSize: "0.75rem", letterSpacing: "0.1em", marginTop: 6 }}>
+            <p style={{ color: fnColor, fontSize: "0.72rem", letterSpacing: "0.1em", marginTop: 6 }}>
               DOI: 10.5281/zenodo.19703009 · 06.LIT.GNOSTIC.WALT.01
             </p>
             <p style={{ color: accent, fontSize: "1.1rem", marginTop: 12 }}>∮ = 1</p>
@@ -322,7 +445,7 @@ function ReadingSpine({ sections, treeData, onBack }) {
           background: "rgba(10,0,0,0.92)", borderTop: `1px solid ${C.goldDark}`,
           padding: "8px 20px", textAlign: "center", backdropFilter: "blur(8px)",
         }}>
-          <p style={{ color: C.goldDim, fontSize: "0.72rem", fontStyle: "italic", letterSpacing: "0.08em" }}>
+          <p style={{ color: C.goldDim, fontSize: "0.7rem", fontStyle: "italic", letterSpacing: "0.06em" }}>
             I believe in the Deep Web, the invisible archive · I believe in Walt Whitman, Cowboy of Time ·
             I believe in the Unicorn Horn, piercing all veils · ∮ = 1
           </p>
@@ -335,59 +458,48 @@ function ReadingSpine({ sections, treeData, onBack }) {
 /* ─── TREE NODE ─── */
 function TreeNode({ nodeKey, label, depth, expanded, toggle, isVeil, accent, fnColor, icon, sublabel, children, small, italic, hasFn }) {
   const isOpen = expanded[nodeKey];
-  const indent = Math.min(depth, 3) * 16;
-  const fontSize = depth === 0 ? "clamp(1.4rem, 4vw, 2rem)"
-    : depth === 1 ? "clamp(1rem, 3vw, 1.25rem)"
-    : depth === 2 ? "clamp(0.92rem, 2.5vw, 1.05rem)"
-    : "clamp(0.85rem, 2.2vw, 0.95rem)";
-  const weight = depth <= 1 ? 700 : depth === 2 ? 600 : 400;
+  const indent = Math.min(depth, 4) * 14;
+  const fontSize = depth === 0 ? "clamp(1.3rem, 4vw, 1.9rem)"
+    : depth === 1 ? "clamp(0.95rem, 2.8vw, 1.15rem)"
+    : depth === 2 ? "clamp(0.88rem, 2.4vw, 1.02rem)"
+    : depth === 3 ? "clamp(0.84rem, 2.2vw, 0.95rem)"
+    : "clamp(0.8rem, 2vw, 0.9rem)";
+  const weight = depth <= 1 ? 700 : depth === 2 ? 600 : depth === 3 ? 500 : 400;
 
   return (
     <div style={{ marginLeft: indent }}>
-      <div
-        onClick={() => toggle(nodeKey)}
-        style={{
-          padding: depth === 0 ? "14px 0" : depth <= 2 ? "8px 6px" : "4px 6px",
-          cursor: "pointer",
-          display: "flex", alignItems: "flex-start", gap: 7,
-          borderRadius: 3,
-        }}
-        onMouseEnter={e => e.currentTarget.style.background = isVeil ? "rgba(139,10,30,0.04)" : "rgba(212,175,55,0.04)"}
-        onMouseLeave={e => e.currentTarget.style.background = "transparent"}
-      >
+      <div onClick={() => toggle(nodeKey)} style={{
+        padding: depth === 0 ? "12px 0" : depth <= 2 ? "7px 5px" : "3px 5px",
+        cursor: "pointer", display: "flex", alignItems: "flex-start", gap: 6,
+        borderRadius: 2,
+      }}
+      onMouseEnter={e => e.currentTarget.style.background = isVeil ? "rgba(139,10,30,0.035)" : "rgba(212,175,55,0.035)"}
+      onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
         <span style={{
-          color: accent, fontSize: small ? "0.55rem" : "0.65rem",
-          marginTop: small ? 3 : depth === 0 ? 8 : 5,
-          minWidth: 10,
+          color: accent, fontSize: small ? "0.5rem" : "0.6rem",
+          marginTop: small ? 3 : depth === 0 ? 7 : 4, minWidth: 9,
           transform: isOpen ? "rotate(90deg)" : "rotate(0deg)",
-          transition: "transform 0.2s ease",
-          display: "inline-block", opacity: 0.6,
+          transition: "transform 0.2s ease", display: "inline-block", opacity: 0.55,
         }}>▸</span>
-
-        {icon && <span style={{ color: accent, fontSize: depth === 0 ? "1.3rem" : "0.85rem", opacity: 0.5, marginTop: 1 }}>{icon}</span>}
-
+        {icon && <span style={{ color: accent, fontSize: depth === 0 ? "1.2rem" : "0.8rem", opacity: 0.45, marginTop: 1 }}>{icon}</span>}
         <div style={{ flex: 1 }}>
           <span style={{
             fontSize, fontWeight: weight, color: accent,
-            letterSpacing: depth <= 1 ? "0.08em" : "0.02em",
+            letterSpacing: depth <= 1 ? "0.06em" : "0.01em",
             fontStyle: italic ? "italic" : "normal",
             textTransform: depth === 0 ? "uppercase" : "none",
           }}>{label}</span>
-          {hasFn && !isOpen && <span style={{ color: fnColor, fontSize: "0.55rem", marginLeft: 5, opacity: 0.4 }}>✦</span>}
+          {hasFn && !isOpen && <span style={{ color: fnColor, fontSize: "0.5rem", marginLeft: 4, opacity: 0.4 }}>✦</span>}
           {sublabel && !isOpen && (
-            <p style={{ color: fnColor, fontSize: "0.8rem", fontStyle: "italic", marginTop: 3, opacity: 0.6, lineHeight: 1.4 }}>{sublabel}</p>
+            <p style={{ color: fnColor, fontSize: "0.78rem", fontStyle: "italic", marginTop: 2, opacity: 0.55, lineHeight: 1.35 }}>{sublabel}</p>
           )}
         </div>
       </div>
-
       {isOpen && (
         <div style={{
-          borderLeft: `1px solid ${isVeil ? "rgba(139,10,30,0.1)" : "rgba(212,175,55,0.1)"}`,
-          marginLeft: 5, paddingLeft: 6,
-          animation: "fadeIn 0.25s ease",
-        }}>
-          {children}
-        </div>
+          borderLeft: `1px solid ${isVeil ? "rgba(139,10,30,0.08)" : "rgba(212,175,55,0.08)"}`,
+          marginLeft: 4, paddingLeft: 5, animation: "fadeIn 0.25s ease",
+        }}>{children}</div>
       )}
     </div>
   );
@@ -396,26 +508,25 @@ function TreeNode({ nodeKey, label, depth, expanded, toggle, isVeil, accent, fnC
 /* ─── LEAF ─── */
 function Leaf({ text, depth, italic }) {
   if (!text?.trim()) return null;
-  const indent = Math.min(depth, 3) * 16;
+  const indent = Math.min(depth, 4) * 14;
   return (
     <p style={{
-      marginLeft: indent, padding: "3px 6px",
-      fontSize: "clamp(0.88rem, 2.2vw, 1rem)", lineHeight: 1.7, marginBottom: 6,
+      marginLeft: indent, padding: "2px 5px",
+      fontSize: "clamp(0.85rem, 2.1vw, 0.96rem)", lineHeight: 1.7, marginBottom: 5,
       textAlign: "justify",
       fontStyle: italic ? "italic" : "normal",
-      paddingLeft: italic ? (indent + 14) : undefined,
     }}>{text}</p>
   );
 }
 
 /* ─── FOOTNOTE LEAF ─── */
 function FnLeaf({ text, fnColor, isVeil, depth }) {
-  const indent = Math.min(depth, 3) * 16;
+  const indent = Math.min(depth, 4) * 14;
   return (
     <div style={{
-      marginLeft: indent, padding: "2px 6px",
-      fontSize: "0.78rem", color: fnColor, lineHeight: 1.45,
-      marginBottom: 4, paddingLeft: indent + 10,
+      marginLeft: indent, padding: "2px 5px",
+      fontSize: "0.76rem", color: fnColor, lineHeight: 1.4,
+      marginBottom: 3, paddingLeft: indent + 8,
       borderLeft: `2px solid ${isVeil ? "#d8c898" : "#2a1808"}`,
       opacity: 0.8,
     }}>{text}</div>
@@ -425,13 +536,40 @@ function FnLeaf({ text, fnColor, isVeil, depth }) {
 /* ─── APP ─── */
 export default function App() {
   const [view, setView] = useState("splash");
-  const [sections, setSections] = useState([]);
+  const [fullData, setFullData] = useState(null);
   const [treeData, setTreeData] = useState(null);
   const [imgSrc, setImgSrc] = useState(null);
   const [hornSrc, setHornSrc] = useState(null);
 
   useEffect(() => {
-    fetch("/walt_gospel_data.json").then(r => r.json()).then(setSections).catch(() => {});
+    fetch("/walt_full_data.json").then(r => r.json()).then(data => {
+      // Also extract gospel sections for the tree
+      if (data.gospel) {
+        // Parse gospel sections from the gospel data
+        const gospelParas = data.gospel.paragraphs || [];
+        const sections = [];
+        let current = null;
+        for (const p of gospelParas) {
+          if (p.type === 'subheading') {
+            const m = p.text.match(/§([IVX]+)\.\s+(.+)/);
+            const aw = p.text.match(/Afterword/);
+            if (m) {
+              if (current) sections.push(current);
+              current = { num: m[1], title: m[2], paragraphs: [] };
+            } else if (aw) {
+              if (current) sections.push(current);
+              current = { num: 'AW', title: 'Afterword', paragraphs: [] };
+            }
+          } else if (current) {
+            current.paragraphs.push(p);
+          }
+        }
+        if (current) sections.push(current);
+        data.gospel_sections = sections;
+      }
+      setFullData(data);
+    }).catch(() => {});
+
     fetch("/walt_tree_data.json").then(r => r.json()).then(setTreeData).catch(() => {});
     fetch("/whitman_on_a_dinosaur.png").then(r => r.blob()).then(b => setImgSrc(URL.createObjectURL(b))).catch(() => {});
     fetch("/horn_logo.png").then(r => r.blob()).then(b => setHornSrc(URL.createObjectURL(b))).catch(() => {});
@@ -472,15 +610,14 @@ export default function App() {
           background: rgba(220, 20, 60, 0.3);
           color: inherit;
         }
-        body { overflow-x: hidden; }
+        body { overflow-x: hidden; font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif; }
         html { scroll-behavior: smooth; }
       `}</style>
 
       {view === "splash" ? (
         <Splash onEnter={() => setView("reading")} imgSrc={imgSrc} hornSrc={hornSrc} />
       ) : (
-        <ReadingSpine sections={sections} treeData={treeData} onBack={() => setView("splash")} />
-      )}
+        <ReadingSpine fullData={fullData} treeData={treeData} onBack={() => setView("splash")} />
       )}
     </>
   );
