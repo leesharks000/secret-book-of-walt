@@ -565,29 +565,27 @@ export default function App() {
     <>
       <style>{`
         @keyframes paperMario {
-          0%   { transform: translateY(-180vh) rotateY(0deg) scale(0.015); opacity: 0; }
-          1%   { transform: translateY(-178vh) rotateY(15deg) scale(0.017); opacity: 0.08; }
-          3%   { transform: translateY(-172vh) rotateY(45deg) scale(0.02); opacity: 0.15; }
-          5%   { transform: translateY(-165vh) rotateY(90deg) scale(0.025); opacity: 0.22; }
-          8%   { transform: translateY(-155vh) rotateY(160deg) scale(0.035); opacity: 0.3; }
-          11%  { transform: translateY(-142vh) rotateY(250deg) scale(0.05); opacity: 0.38; }
-          15%  { transform: translateY(-128vh) rotateY(360deg) scale(0.07); opacity: 0.46; }
-          19%  { transform: translateY(-114vh) rotateY(480deg) scale(0.10); opacity: 0.53; }
-          23%  { transform: translateY(-100vh) rotateY(600deg) scale(0.14); opacity: 0.60; }
-          28%  { transform: translateY(-86vh) rotateY(720deg) scale(0.19); opacity: 0.67; }
-          33%  { transform: translateY(-72vh) rotateY(830deg) scale(0.25); opacity: 0.74; }
-          38%  { transform: translateY(-60vh) rotateY(930deg) scale(0.32); opacity: 0.80; }
-          44%  { transform: translateY(-48vh) rotateY(1020deg) scale(0.40); opacity: 0.86; }
-          50%  { transform: translateY(-38vh) rotateY(1090deg) scale(0.48); opacity: 0.91; }
-          56%  { transform: translateY(-28vh) rotateY(1150deg) scale(0.56); opacity: 0.95; }
-          62%  { transform: translateY(-20vh) rotateY(1210deg) scale(0.64); opacity: 0.98; }
-          68%  { transform: translateY(-14vh) rotateY(1265deg) scale(0.72); opacity: 1; }
-          74%  { transform: translateY(-8vh) rotateY(1315deg) scale(0.80); }
-          80%  { transform: translateY(-4vh) rotateY(1355deg) scale(0.87); }
-          86%  { transform: translateY(-1vh) rotateY(1390deg) scale(0.93); }
-          91%  { transform: translateY(1vh) rotateY(1420deg) scale(0.97); }
-          95%  { transform: translateY(-0.3vh) rotateY(1435deg) scale(0.99); }
-          98%  { transform: translateY(0.1vh) rotateY(1439deg) scale(1.0); }
+          0%   { transform: translateY(-180vh) rotateY(0deg) scale(0.03); opacity: 0; }
+          1%   { transform: translateY(-176vh) rotateY(20deg) scale(0.035); opacity: 0.25; }
+          3%   { transform: translateY(-168vh) rotateY(60deg) scale(0.045); opacity: 0.4; }
+          6%   { transform: translateY(-155vh) rotateY(130deg) scale(0.06); opacity: 0.5; }
+          10%  { transform: translateY(-140vh) rotateY(240deg) scale(0.08); opacity: 0.58; }
+          14%  { transform: translateY(-125vh) rotateY(360deg) scale(0.11); opacity: 0.65; }
+          19%  { transform: translateY(-108vh) rotateY(500deg) scale(0.15); opacity: 0.72; }
+          24%  { transform: translateY(-92vh) rotateY(640deg) scale(0.20); opacity: 0.78; }
+          29%  { transform: translateY(-78vh) rotateY(770deg) scale(0.27); opacity: 0.83; }
+          35%  { transform: translateY(-64vh) rotateY(890deg) scale(0.34); opacity: 0.88; }
+          41%  { transform: translateY(-52vh) rotateY(990deg) scale(0.42); opacity: 0.92; }
+          47%  { transform: translateY(-40vh) rotateY(1070deg) scale(0.50); opacity: 0.95; }
+          53%  { transform: translateY(-30vh) rotateY(1140deg) scale(0.58); opacity: 0.98; }
+          59%  { transform: translateY(-22vh) rotateY(1200deg) scale(0.65); opacity: 1; }
+          65%  { transform: translateY(-15vh) rotateY(1255deg) scale(0.72); }
+          71%  { transform: translateY(-9vh) rotateY(1305deg) scale(0.79); }
+          77%  { transform: translateY(-5vh) rotateY(1345deg) scale(0.86); }
+          83%  { transform: translateY(-2vh) rotateY(1380deg) scale(0.92); }
+          88%  { transform: translateY(0.5vh) rotateY(1410deg) scale(0.96); }
+          93%  { transform: translateY(-0.3vh) rotateY(1430deg) scale(0.99); }
+          97%  { transform: translateY(0.1vh) rotateY(1438deg) scale(1.0); }
           100% { transform: translateY(0) rotateY(1440deg) scale(1.0); opacity: 1; }
         }
         @keyframes fadeIn {
