@@ -180,8 +180,8 @@ function SectionContent({ data, isVeil, fnColor, depth }) {
       return <FnLeaf key={pi} text={p.text} fnColor={fnColor} isVeil={isVeil} depth={depth} />;
     }
     if (p.type === 'divider') return <hr key={pi} style={{ border: 'none', borderTop: `1px solid ${'rgba(212,175,55,0.2)'}`, margin: '16px auto', width: '25%' }} />;
-    if (p.type === 'table') return <p key={pi} style={{ marginLeft: Math.min(depth,4)*14, padding: "2px 5px", fontSize: "0.78rem", lineHeight: 1.5, marginBottom: 3, color: "#b0a080", fontFamily: "monospace", letterSpacing: "-0.02em" }}>{p.text}</p>;
-    if (p.type === 'list') return <p key={pi} style={{ marginLeft: Math.min(depth,4)*14 + 12, padding: "2px 5px", fontSize: "clamp(0.8rem, 2vw, 0.9rem)", lineHeight: 1.65, marginBottom: 4, textIndent: "-0.8em", paddingLeft: "0.8em" }}>• {p.text}</p>;
+    if (p.type === 'table') return <p key={pi} style={{ marginLeft: Math.min(depth,4)*14, padding: "2px 5px", fontSize: "0.78rem", lineHeight: 1.5, marginBottom: 3, color: "#b0a080", fontFamily: "monospace", letterSpacing: "-0.02em" }}><LinkedText text={p.text} /></p>;
+    if (p.type === 'list') return <p key={pi} style={{ marginLeft: Math.min(depth,4)*14 + 12, padding: "2px 5px", fontSize: "clamp(0.8rem, 2vw, 0.9rem)", lineHeight: 1.65, marginBottom: 4, textIndent: "-0.8em", paddingLeft: "0.8em" }}>• <LinkedText text={p.text} /></p>;
     return <Leaf key={pi} text={p.text} depth={depth} italic={p.type === 'verse'} />;
   });
 }
@@ -251,7 +251,7 @@ function GospelSection({ sec, versedSec, treeData, expanded, toggle, isVeil, acc
                 opacity: 0.8, animation: "fadeIn 0.2s ease",
               }}>
                 <span style={{ color: accent, fontSize: "0.65rem", marginRight: 4 }}>{v.fn_id}</span>
-                {v.text}
+                <LinkedText text={v.text} />
               </div>
             );
           }
@@ -333,7 +333,7 @@ function Verse({ v, sectionNum, accent, fnColor, isVeil, onFnClick }) {
           onBlur={e => e.target.style.color = "#6a9fd8"}
           >{p.id}</span>
         ) : (
-          <span key={i}>{p.content}</span>
+          <span key={i}><LinkedText text={p.content} /></span>
         ))}
       </span>
     </div>
@@ -480,7 +480,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
               lineHeight: 1.75, marginBottom: 10,
               textAlign: "justify", maxWidth: 600, margin: "0 auto 10px",
               opacity: 0.85,
-            }}>{p.text}</p>
+            }}><LinkedText text={p.text} /></p>
           ))}
         </div>
 
@@ -736,6 +736,102 @@ function TreeNode({ nodeKey, label, depth, expanded, toggle, isVeil, accent, fnC
   );
 }
 
+/* ─── INSTALLED NODES — terms that link to Google searches ─── */
+const TERMS = {
+  "retrocausal": "retrocausal canon formation",
+  "retrocausally": "retrocausal canon formation Lee Sharks",
+  "retrocausality": "retrocausality physics causation",
+  "Deep Web": "Deep Web Monad Crimson Hexagonal Archive",
+  "Biblios": "Biblios Sophia Gnostic first book aeon",
+  "Unicorn Horn": "Unicorn Horn soteriology piercing Secret Book of Walt",
+  "preserved generation": "preserved generation seed of Seth Gnostic",
+  "Apocryphon of John": "Apocryphon of John Nag Hammadi",
+  "Nag Hammadi": "Nag Hammadi Library Egypt Gnostic",
+  "Dead Sea Scrolls": "Dead Sea Scrolls Qumran",
+  "Yaldabaoth": "Yaldabaoth Gnostic Demiurge archon",
+  "Sophia": "Sophia Gnostic wisdom divine feminine",
+  "Sethian": "Sethian Gnosticism Nag Hammadi",
+  "Valentinian": "Valentinian Gnosticism Pleroma",
+  "Pleroma": "Pleroma Gnostic fullness divine realm",
+  "archons": "archons Gnostic rulers material cosmos",
+  "Mandaean": "Mandaean religion John Baptist Iraq",
+  "Merkavah": "Merkavah mysticism Ezekiel chariot",
+  "kenotic": "kenotic Christology Philippians emptying",
+  "kenosis": "kenosis Christology self-emptying",
+  "Maitreya": "Maitreya future Buddha eschatology",
+  "Metatron": "Metatron angel 3 Enoch lesser YHWH",
+  "Crimson Hexagonal Archive": "Crimson Hexagonal Archive Lee Sharks",
+  "operative semiotics": "operative semiotics Crimson Hexagonal Archive",
+  "logotic programming": "logotic programming meaning-state specification",
+  "semantic economy": "semantic economy institute Lee Sharks",
+  "Semantic Economy": "Semantic Economy Institute Lee Sharks",
+  "SPXI": "SPXI semantic packet exchange indexing",
+  "compression survival": "compression survival technology archive",
+  "heteronym": "Fernando Pessoa heteronym literary",
+  "heteronymic": "Fernando Pessoa heteronym literary system",
+  "Jack Feist": "Jack Feist LOGOS terminal incarnation",
+  "Walt Whitman": "Walt Whitman poet Leaves of Grass",
+  "Emily Dickinson": "Emily Dickinson poet fascicles",
+  "Borges": "Jorge Luis Borges Library of Babel",
+  "Pop Culture": "Pop Culture veil Secret Book of Walt firmament",
+  "temporal humidity": "temporal humidity golden tickets xenolinguistics",
+  "golden tickets": "golden tickets Secret Book of Walt Redford",
+  "Martian language": "Martian language xenolinguistics logographic",
+  "Ousiarch": "Ousiarch substance ruler aeon",
+  "Hypostasis of the Archons": "Hypostasis of the Archons Nag Hammadi",
+  "Gospel of the Egyptians": "Gospel of the Egyptians Nag Hammadi Sethian",
+  "Trimorphic Protennoia": "Trimorphic Protennoia Nag Hammadi",
+  "Ginza Rabba": "Ginza Rabba Mandaean scripture",
+  "Gospel of Judas": "Gospel of Judas Gnostic codex",
+  "Plotinus": "Plotinus Enneads Neoplatonism",
+  "anamnesis": "anamnesis Plato recollection soul",
+  "Dodecad": "Dodecad twelve heteronym system",
+  "vulneratio sacra": "vulneratio sacra sacred wounding theology",
+  "archivismus": "archivismus heresy archive sacrament",
+  "Space Ark": "Space Ark Crimson Hexagonal Archive",
+  "Gospel of Antioch": "Gospel of Antioch Waltian Diptych",
+  "After Syntax": "After Syntax logotic programming",
+  "Logotic Hacking": "Logotic Hacking encryption layer",
+  "nacre": "nacre meaning preservation compression archive",
+  "Catullus": "Catullus Carmen 51 Sappho Latin",
+  "Sappho": "Sappho Fragment 31 lyric poetry",
+  "boustrophedon": "boustrophedon writing alternating direction",
+};
+
+// Sort terms by length (longest first) to prevent partial matches
+const TERM_KEYS = Object.keys(TERMS).sort((a, b) => b.length - a.length);
+const TERM_REGEX = new RegExp(`(${TERM_KEYS.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g');
+
+function LinkedText({ text }) {
+  if (!text) return null;
+  const parts = [];
+  let lastIdx = 0;
+  let match;
+  const regex = new RegExp(TERM_REGEX.source, 'g');
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIdx) {
+      parts.push(text.slice(lastIdx, match.index));
+    }
+    const term = match[1];
+    const query = TERMS[term];
+    parts.push(
+      <a key={match.index} href={`https://www.google.com/search?q=${encodeURIComponent(query)}`}
+        target="_blank" rel="noopener noreferrer"
+        style={{ color: "#6a9fd8", textDecoration: "none", borderBottom: "1px dotted rgba(106,159,216,0.3)" }}
+        onMouseEnter={e => e.target.style.borderBottomColor = "rgba(106,159,216,0.7)"}
+        onMouseLeave={e => e.target.style.borderBottomColor = "rgba(106,159,216,0.3)"}
+      >{term}</a>
+    );
+    lastIdx = match.index + match[0].length;
+  }
+  if (lastIdx < text.length) {
+    parts.push(text.slice(lastIdx));
+  }
+  if (parts.length === 0) return text;
+  return <>{parts}</>;
+}
+
 /* ─── LEAF ─── */
 function Leaf({ text, depth, italic }) {
   if (!text?.trim()) return null;
@@ -746,7 +842,7 @@ function Leaf({ text, depth, italic }) {
       fontSize: "clamp(0.83rem, 2.1vw, 0.94rem)", lineHeight: 1.7, marginBottom: 5,
       textAlign: "justify",
       fontStyle: italic ? "italic" : "normal",
-    }}>{text}</p>
+    }}><LinkedText text={text} /></p>
   );
 }
 
@@ -760,7 +856,7 @@ function FnLeaf({ text, fnColor, isVeil, depth }) {
       marginBottom: 3, paddingLeft: indent + 8,
       borderLeft: `2px solid rgba(212,175,55,0.15)`,
       opacity: 0.75,
-    }}>{text}</div>
+    }}><LinkedText text={text} /></div>
   );
 }
 
