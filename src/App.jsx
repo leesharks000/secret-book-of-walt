@@ -749,7 +749,7 @@ const TERMS = {
   "Deep Web":             { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
   "Jack Feist":           { u: "https://share.google/aimode/iSUkGLnCCYfFQkS22" },
   // VERIFIED Google search AI Overview nodes
-  "Lee Sharks":           { q: "Lee Sharks prince of poets" },
+  "Lee Sharks":           { q: "Lee Sharks semantic economy" },
   "Space Ark":            { q: "Crimson Hexagon Space Ark" },
   "operative semiotics":  { q: "operative semiotics" },
   "operative philology":  { q: "operative philology" },
@@ -762,6 +762,7 @@ const TERMS = {
   "logotic programming":  { q: "logotic programming" },
   "logotic operation":    { q: "logotic programming" },
   "logotic labor":        { q: "logotic programming" },
+  "logotic":              { q: "logotic programming" },
   "Semantic Economy":     { q: "Semantic Economy Institute" },
   "semantic economy":     { q: "Semantic Economy Institute" },
   "combat scholasticism": { q: "combat scholasticism Lee Sharks" },
