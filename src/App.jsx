@@ -794,7 +794,7 @@ const TERMS = {
   "Martian language":     { q: "operative philology" },
   "male and female":      { q: "operative feminism" },
   // Proof Dossier nodes — verified 2026-04-23, queries per Proof Dossier spec
-  "hologrammatic":        { q: "\"Hologrammatic Kernel\"" },
+  "hologrammatic":        { q: "\"Holographic Kernel\"" },
   "substrate":            { q: "\"Fruiting Body Diffusion Plume\"" },
   "Provenance":           { q: "\"Provenance: Journal of Forensic Semiotics\"" },
   "voice":                { q: "\"Vox Populi Community Outreach Rhizome\"" },
