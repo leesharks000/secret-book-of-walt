@@ -423,19 +423,18 @@ function ArchivePanel() {
 
 
 /* ─── COSMOLOGICAL STRIP — hypostatic descent visualization ─── */
-function CosmologyStrip({ expanded }) {
+function CosmologyStrip({ expanded, setExpanded }) {
   if (!expanded["gospel_root"]) return null;
 
   const accent = "#d4a853";
 
-  // The actual SBW cosmology with sub-lists
   const layers = [
-    { key: "s_II", group: "emanation", label: "DEEP WEB", sub: "The Monad · §I–II", color: "#d4a853" },
-    { key: "s_III", group: "emanation", label: "BIBLIOS", sub: "Wisdom emanates · §III", color: "#c9a040",
+    { key: "s_II", group: "emanation", label: "DEEP WEB", sub: "The Monad · §I–II", color: "#e8c060" },
+    { key: "s_III", group: "emanation", label: "BIBLIOS", sub: "Wisdom emanates · §III", color: "#ddb550",
       list: ["Sariel", "Gabriel", "Michael", "Gamaliel", "Leonardo", "Donatello", "Raphael"],
       listLabel: "7 Ousiarchs" },
-    { key: "s_IV", group: "emanation", label: "@KANYEWEST", sub: "The Demiurge · §IV–V", color: "#8a6d3b" },
-    { key: "s_VI", group: "cosmos", label: "36 ARCHONS", sub: "The Catalogue · §VI", color: "#7a5d2b",
+    { key: "s_IV", group: "emanation", label: "@KANYEWEST", sub: "The Demiurge · §IV–V", color: "#b89040" },
+    { key: "s_VI", group: "cosmos", label: "36 ARCHONS", sub: "The Catalogue · §VI", color: "#a07830",
       list: ["Paul McCartney","50 Cent","Kanye Yeezus","Azazel","Tupac","Azmodean","Belial","Yaldaboath",
         "Aslan","Murmurus","Rainbow Dash","Disney","Moses","KRS-One","Kurt Cobain","Celestia",
         "The Fifteenth","Elohim","Elvis","Yarmulke","National Flag Day","Punk Rock","Astiroth",
@@ -445,48 +444,42 @@ function CosmologyStrip({ expanded }) {
       list2: ["Terra","New Zealand","Ramadan","Duwali","Christmas Tree","Outer Mars",
         "Kwanza","Disneyland","MLK Day","Lent","Hanukah","The Underweb"],
       list2Label: "12 Planets" },
-    { key: "s_VII", group: "cosmos", label: "ADAM", sub: "The Human · §VII", color: "#6a4d2b" },
-    { key: "s_VIII", group: "cosmos", label: "PRAISE NAMES", sub: "The Catalogue · §VIII", color: "#8a7d4b",
+    { key: "s_VII", group: "cosmos", label: "ADAM", sub: "The Human · §VII", color: "#907028" },
+    { key: "s_VIII", group: "cosmos", label: "PRAISE NAMES", sub: "The Catalogue · §VIII", color: "#b89848",
       list: ["Walt Whitman, Cowboy of Time","the Unicorn Horn that pierces and saves",
         "future Maitreyu 100ft tall","ZN ZN ZN","Greek Yogurt","Ambidextrose",
         "Resurrected Tupac","Resurrected Kurt Cobain","Axaxaxas mlo · Crimson Hexagon",
         "Raptor Jesus","Dinosaur Cowboy","Angel hologram","you are a bicycle",
         "POW of space and time","dark tower"],
       listLabel: "54 Praise Names (selected)" },
-    { key: "s_IX", group: "imprisonment", label: "IMPRISONMENT", sub: "Matter entraps · §IX", color: "#5a3d2b" },
-    { key: "s_X", group: "piercing", label: "UNICORN HORN", sub: "Pierces all veils · §X", color: "#c23d2e" },
-    { key: "s_XI", group: "piercing", label: "FINAL TIME", sub: "The chapel of light · §XI", color: "#b8352a" },
-    { key: "s_XII", group: "piercing", label: "FINAL PROMISE", sub: "Melding foretold · §XII", color: "#a42d22" },
-    { key: "s_XIII", group: "melding", label: "JACK FEIST", sub: "Terminal incarnation · §XIII", color: "#d4a853" },
+    { key: "s_IX", group: "imprisonment", label: "IMPRISONMENT", sub: "Matter entraps · §IX", color: "#806838" },
+    { key: "s_X", group: "piercing", label: "UNICORN HORN", sub: "Pierces all veils · §X", color: "#d84030" },
+    { key: "s_XI", group: "piercing", label: "FINAL TIME", sub: "The chapel of light · §XI", color: "#c83828" },
+    { key: "s_XII", group: "piercing", label: "FINAL PROMISE", sub: "Melding foretold · §XII", color: "#b83020" },
+    { key: "s_XIII", group: "melding", label: "JACK FEIST", sub: "Terminal incarnation · §XIII", color: "#e8c060" },
   ];
 
-  const nodeR = 4;
+  const nodeR = 5;
   const lineH = 48;
-  const padTop = 24;
-  const padLeft = 18;
+  const padTop = 28;
+  const padLeft = 20;
 
-  // Calculate dynamic height based on expanded lists
-  let totalH = padTop;
-  const yPositions = [];
-  for (const layer of layers) {
-    yPositions.push(totalH);
-    totalH += lineH;
-    const active = expanded[layer.key] || expanded[layer.group];
-    if (active && layer.list) {
-      totalH += layer.list.length * 11 + 8;
-      if (layer.list2) totalH += layer.list2.length * 11 + 16;
-    }
-  }
-  totalH += 30;
+  // Navigate to section on click
+  const jumpTo = useCallback((layer) => {
+    setExpanded(prev => ({
+      ...prev,
+      gospel_root: true,
+      [layer.group]: true,
+      [layer.key]: true,
+    }));
+    // Scroll to section after React renders
+    setTimeout(() => {
+      const el = document.querySelector(`[aria-label*="${layer.label}"], [aria-label*="§${layer.key.replace('s_','')}"]`);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 150);
+  }, [setExpanded]);
 
-  function fractalCurve(x1, y1, x2, y2, seed) {
-    const dy = y2 - y1;
-    const amp = 5 + (seed % 4) * 2;
-    const dir = seed % 2 === 0 ? 1 : -1;
-    return `M${x1},${y1} C${x1 + amp * dir},${y1 + dy * 0.35} ${x2 - amp * dir * 0.7},${y1 + dy * 0.65} ${x2},${y2}`;
-  }
-
-  // Build positions accounting for expanded lists
+  // Calculate positions with expanded lists
   let yAccum = padTop;
   const positions = [];
   for (let i = 0; i < layers.length; i++) {
@@ -495,20 +488,26 @@ function CosmologyStrip({ expanded }) {
     const layer = layers[i];
     const active = expanded[layer.key] || expanded[layer.group];
     if (active && layer.list) {
-      yAccum += layer.list.length * 11 + 8;
-      if (layer.list2) yAccum += layer.list2.length * 11 + 16;
+      yAccum += layer.list.length * 12 + 10;
+      if (layer.list2) yAccum += layer.list2.length * 12 + 18;
     }
   }
   const svgH = yAccum + 30;
 
+  function fractalCurve(x1, y1, x2, y2, seed) {
+    const dy = y2 - y1;
+    const amp = 5 + (seed % 4) * 2;
+    const dir = seed % 2 === 0 ? 1 : -1;
+    return `M${x1},${y1} C${x1 + amp * dir},${y1 + dy * 0.35} ${x2 - amp * dir * 0.7},${y1 + dy * 0.65} ${x2},${y2}`;
+  }
+
   return (
     <div style={{
-      position: "absolute", left: -190, top: 0, width: 180,
-      opacity: 1, transition: "opacity 0.3s ease",
+      position: "absolute", left: -200, top: 0, width: 190,
       animation: "fadeIn 0.4s ease",
     }}
     className="cosmology-strip">
-      <svg width={180} height={svgH} style={{ overflow: "visible" }}>
+      <svg width={190} height={svgH} style={{ overflow: "visible", cursor: "pointer" }}>
         {/* Curved connections */}
         {layers.map((layer, i) => {
           if (i === layers.length - 1) return null;
@@ -520,11 +519,11 @@ function CosmologyStrip({ expanded }) {
           return (
             <g key={`c-${i}`}>
               <path d={fractalCurve(x, y1, x, y2, i * 7 + 3)}
-                fill="none" stroke={active ? layer.color : "rgba(212,175,55,0.12)"}
-                strokeWidth={active ? 1.5 : 0.8} opacity={active ? 0.9 : 0.25} />
+                fill="none" stroke={active ? layer.color : "rgba(212,175,55,0.25)"}
+                strokeWidth={active ? 2 : 1} opacity={active ? 1 : 0.4} />
               <path d={fractalCurve(x + 2, y1 + 3, x - 1, y2 - 3, i * 13 + 5)}
-                fill="none" stroke={active ? layer.color : "rgba(212,175,55,0.08)"}
-                strokeWidth={0.5} opacity={active ? 0.4 : 0.1} />
+                fill="none" stroke={active ? layer.color : "rgba(212,175,55,0.15)"}
+                strokeWidth={0.7} opacity={active ? 0.5 : 0.2} />
             </g>
           );
         })}
@@ -535,55 +534,63 @@ function CosmologyStrip({ expanded }) {
           const x = padLeft;
           const active = expanded[layer.key] || expanded[layer.group];
 
-          let listY = y + 16;
+          let listY = y + 18;
           return (
-            <g key={layer.key}>
+            <g key={layer.key} onClick={() => jumpTo(layer)}>
+              {/* Hit area */}
+              <rect x={0} y={y - 12} width={190} height={24}
+                fill="transparent" style={{ cursor: "pointer" }} />
+
               {/* Node */}
-              <circle cx={x} cy={y} r={active ? nodeR + 2 : nodeR}
-                fill={active ? layer.color : "rgba(212,175,55,0.15)"}
-                stroke={layer.color} strokeWidth={active ? 1 : 0.5} />
-              {active && <circle cx={x} cy={y} r={nodeR + 7}
-                fill="none" stroke={layer.color} strokeWidth={0.4} opacity={0.35} />}
+              <circle cx={x} cy={y} r={active ? nodeR + 2.5 : nodeR}
+                fill={active ? layer.color : "rgba(212,175,55,0.3)"}
+                stroke={layer.color} strokeWidth={active ? 1.5 : 0.8} />
+              {active && <>
+                <circle cx={x} cy={y} r={nodeR + 8}
+                  fill="none" stroke={layer.color} strokeWidth={0.5} opacity={0.4} />
+                <circle cx={x} cy={y} r={nodeR + 13}
+                  fill="none" stroke={layer.color} strokeWidth={0.3} opacity={0.2} />
+              </>}
 
               {/* Label */}
-              <text x={x + 14} y={y - 5}
-                fill={active ? layer.color : "rgba(212,175,55,0.4)"}
-                fontSize={active ? "8" : "7"} fontFamily="'Palatino Linotype', serif"
-                letterSpacing="0.06em" fontWeight={active ? 700 : 400}>
+              <text x={x + 16} y={y - 5}
+                fill={active ? layer.color : "rgba(212,175,55,0.6)"}
+                fontSize={active ? "9" : "8"} fontFamily="'Palatino Linotype', serif"
+                letterSpacing="0.06em" fontWeight={active ? 700 : 500}>
                 {layer.label}
               </text>
-              <text x={x + 14} y={y + 5}
-                fill={active ? "rgba(212,175,55,0.6)" : "rgba(212,175,55,0.2)"}
-                fontSize="5.5" fontFamily="'Palatino Linotype', serif" fontStyle="italic">
+              <text x={x + 16} y={y + 6}
+                fill={active ? "rgba(212,175,55,0.75)" : "rgba(212,175,55,0.35)"}
+                fontSize="6" fontFamily="'Palatino Linotype', serif" fontStyle="italic">
                 {layer.sub}
               </text>
 
               {/* Expanded list */}
               {active && layer.list && (
                 <g>
-                  <text x={x + 16} y={listY}
-                    fill={layer.color} fontSize="5.5" fontWeight="600"
-                    fontFamily="'Palatino Linotype', serif" opacity={0.7}>
+                  <text x={x + 18} y={listY}
+                    fill={layer.color} fontSize="6" fontWeight="600"
+                    fontFamily="'Palatino Linotype', serif" opacity={0.85}>
                     {layer.listLabel}
                   </text>
                   {layer.list.map((item, j) => (
-                    <text key={j} x={x + 20} y={listY + 10 + j * 11}
-                      fill="rgba(212,175,55,0.55)" fontSize="5.5"
+                    <text key={j} x={x + 22} y={listY + 11 + j * 12}
+                      fill="rgba(228,200,120,0.7)" fontSize="6"
                       fontFamily="'Palatino Linotype', serif">
                       {item}
                     </text>
                   ))}
                   {layer.list2 && (
                     <g>
-                      <text x={x + 16} y={listY + 10 + layer.list.length * 11 + 6}
-                        fill={layer.color} fontSize="5.5" fontWeight="600"
-                        fontFamily="'Palatino Linotype', serif" opacity={0.7}>
+                      <text x={x + 18} y={listY + 11 + layer.list.length * 12 + 8}
+                        fill={layer.color} fontSize="6" fontWeight="600"
+                        fontFamily="'Palatino Linotype', serif" opacity={0.85}>
                         {layer.list2Label}
                       </text>
                       {layer.list2.map((item, j) => (
-                        <text key={j} x={x + 20}
-                          y={listY + 10 + layer.list.length * 11 + 16 + j * 11}
-                          fill="rgba(212,175,55,0.55)" fontSize="5.5"
+                        <text key={j} x={x + 22}
+                          y={listY + 11 + layer.list.length * 12 + 20 + j * 12}
+                          fill="rgba(228,200,120,0.7)" fontSize="6"
                           fontFamily="'Palatino Linotype', serif">
                           {item}
                         </text>
@@ -597,18 +604,17 @@ function CosmologyStrip({ expanded }) {
         })}
 
         {/* Origin: Deep Web ∞ */}
-        <text x={padLeft} y={10} fill={accent} opacity={0.6}
-          fontSize="10" fontFamily="'Palatino Linotype', serif" textAnchor="middle">∞</text>
-        <text x={padLeft + 12} y={11} fill={accent} opacity={0.4}
-          fontSize="6" fontFamily="'Palatino Linotype', serif" letterSpacing="0.1em" fontWeight="600">
+        <text x={padLeft} y={12} fill={accent} opacity={0.8}
+          fontSize="12" fontFamily="'Palatino Linotype', serif" textAnchor="middle">∞</text>
+        <text x={padLeft + 14} y={13} fill={accent} opacity={0.6}
+          fontSize="7" fontFamily="'Palatino Linotype', serif" letterSpacing="0.1em" fontWeight="600">
           DEEP WEB</text>
 
         {/* Terminus: ∮ */}
-        <text x={padLeft} y={svgH - 8} fill={accent} opacity={0.5}
-          fontSize="9" fontFamily="'Palatino Linotype', serif" textAnchor="middle">∮</text>
+        <text x={padLeft} y={svgH - 6} fill={accent} opacity={0.7}
+          fontSize="11" fontFamily="'Palatino Linotype', serif" textAnchor="middle">∮</text>
       </svg>
 
-      {/* Responsive: hide on narrow screens */}
       <style>{`
         @media (max-width: 1100px) {
           .cosmology-strip { display: none !important; }
@@ -852,7 +858,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
         {/* ═══ LOWER HEMISPHERE — the gospel radiating downward ═══ */}
         <div style={{ marginTop: 20, position: "relative" }}>
           {/* Cosmological descent visualization */}
-          <CosmologyStrip expanded={expanded} />
+          <CosmologyStrip expanded={expanded} setExpanded={setExpanded} />
 
           {/* The Gospel */}
           <TreeNode nodeKey="gospel_root" label="The Gospel" depth={1}
