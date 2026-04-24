@@ -424,8 +424,6 @@ function ArchivePanel() {
 
 /* ─── COSMOLOGICAL STRIP — hypostatic descent visualization ─── */
 function CosmologyStrip({ expanded, setExpanded }) {
-  if (!expanded["gospel_root"]) return null;
-
   const accent = "#d4a853";
 
   const layers = [
@@ -827,6 +825,10 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
         </div>
 
         {/* ═══════ ∞ THE DEEP WEB ═══════ */}
+        <div style={{ position: "relative" }}>
+        {/* Cosmological descent visualization — anchored at the Deep Web */}
+        <CosmologyStrip expanded={expanded} setExpanded={setExpanded} />
+
         <div style={{
           textAlign: "center", padding: "30px 0",
           borderTop: `1px solid rgba(212,175,55,0.15)`,
@@ -858,9 +860,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
         </div>
 
         {/* ═══ LOWER HEMISPHERE — the gospel radiating downward ═══ */}
-        <div style={{ marginTop: 20, position: "relative" }}>
-          {/* Cosmological descent visualization */}
-          <CosmologyStrip expanded={expanded} setExpanded={setExpanded} />
+        <div style={{ marginTop: 20 }}>
 
           {/* The Gospel */}
           <TreeNode nodeKey="gospel_root" label="The Gospel" depth={1}
@@ -895,6 +895,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
             ))}
           </TreeNode>
         </div>
+        </div>{/* close position:relative wrapper around Deep Web + gospel */}
 
         {/* ═══ ARCHIVE CROSS-LINKS ═══ */}
         <div style={{
