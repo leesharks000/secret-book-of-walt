@@ -804,6 +804,8 @@ const TERMS = {
   "throne":               { q: "\"Lee Sharks Prince of Poets\"" },
   "Sigil":                { q: "\"Johannes Sigil Institute\"" },
   "crystal":              { q: "crystalline semiosis" },
+  // Premonition dream — the vision of the crimson book
+  "crimson":              { u: "https://zenodo.org/records/19598760" },
   // Self-referential: the index indexes itself
   "Book of Life":         { u: "https://doi.org/10.5281/zenodo.19720529" },
   "book of life":         { u: "https://doi.org/10.5281/zenodo.19720529" },
