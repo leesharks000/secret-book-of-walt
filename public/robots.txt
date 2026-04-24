@@ -4,4 +4,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://secret-book-of-walt.vercel.app/sitemap.xml
+Sitemap: https://secretbookofwalt.org/sitemap.xml
