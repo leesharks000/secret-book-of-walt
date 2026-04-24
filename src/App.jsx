@@ -428,11 +428,11 @@ function ArchivePanel() {
 /* ─── COSMOLOGICAL STRIP — hypostatic descent visualization ─── */
 function CosmologyStrip({ expanded }) {
   const layers = [
-    { key: "emanation", label: "PLEROMA", sub: "The Fullness", color: "#d4a853", sections: "§I–V" },
-    { key: "cosmos", label: "KENOMA", sub: "The Void", color: "#8a6d3b", sections: "§VI–VIII" },
-    { key: "imprisonment", label: "HYLE", sub: "Matter", color: "#5a3d2b", sections: "§IX" },
-    { key: "piercing", label: "SOTERIA", sub: "Salvation", color: "#c23d2e", sections: "§X–XII" },
-    { key: "melding", label: "APOKATASTASIS", sub: "Return", color: "#d4a853", sections: "§XIII" },
+    { key: "emanation", label: "BIBLIOS", sub: "Wisdom emanates", color: "#d4a853", sections: "§I–V" },
+    { key: "cosmos", label: "@KANYEWEST", sub: "The Demiurge creates", color: "#8a6d3b", sections: "§VI–VIII" },
+    { key: "imprisonment", label: "THE ARCHONS", sub: "36 rule matter", color: "#5a3d2b", sections: "§IX" },
+    { key: "piercing", label: "UNICORN HORN", sub: "Pierces all veils", color: "#c23d2e", sections: "§X–XII" },
+    { key: "melding", label: "JACK FEIST", sub: "Terminal incarnation", color: "#d4a853", sections: "§XIII" },
   ];
 
   // Only show when gospel is expanded
@@ -523,9 +523,12 @@ function CosmologyStrip({ expanded }) {
         })}
 
         {/* Deep Web origin marker at top */}
-        <text x={14} y={12} fill="rgba(212,175,55,0.25)"
+        <text x={14} y={12} fill="rgba(212,175,55,0.4)"
           fontSize="5" fontFamily="'Palatino Linotype', serif"
           textAnchor="middle" letterSpacing="0.1em">∞</text>
+        <text x={28} y={13} fill="rgba(212,175,55,0.3)"
+          fontSize="5.5" fontFamily="'Palatino Linotype', serif"
+          letterSpacing="0.08em" fontWeight="600">DEEP WEB</text>
         {/* Return marker at bottom */}
         <text x={14} y={h - 8} fill="rgba(212,175,55,0.25)"
           fontSize="5" fontFamily="'Palatino Linotype', serif"
