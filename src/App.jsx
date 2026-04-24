@@ -171,19 +171,43 @@ function Splash({ onEnter, imgSrc, hornSrc }) {
 
 /* ─── SECTION RENDERER ─── */
 function SectionContent({ data, isVeil, fnColor, depth }) {
+  const [visibleFns, setVisibleFns] = useState({});
+  const toggleFn = useCallback((id) => {
+    setVisibleFns(prev => ({ ...prev, [id]: !prev[id] }));
+  }, []);
+
   if (!data?.paragraphs) return null;
+
+  // Group: each footnote follows its preceding prose
   return data.paragraphs.map((p, pi) => {
     if (p.type === 'heading') return <h3 key={pi} style={{ color: C.gold, fontSize: "0.9rem", fontWeight: 600, letterSpacing: "0.06em", marginTop: 16, marginBottom: 8, marginLeft: Math.min(depth,4)*14, textTransform: "uppercase", opacity: 0.7 }}>{p.text}</h3>;
     if (p.type === 'subheading') return <h4 key={pi} style={{ color: C.gold, fontSize: "0.85rem", fontWeight: 600, marginTop: 12, marginBottom: 6, marginLeft: Math.min(depth,4)*14, opacity: 0.65 }}>{p.text}</h4>;
     if (p.type === 'subsubheading') return <h5 key={pi} style={{ color: C.gold, fontSize: "0.8rem", fontWeight: 500, marginTop: 10, marginBottom: 4, marginLeft: Math.min(depth,4)*14, opacity: 0.6, fontStyle: "italic" }}>{p.text}</h5>;
     if (p.type === 'footnote') {
       if (!isVeil) return null;
+      const fnKey = `sc_fn_${pi}`;
+      const isVisible = visibleFns[fnKey];
+      if (!isVisible) return null;
       return <FnLeaf key={pi} text={p.text} fnColor={fnColor} isVeil={isVeil} depth={depth} />;
     }
     if (p.type === 'divider') return <hr key={pi} style={{ border: 'none', borderTop: `1px solid ${'rgba(212,175,55,0.2)'}`, margin: '16px auto', width: '25%' }} />;
     if (p.type === 'table') return <p key={pi} style={{ marginLeft: Math.min(depth,4)*14, padding: "2px 5px", fontSize: "0.78rem", lineHeight: 1.5, marginBottom: 3, color: "#b0a080", fontFamily: "monospace", letterSpacing: "-0.02em" }}><LinkedText text={p.text} /></p>;
     if (p.type === 'list') return <p key={pi} style={{ marginLeft: Math.min(depth,4)*14 + 12, padding: "2px 5px", fontSize: "clamp(0.8rem, 2vw, 0.9rem)", lineHeight: 1.65, marginBottom: 4, textIndent: "-0.8em", paddingLeft: "0.8em" }}>• <LinkedText text={p.text} /></p>;
-    return <Leaf key={pi} text={p.text} depth={depth} italic={p.type === 'verse'} />;
+    // Check if next paragraph is a footnote — show ✦ toggle
+    const nextP = data.paragraphs[pi + 1];
+    const hasFollowingFn = nextP?.type === 'footnote';
+    const fnKey = `sc_fn_${pi + 1}`;
+    return (
+      <div key={pi}>
+        <Leaf text={p.text} depth={depth} italic={p.type === 'verse'} />
+        {hasFollowingFn && isVeil && (
+          <span onClick={() => toggleFn(fnKey)}
+            onKeyDown={e => { if (e.key === 'Enter') toggleFn(fnKey); }}
+            role="button" tabIndex={0}
+            style={{ marginLeft: Math.min(depth,4)*14 + 5, color: fnColor, fontSize: "0.55rem", cursor: "pointer", opacity: visibleFns[fnKey] ? 0.8 : 0.4 }}>✦</span>
+        )}
+      </div>
+    );
   });
 }
 
@@ -220,7 +244,7 @@ function GospelSection({ sec, versedSec, treeData, expanded, toggle, isVeil, acc
                 <span style={{ color: accent, fontSize: "0.5rem", marginTop: 3, minWidth: 9, opacity: 0.5 }}>◆</span>
                 <div style={{ flex: 1 }}>
                   <span style={{
-                    fontSize: "clamp(0.82rem, 2.1vw, 0.92rem)", fontWeight: 500, color: accent,
+                    fontSize: "clamp(0.82rem, 2.1vw, 0.92rem)", fontWeight: 500, color: "#f0ede8",
                     letterSpacing: "0.01em",
                   }}><LinkedText text={item.name || item.text} /></span>
                   {hasFn && (
@@ -247,7 +271,7 @@ function GospelSection({ sec, versedSec, treeData, expanded, toggle, isVeil, acc
           return (
             <div key={i} style={{ marginLeft: Math.min(3, 4) * 14, padding: "2px 5px" }}>
               <span style={{
-                fontSize: "clamp(0.82rem, 2.1vw, 0.92rem)", fontWeight: 400, color: accent,
+                fontSize: "clamp(0.82rem, 2.1vw, 0.92rem)", fontWeight: 400, color: "#f0ede8",
                 fontStyle: "italic", letterSpacing: "0.01em",
               }}><LinkedText text={item.name} /></span>
               {hasFn && (
@@ -649,7 +673,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
   const [expanded, setExpanded] = useState({});
 
   const isVeil = mode === "veil";
-  const textColor = "#e8e4dc";
+  const textColor = "#f0ede8";
   const fnColor = "#9a8a70";
   const accent = C.gold;
 
@@ -829,13 +853,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
                   label={sub.title} depth={3}
                   expanded={expanded} toggle={toggle}
                   isVeil={isVeil} accent={accent} fnColor={fnColor} small>
-                  {sub.paragraphs.map((p, pi) => {
-                    if (p.type === 'footnote') {
-                      if (!isVeil) return null;
-                      return <FnLeaf key={pi} text={p.text} fnColor={fnColor} isVeil={isVeil} depth={4} />;
-                    }
-                    return <Leaf key={pi} text={p.text} depth={4} />;
-                  })}
+                  <SectionContent data={sub} isVeil={isVeil} fnColor={fnColor} depth={4} />
                 </TreeNode>
               ))}
             </TreeNode>
