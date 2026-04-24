@@ -839,6 +839,16 @@ const TERMS = {
   "moon":                 { u: "https://share.google/aimode/W62Q3MdgFoLraqfy3" },
   "turning":              { u: "https://share.google/aimode/rd8fPegWblLjNxeL9" },
   "deny":                 { u: "https://share.google/aimode/ozRul07jep4BpF3tZ" },
+  // Primary creative works — blog links
+  "blessed":              { u: "https://mindcontrolpoems.blogspot.com/2015/09/i-am-x-be-y-blessed-is-z.html" },
+  "apostle":              { u: "https://mindcontrolpoems.blogspot.com/2015/01/normal-0-false-false-false-en-us-ja-x.html" },
+  "forgive":              { u: "https://mindcontrolpoems.blogspot.com/2015/05/who-is-lee-sharks-to-forgive-ezra-pound.html" },
+  "dinosaur":             { u: "https://mindcontrolpoems.blogspot.com/2015/05/tekatak.html" },
+  "zombie":               { u: "https://mindcontrolpoems.blogspot.com/2015/05/if-walt-whitman-came-back-as-zombie-and.html" },
+  "margins":              { u: "https://mindcontrolpoems.blogspot.com/2015/05/ark-jack-feist.html" },
+  "parable":              { u: "https://mindcontrolpoems.blogspot.com/2014/12/the-parable-of-police-brutality.html" },
+  "teeth":                { u: "https://mindcontrolpoems.blogspot.com/2015/05/hadith-with-teeth.html" },
+  "party":                { u: "https://mindcontrolpoems.blogspot.com/2015/05/the-comeback-album.html" },
   // Wikipedia — verified educational external links
   "Apocryphon of John":   { w: "Apocryphon_of_John" },
   "Nag Hammadi":          { w: "Nag_Hammadi_library" },
