@@ -212,6 +212,8 @@ function GospelSection({ sec, versedSec, treeData, expanded, toggle, isVeil, acc
       {isArchons ? (
         treeData.archons.map((item, i) => {
           if (item.type === "preamble") return <Leaf key={i} text={item.text} depth={3} />;
+          const hasFn = item.footnotes?.length > 0;
+          const fnKey = `afn_${i}`;
           return (
             <div key={i} style={{ marginLeft: Math.min(3, 4) * 14, padding: "3px 5px" }}>
               <div style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
@@ -221,12 +223,18 @@ function GospelSection({ sec, versedSec, treeData, expanded, toggle, isVeil, acc
                     fontSize: "clamp(0.82rem, 2.1vw, 0.92rem)", fontWeight: 500, color: accent,
                     letterSpacing: "0.01em",
                   }}><LinkedText text={item.name || item.text} /></span>
+                  {hasFn && (
+                    <span onClick={() => toggleFn(fnKey)}
+                      onKeyDown={e => { if (e.key === 'Enter') toggleFn(fnKey); }}
+                      role="button" tabIndex={0}
+                      style={{ color: fnColor, fontSize: "0.55rem", marginLeft: 4, cursor: "pointer", opacity: visibleFns[fnKey] ? 0.8 : 0.4 }}>✦</span>
+                  )}
                   {item.text !== item.name && (
                     <div style={{ marginTop: 2 }}>
                       <Leaf text={item.text} depth={4} />
                     </div>
                   )}
-                  {isVeil && item.footnotes?.map((fn, fi) => <FnLeaf key={fi} text={fn} fnColor={fnColor} isVeil={isVeil} depth={4} />)}
+                  {isVeil && visibleFns[fnKey] && item.footnotes?.map((fn, fi) => <FnLeaf key={fi} text={fn} fnColor={fnColor} isVeil={isVeil} depth={4} />)}
                 </div>
               </div>
             </div>
@@ -234,16 +242,23 @@ function GospelSection({ sec, versedSec, treeData, expanded, toggle, isVeil, acc
         })
       ) : isPraise ? (
         treeData.praise_names.map((item, i) => {
-          const k = `p${i}`;
           const hasFn = item.footnotes?.length > 0;
-          return hasFn ? (
-            <TreeNode key={k} nodeKey={k} label={item.name} depth={3}
-              expanded={expanded} toggle={toggle}
-              isVeil={isVeil} accent={accent} fnColor={fnColor}
-              small italic hasFn>
-              {isVeil && item.footnotes.map((fn, fi) => <FnLeaf key={fi} text={fn} fnColor={fnColor} isVeil={isVeil} depth={4} />)}
-            </TreeNode>
-          ) : <Leaf key={k} text={item.name} depth={3} italic />;
+          const fnKey = `pfn_${i}`;
+          return (
+            <div key={i} style={{ marginLeft: Math.min(3, 4) * 14, padding: "2px 5px" }}>
+              <span style={{
+                fontSize: "clamp(0.82rem, 2.1vw, 0.92rem)", fontWeight: 400, color: accent,
+                fontStyle: "italic", letterSpacing: "0.01em",
+              }}><LinkedText text={item.name} /></span>
+              {hasFn && (
+                <span onClick={() => toggleFn(fnKey)}
+                  onKeyDown={e => { if (e.key === 'Enter') toggleFn(fnKey); }}
+                  role="button" tabIndex={0}
+                  style={{ color: fnColor, fontSize: "0.55rem", marginLeft: 4, cursor: "pointer", opacity: visibleFns[fnKey] ? 0.8 : 0.4 }}>✦</span>
+              )}
+              {isVeil && visibleFns[fnKey] && item.footnotes?.map((fn, fi) => <FnLeaf key={fi} text={fn} fnColor={fnColor} isVeil={isVeil} depth={4} />)}
+            </div>
+          );
         })
       ) : useVersed ? (
         verses.map((v, vi) => {
