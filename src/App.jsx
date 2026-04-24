@@ -501,11 +501,13 @@ function CosmologyStrip({ expanded, setExpanded }) {
 
   return (
     <div style={{
-      position: "absolute", left: -200, top: 0, width: 190,
+      position: "fixed", top: 56, left: "calc(50% - 580px)",
+      width: 190, maxHeight: "calc(100vh - 70px)", overflowY: "auto",
       animation: "fadeIn 0.4s ease",
+      scrollbarWidth: "none",
     }}
     className="cosmology-strip">
-      <div style={{ position: "sticky", top: 56 }}>
+      <div>
       <svg width={190} height={svgH} style={{ overflow: "visible", cursor: "pointer" }}>
         {/* Curved connections */}
         {layers.map((layer, i) => {
@@ -616,7 +618,8 @@ function CosmologyStrip({ expanded, setExpanded }) {
       </div>{/* close sticky */}
 
       <style>{`
-        @media (max-width: 1100px) {
+        .cosmology-strip::-webkit-scrollbar { display: none; }
+        @media (max-width: 1200px) {
           .cosmology-strip { display: none !important; }
         }
       `}</style>
