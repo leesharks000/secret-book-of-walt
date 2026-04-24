@@ -212,15 +212,24 @@ function GospelSection({ sec, versedSec, treeData, expanded, toggle, isVeil, acc
       {isArchons ? (
         treeData.archons.map((item, i) => {
           if (item.type === "preamble") return <Leaf key={i} text={item.text} depth={3} />;
-          const k = `a${i}`;
           return (
-            <TreeNode key={k} nodeKey={k} label={item.name || item.text} depth={3}
-              expanded={expanded} toggle={toggle}
-              isVeil={isVeil} accent={accent} fnColor={fnColor}
-              small hasFn={item.footnotes?.length > 0}>
-              {item.text !== item.name && <Leaf text={item.text} depth={4} />}
-              {isVeil && item.footnotes?.map((fn, fi) => <FnLeaf key={fi} text={fn} fnColor={fnColor} isVeil={isVeil} depth={4} />)}
-            </TreeNode>
+            <div key={i} style={{ marginLeft: Math.min(3, 4) * 14, padding: "3px 5px" }}>
+              <div style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
+                <span style={{ color: accent, fontSize: "0.5rem", marginTop: 3, minWidth: 9, opacity: 0.5 }}>◆</span>
+                <div style={{ flex: 1 }}>
+                  <span style={{
+                    fontSize: "clamp(0.82rem, 2.1vw, 0.92rem)", fontWeight: 500, color: accent,
+                    letterSpacing: "0.01em",
+                  }}><LinkedText text={item.name || item.text} /></span>
+                  {item.text !== item.name && (
+                    <div style={{ marginTop: 2 }}>
+                      <Leaf text={item.text} depth={4} />
+                    </div>
+                  )}
+                  {isVeil && item.footnotes?.map((fn, fi) => <FnLeaf key={fi} text={fn} fnColor={fnColor} isVeil={isVeil} depth={4} />)}
+                </div>
+              </div>
+            </div>
           );
         })
       ) : isPraise ? (
@@ -294,9 +303,8 @@ function Verse({ v, sectionNum, accent, fnColor, isVeil, onFnClick }) {
     parts.push({ type: 'text', content: text.slice(lastIdx) });
   }
 
-  // Temporal humidity: future-uncertain sections blur slightly
-  const humidSections = { "X": 0.4, "XI": 0.6, "XII": 0.3 };
-  const humidity = humidSections[sectionNum] || 0;
+  // Temporal humidity removed — readability over atmosphere
+  const humidity = 0;
 
   return (
     <div style={{
