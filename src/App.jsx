@@ -670,7 +670,7 @@ function CosmologyStrip({ expanded, setExpanded }) {
 /* ─── THE HYPOSTATIC TREE — CENTER-OUT ─── */
 function ReadingSpine({ fullData, treeData, versedData, onBack }) {
   const [mode, setMode] = useState("veil");
-  const [expanded, setExpanded] = useState({});
+  const [expanded, setExpanded] = useState({ gospel_root: true, apparatus: true, front: true, notes: true });
 
   const isVeil = mode === "veil";
   const textColor = "#f0ede8";
@@ -899,7 +899,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
         <div style={{ marginTop: 20 }}>
 
           {/* The Gospel */}
-          <TreeNode nodeKey="gospel_root" label="The Gospel" depth={1}
+          <TreeNode nodeKey="gospel_root" label="The Secret Book" depth={1}
             expanded={expanded} toggle={toggle}
             isVeil={isVeil} accent={accent} fnColor={fnColor} icon="☩">
             {gospelGroups.map(group => (
