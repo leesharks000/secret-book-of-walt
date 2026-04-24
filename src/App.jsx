@@ -507,6 +507,7 @@ function CosmologyStrip({ expanded, setExpanded }) {
       animation: "fadeIn 0.4s ease",
     }}
     className="cosmology-strip">
+      <div style={{ position: "sticky", top: 56 }}>
       <svg width={190} height={svgH} style={{ overflow: "visible", cursor: "pointer" }}>
         {/* Curved connections */}
         {layers.map((layer, i) => {
@@ -614,6 +615,7 @@ function CosmologyStrip({ expanded, setExpanded }) {
         <text x={padLeft} y={svgH - 6} fill={accent} opacity={0.7}
           fontSize="11" fontFamily="'Palatino Linotype', serif" textAnchor="middle">∮</text>
       </svg>
+      </div>{/* close sticky */}
 
       <style>{`
         @media (max-width: 1100px) {
