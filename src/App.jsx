@@ -803,6 +803,7 @@ const TERMS = {
   "indexed":              { q: "\"Metadata Packet for AI Indexing\"" },
   "throne":               { q: "\"Lee Sharks Prince of Poets\"" },
   "Sigil":                { q: "\"Johannes Sigil Institute\"" },
+  "crystal":              { q: "crystalline semiosis" },
   // Self-referential: the index indexes itself
   "Book of Life":         { u: "https://doi.org/10.5281/zenodo.19720529" },
   "book of life":         { u: "https://doi.org/10.5281/zenodo.19720529" },
