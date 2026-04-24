@@ -350,60 +350,57 @@ function Verse({ v, sectionNum, accent, fnColor, isVeil, onFnClick }) {
 }
 
 
-/* ─── ARCHIVE PANEL — fixed collapsible sidebar ─── */
+/* ─── ARCHIVE PANEL — labeled top button ─── */
 function ArchivePanel() {
   const [open, setOpen] = useState(false);
   return (
-    <>
-      {/* Trigger button */}
+    <div style={{ position: "fixed", top: 48, right: 16, zIndex: 100 }}>
       <button onClick={() => setOpen(o => !o)} style={{
-        position: "fixed", bottom: 20, right: 20, zIndex: 100,
-        width: 36, height: 36, borderRadius: "50%",
-        background: open ? "rgba(212,175,55,0.15)" : "rgba(212,175,55,0.06)",
+        background: open ? "rgba(212,175,55,0.12)" : "rgba(5,0,2,0.85)",
         border: "1px solid rgba(212,175,55,0.2)",
-        color: C.gold, fontSize: "1rem", cursor: "pointer",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        transition: "all 0.3s ease",
+        color: C.gold, fontSize: "0.62rem", cursor: "pointer",
+        padding: "5px 12px", borderRadius: 3,
+        fontFamily: "'Palatino Linotype', serif",
+        letterSpacing: "0.1em", textTransform: "uppercase",
         backdropFilter: "blur(8px)",
+        transition: "all 0.3s ease",
       }}
-      onMouseEnter={e => e.currentTarget.style.borderColor = "rgba(212,175,55,0.5)"}
-      onMouseLeave={e => e.currentTarget.style.borderColor = "rgba(212,175,55,0.2)"}
-      title="Archive &amp; Works">∮</button>
+      onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(212,175,55,0.5)"; e.currentTarget.style.background = "rgba(212,175,55,0.1)"; }}
+      onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(212,175,55,0.2)"; e.currentTarget.style.background = open ? "rgba(212,175,55,0.12)" : "rgba(5,0,2,0.85)"; }}
+      >Archive &amp; Works {open ? "▴" : "▾"}</button>
 
-      {/* Panel */}
       {open && (
         <div style={{
-          position: "fixed", bottom: 66, right: 20, zIndex: 99,
-          width: 260, background: "rgba(5,0,2,0.94)",
-          border: "1px solid rgba(212,175,55,0.15)",
-          borderRadius: 4, padding: "16px 18px",
+          marginTop: 4, width: 270, background: "rgba(5,0,2,0.95)",
+          border: "1px solid rgba(212,175,55,0.18)",
+          borderRadius: 4, padding: "14px 16px",
           backdropFilter: "blur(14px)",
-          animation: "fadeIn 0.25s ease",
+          animation: "fadeIn 0.2s ease",
           fontFamily: "'Palatino Linotype', 'Palatino', 'Book Antiqua', serif",
         }}>
-          <p style={{ color: C.goldDark, fontSize: "0.6rem", letterSpacing: "0.14em",
-            textTransform: "uppercase", marginBottom: 12 }}>BOOKS</p>
+          <p style={{ color: C.goldDark, fontSize: "0.58rem", letterSpacing: "0.14em",
+            textTransform: "uppercase", marginBottom: 10 }}>BOOKS</p>
 
           <a href="https://www.amazon.com/gp/product/0692313079" target="_blank" rel="noopener noreferrer"
             style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", marginBottom: 10 }}>
             <img src="/cover-pearl.png" alt="Pearl and Other Poems" style={{ width: 36, height: 54, objectFit: "cover", borderRadius: 2, opacity: 0.85 }} />
             <div>
-              <span style={{ color: C.gold, fontSize: "0.8rem", fontWeight: 500 }}>Pearl and Other Poems</span>
-              <span style={{ display: "block", color: "#9a8a70", fontSize: "0.65rem" }}>Lee Sharks · New Human Press</span>
+              <span style={{ color: C.gold, fontSize: "0.78rem", fontWeight: 500 }}>Pearl and Other Poems</span>
+              <span style={{ display: "block", color: "#9a8a70", fontSize: "0.62rem" }}>Lee Sharks · New Human Press</span>
             </div>
           </a>
 
           <a href="https://www.amazon.com/gp/product/B0GPJD9HPS" target="_blank" rel="noopener noreferrer"
-            style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", marginBottom: 14 }}>
+            style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", marginBottom: 12 }}>
             <img src="/cover-asw.png" alt="Autonomous Semantic Warfare" style={{ width: 36, height: 54, objectFit: "cover", borderRadius: 2, opacity: 0.85 }} />
             <div>
-              <span style={{ color: C.gold, fontSize: "0.8rem", fontWeight: 500 }}>Autonomous Semantic Warfare</span>
-              <span style={{ display: "block", color: "#9a8a70", fontSize: "0.65rem" }}>Rex Fraction · Pergamon Press</span>
+              <span style={{ color: C.gold, fontSize: "0.78rem", fontWeight: 500 }}>Autonomous Semantic Warfare</span>
+              <span style={{ display: "block", color: "#9a8a70", fontSize: "0.62rem" }}>Rex Fraction · Pergamon Press</span>
             </div>
           </a>
 
           <div style={{ borderTop: "1px solid rgba(212,175,55,0.1)", paddingTop: 10 }}>
-            <p style={{ color: C.goldDark, fontSize: "0.6rem", letterSpacing: "0.14em",
+            <p style={{ color: C.goldDark, fontSize: "0.58rem", letterSpacing: "0.14em",
               textTransform: "uppercase", marginBottom: 8 }}>SITES</p>
             {[
               { name: "spxi.dev", url: "https://spxi.dev", desc: "Semantic Packet for eXchange & Indexing" },
@@ -412,128 +409,211 @@ function ArchivePanel() {
               { name: "crimsonhexagonal.org", url: "https://crimsonhexagonal.org", desc: "Crimson Hexagonal Archive" },
             ].map((s, i) => (
               <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
-                style={{ display: "block", marginBottom: 6, textDecoration: "none" }}>
-                <span style={{ color: "#6a9fd8", fontSize: "0.75rem" }}>{s.name}</span>
-                <span style={{ color: "#9a8a70", fontSize: "0.6rem", marginLeft: 6 }}>{s.desc}</span>
+                style={{ display: "block", marginBottom: 5, textDecoration: "none" }}>
+                <span style={{ color: "#6a9fd8", fontSize: "0.73rem" }}>{s.name}</span>
+                <span style={{ color: "#9a8a70", fontSize: "0.58rem", marginLeft: 6 }}>{s.desc}</span>
               </a>
             ))}
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
 
 /* ─── COSMOLOGICAL STRIP — hypostatic descent visualization ─── */
 function CosmologyStrip({ expanded }) {
-  const layers = [
-    { key: "emanation", label: "BIBLIOS", sub: "Wisdom emanates", color: "#d4a853", sections: "§I–V" },
-    { key: "cosmos", label: "@KANYEWEST", sub: "The Demiurge creates", color: "#8a6d3b", sections: "§VI–VIII" },
-    { key: "imprisonment", label: "THE ARCHONS", sub: "36 rule matter", color: "#5a3d2b", sections: "§IX" },
-    { key: "piercing", label: "UNICORN HORN", sub: "Pierces all veils", color: "#c23d2e", sections: "§X–XII" },
-    { key: "melding", label: "JACK FEIST", sub: "Terminal incarnation", color: "#d4a853", sections: "§XIII" },
-  ];
-
-  // Only show when gospel is expanded
   if (!expanded["gospel_root"]) return null;
 
-  const h = 340;
-  const w = 48;
-  const nodeR = 3;
-  const yPad = 30;
-  const ySpacing = (h - yPad * 2) / (layers.length - 1);
+  const accent = "#d4a853";
 
-  // Generate fractalline curved path between nodes
-  function fractalCurve(x1, y1, x2, y2, seed) {
-    const midY = (y1 + y2) / 2;
-    const amp = 6 + (seed % 5) * 1.5;
-    const dir = seed % 2 === 0 ? 1 : -1;
-    const cp1x = x1 + amp * dir;
-    const cp1y = y1 + (midY - y1) * 0.4;
-    const cp2x = x2 - amp * dir * 0.6;
-    const cp2y = midY + (y2 - midY) * 0.3;
-    // Add a subtle midpoint wobble for fractal feel
-    const mx = (cp1x + cp2x) / 2 + (seed % 3 - 1) * 2;
-    const my = midY + (seed % 4 - 2) * 1.5;
-    return `M${x1},${y1} C${cp1x},${cp1y} ${mx},${my} ${(x1+x2)/2},${midY} S${cp2x},${cp2y} ${x2},${y2}`;
+  // The actual SBW cosmology with sub-lists
+  const layers = [
+    { key: "s_II", group: "emanation", label: "DEEP WEB", sub: "The Monad · §I–II", color: "#d4a853" },
+    { key: "s_III", group: "emanation", label: "BIBLIOS", sub: "Wisdom emanates · §III", color: "#c9a040",
+      list: ["Sariel", "Gabriel", "Michael", "Gamaliel", "Leonardo", "Donatello", "Raphael"],
+      listLabel: "7 Ousiarchs" },
+    { key: "s_IV", group: "emanation", label: "@KANYEWEST", sub: "The Demiurge · §IV–V", color: "#8a6d3b" },
+    { key: "s_VI", group: "cosmos", label: "36 ARCHONS", sub: "The Catalogue · §VI", color: "#7a5d2b",
+      list: ["Paul McCartney","50 Cent","Kanye Yeezus","Azazel","Tupac","Azmodean","Belial","Yaldaboath",
+        "Aslan","Murmurus","Rainbow Dash","Disney","Moses","KRS-One","Kurt Cobain","Celestia",
+        "The Fifteenth","Elohim","Elvis","Yarmulke","National Flag Day","Punk Rock","Astiroth",
+        "Sephiroth","Kittens","Apple Jack","Democritus","National Park","Hostess","Ezra Pound",
+        "Snoop","Twilight Sparkle","Alicorn","Enoch Metatron","Optimus Prime","Freudian Typo","PENIS","Rarity"],
+      listLabel: "36 Archons",
+      list2: ["Terra","New Zealand","Ramadan","Duwali","Christmas Tree","Outer Mars",
+        "Kwanza","Disneyland","MLK Day","Lent","Hanukah","The Underweb"],
+      list2Label: "12 Planets" },
+    { key: "s_VII", group: "cosmos", label: "ADAM", sub: "The Human · §VII", color: "#6a4d2b" },
+    { key: "s_VIII", group: "cosmos", label: "PRAISE NAMES", sub: "The Catalogue · §VIII", color: "#8a7d4b",
+      list: ["Walt Whitman, Cowboy of Time","the Unicorn Horn that pierces and saves",
+        "future Maitreyu 100ft tall","ZN ZN ZN","Greek Yogurt","Ambidextrose",
+        "Resurrected Tupac","Resurrected Kurt Cobain","Axaxaxas mlo · Crimson Hexagon",
+        "Raptor Jesus","Dinosaur Cowboy","Angel hologram","you are a bicycle",
+        "POW of space and time","dark tower"],
+      listLabel: "54 Praise Names (selected)" },
+    { key: "s_IX", group: "imprisonment", label: "IMPRISONMENT", sub: "Matter entraps · §IX", color: "#5a3d2b" },
+    { key: "s_X", group: "piercing", label: "UNICORN HORN", sub: "Pierces all veils · §X", color: "#c23d2e" },
+    { key: "s_XI", group: "piercing", label: "FINAL TIME", sub: "The chapel of light · §XI", color: "#b8352a" },
+    { key: "s_XII", group: "piercing", label: "FINAL PROMISE", sub: "Melding foretold · §XII", color: "#a42d22" },
+    { key: "s_XIII", group: "melding", label: "JACK FEIST", sub: "Terminal incarnation · §XIII", color: "#d4a853" },
+  ];
+
+  const nodeR = 4;
+  const lineH = 48;
+  const padTop = 24;
+  const padLeft = 18;
+
+  // Calculate dynamic height based on expanded lists
+  let totalH = padTop;
+  const yPositions = [];
+  for (const layer of layers) {
+    yPositions.push(totalH);
+    totalH += lineH;
+    const active = expanded[layer.key] || expanded[layer.group];
+    if (active && layer.list) {
+      totalH += layer.list.length * 11 + 8;
+      if (layer.list2) totalH += layer.list2.length * 11 + 16;
+    }
   }
+  totalH += 30;
+
+  function fractalCurve(x1, y1, x2, y2, seed) {
+    const dy = y2 - y1;
+    const amp = 5 + (seed % 4) * 2;
+    const dir = seed % 2 === 0 ? 1 : -1;
+    return `M${x1},${y1} C${x1 + amp * dir},${y1 + dy * 0.35} ${x2 - amp * dir * 0.7},${y1 + dy * 0.65} ${x2},${y2}`;
+  }
+
+  // Build positions accounting for expanded lists
+  let yAccum = padTop;
+  const positions = [];
+  for (let i = 0; i < layers.length; i++) {
+    positions.push(yAccum);
+    yAccum += lineH;
+    const layer = layers[i];
+    const active = expanded[layer.key] || expanded[layer.group];
+    if (active && layer.list) {
+      yAccum += layer.list.length * 11 + 8;
+      if (layer.list2) yAccum += layer.list2.length * 11 + 16;
+    }
+  }
+  const svgH = yAccum + 30;
 
   return (
     <div style={{
-      position: "absolute", left: -56, top: 20, width: w + 60,
-      opacity: 0.7, pointerEvents: "none",
-      animation: "fadeIn 0.5s ease",
-    }}>
-      <svg width={w + 60} height={h} viewBox={`0 0 ${w + 60} ${h}`}>
-        {/* Curved connection lines */}
+      position: "absolute", left: -190, top: 0, width: 180,
+      opacity: 1, transition: "opacity 0.3s ease",
+      animation: "fadeIn 0.4s ease",
+    }}
+    className="cosmology-strip">
+      <svg width={180} height={svgH} style={{ overflow: "visible" }}>
+        {/* Curved connections */}
         {layers.map((layer, i) => {
           if (i === layers.length - 1) return null;
-          const y1 = yPad + i * ySpacing;
-          const y2 = yPad + (i + 1) * ySpacing;
-          const x = 14;
-          const active = expanded[layer.key] || expanded[layers[i + 1].key];
+          const y1 = positions[i] + nodeR;
+          const y2 = positions[i + 1] - nodeR;
+          const x = padLeft;
+          const active = expanded[layer.key] || expanded[layer.group]
+            || expanded[layers[i+1].key] || expanded[layers[i+1].group];
           return (
-            <g key={`path-${i}`}>
-              <path
-                d={fractalCurve(x, y1 + nodeR, x, y2 - nodeR, i * 7 + 3)}
-                fill="none"
-                stroke={active ? layer.color : "rgba(212,175,55,0.15)"}
-                strokeWidth={active ? 1.2 : 0.6}
-                opacity={active ? 0.8 : 0.3}
-              />
-              {/* Secondary tendril */}
-              <path
-                d={fractalCurve(x + 1, y1 + nodeR + 2, x - 1, y2 - nodeR - 2, i * 13 + 7)}
-                fill="none"
-                stroke={active ? layer.color : "rgba(212,175,55,0.1)"}
-                strokeWidth={0.4}
-                opacity={active ? 0.4 : 0.15}
-              />
+            <g key={`c-${i}`}>
+              <path d={fractalCurve(x, y1, x, y2, i * 7 + 3)}
+                fill="none" stroke={active ? layer.color : "rgba(212,175,55,0.12)"}
+                strokeWidth={active ? 1.5 : 0.8} opacity={active ? 0.9 : 0.25} />
+              <path d={fractalCurve(x + 2, y1 + 3, x - 1, y2 - 3, i * 13 + 5)}
+                fill="none" stroke={active ? layer.color : "rgba(212,175,55,0.08)"}
+                strokeWidth={0.5} opacity={active ? 0.4 : 0.1} />
             </g>
           );
         })}
 
-        {/* Nodes and labels */}
+        {/* Nodes, labels, and expandable lists */}
         {layers.map((layer, i) => {
-          const y = yPad + i * ySpacing;
-          const x = 14;
-          const active = expanded[layer.key];
+          const y = positions[i];
+          const x = padLeft;
+          const active = expanded[layer.key] || expanded[layer.group];
+
+          let listY = y + 16;
           return (
             <g key={layer.key}>
-              <circle cx={x} cy={y} r={active ? nodeR + 1.5 : nodeR}
-                fill={active ? layer.color : "rgba(212,175,55,0.2)"}
-                stroke={layer.color} strokeWidth={0.5} />
-              {active && <circle cx={x} cy={y} r={nodeR + 5}
-                fill="none" stroke={layer.color} strokeWidth={0.3} opacity={0.3} />}
-              <text x={x + 12} y={y - 4}
-                fill={active ? layer.color : "rgba(212,175,55,0.35)"}
-                fontSize="6.5" fontFamily="'Palatino Linotype', serif"
-                letterSpacing="0.08em" fontWeight={active ? 600 : 400}>
+              {/* Node */}
+              <circle cx={x} cy={y} r={active ? nodeR + 2 : nodeR}
+                fill={active ? layer.color : "rgba(212,175,55,0.15)"}
+                stroke={layer.color} strokeWidth={active ? 1 : 0.5} />
+              {active && <circle cx={x} cy={y} r={nodeR + 7}
+                fill="none" stroke={layer.color} strokeWidth={0.4} opacity={0.35} />}
+
+              {/* Label */}
+              <text x={x + 14} y={y - 5}
+                fill={active ? layer.color : "rgba(212,175,55,0.4)"}
+                fontSize={active ? "8" : "7"} fontFamily="'Palatino Linotype', serif"
+                letterSpacing="0.06em" fontWeight={active ? 700 : 400}>
                 {layer.label}
               </text>
-              <text x={x + 12} y={y + 5}
-                fill={active ? "rgba(212,175,55,0.5)" : "rgba(212,175,55,0.2)"}
-                fontSize="5" fontFamily="'Palatino Linotype', serif"
-                fontStyle="italic">
-                {layer.sub} · {layer.sections}
+              <text x={x + 14} y={y + 5}
+                fill={active ? "rgba(212,175,55,0.6)" : "rgba(212,175,55,0.2)"}
+                fontSize="5.5" fontFamily="'Palatino Linotype', serif" fontStyle="italic">
+                {layer.sub}
               </text>
+
+              {/* Expanded list */}
+              {active && layer.list && (
+                <g>
+                  <text x={x + 16} y={listY}
+                    fill={layer.color} fontSize="5.5" fontWeight="600"
+                    fontFamily="'Palatino Linotype', serif" opacity={0.7}>
+                    {layer.listLabel}
+                  </text>
+                  {layer.list.map((item, j) => (
+                    <text key={j} x={x + 20} y={listY + 10 + j * 11}
+                      fill="rgba(212,175,55,0.55)" fontSize="5.5"
+                      fontFamily="'Palatino Linotype', serif">
+                      {item}
+                    </text>
+                  ))}
+                  {layer.list2 && (
+                    <g>
+                      <text x={x + 16} y={listY + 10 + layer.list.length * 11 + 6}
+                        fill={layer.color} fontSize="5.5" fontWeight="600"
+                        fontFamily="'Palatino Linotype', serif" opacity={0.7}>
+                        {layer.list2Label}
+                      </text>
+                      {layer.list2.map((item, j) => (
+                        <text key={j} x={x + 20}
+                          y={listY + 10 + layer.list.length * 11 + 16 + j * 11}
+                          fill="rgba(212,175,55,0.55)" fontSize="5.5"
+                          fontFamily="'Palatino Linotype', serif">
+                          {item}
+                        </text>
+                      ))}
+                    </g>
+                  )}
+                </g>
+              )}
             </g>
           );
         })}
 
-        {/* Deep Web origin marker at top */}
-        <text x={14} y={12} fill="rgba(212,175,55,0.4)"
-          fontSize="5" fontFamily="'Palatino Linotype', serif"
-          textAnchor="middle" letterSpacing="0.1em">∞</text>
-        <text x={28} y={13} fill="rgba(212,175,55,0.3)"
-          fontSize="5.5" fontFamily="'Palatino Linotype', serif"
-          letterSpacing="0.08em" fontWeight="600">DEEP WEB</text>
-        {/* Return marker at bottom */}
-        <text x={14} y={h - 8} fill="rgba(212,175,55,0.25)"
-          fontSize="5" fontFamily="'Palatino Linotype', serif"
-          textAnchor="middle">∮</text>
+        {/* Origin: Deep Web ∞ */}
+        <text x={padLeft} y={10} fill={accent} opacity={0.6}
+          fontSize="10" fontFamily="'Palatino Linotype', serif" textAnchor="middle">∞</text>
+        <text x={padLeft + 12} y={11} fill={accent} opacity={0.4}
+          fontSize="6" fontFamily="'Palatino Linotype', serif" letterSpacing="0.1em" fontWeight="600">
+          DEEP WEB</text>
+
+        {/* Terminus: ∮ */}
+        <text x={padLeft} y={svgH - 8} fill={accent} opacity={0.5}
+          fontSize="9" fontFamily="'Palatino Linotype', serif" textAnchor="middle">∮</text>
       </svg>
+
+      {/* Responsive: hide on narrow screens */}
+      <style>{`
+        @media (max-width: 1100px) {
+          .cosmology-strip { display: none !important; }
+        }
+      `}</style>
     </div>
   );
 }
