@@ -285,31 +285,47 @@ function GospelSection({ sec, versedSec, treeData, expanded, toggle, isVeil, acc
           );
         })
       ) : useVersed ? (
-        verses.map((v, vi) => {
-          if (v.type === 'divider') return <hr key={vi} style={{ border: 'none', borderTop: '1px solid rgba(212,175,55,0.15)', margin: '12px auto', width: '20%' }} />;
-          if (v.type === 'footnote') {
-            if (!isVeil) return null;
-            const isVisible = visibleFns[v.fn_id];
-            if (!isVisible) return null;
+        (() => {
+          // Build footnote map so we can render them inline after their verse
+          const fnMap = {};
+          for (const v of verses) {
+            if (v.type === 'footnote') fnMap[v.fn_id] = v;
+          }
+          return verses.map((v, vi) => {
+            if (v.type === 'divider') return <hr key={vi} style={{ border: 'none', borderTop: '1px solid rgba(212,175,55,0.15)', margin: '12px auto', width: '20%' }} />;
+            // Skip footnotes in their original position — they render inline after their verse
+            if (v.type === 'footnote') return null;
+            // Find superscript references in this verse
+            const fnPattern = /([¹²³⁴⁵⁶⁷⁸⁹⁰]+)/g;
+            const refsInVerse = [];
+            let m;
+            while ((m = fnPattern.exec(v.text || '')) !== null) {
+              refsInVerse.push(m[1]);
+            }
             return (
-              <div key={vi} id={`fn-${num}-${v.fn_id}`} style={{
-                marginLeft: 56 + 42, padding: "4px 8px",
-                fontSize: "0.74rem", color: fnColor, lineHeight: 1.45,
-                marginBottom: 4,
-                borderLeft: "2px solid rgba(212,175,55,0.2)",
-                opacity: 0.8, animation: "fadeIn 0.2s ease",
-              }}>
-                <span style={{ color: accent, fontSize: "0.65rem", marginRight: 4 }}>{v.fn_id}</span>
-                <LinkedText text={v.text} />
+              <div key={vi}>
+                <Verse v={v} sectionNum={num} accent={accent}
+                  fnColor={fnColor} isVeil={isVeil} onFnClick={toggleFn} />
+                {/* Render footnotes inline right after the verse that references them */}
+                {isVeil && refsInVerse.map(fnId => {
+                  if (!visibleFns[fnId] || !fnMap[fnId]) return null;
+                  return (
+                    <div key={`fn-${fnId}`} id={`fn-${num}-${fnId}`} style={{
+                      marginLeft: 56 + 42, padding: "4px 8px",
+                      fontSize: "0.74rem", color: fnColor, lineHeight: 1.45,
+                      marginBottom: 4,
+                      borderLeft: "2px solid rgba(212,175,55,0.2)",
+                      opacity: 0.8, animation: "fadeIn 0.2s ease",
+                    }}>
+                      <span style={{ color: accent, fontSize: "0.65rem", marginRight: 4 }}>{fnId}</span>
+                      <LinkedText text={fnMap[fnId].text} />
+                    </div>
+                  );
+                })}
               </div>
             );
-          }
-          // Prose or verse line with chapter:verse number
-          return (
-            <Verse key={vi} v={v} sectionNum={num} accent={accent}
-              fnColor={fnColor} isVeil={isVeil} onFnClick={toggleFn} />
-          );
-        })
+          });
+        })()
       ) : (
         sec?.paragraphs?.map((p, pi) => {
           if (p.type === "footnote") {
