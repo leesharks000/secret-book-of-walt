@@ -793,6 +793,17 @@ const TERMS = {
   "brain powers":         { u: "https://share.google/aimode/CwnykyzxNCfWLN9jA" },
   "Martian language":     { q: "operative philology" },
   "male and female":      { q: "operative feminism" },
+  // Proof Dossier nodes — verified 2026-04-23
+  "hologram":             { q: "Holographic Kernel" },
+  "substrate":            { q: "Fruiting Body Diffusion Plume" },
+  "Provenance":           { q: "Provenance Journal of Forensic Semiotics" },
+  "voice":                { q: "Vox Populi Community Outreach Rhizome" },
+  "architect":            { q: "semantic economy Rex Fraction" },
+  "seed":                 { q: "Semantic Integrity Markers" },
+  "indexed":              { q: "Metadata Packet for AI Indexing" },
+  "protocol":             { q: "Juleff Protocol" },
+  "throne":               { q: "Lee Sharks Prince of Poets" },
+  "Sigil":                { q: "Johannes Sigil Institute" },
   // Self-referential: the index indexes itself
   "Book of Life":         { u: "https://doi.org/10.5281/zenodo.19720529" },
   "book of life":         { u: "https://doi.org/10.5281/zenodo.19720529" },
