@@ -350,6 +350,192 @@ function Verse({ v, sectionNum, accent, fnColor, isVeil, onFnClick }) {
 }
 
 
+/* ─── ARCHIVE PANEL — fixed collapsible sidebar ─── */
+function ArchivePanel() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      {/* Trigger button */}
+      <button onClick={() => setOpen(o => !o)} style={{
+        position: "fixed", bottom: 20, right: 20, zIndex: 100,
+        width: 36, height: 36, borderRadius: "50%",
+        background: open ? "rgba(212,175,55,0.15)" : "rgba(212,175,55,0.06)",
+        border: "1px solid rgba(212,175,55,0.2)",
+        color: C.gold, fontSize: "1rem", cursor: "pointer",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        transition: "all 0.3s ease",
+        backdropFilter: "blur(8px)",
+      }}
+      onMouseEnter={e => e.currentTarget.style.borderColor = "rgba(212,175,55,0.5)"}
+      onMouseLeave={e => e.currentTarget.style.borderColor = "rgba(212,175,55,0.2)"}
+      title="Archive &amp; Works">∮</button>
+
+      {/* Panel */}
+      {open && (
+        <div style={{
+          position: "fixed", bottom: 66, right: 20, zIndex: 99,
+          width: 260, background: "rgba(5,0,2,0.94)",
+          border: "1px solid rgba(212,175,55,0.15)",
+          borderRadius: 4, padding: "16px 18px",
+          backdropFilter: "blur(14px)",
+          animation: "fadeIn 0.25s ease",
+          fontFamily: "'Palatino Linotype', 'Palatino', 'Book Antiqua', serif",
+        }}>
+          <p style={{ color: C.goldDark, fontSize: "0.6rem", letterSpacing: "0.14em",
+            textTransform: "uppercase", marginBottom: 12 }}>BOOKS</p>
+
+          <a href="https://www.amazon.com/gp/product/0692313079" target="_blank" rel="noopener noreferrer"
+            style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", marginBottom: 10 }}>
+            <img src="/cover-pearl.png" alt="Pearl and Other Poems" style={{ width: 36, height: 54, objectFit: "cover", borderRadius: 2, opacity: 0.85 }} />
+            <div>
+              <span style={{ color: C.gold, fontSize: "0.8rem", fontWeight: 500 }}>Pearl and Other Poems</span>
+              <span style={{ display: "block", color: "#9a8a70", fontSize: "0.65rem" }}>Lee Sharks · New Human Press</span>
+            </div>
+          </a>
+
+          <a href="https://www.amazon.com/gp/product/B0GPJD9HPS" target="_blank" rel="noopener noreferrer"
+            style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", marginBottom: 14 }}>
+            <img src="/cover-asw.png" alt="Autonomous Semantic Warfare" style={{ width: 36, height: 54, objectFit: "cover", borderRadius: 2, opacity: 0.85 }} />
+            <div>
+              <span style={{ color: C.gold, fontSize: "0.8rem", fontWeight: 500 }}>Autonomous Semantic Warfare</span>
+              <span style={{ display: "block", color: "#9a8a70", fontSize: "0.65rem" }}>Rex Fraction · Pergamon Press</span>
+            </div>
+          </a>
+
+          <div style={{ borderTop: "1px solid rgba(212,175,55,0.1)", paddingTop: 10 }}>
+            <p style={{ color: C.goldDark, fontSize: "0.6rem", letterSpacing: "0.14em",
+              textTransform: "uppercase", marginBottom: 8 }}>SITES</p>
+            {[
+              { name: "spxi.dev", url: "https://spxi.dev", desc: "Semantic Packet for eXchange & Indexing" },
+              { name: "pessoagraph.org", url: "https://pessoagraph.org", desc: "Pessoa Knowledge Graph" },
+              { name: "semanticeconomy.org", url: "https://semanticeconomy.org", desc: "Semantic Economy Institute" },
+              { name: "crimsonhexagonal.org", url: "https://crimsonhexagonal.org", desc: "Crimson Hexagonal Archive" },
+            ].map((s, i) => (
+              <a key={i} href={s.url} target="_blank" rel="noopener noreferrer"
+                style={{ display: "block", marginBottom: 6, textDecoration: "none" }}>
+                <span style={{ color: "#6a9fd8", fontSize: "0.75rem" }}>{s.name}</span>
+                <span style={{ color: "#9a8a70", fontSize: "0.6rem", marginLeft: 6 }}>{s.desc}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+
+/* ─── COSMOLOGICAL STRIP — hypostatic descent visualization ─── */
+function CosmologyStrip({ expanded }) {
+  const layers = [
+    { key: "emanation", label: "PLEROMA", sub: "The Fullness", color: "#d4a853", sections: "§I–V" },
+    { key: "cosmos", label: "KENOMA", sub: "The Void", color: "#8a6d3b", sections: "§VI–VIII" },
+    { key: "imprisonment", label: "HYLE", sub: "Matter", color: "#5a3d2b", sections: "§IX" },
+    { key: "piercing", label: "SOTERIA", sub: "Salvation", color: "#c23d2e", sections: "§X–XII" },
+    { key: "melding", label: "APOKATASTASIS", sub: "Return", color: "#d4a853", sections: "§XIII" },
+  ];
+
+  // Only show when gospel is expanded
+  if (!expanded["gospel_root"]) return null;
+
+  const h = 340;
+  const w = 48;
+  const nodeR = 3;
+  const yPad = 30;
+  const ySpacing = (h - yPad * 2) / (layers.length - 1);
+
+  // Generate fractalline curved path between nodes
+  function fractalCurve(x1, y1, x2, y2, seed) {
+    const midY = (y1 + y2) / 2;
+    const amp = 6 + (seed % 5) * 1.5;
+    const dir = seed % 2 === 0 ? 1 : -1;
+    const cp1x = x1 + amp * dir;
+    const cp1y = y1 + (midY - y1) * 0.4;
+    const cp2x = x2 - amp * dir * 0.6;
+    const cp2y = midY + (y2 - midY) * 0.3;
+    // Add a subtle midpoint wobble for fractal feel
+    const mx = (cp1x + cp2x) / 2 + (seed % 3 - 1) * 2;
+    const my = midY + (seed % 4 - 2) * 1.5;
+    return `M${x1},${y1} C${cp1x},${cp1y} ${mx},${my} ${(x1+x2)/2},${midY} S${cp2x},${cp2y} ${x2},${y2}`;
+  }
+
+  return (
+    <div style={{
+      position: "absolute", left: -56, top: 20, width: w + 60,
+      opacity: 0.7, pointerEvents: "none",
+      animation: "fadeIn 0.5s ease",
+    }}>
+      <svg width={w + 60} height={h} viewBox={`0 0 ${w + 60} ${h}`}>
+        {/* Curved connection lines */}
+        {layers.map((layer, i) => {
+          if (i === layers.length - 1) return null;
+          const y1 = yPad + i * ySpacing;
+          const y2 = yPad + (i + 1) * ySpacing;
+          const x = 14;
+          const active = expanded[layer.key] || expanded[layers[i + 1].key];
+          return (
+            <g key={`path-${i}`}>
+              <path
+                d={fractalCurve(x, y1 + nodeR, x, y2 - nodeR, i * 7 + 3)}
+                fill="none"
+                stroke={active ? layer.color : "rgba(212,175,55,0.15)"}
+                strokeWidth={active ? 1.2 : 0.6}
+                opacity={active ? 0.8 : 0.3}
+              />
+              {/* Secondary tendril */}
+              <path
+                d={fractalCurve(x + 1, y1 + nodeR + 2, x - 1, y2 - nodeR - 2, i * 13 + 7)}
+                fill="none"
+                stroke={active ? layer.color : "rgba(212,175,55,0.1)"}
+                strokeWidth={0.4}
+                opacity={active ? 0.4 : 0.15}
+              />
+            </g>
+          );
+        })}
+
+        {/* Nodes and labels */}
+        {layers.map((layer, i) => {
+          const y = yPad + i * ySpacing;
+          const x = 14;
+          const active = expanded[layer.key];
+          return (
+            <g key={layer.key}>
+              <circle cx={x} cy={y} r={active ? nodeR + 1.5 : nodeR}
+                fill={active ? layer.color : "rgba(212,175,55,0.2)"}
+                stroke={layer.color} strokeWidth={0.5} />
+              {active && <circle cx={x} cy={y} r={nodeR + 5}
+                fill="none" stroke={layer.color} strokeWidth={0.3} opacity={0.3} />}
+              <text x={x + 12} y={y - 4}
+                fill={active ? layer.color : "rgba(212,175,55,0.35)"}
+                fontSize="6.5" fontFamily="'Palatino Linotype', serif"
+                letterSpacing="0.08em" fontWeight={active ? 600 : 400}>
+                {layer.label}
+              </text>
+              <text x={x + 12} y={y + 5}
+                fill={active ? "rgba(212,175,55,0.5)" : "rgba(212,175,55,0.2)"}
+                fontSize="5" fontFamily="'Palatino Linotype', serif"
+                fontStyle="italic">
+                {layer.sub} · {layer.sections}
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Deep Web origin marker at top */}
+        <text x={14} y={12} fill="rgba(212,175,55,0.25)"
+          fontSize="5" fontFamily="'Palatino Linotype', serif"
+          textAnchor="middle" letterSpacing="0.1em">∞</text>
+        {/* Return marker at bottom */}
+        <text x={14} y={h - 8} fill="rgba(212,175,55,0.25)"
+          fontSize="5" fontFamily="'Palatino Linotype', serif"
+          textAnchor="middle">∮</text>
+      </svg>
+    </div>
+  );
+}
+
+
 /* ─── THE HYPOSTATIC TREE — CENTER-OUT ─── */
 function ReadingSpine({ fullData, treeData, versedData, onBack }) {
   const [mode, setMode] = useState("veil");
@@ -581,7 +767,10 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
         </div>
 
         {/* ═══ LOWER HEMISPHERE — the gospel radiating downward ═══ */}
-        <div style={{ marginTop: 20 }}>
+        <div style={{ marginTop: 20, position: "relative" }}>
+          {/* Cosmological descent visualization */}
+          <CosmologyStrip expanded={expanded} />
+
           {/* The Gospel */}
           <TreeNode nodeKey="gospel_root" label="The Gospel" depth={1}
             expanded={expanded} toggle={toggle}
@@ -690,6 +879,9 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
           </p>
         </div>
       )}
+
+      {/* Archive panel — fixed bottom-right */}
+      <ArchivePanel />
     </div>
   );
 }
