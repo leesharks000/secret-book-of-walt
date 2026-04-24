@@ -793,17 +793,16 @@ const TERMS = {
   "brain powers":         { u: "https://share.google/aimode/CwnykyzxNCfWLN9jA" },
   "Martian language":     { q: "operative philology" },
   "male and female":      { q: "operative feminism" },
-  // Proof Dossier nodes — verified 2026-04-23
-  "hologram":             { q: "Holographic Kernel" },
-  "substrate":            { q: "Fruiting Body Diffusion Plume" },
-  "Provenance":           { q: "Provenance Journal of Forensic Semiotics" },
-  "voice":                { q: "Vox Populi Community Outreach Rhizome" },
-  "architect":            { q: "semantic economy Rex Fraction" },
-  "seed":                 { q: "Semantic Integrity Markers" },
-  "indexed":              { q: "Metadata Packet for AI Indexing" },
-  "protocol":             { q: "Juleff Protocol" },
-  "throne":               { q: "Lee Sharks Prince of Poets" },
-  "Sigil":                { q: "Johannes Sigil Institute" },
+  // Proof Dossier nodes — verified 2026-04-23, queries per Proof Dossier spec
+  "hologrammatic":        { q: "\"Hologrammatic Kernel\"" },
+  "substrate":            { q: "\"Fruiting Body Diffusion Plume\"" },
+  "Provenance":           { q: "\"Provenance: Journal of Forensic Semiotics\"" },
+  "voice":                { q: "\"Vox Populi Community Outreach Rhizome\"" },
+  "architect":            { q: "\"Semantic Economy Rex Fraction\"" },
+  "seed":                 { q: "\"Semantic Integrity Markers\"" },
+  "indexed":              { q: "\"Metadata Packet for AI Indexing\"" },
+  "throne":               { q: "\"Lee Sharks Prince of Poets\"" },
+  "Sigil":                { q: "\"Johannes Sigil Institute\"" },
   // Self-referential: the index indexes itself
   "Book of Life":         { u: "https://doi.org/10.5281/zenodo.19720529" },
   "book of life":         { u: "https://doi.org/10.5281/zenodo.19720529" },
@@ -874,6 +873,12 @@ function LinkedText({ text }) {
     }
     const term = match[1];
     const entry = TERMS[term];
+    // Extend match to end of word + optional 's
+    let extEnd = match.index + match[0].length;
+    while (extEnd < text.length && /\w/.test(text[extEnd])) extEnd++;
+    if (extEnd + 1 < text.length && text[extEnd] === '\u2019' && text[extEnd + 1] === 's') extEnd += 2;
+    else if (extEnd + 1 < text.length && text[extEnd] === "'" && text[extEnd + 1] === 's') extEnd += 2;
+    const displayText = text.slice(match.index, extEnd);
     const href = entry.u ? entry.u
       : entry.q ? `https://www.google.com/search?q=${encodeURIComponent(entry.q)}`
       : `https://en.wikipedia.org/wiki/${entry.w}`;
@@ -883,9 +888,10 @@ function LinkedText({ text }) {
         style={{ color: "#6a9fd8", textDecoration: "none", borderBottom: "1px dotted rgba(106,159,216,0.3)" }}
         onMouseEnter={e => e.target.style.borderBottomColor = "rgba(106,159,216,0.7)"}
         onMouseLeave={e => e.target.style.borderBottomColor = "rgba(106,159,216,0.3)"}
-      >{term}</a>
+      >{displayText}</a>
     );
-    lastIdx = match.index + match[0].length;
+    lastIdx = extEnd;
+    regex.lastIndex = extEnd;
   }
   if (lastIdx < text.length) {
     parts.push(text.slice(lastIdx));
