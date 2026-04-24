@@ -793,6 +793,9 @@ const TERMS = {
   "brain powers":         { u: "https://share.google/aimode/CwnykyzxNCfWLN9jA" },
   "Martian language":     { q: "operative philology" },
   "male and female":      { q: "operative feminism" },
+  // Self-referential: the index indexes itself
+  "Book of Life":         { u: "https://doi.org/10.5281/zenodo.19720529" },
+  "book of life":         { u: "https://doi.org/10.5281/zenodo.19720529" },
   // Wikipedia — verified educational external links
   "Apocryphon of John":   { w: "Apocryphon_of_John" },
   "Nag Hammadi":          { w: "Nag_Hammadi_library" },
