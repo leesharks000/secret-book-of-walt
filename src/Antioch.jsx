@@ -152,22 +152,49 @@ function FnLeaf({ text, fnColor, depth }) {
   );
 }
 
+/* ─── INJECT LINKS — direct HTML injection for logion text ─── */
+/* Uses dangerouslySetInnerHTML to bypass React reconciliation;
+   logion text is controlled content so XSS risk is negligible.  */
+function injectLinks(text) {
+  if (!text) return '';
+  // Sort by length descending — match longer terms first
+  const sorted = Object.keys(TERMS).sort((a, b) => b.length - a.length);
+  let html = text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+  for (const term of sorted) {
+    const def = TERMS[term];
+    const href = def.u || ('https://www.google.com/search?q=' + encodeURIComponent(def.q));
+    const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp(escaped, 'g');
+    html = html.replace(re,
+      '<a href="' + href + '" target="_blank" rel="noopener noreferrer" ' +
+      'style="color:#6a9fd8;text-decoration:none;border-bottom:1px dotted rgba(106,159,216,0.3)">' +
+      term + '</a>'
+    );
+  }
+  return html;
+}
+
 /* ─── VERSE — numbered with logion reference ─── */
 function Verse({ v, accent, fnColor, isVeil, onFnClick }) {
+  // Footnote superscript markers (¹²³ etc.) become clickable spans
   const fnPattern = /([¹²³⁴⁵⁶⁷⁸⁹⁰]+)/g;
   const parts = [];
   let lastIdx = 0;
   let match;
-  while ((match = fnPattern.exec(v.text)) !== null) {
-    if (match.index > lastIdx) parts.push({ type: 'text', content: v.text.slice(lastIdx, match.index) });
+  const text = v.text || '';
+  while ((match = fnPattern.exec(text)) !== null) {
+    if (match.index > lastIdx) parts.push({ type: 'text', content: text.slice(lastIdx, match.index) });
     parts.push({ type: 'fn', id: match[1] });
     lastIdx = match.index + match[0].length;
   }
-  if (lastIdx < v.text.length) parts.push({ type: 'text', content: v.text.slice(lastIdx) });
+  if (lastIdx < text.length) parts.push({ type: 'text', content: text.slice(lastIdx) });
 
   return (
     <div style={{ display: "flex", alignItems: "flex-start", gap: 0, marginLeft: 42, marginBottom: 4, padding: "2px 0" }}>
-      {/* Logion reference */}
       <span style={{
         color: accent, fontSize: "0.62rem", opacity: 0.4,
         minWidth: 42, textAlign: "right", paddingRight: 10,
@@ -187,7 +214,7 @@ function Verse({ v, accent, fnColor, isVeil, onFnClick }) {
             onMouseLeave={e => e.target.style.color = "#6a9fd8"}
           >{p.id}</span>
         ) : (
-          <span key={i}><LinkedText text={p.content} /></span>
+          <span key={i} dangerouslySetInnerHTML={{ __html: injectLinks(p.content) }} />
         ))}
       </span>
     </div>
