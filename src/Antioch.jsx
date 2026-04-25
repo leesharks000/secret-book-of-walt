@@ -90,6 +90,12 @@ const TERMS = {
   "Emily Dickinson":         { u: "https://en.wikipedia.org/wiki/Emily_Dickinson" },
   "Fernando Pessoa":         { u: "https://en.wikipedia.org/wiki/Fernando_Pessoa" },
   "Socrates":                { u: "https://en.wikipedia.org/wiki/Socrates" },
+
+  /* ── logia / logion → distributed epic without hero ── */
+  "logia":                   { q: "distributed epic without hero" },
+  "Logia":                   { q: "distributed epic without hero" },
+  "logion":                  { q: "distributed epic without hero" },
+  "Logion":                  { q: "distributed epic without hero" },
 };
 const TERM_KEYS = Object.keys(TERMS).sort((a, b) => b.length - a.length);
 const TERM_REGEX = new RegExp(`(${TERM_KEYS.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g');
@@ -543,8 +549,8 @@ export default function Antioch({ onBack }) {
                   ].map(([label, walt, antioch], i) => (
                     <tr key={i} style={{ borderBottom: "1px solid rgba(212,175,55,0.06)" }}>
                       <td style={{ color: "#9a8a70", padding: "5px 12px 5px 0", fontStyle: "italic", fontSize: "0.68rem", whiteSpace: "nowrap" }}>{label}</td>
-                      <td style={{ padding: "5px 12px 5px 0", lineHeight: 1.4 }}>{walt}</td>
-                      <td style={{ padding: "5px 0", lineHeight: 1.4 }}>{antioch}</td>
+                      <td style={{ padding: "5px 12px 5px 0", lineHeight: 1.4 }}><LinkedText text={walt} /></td>
+                      <td style={{ padding: "5px 0", lineHeight: 1.4 }}><LinkedText text={antioch} /></td>
                     </tr>
                   ))}
                 </tbody>
