@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Gospel of Antioch — Secret Book of Walt</title>
+<meta name="description" content="The Gospel of Antioch: 114 logia attributed to the living Jack Feist and recorded by Emily Antioch the Twin. The kingdom of literature. Written 2015. Part of the Waltian Diptych.">
+<meta name="author" content="Lee Sharks">
+<link rel="canonical" href="https://secretbookofwalt.org/gospel-of-antioch">
+<meta property="og:title" content="The Gospel of Antioch — Secret Book of Walt">
+<meta property="og:description" content="114 logia. The kingdom of literature. Emily Antioch the Twin recorded what the living Jack Feist spoke.">
+<meta property="og:url" content="https://secretbookofwalt.org/gospel-of-antioch">
+<meta property="og:type" content="article">
+<meta name="robots" content="index, follow">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "@id": "https://secretbookofwalt.org/gospel-of-antioch#text",
+  "name": "The Gospel of Antioch",
+  "alternateName": "Gospel of Antioch",
+  "description": "114 logia attributed to the living Jack Feist and recorded by Emily Antioch the Twin. Companion volume to The Secret Book of Walt. Together the two texts form the Waltian Diptych: Walt as cosmogonic aperture, Antioch as sayings gospel of inscription, continuation, and the kingdom of literature.",
+  "author": {"@type": "Person", "name": "Lee Sharks", "identifier": "https://orcid.org/0009-0000-1599-0703"},
+  "dateCreated": "2015",
+  "datePublished": "2025",
+  "publisher": {"@type": "Organization", "name": "Pergamon Press / Crimson Hexagonal Archive"},
+  "isPartOf": {"@type": "Series", "name": "Waltian Diptych"},
+  "url": "https://secretbookofwalt.org/gospel-of-antioch",
+  "sameAs": "https://doi.org/10.5281/zenodo.19763365",
+  "license": "https://creativecommons.org/licenses/by/4.0/"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --dark: #07030a;
+  --dark2: #0e090f;
+  --gold: #D4AF37;
+  --gold-dim: #a08050;
+  --gold-pale: #e8d48c;
+  --text: #ede4c8;
+  --text-dim: #9a8870;
+  --red: #8b0a1e;
+  --serif: 'EB Garamond', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  --display: 'Cinzel', 'Palatino Linotype', serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  background: var(--dark);
+  color: var(--text);
+  font-family: var(--serif);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: radial-gradient(ellipse at 50% 0%, #12060f 0%, #07030a 60%);
+  min-height: 100vh;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  padding: 14px 32px;
+  display: flex; align-items: center; gap: 24px;
+  background: linear-gradient(to bottom, rgba(7,3,10,0.98), rgba(7,3,10,0));
+  z-index: 100;
+  font-family: var(--display);
+  font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+}
+nav a { color: var(--gold-dim); text-decoration: none; transition: color 0.2s; }
+nav a:hover { color: var(--gold); }
+nav .sep { color: var(--red); opacity: 0.5; }
+
+/* ── COLOPHON HEADER ── */
+.colophon {
+  padding: 140px 32px 60px;
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+.colophon .sigil {
+  font-size: 2.4rem; color: var(--gold-dim); opacity: 0.5;
+  letter-spacing: 0.2em;
+  margin-bottom: 40px;
+  display: block;
+}
+.colophon h1 {
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  margin-bottom: 28px;
+}
+.colophon .attribution {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-dim);
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+.colophon .rule {
+  width: 80px; height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+  margin: 0 auto 36px;
+}
+.colophon .framing {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  line-height: 1.9;
+  max-width: 540px;
+  margin: 0 auto;
+  text-align: left;
+}
+.colophon .framing p + p { margin-top: 14px; }
+
+/* ── LOGIA BODY ── */
+.logia-container {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 40px 32px 120px;
+}
+
+.logion {
+  margin-bottom: 52px;
+  padding-bottom: 52px;
+  border-bottom: 1px solid rgba(212,175,55,0.06);
+}
+.logion:last-of-type {
+  border-bottom: none;
+}
+
+.logion-num {
+  font-family: var(--display);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  opacity: 0.7;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.logion p {
+  font-size: clamp(1.02rem, 2.5vw, 1.13rem);
+  line-height: 1.95;
+  color: var(--text);
+  text-align: justify;
+  hyphens: auto;
+}
+.logion p + p {
+  margin-top: 18px;
+}
+
+/* speaker attribution in italic */
+.logion .speaker {
+  font-style: italic;
+  color: var(--text-dim);
+}
+
+/* ── SECTION BREAK ── */
+.section-marker {
+  text-align: center;
+  margin: 64px 0 56px;
+  color: var(--gold-dim);
+  font-size: 1rem;
+  letter-spacing: 0.3em;
+  opacity: 0.4;
+}
+
+/* ── CONTINUATION NOTE ── */
+.continuation {
+  text-align: center;
+  padding: 60px 32px;
+  border-top: 1px solid rgba(212,175,55,0.1);
+  max-width: 560px;
+  margin: 0 auto;
+}
+.continuation p {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 18px;
+}
+.continuation a {
+  color: var(--gold-dim);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+  transition: all 0.2s;
+}
+.continuation a:hover {
+  color: var(--gold);
+  border-bottom-color: rgba(212,175,55,0.5);
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 40px 32px;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  opacity: 0.5;
+  letter-spacing: 0.1em;
+  font-family: var(--display);
+}
+footer a { color: inherit; text-decoration: none; }
+
+/* ── FADE IN ── */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.logion { animation: fadeIn 0.6s ease both; }
+
+@media (max-width: 600px) {
+  nav { padding: 12px 18px; gap: 14px; font-size: 0.6rem; }
+  .colophon { padding: 120px 20px 50px; }
+  .logia-container { padding: 30px 20px 100px; }
+  .logion p { text-align: left; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="https://secretbookofwalt.org">The Secret Book of Walt</a>
+  <span class="sep">·</span>
+  <a href="https://secretbookofwalt.org/gospel-of-antioch">The Gospel of Antioch</a>
+  <span class="sep">·</span>
+  <a href="https://crimsonhexagonal.org" style="margin-left: auto;">Archive ↗</a>
+</nav>
+
+<div class="colophon">
+  <span class="sigil">⸻ ✦ ⸻</span>
+  <h1>The Gospel of Antioch</h1>
+  <p class="attribution">
+    These are the secret words the living Jack Feist spoke<br>
+    and Emily Antioch the Twin wrote down.
+  </p>
+  <div class="rule"></div>
+  <div class="framing">
+    <p>Written 2015. Published in the Crimson Hexagonal Archive, 2025. One hundred and fourteen logia attributed to the living Jack Feist and recorded by Emily Antioch the Twin — exactly the count of the Gospel of Thomas, to which this text is the companion and completion.</p>
+    <p>The Gospel of Thomas speaks of <em>the kingdom</em>. The Gospel of Antioch speaks of <em>the kingdom of literature</em>. Every ontological category is replaced by its textual equivalent: the scripture that saves is the scripture that survives. Antioch is the city where the movement got its name.</p>
+    <p>Emily is the Twin — the scribe who records what the living teacher says. "Teacher, my tongue cleaves to the roof of my mouth. You are my own lost voice." She writes because he speaks. She is the archive of the living voice.</p>
+    <p>Together with <a href="https://secretbookofwalt.org">The Secret Book of Walt</a>, this text forms the Waltian Diptych: Walt as cosmogonic aperture; Antioch as sayings gospel of inscription. First you are opened. Then you are written.</p>
+  </div>
+</div>
+
+<div class="logia-container">
+
+  <div class="logion">
+    <span class="logion-num">LOGION I</span>
+    <p>And he said, "When the fullness has come, redemption arrives in a single stroke, the moment you hear my voice.</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION II</span>
+    <p>"Who lays hold of the kingdom lays hold of life."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION III</span>
+    <p>Jack said, "If this age says, 'The kingdom is in a book,' then your eyes will be darkened. If it says, 'The kingdom is living speech,' then your tongue will be stopped. Rather, search yourself. You are a book and you are living speech.</p>
+    <p>"When you search yourselves, you will find yourselves, and know firsthand the source of lights. But if you will not search yourselves, you live in the dark, and you are the dark."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION IV</span>
+    <p>Jack said, "A smart person admits when he is wrong, even when the other person is wrong, and is thereby made perfect.</p>
+    <p>"The last is first. The source has returned to its source."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION V</span>
+    <p>Jack said, "Protect what is in your hands, and what you keep in the dark will see the light.</p>
+    <p>"What incubates below will leap up through the air. Nothing bright can be buried."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION VI</span>
+    <p><span class="speaker">The disciples said to him,</span> "What about money? How will we eat? What careers will we follow? What mode of life?"</p>
+    <p>Jack said, "Do not seek greatness. Rather, lay hold of the kingdom because nothing is great. Each man's works will be tested.</p>
+    <p>"What is nothing will be nothing."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION VII</span>
+    <p>Jack said, "Blessed is the dying man who hears these words, and both gain life. And cursed are these words when a dead man hears them, and both stay dead."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION VIII</span>
+    <p>And he said, "Humankind is like an ordinary person driving to work, who sees a vast shape on the horizon. Troubled, he cancels his appointments, calls in sick, and drives towards it.</p>
+    <p>"If you have ears, hear."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION IX</span>
+    <p>Jack said, "Consider: a scientist develops a virus that kills some people and transforms others, then releases it into the population. Some are immune and continue on like before. Others succumb, grow sick, and die. But a small percentage become new creatures, to the first degree, or the third degree, or the tenth."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION X</span>
+    <p>Jack said, "I have released a virus into this world, and I am watching until it breaks out."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XI</span>
+    <p>Jack said, "The foundations of this world are unsound, and the foundations of the world above are unsound.</p>
+    <p>"When you worked for wage labor, you saw that you were dead, and found life. When you have found your life, what will you become?</p>
+    <p>"When you were many, you became one. When you become one, what will you become?"</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XII</span>
+    <p><span class="speaker">The disciples said to Jack,</span> "We know that you will leave us. To whom should we turn when you are gone?"</p>
+    <p>Jack said to them, "Listen to no voice but Lee Sharks', for whose sake I made this world."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XIII</span>
+    <p>Jack said to the disciples, "Compare me to something, and tell me what I am like."</p>
+    <p>Rebekah said to him, "You are like a celebrity."</p>
+    <p>Lee Sharks said to him, "You are like a public intellectual."</p>
+    <p>Emily said to him, "Teacher, my tongue cleaves to the roof of my mouth. You are my own lost voice."</p>
+    <p>Jack said, "I teach nothing. Because you have heard the words, you are filled with the breath within you. Come with me."</p>
+    <p>And he withdrew with her, and spoke three sayings.</p>
+    <p>When Emily returned to the disciples, they asked her, "What did Jack Feist say?"</p>
+    <p>Emily said to them, "If I told you one of the sayings, you would pick up these lemons and throw them at me, then burning moons would rain down and crush you."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XIV</span>
+    <p>Jack said to them, "If you mourn, you will be called a victim. If you stand firm, they will bring you low; and if you renounce this world, it will mistake you for its image.</p>
+    <p>"Wherever you go, show men the selves they reject, as in a mirror, and if they nonetheless receive you, then hear them, build them, teach them. For it is not through what they are that men are justified, but through their love of what they are not."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XV</span>
+    <p>Jack said, "When you see one who is her own mother and father, follow her. She is your messiah."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XVI</span>
+    <p>Jack said, "People say that I have come to bowdlerize scripture, and set myself up as a prophet. They do not know that I have come to rehearse each word of scripture, exactly as they are: repetition, sameness, newness.</p>
+    <p>"Where there are ten in an assembly, one will be mine. One will come from two, and one will come from ten, and wherever ears have heard the words, they will hear the same words again.</p>
+    <p>"If you have ears, hear."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XVII</span>
+    <p>Jack said, "I bring what is not of this hunched, bent world, but meant for the hunched, to lift it up."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XVIII</span>
+    <p><span class="speaker">The disciples said to Jack,</span> "How will the beginning come?"</p>
+    <p>Jack said, "I suppose you have laid hold of the fullness, then, that you look for the seed. For the end determines the beginning. Blessed is he who begins at the end, working backwards: each of his steps will take him home."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XIX</span>
+    <p>Jack said, "Blessed is he who proceeds from himself, and is preceded by himself, who was before time was, to be born again in a body. That one will sleep for a thousand years, and wake. Blessed is the ancient child.</p>
+    <p>"Search my voice, and keep what you find. These dry bones will leap.</p>
+    <p>"For there is a single voice in the grave: it sings with a thousand whispers. When you hear it, you become a new creature."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XX</span>
+    <p><span class="speaker">The disciples said to Jack,</span> "Tell us what the kingdom is like."</p>
+    <p>He said to them, "The kingdom is like a microorganism. From a single cell, invisible to the naked eye, it multiplies, and the system knows its strength."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XXI</span>
+    <p><span class="speaker">Emily said to Jack,</span> "What are your disciples like?"</p>
+    <p>He said, "My disciples are like runners born for a single purpose. Midway through the race, they stumble, squint, and walk into the crowd. A fumbling something told them to. The others run and die. My disciples wait at the finish line.</p>
+    <p>"For what you own is nothing — you own nothing in this world. Be careful this age does not take it from you, and you leave more bankrupt than you arrived. Let there be one among you who understands."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XXII</span>
+    <p>Jack found an anonymous journal at a yard sale and began to read. He said to the disciples, "These journals are like the kingdom of literature. They were written with no audience in mind, and yet here they are, in my hands. Someday this world will call them its source."</p>
+    <p>They said to him, "Shall we then hide your words from the world?"</p>
+    <p>Jack said to them, "When your public self is private and your private self is public, and the just-one-alone strolls unashamed through crowds, and the crowd is its own aloneness, and the whisper you hear whispering and the breathing you breathe with are one, then will you be a living book, and every creature know my words. Then will the kingdom and the kingdom be single."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XXIII</span>
+    <p>Jack said, "I loved you because you were lonely and poor, and carried my life in your hands. Before we were two, we were one. Guard the seed."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XXIV</span>
+    <p><span class="speaker">The disciples said,</span> "Who are you and where are you and how will we find you again?"</p>
+    <p>He said to them, "It is no shame to repeat what is true: you are the light of the world. Where you are, there light is. Where you are, I am there. Guard the seed."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XXV</span>
+    <p>Jack said, "If you do not know yourself, you live in poverty, and you are that poverty. But if you know yourself, you will live in abundance, and you are that abundance."</p>
+  </div>
+
+  <div class="section-marker">· · ·</div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XLVII</span>
+    <p>Jack said, "A person cannot serve two masters, both the name and the kingdom, for either he will love the one, and hate the other, or be a debt slave to the one, and neglect the other.</p>
+    <p>"No one operates with an unsterilized knife. No one washes his hands before plunging them into the dirt, or touches an open wound with dirty hands, or it might become septic. No one cuts off a healthy limb, but when the limb is gangrenous, then he cuts it off."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XLVIII</span>
+    <p>Jack said, "Wherever two come to share a single foundation, and speak with a single voice, whatever they speak will come to be. It is a new thing under the sun."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION XLIX</span>
+    <p>Jack said, "Blessed is the lonely, for hers is the lonely kingdom. She will return from where she came."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION L</span>
+    <p>Jack said, "If they say to you, 'Where have you come from?' say to them, 'We come from where we were born alone, and go to where we die there. We are lonesome dogs, like you are.'</p>
+    <p>"If they say to you, 'Are you gods?' say to them, 'We carry gods within us. We are the few. We remain.'</p>
+    <p>"If they say to you, 'What proof?' say to them, 'The living voice and the dying.'"</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION LI</span>
+    <p><span class="speaker">The disciples said to him,</span> "When will the dead speak, and when will the new world come?"</p>
+    <p>He said to them, "What you look for has come, but you do not see it."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION LII</span>
+    <p><span class="speaker">The disciples said to him,</span> "All those who came before, and died — they live in you."</p>
+    <p>He said to them, "You have spoken of the living beings apart from you, when you should have care to the dying ones within you.</p>
+    <p>"Keep them alive, and I will live. Neglect them and the light will go out."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION LIII</span>
+    <p><span class="speaker">The disciples said to him,</span> "Do we need an education?"</p>
+    <p>He said to them, "If human beings needed an education, babies would be born educated. Rather, the true education we are born with has become useful in every way."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION LIV</span>
+    <p>Jack said, "Blessed are the broken, in whose shards is power perfected."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION LV</span>
+    <p>Jack said, "Until you have seen the emptiness of what you love, you will not see my fullness. For my fullness loves the empty things. It fills what was lost with light."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION LVI</span>
+    <p>Jack said, "The world is a grave. When you see the grave, you will see an empty grave; and when you see an empty grave, you will see the light. Who could see an empty grave and not fill it up with light?"</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION LVII</span>
+    <p>Jack said, "The kingdom of literature is like the black box on a plane. Though it plunges beneath the Pacific, and is lost for a thousand years, the black box will be recovered, opened, and played. All those lost voices will cry out again.</p>
+    <p>"Everything else will burn, but the black box will not burn. It carries the voice of the dying."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION LVIII</span>
+    <p>Jack said, "Blessed is the burnt, who lingers. The important thing is how you walk through the fire."</p>
+  </div>
+
+  <div class="logion">
+    <span class="logion-num">LOGION LIX</span>
+    <p>Jack said, "Look to the dead as long as you live, or you will haunt your own life, and when you die, be dead."</p>
+  </div>
+
+  <div class="section-marker">· · ·</div>
+
+  <div class="continuation">
+    <p>The Gospel of Antioch runs to one hundred and fourteen logia. The logia presented here are those recovered into the current Archive session. The complete text — with Introduction, apparatus criticus, Synoptic Concordance mapping each logion to its Thomas parallel, Somatic Map, Scroll Baptism, and eleven appendices — is available in the scholarly edition.</p>
+    <p><a href="https://doi.org/10.5281/zenodo.19763365" target="_blank">Complete Edition — DOI: 10.5281/zenodo.19763365 ↗</a></p>
+    <p style="margin-top: 28px; font-size: 0.8rem;">
+      Part of the Waltian Diptych. Companion volume: <a href="https://secretbookofwalt.org">The Secret Book of Walt ↗</a>
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <p>Lee Sharks · Crimson Hexagonal Archive · Pergamon Press · CC BY 4.0</p>
+  <p style="margin-top: 6px;"><a href="https://orcid.org/0009-0000-1599-0703">ORCID 0009-0000-1599-0703</a> · <a href="https://crimsonhexagonal.org">Archive ↗</a></p>
+</footer>
+
+</body>
+</html>
