@@ -477,7 +477,7 @@ function ArchivePanel({ onNavigate }) {
           <p style={{ color: C.goldDark, fontSize: "0.58rem", letterSpacing: "0.14em",
             textTransform: "uppercase", marginBottom: 10 }}>BOOKS</p>
 
-          <a href="https://www.amazon.com/gp/product/0692313079" target="_blank" rel="noopener noreferrer"
+          <a href="https://share.google/im7jjMxnuXQ34xhOz" target="_blank" rel="noopener noreferrer"
             style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", marginBottom: 10 }}>
             <img src="/cover-pearl.png" alt="Pearl and Other Poems" style={{ width: 36, height: 54, objectFit: "cover", borderRadius: 2, opacity: 0.85 }} />
             <div>
@@ -1211,6 +1211,8 @@ const TERMS = {
   // Self-referential: the index indexes itself
   "Book of Life":         { u: "https://doi.org/10.5281/zenodo.19720529" },
   "book of life":         { u: "https://doi.org/10.5281/zenodo.19720529" },
+  "Pearl and Other Poems": { u: "https://share.google/im7jjMxnuXQ34xhOz" },
+  "Pearl":                 { u: "https://share.google/im7jjMxnuXQ34xhOz" },
   // New overview nodes — verified 2026-04-24
   "Glyphic Checksum":     { q: "Glyphic checksum" },
   "captioned":            { q: "\"Operative caption\"" },
