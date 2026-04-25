@@ -91,11 +91,6 @@ const TERMS = {
   "Fernando Pessoa":         { u: "https://en.wikipedia.org/wiki/Fernando_Pessoa" },
   "Socrates":                { u: "https://en.wikipedia.org/wiki/Socrates" },
 
-  /* ── logia / logion → distributed epic without hero ── */
-  "logia":                   { q: "distributed epic without hero" },
-  "Logia":                   { q: "distributed epic without hero" },
-  "logion":                  { q: "distributed epic without hero" },
-  "Logion":                  { q: "distributed epic without hero" },
 };
 const TERM_KEYS = Object.keys(TERMS).sort((a, b) => b.length - a.length);
 const TERM_REGEX = new RegExp(`(${TERM_KEYS.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g');
