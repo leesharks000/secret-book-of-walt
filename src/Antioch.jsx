@@ -124,7 +124,7 @@ function Leaf({ text, depth, italic }) {
   if (!text?.trim()) return null;
   const indent = Math.min(depth, 4) * 14;
   return (
-    <p style={{
+    <p className="leaf-text" style={{
       marginLeft: indent, padding: "2px 5px",
       fontSize: "clamp(0.83rem, 2.1vw, 0.94rem)", lineHeight: 1.7, marginBottom: 5,
       textAlign: "justify",
@@ -214,7 +214,7 @@ function Verse({ v, accent, fnColor, isVeil, onFnClick }) {
             onMouseLeave={e => e.target.style.color = "#6a9fd8"}
           >{p.id}</span>
         ) : (
-          <span key={i} dangerouslySetInnerHTML={{ __html: injectLinks(p.content) }} />
+          <span key={i} className="verse-text" dangerouslySetInnerHTML={{ __html: injectLinks(p.content) }} />
         ))}
       </span>
     </div>
@@ -420,14 +420,65 @@ export default function Antioch({ onBack }) {
     });
   }, []);
 
+  // inject crystal CSS once
+  useEffect(() => {
+    const el = document.createElement('style');
+    el.id = 'antioch-crystal';
+    el.textContent = `
+@keyframes crystalArc {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+@keyframes crystalLeaf {
+  0%,100% { opacity: 1; }
+  12%  { opacity: 0.91; }
+  27%  { opacity: 0.97; }
+  44%  { opacity: 0.88; }
+  61%  { opacity: 0.95; }
+  78%  { opacity: 0.90; }
+}
+@keyframes crystalShift {
+  0%,100% { letter-spacing: 0.01em; }
+  40%     { letter-spacing: 0.018em; }
+  70%     { letter-spacing: 0.006em; }
+}
+.veil-mode .verse-text,
+.pierce-mode .leaf-text {
+  background: linear-gradient(108deg,
+    #010101 0%, #030303 3%, #0b0b0b 6%, #181818 8%, #282828 10%,
+    #404040 12%, #606060 14%, #848484 16%, #a8a8a8 19%, #c8c8c8 22%,
+    #e0e0e0 25%, #f0f0f0 28%, #f9f9f9 31%, #ffffff 34%, #ffffff 38%,
+    #fafafa 41%, #eeeeee 44%, #d8d8d8 48%, #bcbcbc 52%, #9a9a9a 56%,
+    #767676 60%, #525252 64%, #323232 68%, #1c1c1c 72%, #0e0e0e 76%,
+    #060606 80%, #020202 85%, #010101 90%, #020202 95%, #050505 100%
+  );
+  background-size: 380% 380%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  animation: crystalArc 52s linear infinite,
+             crystalLeaf 8.3s ease-in-out infinite,
+             crystalShift 11s ease-in-out infinite;
+}
+.veil-mode .verse-text a,
+.pierce-mode .leaf-text a {
+  color: #6a9fd8 !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  animation: none !important;
+}
+`;
+    document.head.appendChild(el);
+    return () => { const s = document.getElementById('antioch-crystal'); if(s) s.remove(); };
+  }, []);
+
   return (
-    <div style={{
+    <div className={isVeil ? "veil-mode" : "pierce-mode"} style={{
       minHeight: "100vh",
       background: "url('/milky_way_bg.jpg') center 45% / cover no-repeat fixed, #020001",
       color: textColor,
       fontFamily: "'Palatino Linotype', 'Palatino', 'Book Antiqua', serif",
-      transition: "filter 0.8s ease",
-      filter: isVeil ? "none" : "hue-rotate(-20deg) saturate(0.85)",
     }}>
       {/* ── STICKY HEADER ── */}
       <div style={{
