@@ -425,41 +425,61 @@ export default function Antioch({ onBack }) {
     const el = document.createElement('style');
     el.id = 'antioch-crystal';
     el.textContent = `
-@keyframes crystalArc {
-  0%   { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+@keyframes sunretreats {
+  0%   { background-position: 6%  48%; }
+  12%  { background-position: 18% 53%; }
+  24%  { background-position: 32% 46%; }
+  36%  { background-position: 48% 55%; }
+  50%  { background-position: 62% 47%; }
+  63%  { background-position: 76% 53%; }
+  74%  { background-position: 86% 49%; }
+  84%  { background-position: 93% 52%; }
+  93%  { background-position: 97% 48%; }
+  100% { background-position: 6%  48%; }
 }
-@keyframes crystalLeaf {
+@keyframes atmosphericFlutter {
   0%,100% { opacity: 1; }
-  12%  { opacity: 0.91; }
-  27%  { opacity: 0.97; }
-  44%  { opacity: 0.88; }
-  61%  { opacity: 0.95; }
-  78%  { opacity: 0.90; }
-}
-@keyframes crystalShift {
-  0%,100% { letter-spacing: 0.01em; }
-  40%     { letter-spacing: 0.018em; }
-  70%     { letter-spacing: 0.006em; }
+  18%  { opacity: 0.93; }
+  37%  { opacity: 0.98; }
+  52%  { opacity: 0.90; }
+  71%  { opacity: 0.96; }
+  88%  { opacity: 0.92; }
 }
 .veil-mode .verse-text,
 .pierce-mode .leaf-text {
-  background: linear-gradient(108deg,
-    #010101 0%, #030303 3%, #0b0b0b 6%, #181818 8%, #282828 10%,
-    #404040 12%, #606060 14%, #848484 16%, #a8a8a8 19%, #c8c8c8 22%,
-    #e0e0e0 25%, #f0f0f0 28%, #f9f9f9 31%, #ffffff 34%, #ffffff 38%,
-    #fafafa 41%, #eeeeee 44%, #d8d8d8 48%, #bcbcbc 52%, #9a9a9a 56%,
-    #767676 60%, #525252 64%, #323232 68%, #1c1c1c 72%, #0e0e0e 76%,
-    #060606 80%, #020202 85%, #010101 90%, #020202 95%, #050505 100%
-  );
-  background-size: 380% 380%;
+  background:
+    linear-gradient(138deg,
+      rgba(255,255,255,0.12) 0%,
+      rgba(255,255,255,0.06) 18%,
+      transparent 38%,
+      transparent 72%,
+      rgba(255,255,255,0.04) 100%
+    ),
+    linear-gradient(125deg,
+      #ffffff  0%,
+      #f8f8f8  6%,
+      #f0f0f0 11%,
+      #e0e0e0 16%,
+      #c8c8c8 21%,
+      #a8a8a8 25%,
+      #808080 29%,
+      #545454 33%,
+      #2c2c2c 37%,
+      #141414 41%,
+      #080808 45%,
+      #030303 52%,
+      #010101 62%,
+      #000000 80%,
+      #010101 100%
+    );
+  background-size: 320% 320%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent !important;
   pointer-events: none;
-  animation: crystalArc 52s linear infinite,
-             crystalLeaf 8.3s ease-in-out infinite,
-             crystalShift 11s ease-in-out infinite;
+  animation:
+    sunretreats 64s ease-in-out infinite,
+    atmosphericFlutter 9.7s ease-in-out infinite;
 }
 .veil-mode .verse-text a,
 .pierce-mode .leaf-text a {
