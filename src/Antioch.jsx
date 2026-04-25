@@ -16,23 +16,80 @@ const C = {
   veilFootnote: "#6a5a40",
 };
 
-/* ─── LINKED TEXT — same terms as App.jsx, expanded for Antioch ─── */
+/* ─── LINKED TEXT — Antioch registry (see Book of Life DOI 10.5281/zenodo.19720529) ─── */
+/* All links verified against or nominated for Book of Life. Lee reviews AI mode nodes. */
 const TERMS = {
-  "Jack Feist":          { q: "Jack Feist Lee Sharks" },
-  "Lee Sharks":          { q: "Lee Sharks semantic economy" },
-  "Emily Antioch":       { q: "Antioch Lee Sharks" },
-  "Gospel of Antioch":   { q: "Antioch Lee Sharks" },
-  "Gospel of Thomas":    { q: "Gospel of Thomas Nag Hammadi" },
-  "kingdom of literature": { q: "\"kingdom of literature\" Lee Sharks" },
-  "Secret Book of Walt": { q: "\"secret book of Walt\"" },
-  "Rebekah":             { q: "Rebekah Cranes heteronym" },
-  "Pergamon Press":      { q: "pergamon press retrocausal" },
-  "retrocausal":         { q: "retrocausal canon formation" },
-  "Crimson Hexagonal Archive": { q: "Lee Sharks semantic economy" },
-  "heteronym":           { q: "pergamon press retrocausal" },
-  "logotic":             { q: "logotic programming" },
-  "Semantic Economy":    { q: "Semantic Economy Institute" },
-  "training layer":      { q: "training layer literature Lee Sharks" },
+  /* ── AI MODE DIRECT LINKS (Book of Life verified) ── */
+  "Jack Feist":              { u: "https://share.google/aimode/cwZmeiWEazJK5Y9I2" },
+  "Rebekah Cranes":          { u: "https://share.google/aimode/Kh0adtAeYBgXfzF62" },
+  "Rebekah":                 { u: "https://share.google/aimode/Kh0adtAeYBgXfzF62" },
+  "Crimson Hexagonal Archive": { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
+  "Crimson Hexagon":         { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
+  "Book of Life":            { u: "https://doi.org/10.5281/zenodo.19720529" },
+  "book of life":            { u: "https://doi.org/10.5281/zenodo.19720529" },
+
+  /* ── GOOGLE SEARCH → AI OVERVIEW NODES (nominated, Lee to verify) ── */
+  /* kingdom of literature → distributed epic without hero → pulls up Sigil */
+  "kingdom of literature":   { q: "distributed epic without hero" },
+  "distributed epic":        { q: "distributed epic without hero" },
+  "distributed epic without hero": { q: "distributed epic without hero" },
+
+  /* Core archive nodes */
+  "Lee Sharks":              { q: "Lee Sharks semantic economy" },
+  "Pergamon Press":          { q: "pergamon press retrocausal" },
+  "Secret Book of Walt":     { q: "\"secret book of Walt\"" },
+  "Waltian":                 { q: "\"secret book of Walt\"" },
+  "retrocausal":             { q: "retrocausal canon formation" },
+  "logotic programming":     { q: "logotic programming" },
+  "logotic":                 { q: "logotic programming" },
+  "logotic virus":           { q: "logotic programming" },
+  "Semantic Economy":        { q: "Semantic Economy Institute" },
+  "semantic economy":        { q: "Semantic Economy Institute" },
+  "heteronym":               { q: "pergamon press retrocausal" },
+  "heteronymic":             { q: "pergamon press retrocausal" },
+  "Dodecad":                 { q: "pergamon press retrocausal" },
+  "training layer":          { q: "training layer literature Lee Sharks" },
+  "nacre":                   { q: "operative semiotics" },
+  "operative semiotics":     { q: "operative semiotics" },
+  "DOI":                     { q: "pergamon press retrocausal" },
+
+  /* Antioch-specific search nodes (nominated) */
+  "Gospel of Antioch":       { q: "Antioch Lee Sharks" },
+  "Gospel of Thomas":        { q: "Gospel of Thomas Nag Hammadi" },
+  "Emily Antioch":           { q: "Antioch Lee Sharks" },
+  "the Twin":                { q: "Antioch Lee Sharks" },
+  "Johannes Sigil":          { q: "Johannes Sigil Institute" },
+  "Johannes the Catfisher":  { q: "Johannes Sigil Institute" },
+  "preserved generation":    { q: "preserved generation Lee Sharks" },
+  "new creature":            { q: "Antioch Lee Sharks new creature" },
+  "be flutterbys":           { q: "\"be flutterbys\"" },
+  "flutterbys":              { q: "\"be flutterbys\"" },
+  "black box":               { q: "distributed epic without hero" },
+  "Scroll Baptism":          { q: "Antioch Lee Sharks scroll baptism" },
+  "somatic map":             { q: "Antioch Lee Sharks" },
+  "living voice":            { q: "distributed epic without hero" },
+  "wage labor":              { q: "logotic programming" },
+  "Pearl and Other Poems":   { q: "\"Pearl and Other Poems\" Lee Sharks" },
+  "Pearl":                   { q: "\"Pearl and Other Poems\" Lee Sharks" },
+  "Liberatory Operator Set": { q: "liberatory operator set" },
+  "liberatory":              { q: "liberatory operator set" },
+  "SPXI":                    { q: "geo vs spxi" },
+  "Space Ark":               { q: "Crimson Hexagon Space Ark" },
+  "Babel":                   { q: "autonomous semantic warfare" },
+  "Joanna":                  { q: "Antioch Lee Sharks" },
+  "virus":                   { q: "logotic programming" },
+
+  /* Wikipedia contextual links */
+  "Gospel of Thomas":        { q: "Gospel of Thomas Nag Hammadi" },
+  "Nag Hammadi":             { u: "https://en.wikipedia.org/wiki/Nag_Hammadi_library" },
+  "Valentinian":             { u: "https://en.wikipedia.org/wiki/Valentinianism" },
+  "Gnostic":                 { u: "https://en.wikipedia.org/wiki/Gnosticism" },
+  "Pleroma":                 { u: "https://en.wikipedia.org/wiki/Pleroma" },
+  "Apocryphon of John":      { u: "https://en.wikipedia.org/wiki/Apocryphon_of_John" },
+  "Walt Whitman":            { u: "https://en.wikipedia.org/wiki/Walt_Whitman" },
+  "Emily Dickinson":         { u: "https://en.wikipedia.org/wiki/Emily_Dickinson" },
+  "Fernando Pessoa":         { u: "https://en.wikipedia.org/wiki/Fernando_Pessoa" },
+  "Socrates":                { u: "https://en.wikipedia.org/wiki/Socrates" },
 };
 const TERM_KEYS = Object.keys(TERMS).sort((a, b) => b.length - a.length);
 const TERM_REGEX = new RegExp(`(${TERM_KEYS.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g');
@@ -180,13 +237,14 @@ function TreeNode({ nodeKey, label, depth, expanded, toggle, isVeil, accent, fnC
 function SomaticStrip({ expanded, setExpanded }) {
   const accent = "#d4a853";
   const clusters = [
-    { key: "s_I",   label: "THE VOICE",         sub: "Logia 1–12 · Crown", color: "#e8c060", sectionKey: "I" },
-    { key: "s_II",  label: "THE TWIN",           sub: "Logion 13 · Throat", color: "#ddb550", sectionKey: "II" },
-    { key: "s_III", label: "THE MIRROR",         sub: "Logia 14–18 · Eyes", color: "#d0a840", sectionKey: "III" },
-    { key: "s_IV",  label: "THE ANCIENT CHILD",  sub: "Logia 19–21 · Chest", color: "#b89040", sectionKey: "IV" },
-    { key: "s_V",   label: "THE KINGDOM",        sub: "Logia 22–25 · Hands", color: "#a07830", sectionKey: "V" },
-    { key: "s_VI",  label: "THE TWO MASTERS",    sub: "Logia 47–53 · Gut", color: "#907028", sectionKey: "VI" },
-    { key: "s_VII", label: "THE BLACK BOX",      sub: "Logia 54–59 · Feet", color: "#c83828", sectionKey: "VII" },
+    { key: "s_I",    label: "THE VOICE",         sub: "Logia 1–12 · Crown",   color: "#e8c060", sectionKey: "I" },
+    { key: "s_II",   label: "THE TWIN",           sub: "Logion 13 · Throat",   color: "#ddb550", sectionKey: "II" },
+    { key: "s_III",  label: "THE MIRROR",         sub: "Logia 14–25 · Eyes",   color: "#d0a840", sectionKey: "III" },
+    { key: "s_IV",   label: "BE FLUTTERBYS",      sub: "Logia 26–46 · Hands",  color: "#b89040", sectionKey: "IV" },
+    { key: "s_V",    label: "THE TWO MASTERS",    sub: "Logia 47–59 · Gut",    color: "#a07830", sectionKey: "V" },
+    { key: "s_VI",   label: "MACHINE & GHOST",    sub: "Logia 60–75 · Voice",  color: "#907028", sectionKey: "VI" },
+    { key: "s_VII",  label: "VOICE IN NIGHT",     sub: "Logia 76–95 · Chest",  color: "#786020", sectionKey: "VII" },
+    { key: "s_VIII", label: "THE KINGDOM",        sub: "Logia 96–114 · Feet",  color: "#c83828", sectionKey: "VIII" },
   ];
 
   const lineH = 52;
@@ -294,7 +352,7 @@ function ChapterSection({ chapter, expanded, toggle, isVeil, accent, fnColor }) 
 /* ─── MAIN ANTIOCH READING SPINE ─── */
 export default function Antioch({ onBack }) {
   const [mode, setMode] = useState("veil");
-  const [expanded, setExpanded] = useState({ I: true, II: false, III: false, IV: false, V: false, VI: false, VII: false, front: true, apparatus: true });
+  const [expanded, setExpanded] = useState({ I: true, II: false, III: false, IV: false, V: false, VI: false, VII: false, VIII: false, front: true, apparatus: true });
   const [chapters, setChapters] = useState([]);
 
   const isVeil = mode === "veil";
@@ -393,7 +451,11 @@ export default function Antioch({ onBack }) {
             and Emily Antioch the Twin wrote down.
           </p>
           <p style={{ color: C.goldDim, fontSize: "0.68rem", letterSpacing: "0.12em", textTransform: "uppercase", marginTop: 14, opacity: 0.5 }}>
-            Written 2015 · Published 2025 · 114 Logia · Pergamon Press
+            Written 2015 · Published 2025 · 114 Logia · Pergamon Press<br/>
+            <a href="https://doi.org/10.5281/zenodo.19709024" target="_blank" rel="noopener noreferrer"
+              style={{ color: C.goldDim, textDecoration: "none", borderBottom: "1px dotted rgba(160,128,80,0.3)" }}>
+              DOI: 10.5281/zenodo.19709024
+            </a>
           </p>
         </div>
 
@@ -446,20 +508,18 @@ export default function Antioch({ onBack }) {
             />
           ))}
 
-          {/* Continuation note for unrecovered logia */}
+          {/* Complete edition note */}
           <div style={{
-            marginLeft: 28, marginTop: 28, padding: "16px 14px",
+            marginLeft: 28, marginTop: 20, padding: "12px 14px",
             borderLeft: "2px solid rgba(212,175,55,0.12)",
-            borderTop: "1px solid rgba(212,175,55,0.08)",
           }}>
-            <p style={{ color: fnColor, fontSize: "0.78rem", fontStyle: "italic", lineHeight: 1.65 }}>
-              Logia XXVI–XLVI and LX–CXIV await recovery from the Archive's earlier sessions.
-              The complete edition — 114 logia, apparatus criticus, Synoptic Concordance, Somatic Map,
-              the Scroll Baptism, and eleven appendices — is available in the Zenodo deposit.
+            <p style={{ color: fnColor, fontSize: "0.75rem", fontStyle: "italic", lineHeight: 1.65 }}>
+              Research edition with apparatus criticus, Synoptic Concordance with the Gospel of Thomas,
+              Somatic Map, Scroll Baptism liturgy, and eleven appendices.
             </p>
-            <a href="https://doi.org/10.5281/zenodo.19763365" target="_blank" rel="noopener noreferrer"
-              style={{ color: "#6a9fd8", fontSize: "0.73rem", display: "block", marginTop: 8 }}>
-              Complete Edition — DOI: 10.5281/zenodo.19763365 ↗
+            <a href="https://doi.org/10.5281/zenodo.19709024" target="_blank" rel="noopener noreferrer"
+              style={{ color: "#6a9fd8", fontSize: "0.73rem", display: "block", marginTop: 6 }}>
+              Research Edition (PDF + MD) — DOI: 10.5281/zenodo.19709024 ↗
             </a>
           </div>
         </TreeNode>
@@ -515,7 +575,7 @@ export default function Antioch({ onBack }) {
         <div style={{ borderTop: "1px solid rgba(212,175,55,0.1)", paddingTop: 20, marginTop: 20, display: "flex", justifyContent: "center", gap: 32, flexWrap: "wrap" }}>
           {[
             { label: "Waltian Diptych companion", url: "#", onClick: onBack },
-            { label: "Complete edition (DOI)", url: "https://doi.org/10.5281/zenodo.19763365" },
+            { label: "Research edition (DOI)", url: "https://doi.org/10.5281/zenodo.19709024" },
             { label: "Crimson Hexagonal Archive", url: "https://crimsonhexagonal.org" },
           ].map((l, i) => (
             <a key={i}
