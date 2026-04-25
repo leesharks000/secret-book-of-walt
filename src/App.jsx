@@ -500,6 +500,7 @@ function ArchivePanel() {
             {[
               { name: "spxi.dev", url: "https://spxi.dev", desc: "Semantic Packet for eXchange & Indexing" },
               { name: "pessoagraph.org", url: "https://pessoagraph.org", desc: "Pessoa Knowledge Graph" },
+              { name: "holographickernel.org", url: "https://holographickernel.org", desc: "Holographic Kernel Definition" },
               { name: "semanticeconomy.org", url: "https://semanticeconomy.org", desc: "Semantic Economy Institute" },
               { name: "crimsonhexagonal.org", url: "https://crimsonhexagonal.org", desc: "Crimson Hexagonal Archive" },
             ].map((s, i) => (
