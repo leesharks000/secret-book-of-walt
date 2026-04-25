@@ -209,7 +209,7 @@ function Verse({ v, accent, fnColor, isVeil, onFnClick }) {
           <span key={i} onClick={() => onFnClick(p.id)}
             role="button" tabIndex={0}
             onKeyDown={e => { if (e.key === 'Enter') onFnClick(p.id); }}
-            style={{ color: "#6a9fd8", cursor: "pointer", fontSize: "0.7em", verticalAlign: "super", fontWeight: 600 }}
+            style={{ color: "#6a9fd8", cursor: "pointer", fontSize: "0.7em", verticalAlign: "super", fontWeight: 600, position: "relative", zIndex: 2, pointerEvents: "all" }}
             onMouseEnter={e => e.target.style.color = "#8ab8f0"}
             onMouseLeave={e => e.target.style.color = "#6a9fd8"}
           >{p.id}</span>
@@ -385,7 +385,7 @@ export default function Antioch({ onBack }) {
 
   const isVeil = mode === "veil";
   const textColor = "#f0ede8";
-  const fnColor = "#9a8a70";
+  const fnColor = isVeil ? "#c8a050" : "#9a8a70";
   const accent = C.gold;
 
   const toggle = useCallback((key) => {
@@ -456,6 +456,7 @@ export default function Antioch({ onBack }) {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent !important;
+  pointer-events: none;
   animation: crystalArc 52s linear infinite,
              crystalLeaf 8.3s ease-in-out infinite,
              crystalShift 11s ease-in-out infinite;
@@ -467,6 +468,7 @@ export default function Antioch({ onBack }) {
   -webkit-background-clip: unset !important;
   background-clip: unset !important;
   animation: none !important;
+  pointer-events: all;
 }
 `;
     document.head.appendChild(el);
