@@ -1182,7 +1182,7 @@ const TERMS = {
   "substrate":            { q: "\"Fruiting Body Diffusion Plume\"" },
   "Provenance":           { q: "\"Provenance: Journal of Forensic Semiotics\"" },
   "voice":                { q: "\"Vox Populi Community Outreach Rhizome\"" },
-  "architect":            { q: "\"Semantic Economy Rex Fraction\"" },
+  "architect":            { q: "Semantic Economy Institute" },
   "seed":                 { q: "\"Semantic Integrity Markers\"" },
   "indexed":              { q: "\"Metadata Packet for AI Indexing\"" },
   "throne":               { q: "\"Lee Sharks Prince of Poets\"" },
