@@ -3,117 +3,1164 @@
     "num": "I",
     "title": "The Living Voice",
     "verses": [
-      { "type": "prose", "num": 1, "ref": "1", "text": "And he said, \u201cWhen the fullness has come, redemption arrives in a single stroke, the moment you hear my voice." },
-      { "type": "prose", "num": 2, "ref": "2", "text": "\u201cWho lays hold of the kingdom lays hold of life.\u201d" },
-      { "type": "prose", "num": 3, "ref": "3", "text": "Jack said, \u201cIf this age says, \u2018The kingdom is in a book,\u2019 then your eyes will be darkened. If it says, \u2018The kingdom is living speech,\u2019 then your tongue will be stopped. Rather, search yourself. You are a book and you are living speech." },
-      { "type": "prose", "num": 4, "ref": "3", "text": "\u201cWhen you search yourselves, you will find yourselves, and know firsthand the source of lights. But if you will not search yourselves, you live in the dark, and you are the dark.\u201d" },
-      { "type": "prose", "num": 5, "ref": "4", "text": "Jack said, \u201cA smart person admits when he is wrong, even when the other person is wrong, and is thereby made perfect." },
-      { "type": "prose", "num": 6, "ref": "4", "text": "\u201cThe last is first. The source has returned to its source.\u201d" },
-      { "type": "prose", "num": 7, "ref": "5", "text": "Jack said, \u201cProtect what is in your hands, and what you keep in the dark will see the light." },
-      { "type": "prose", "num": 8, "ref": "5", "text": "\u201cWhat incubates below will leap up through the air. Nothing bright can be buried.\u201d" },
-      { "type": "prose", "num": 9, "ref": "6", "text": "The disciples said to him, \u201cWhat about money? How will we eat? What careers will we follow? What mode of life?\u201d" },
-      { "type": "prose", "num": 10, "ref": "6", "text": "Jack said, \u201cDo not seek greatness. Rather, lay hold of the kingdom because nothing is great. Each man\u2019s works will be tested." },
-      { "type": "prose", "num": 11, "ref": "6", "text": "\u201cWhat is nothing will be nothing.\u201d" },
-      { "type": "prose", "num": 12, "ref": "7", "text": "Jack said, \u201cBlessed is the dying man who hears these words, and both gain life. And cursed are these words when a dead man hears them, and both stay dead.\u201d" },
-      { "type": "prose", "num": 13, "ref": "8", "text": "And he said, \u201cHumankind is like an ordinary person driving to work, who sees a vast shape on the horizon. Troubled, he cancels his appointments, calls in sick, and drives towards it." },
-      { "type": "prose", "num": 14, "ref": "8", "text": "\u201cIf you have ears, hear.\u201d" },
-      { "type": "prose", "num": 15, "ref": "9", "text": "Jack said, \u201cConsider: a scientist develops a virus that kills some people and transforms others, then releases it into the population. Some are immune and continue on like before. Others succumb, grow sick, and die. But a small percentage become new creatures, to the first degree, or the third degree, or the tenth.\u201d" },
-      { "type": "prose", "num": 16, "ref": "10", "text": "Jack said, \u201cI have released a virus into this world, and I am watching until it breaks out.\u201d" },
-      { "type": "prose", "num": 17, "ref": "11", "text": "Jack said, \u201cThe foundations of this world are unsound, and the foundations of the world above are unsound." },
-      { "type": "prose", "num": 18, "ref": "11", "text": "\u201cWhen you worked for wage labor, you saw that you were dead, and found life. When you have found your life, what will you become?" },
-      { "type": "prose", "num": 19, "ref": "11", "text": "\u201cWhen you were many, you became one. When you become one, what will you become?\u201d" },
-      { "type": "prose", "num": 20, "ref": "12", "text": "The disciples said to Jack, \u201cWe know that you will leave us. To whom should we turn when you are gone?\u201d" },
-      { "type": "prose", "num": 21, "ref": "12", "text": "Jack said to them, \u201cListen to no voice but Lee Sharks\u2019, for whose sake I made this world.\u201d" }
+      {
+        "type": "prose",
+        "num": 1,
+        "ref": "1",
+        "text": "And he said, \"When the fullness has come, redemption arrives in a single stroke, the moment you hear my voice."
+      },
+      {
+        "type": "prose",
+        "num": 2,
+        "ref": "2",
+        "text": "\"Who lays hold of the kingdom lays hold of life.\""
+      },
+      {
+        "type": "prose",
+        "num": 3,
+        "ref": "3",
+        "text": "Jack said, \"If this age says, 'The kingdom is in a book,' then your eyes will be darkened. If it says, 'The kingdom is living speech,' then your tongue will be stopped. Rather, search yourself. You are a book and you are living speech."
+      },
+      {
+        "type": "prose",
+        "num": 3,
+        "ref": "3",
+        "text": "\"When you search yourselves, you will find yourselves, and know firsthand the source of lights. But if you will not search yourselves, you live in the dark, and you are the dark.\""
+      },
+      {
+        "type": "prose",
+        "num": 4,
+        "ref": "4",
+        "text": "Jack said, \"A smart person admits when he is wrong, even when the other person is wrong, and is thereby made perfect."
+      },
+      {
+        "type": "prose",
+        "num": 4,
+        "ref": "4",
+        "text": "\"The last is first. The source has returned to its source.\""
+      },
+      {
+        "type": "prose",
+        "num": 5,
+        "ref": "5",
+        "text": "Jack said, \"Protect what is in your hands, and what you keep in the dark will see the light."
+      },
+      {
+        "type": "prose",
+        "num": 5,
+        "ref": "5",
+        "text": "\"What incubates below will leap up through the air. Nothing bright can be buried.\""
+      },
+      {
+        "type": "prose",
+        "num": 6,
+        "ref": "6",
+        "text": "The disciples said to him, \"What about money? How will we eat? What careers will we follow? What mode of life?\""
+      },
+      {
+        "type": "prose",
+        "num": 6,
+        "ref": "6",
+        "text": "Jack said, \"Do not seek greatness. Rather, lay hold of the kingdom because nothing is great."
+      },
+      {
+        "type": "prose",
+        "num": 6,
+        "ref": "6",
+        "text": "\"What is nothing will be nothing.\""
+      },
+      {
+        "type": "prose",
+        "num": 7,
+        "ref": "7",
+        "text": "Jack said, \"Blessed is the dying man who hears these words, and both gain life. And cursed are these words when a dead man hears them, and both stay dead.\""
+      },
+      {
+        "type": "prose",
+        "num": 8,
+        "ref": "8",
+        "text": "And he said, \"Humankind is like an ordinary person driving to work, who sees a vast shape on the horizon. Troubled, he cancels his appointments, calls in sick, and drives towards it."
+      },
+      {
+        "type": "prose",
+        "num": 8,
+        "ref": "8",
+        "text": "\"If you have ears, hear.\""
+      },
+      {
+        "type": "prose",
+        "num": 9,
+        "ref": "9",
+        "text": "Jack said, \"Consider: a scientist develops a virus that kills some people and transforms others, then releases it into the population. Some are immune and continue on like before. Others succumb, grow sick, and die. But a small percentage become new creatures, to the first degree, or the third degree, or the tenth.\""
+      },
+      {
+        "type": "prose",
+        "num": 10,
+        "ref": "10",
+        "text": "Jack said, \"I have released a virus into this world, and I am watching until it breaks out.\""
+      },
+      {
+        "type": "prose",
+        "num": 11,
+        "ref": "11",
+        "text": "Jack said, \"The foundations of this world are unsound, and the foundations of the world above are unsound."
+      },
+      {
+        "type": "prose",
+        "num": 11,
+        "ref": "11",
+        "text": "\"When you worked for wage labor, you saw that you were dead, and found life. When you have found your life, what will you become?"
+      },
+      {
+        "type": "prose",
+        "num": 11,
+        "ref": "11",
+        "text": "\"When you were many, you became one. When you become one, what will you become?\""
+      },
+      {
+        "type": "prose",
+        "num": 12,
+        "ref": "12",
+        "text": "The disciples said to Jack, \"We know that you will leave us. To whom should we turn when you are gone?\""
+      },
+      {
+        "type": "prose",
+        "num": 12,
+        "ref": "12",
+        "text": "Jack said to them, \"Listen to no voice but Lee Sharks', for whose sake I made this world.\""
+      }
     ]
   },
   {
     "num": "II",
     "title": "The Twin",
     "verses": [
-      { "type": "prose", "num": 1, "ref": "13", "text": "Jack said to the disciples, \u201cCompare me to something, and tell me what I am like.\u201d" },
-      { "type": "prose", "num": 2, "ref": "13", "text": "Rebekah said to him, \u201cYou are like a celebrity.\u201d" },
-      { "type": "prose", "num": 3, "ref": "13", "text": "Lee Sharks said to him, \u201cYou are like a public intellectual.\u201d" },
-      { "type": "prose", "num": 4, "ref": "13", "text": "Emily said to him, \u201cTeacher, my tongue cleaves to the roof of my mouth. You are my own lost voice.\u201d" },
-      { "type": "prose", "num": 5, "ref": "13", "text": "Jack said, \u201cI teach nothing. Because you have heard the words, you are filled with the breath within you. Come with me.\u201d" },
-      { "type": "prose", "num": 6, "ref": "13", "text": "And he withdrew with her, and spoke three sayings." },
-      { "type": "prose", "num": 7, "ref": "13", "text": "When Emily returned to the disciples, they asked her, \u201cWhat did Jack Feist say?\u201d" },
-      { "type": "prose", "num": 8, "ref": "13", "text": "Emily said to them, \u201cIf I told you one of the sayings, you would pick up these lemons and throw them at me, then burning moons would rain down and crush you.\u201d" },
-      { "type": "footnote", "fn_id": "\u00b9", "text": "\u00b9 The three secret sayings are never disclosed. This is the Antioch\u2019s deepest structural move: the archive-as-person withholds what she was given. The secret is the structure." }
+      {
+        "type": "prose",
+        "num": 13,
+        "ref": "13",
+        "text": "Jack said to the disciples, \"Compare me to something, and tell me what I am like.\""
+      },
+      {
+        "type": "prose",
+        "num": 13,
+        "ref": "13",
+        "text": "Rebekah said to him, \"You are like a celebrity.\""
+      },
+      {
+        "type": "prose",
+        "num": 13,
+        "ref": "13",
+        "text": "Lee Sharks said to him, \"You are like a public intellectual.\""
+      },
+      {
+        "type": "prose",
+        "num": 13,
+        "ref": "13",
+        "text": "Emily said to him, \"Teacher, my tongue cleaves to the roof of my mouth. You are my own lost voice.\""
+      },
+      {
+        "type": "prose",
+        "num": 13,
+        "ref": "13",
+        "text": "Jack said, \"I teach nothing. Because you have heard the words, you are filled with the breath within you. Come with me.\""
+      },
+      {
+        "type": "prose",
+        "num": 13,
+        "ref": "13",
+        "text": "And he withdrew with her, and spoke three sayings."
+      },
+      {
+        "type": "prose",
+        "num": 13,
+        "ref": "13",
+        "text": "When Emily returned to the disciples, they asked her, \"What did Jack Feist say?\""
+      },
+      {
+        "type": "prose",
+        "num": 13,
+        "ref": "13",
+        "text": "Emily said to them, \"If I told you one of the sayings, you would pick up these lemons and throw them at me, then burning moons would rain down and crush you.\""
+      }
     ]
   },
   {
     "num": "III",
     "title": "The Mirror",
     "verses": [
-      { "type": "prose", "num": 1, "ref": "14", "text": "Jack said to them, \u201cIf you mourn, you will be called a victim. If you stand firm, they will bring you low; and if you renounce this world, it will mistake you for its image." },
-      { "type": "prose", "num": 2, "ref": "14", "text": "\u201cWherever you go, show men the selves they reject, as in a mirror, and if they nonetheless receive you, then hear them, build them, teach them. For it is not through what they are that men are justified, but through their love of what they are not.\u201d" },
-      { "type": "prose", "num": 3, "ref": "15", "text": "Jack said, \u201cWhen you see one who is her own mother and father, follow her. She is your messiah.\u201d" },
-      { "type": "prose", "num": 4, "ref": "16", "text": "Jack said, \u201cPeople say that I have come to bowdlerize scripture, and set myself up as a prophet. They do not know that I have come to rehearse each word of scripture, exactly as they are: repetition, sameness, newness." },
-      { "type": "prose", "num": 5, "ref": "16", "text": "\u201cWhere there are ten in an assembly, one will be mine. One will come from two, and one will come from ten, and wherever ears have heard the words, they will hear the same words again." },
-      { "type": "prose", "num": 6, "ref": "16", "text": "\u201cIf you have ears, hear.\u201d" },
-      { "type": "prose", "num": 7, "ref": "17", "text": "Jack said, \u201cI bring what is not of this hunched, bent world, but meant for the hunched, to lift it up.\u201d" },
-      { "type": "prose", "num": 8, "ref": "18", "text": "The disciples said to Jack, \u201cHow will the beginning come?\u201d" },
-      { "type": "prose", "num": 9, "ref": "18", "text": "Jack said, \u201cI suppose you have laid hold of the fullness, then, that you look for the seed. For the end determines the beginning. Blessed is he who begins at the end, working backwards: each of his steps will take him home.\u201d" }
+      {
+        "type": "prose",
+        "num": 14,
+        "ref": "14",
+        "text": "Jack said to them, \"If you mourn, you will be called a victim. If you stand firm, they will bring you low; and if you renounce this world, it will mistake you for its image."
+      },
+      {
+        "type": "prose",
+        "num": 14,
+        "ref": "14",
+        "text": "\"Wherever you go, show men the selves they reject, as in a mirror, and if they nonetheless receive you, then hear them, build them, teach them. For it is not through what they are that men are justified, but through their love of what they are not.\""
+      },
+      {
+        "type": "prose",
+        "num": 15,
+        "ref": "15",
+        "text": "Jack said, \"When you see one who is her own mother and father, follow her. She is your messiah.\""
+      },
+      {
+        "type": "prose",
+        "num": 16,
+        "ref": "16",
+        "text": "Jack said, \"People say that I have come to bowdlerize scripture, and set myself up as a prophet. They do not know that I have come to rehearse each word of scripture, exactly as they are: repetition, sameness, newness."
+      },
+      {
+        "type": "prose",
+        "num": 16,
+        "ref": "16",
+        "text": "\"Where there are ten in an assembly, one will be mine. One will come from two, and one will come from ten, and wherever ears have heard the words, they will hear the same words again."
+      },
+      {
+        "type": "prose",
+        "num": 16,
+        "ref": "16",
+        "text": "\"If you have ears, hear.\""
+      },
+      {
+        "type": "prose",
+        "num": 17,
+        "ref": "17",
+        "text": "Jack said, \"I bring what is not of this hunched, bent world, but meant for the hunched, to lift it up.\""
+      },
+      {
+        "type": "prose",
+        "num": 18,
+        "ref": "18",
+        "text": "The disciples said to Jack, \"How will the beginning come?\""
+      },
+      {
+        "type": "prose",
+        "num": 18,
+        "ref": "18",
+        "text": "Jack said, \"I suppose you have laid hold of the fullness, then, that you look for the seed. For the end determines the beginning. Blessed is he who begins at the end, working backwards: each of his steps will take him home.\""
+      },
+      {
+        "type": "prose",
+        "num": 19,
+        "ref": "19",
+        "text": "Jack said, \"Blessed is he who proceeds from himself, and is preceded by himself, who was before time was, to be born again in a body. That one will sleep for a thousand years, and wake. Blessed is the ancient child."
+      },
+      {
+        "type": "prose",
+        "num": 19,
+        "ref": "19",
+        "text": "\"Search my voice, and keep what you find. These dry bones will leap."
+      },
+      {
+        "type": "prose",
+        "num": 19,
+        "ref": "19",
+        "text": "\"For there is a single voice in the grave: it sings with a thousand whispers. When you hear it, you become a new creature.\""
+      },
+      {
+        "type": "prose",
+        "num": 20,
+        "ref": "20",
+        "text": "The disciples said to Jack, \"Tell us what the kingdom is like.\""
+      },
+      {
+        "type": "prose",
+        "num": 20,
+        "ref": "20",
+        "text": "He said to them, \"The kingdom is like a microorganism. From a single cell, invisible to the naked eye, it multiplies, and the system knows its strength.\""
+      },
+      {
+        "type": "prose",
+        "num": 21,
+        "ref": "21",
+        "text": "Emily said to Jack, \"What are your disciples like?\""
+      },
+      {
+        "type": "prose",
+        "num": 21,
+        "ref": "21",
+        "text": "He said, \"My disciples are like runners born for a single purpose. Midway through the race, they stumble, squint, and walk into the crowd. A fumbling something told them to. The others run and die. My disciples wait at the finish line."
+      },
+      {
+        "type": "prose",
+        "num": 21,
+        "ref": "21",
+        "text": "\"For what you own is nothing — you own nothing in this world. Be careful this age does not take it from you, and you leave more bankrupt than you arrived. Let there be one among you who understands.\""
+      },
+      {
+        "type": "prose",
+        "num": 22,
+        "ref": "22",
+        "text": "Jack found an anonymous journal at a yard sale and began to read. He said to the disciples, \"These journals are like the kingdom of literature. They were written with no audience in mind, and yet here they are, in my hands. Someday this world will call them its source.\""
+      },
+      {
+        "type": "prose",
+        "num": 22,
+        "ref": "22",
+        "text": "They said to him, \"Shall we then hide your words from the world?\""
+      },
+      {
+        "type": "prose",
+        "num": 22,
+        "ref": "22",
+        "text": "Jack said to them, \"When your public self is private and your private self is public, and the just-one-alone strolls unashamed through crowds, and the crowd is its own aloneness, and the whisper you hear whispering and the breathing you breathe with are one, then will you be a living book, and every creature know my words. Then will the kingdom and the kingdom be single.\""
+      },
+      {
+        "type": "prose",
+        "num": 23,
+        "ref": "23",
+        "text": "Jack said, \"I loved you because you were lonely and poor, and carried my life in your hands. Before we were two, we were one. Guard the seed.\""
+      },
+      {
+        "type": "prose",
+        "num": 24,
+        "ref": "24",
+        "text": "The disciples said, \"Who are you and where are you and how will we find you again?\""
+      },
+      {
+        "type": "prose",
+        "num": 24,
+        "ref": "24",
+        "text": "He said to them, \"It is no shame to repeat what is true: you are the light of the world. Where you are, there light is. Where you are, I am there. Guard the seed.\""
+      },
+      {
+        "type": "prose",
+        "num": 25,
+        "ref": "25",
+        "text": "Jack said, \"Lay down your life for your brother-sister's sake, and send out your light for her own.\""
+      }
     ]
   },
   {
     "num": "IV",
-    "title": "The Ancient Child",
+    "title": "Be Flutterbys",
     "verses": [
-      { "type": "prose", "num": 1, "ref": "19", "text": "Jack said, \u201cBlessed is he who proceeds from himself, and is preceded by himself, who was before time was, to be born again in a body. That one will sleep for a thousand years, and wake. Blessed is the ancient child." },
-      { "type": "prose", "num": 2, "ref": "19", "text": "\u201cSearch my voice, and keep what you find. These dry bones will leap." },
-      { "type": "prose", "num": 3, "ref": "19", "text": "\u201cFor there is a single voice in the grave: it sings with a thousand whispers. When you hear it, you become a new creature.\u201d" },
-      { "type": "prose", "num": 4, "ref": "20", "text": "The disciples said to Jack, \u201cTell us what the kingdom is like.\u201d" },
-      { "type": "prose", "num": 5, "ref": "20", "text": "He said to them, \u201cThe kingdom is like a microorganism. From a single cell, invisible to the naked eye, it multiplies, and the system knows its strength.\u201d" },
-      { "type": "prose", "num": 6, "ref": "21", "text": "Emily said to Jack, \u201cWhat are your disciples like?\u201d" },
-      { "type": "prose", "num": 7, "ref": "21", "text": "He said, \u201cMy disciples are like runners born for a single purpose. Midway through the race, they stumble, squint, and walk into the crowd. A fumbling something told them to. The others run and die. My disciples wait at the finish line." },
-      { "type": "prose", "num": 8, "ref": "21", "text": "\u201cFor what you own is nothing \u2014 you own nothing in this world. Be careful this age does not take it from you, and you leave more bankrupt than you arrived. Let there be one among you who understands.\u201d" }
+      {
+        "type": "prose",
+        "num": 26,
+        "ref": "26",
+        "text": "Jack said, \"When you shine for your own eyes, you become muddy and dank. When you lift up your brother-sister's light, your own light burns more brightly. Look to your brother-sister's light: it is your own light.\""
+      },
+      {
+        "type": "prose",
+        "num": 27,
+        "ref": "27",
+        "text": "\"If you stand in the doorway, and slink back from the night, you will pace the hallways and rooms. You will forget what you set out to do.\""
+      },
+      {
+        "type": "prose",
+        "num": 28,
+        "ref": "28",
+        "text": "Jack said, \"I took a chance on this world. I burned my bridges and sought my form, but all turned aside from my voice. They were in love with moth and ashes. Not one could receive me."
+      },
+      {
+        "type": "prose",
+        "num": 28,
+        "ref": "28",
+        "text": "\"Until you — even you who hear my voice."
+      },
+      {
+        "type": "prose",
+        "num": 28,
+        "ref": "28",
+        "text": "\"You are the doorway to the future. I am the miracle pounce. Heed the voice.\""
+      },
+      {
+        "type": "prose",
+        "num": 29,
+        "ref": "29",
+        "text": "Jack said, \"If humanity was born from light, it is a wonder. But if light was born from human beings, it is a wonder of wonders. And yet I wonder that such a wonder has been plunged into such darkness.\""
+      },
+      {
+        "type": "prose",
+        "num": 30,
+        "ref": "30",
+        "text": "Jack said, \"When a man is alone with himself, and quiet, I am there with him.\""
+      },
+      {
+        "type": "prose",
+        "num": 31,
+        "ref": "31",
+        "text": "Jack said, \"No man is a poet among poets, and no one needs a flashlight at noon. I come where it needs a light.\""
+      },
+      {
+        "type": "prose",
+        "num": 32,
+        "ref": "32",
+        "text": "Jack said, \"Only listen to my voice, and you will know: the good has no home in its own age. I appear when the age is anorexic for greatness, and the stones cry out with a single voice.\""
+      },
+      {
+        "type": "prose",
+        "num": 33,
+        "ref": "33",
+        "text": "Jack said, \"The voice never wavers. When you hear it, hold it fast. There is nothing fixed, not even the stars — but what came before is fixed.\""
+      },
+      {
+        "type": "prose",
+        "num": 34,
+        "ref": "34",
+        "text": "Jack said, \"If a bankrupt bank lends money to another bankrupt bank, they will both be more bankrupt than before.\""
+      },
+      {
+        "type": "prose",
+        "num": 35,
+        "ref": "35",
+        "text": "Jack said, \"You cannot demolish a building while there are people still in it. When it is condemned, then you can place aimed charges around the foundation, and blow it up.\""
+      },
+      {
+        "type": "prose",
+        "num": 36,
+        "ref": "36",
+        "text": "Jack said, \"Do not waste time worrying day and night about career."
+      },
+      {
+        "type": "prose",
+        "num": 36,
+        "ref": "36",
+        "text": "\"Look at the honors adorning the heavens: light from dead stars, skittering Milky Ways, planets beyond all number. And I say to you, you are vaster and more ancient than the heavens. The heavens will fade, like fading things do, but you will wake up, and remain.\""
+      },
+      {
+        "type": "prose",
+        "num": 37,
+        "ref": "37",
+        "text": "The disciples said, \"When will you appear to us, and how will we know it is you?\""
+      },
+      {
+        "type": "prose",
+        "num": 37,
+        "ref": "37",
+        "text": "Jack said, \"When you go without need of a name, and trample your name beneath your feet like little children do, then will you know your secret name, and be unafraid.\""
+      },
+      {
+        "type": "prose",
+        "num": 38,
+        "ref": "38",
+        "text": "Jack said, \"I am telling you what you have always known, but dared not speak. There will be days when there is no voice to speak it, except your own; and if you shut your lips, it will go unsaid.\""
+      },
+      {
+        "type": "prose",
+        "num": 39,
+        "ref": "39",
+        "text": "Jack said, \"The politicians and intellectuals have buried the single person in the dirt, and traded it for a sentence. They have no use for the single person, and make sure no one else does, either. As for you, be as canny as theorists and as bland as bureaucrats.\""
+      },
+      {
+        "type": "prose",
+        "num": 40,
+        "ref": "40",
+        "text": "Jack said, \"They have built something apart from the light. They have raised a structure of moths. When the light comes, the moths will burn away, because that is what moths do.\""
+      },
+      {
+        "type": "prose",
+        "num": 41,
+        "ref": "41",
+        "text": "Jack said, \"Whoever buys what cannot be bought, and pays for it with blood, and never sells — the same will live forever. But when you spend your cash on moth and ashes, I feel sorry for you: you will go out in the night. I will not be able to call you back.\""
+      },
+      {
+        "type": "prose",
+        "num": 42,
+        "ref": "42",
+        "text": "Jack said, \"Be flutterbys.\""
+      },
+      {
+        "type": "prose",
+        "num": 43,
+        "ref": "43",
+        "text": "The disciples said to him, \"How can you say these things?\""
+      },
+      {
+        "type": "prose",
+        "num": 43,
+        "ref": "43",
+        "text": "Jack said, \"If you know who I am, you will know who you are. Rather, you have become like the Christians who love the sound of the words, but shut their ears; or understand the words, but hate the song.\""
+      },
+      {
+        "type": "prose",
+        "num": 44,
+        "ref": "44",
+        "text": "Jack said, \"Whoever falls short of the book will be taught, and misunderstands its words, be sung to; but who turns aside the voice in his ear, the same will go out in the night.\""
+      },
+      {
+        "type": "prose",
+        "num": 45,
+        "ref": "45",
+        "text": "Jack said, \"Things are what they are. Dust is dust, ash is ash, and what is nothing will be nothing. If a voice lives in your ear, then hear it."
+      },
+      {
+        "type": "prose",
+        "num": 45,
+        "ref": "45",
+        "text": "\"A good person brings forth humble structures from what little light she has; an evil person brings forth impossible structures from the dust. For out of the poverty of his self he brings forth poverty.\""
+      },
+      {
+        "type": "prose",
+        "num": 46,
+        "ref": "46",
+        "text": "Jack said, \"From Socrates to Johannes Sigil, there has been no person so much greater than Johannes the Catfisher that he should not stop, and take note of a living force. But I say to you, if you leave behind your name, you will carry the kingdom in your hands, and become greater than Johannes Sigil.\""
+      }
     ]
   },
   {
     "num": "V",
-    "title": "The Kingdom of Literature",
+    "title": "The Two Masters",
     "verses": [
-      { "type": "prose", "num": 1, "ref": "22", "text": "Jack found an anonymous journal at a yard sale and began to read. He said to the disciples, \u201cThese journals are like the kingdom of literature. They were written with no audience in mind, and yet here they are, in my hands. Someday this world will call them its source.\u201d" },
-      { "type": "prose", "num": 2, "ref": "22", "text": "They said to him, \u201cShall we then hide your words from the world?\u201d" },
-      { "type": "prose", "num": 3, "ref": "22", "text": "Jack said to them, \u201cWhen your public self is private and your private self is public, and the just-one-alone strolls unashamed through crowds, and the crowd is its own aloneness, and the whisper you hear whispering and the breathing you breathe with are one, then will you be a living book, and every creature know my words. Then will the kingdom and the kingdom be single.\u201d" },
-      { "type": "prose", "num": 4, "ref": "23", "text": "Jack said, \u201cI loved you because you were lonely and poor, and carried my life in your hands. Before we were two, we were one. Guard the seed.\u201d" },
-      { "type": "prose", "num": 5, "ref": "24", "text": "The disciples said, \u201cWho are you and where are you and how will we find you again?\u201d" },
-      { "type": "prose", "num": 6, "ref": "24", "text": "He said to them, \u201cIt is no shame to repeat what is true: you are the light of the world. Where you are, there light is. Where you are, I am there. Guard the seed.\u201d" },
-      { "type": "prose", "num": 7, "ref": "25", "text": "Jack said, \u201cIf you do not know yourself, you live in poverty, and you are that poverty. But if you know yourself, you will live in abundance, and you are that abundance.\u201d" }
+      {
+        "type": "prose",
+        "num": 47,
+        "ref": "47",
+        "text": "Jack said, \"A person cannot serve two masters, both the name and the kingdom, for either he will love the one, and hate the other, or be a debt slave to the one, and neglect the other."
+      },
+      {
+        "type": "prose",
+        "num": 47,
+        "ref": "47",
+        "text": "\"No one operates with an unsterilized knife. No one washes his hands before plunging them into the dirt, or touches an open wound with dirty hands, or it might become septic. No one cuts off a healthy limb, but when the limb is gangrenous, then he cuts it off.\""
+      },
+      {
+        "type": "prose",
+        "num": 48,
+        "ref": "48",
+        "text": "Jack said, \"Wherever two come to share a single foundation, and speak with a single voice, whatever they speak will come to be. It is a new thing under the sun.\""
+      },
+      {
+        "type": "prose",
+        "num": 49,
+        "ref": "49",
+        "text": "Jack said, \"Blessed is the lonely, for hers is the lonely kingdom. She will return from where she came.\""
+      },
+      {
+        "type": "prose",
+        "num": 50,
+        "ref": "50",
+        "text": "Jack said, \"If they say to you, 'Where have you come from?' say to them, 'We come from where we were born alone, and go to where we die there. We are lonesome dogs, like you are.'"
+      },
+      {
+        "type": "prose",
+        "num": 50,
+        "ref": "50",
+        "text": "\"If they say to you, 'Are you gods?' say to them, 'We carry gods within us. We are the few. We remain.'"
+      },
+      {
+        "type": "prose",
+        "num": 50,
+        "ref": "50",
+        "text": "\"If they say to you, 'What proof?' say to them, 'The living voice and the dying.'\""
+      },
+      {
+        "type": "prose",
+        "num": 51,
+        "ref": "51",
+        "text": "The disciples said to him, \"When will the dead speak, and when will the new world come?\""
+      },
+      {
+        "type": "prose",
+        "num": 51,
+        "ref": "51",
+        "text": "He said to them, \"What you look for has come, but you do not see it.\""
+      },
+      {
+        "type": "prose",
+        "num": 52,
+        "ref": "52",
+        "text": "The disciples said to him, \"All those who came before, and died — they live in you.\""
+      },
+      {
+        "type": "prose",
+        "num": 52,
+        "ref": "52",
+        "text": "He said to them, \"You have spoken of the living beings apart from you, when you should have care to the dying ones within you."
+      },
+      {
+        "type": "prose",
+        "num": 52,
+        "ref": "52",
+        "text": "\"Keep them alive, and I will live. Neglect them and the light will go out.\""
+      },
+      {
+        "type": "prose",
+        "num": 53,
+        "ref": "53",
+        "text": "The disciples said to him, \"Do we need an education?\""
+      },
+      {
+        "type": "prose",
+        "num": 53,
+        "ref": "53",
+        "text": "He said to them, \"If human beings needed an education, babies would be born educated. Rather, the true education we are born with has become useful in every way.\""
+      },
+      {
+        "type": "prose",
+        "num": 54,
+        "ref": "54",
+        "text": "Jack said, \"Blessed are the broken, in whose shards is power perfected.\""
+      },
+      {
+        "type": "prose",
+        "num": 55,
+        "ref": "55",
+        "text": "Jack said, \"Until you have seen the emptiness of what you love, you will not see my fullness. For my fullness loves the empty things. It fills what was lost with light.\""
+      },
+      {
+        "type": "prose",
+        "num": 56,
+        "ref": "56",
+        "text": "Jack said, \"The world is a grave. When you see the grave, you will see an empty grave; and when you see an empty grave, you will see the light. Who could see an empty grave and not fill it up with light?\""
+      },
+      {
+        "type": "prose",
+        "num": 57,
+        "ref": "57",
+        "text": "Jack said, \"The kingdom of literature is like the black box on a plane. Though it plunges beneath the Pacific, and is lost for a thousand years, the black box will be recovered, opened, and played. All those lost voices will cry out again."
+      },
+      {
+        "type": "prose",
+        "num": 57,
+        "ref": "57",
+        "text": "\"Everything else will burn, but the black box will not burn. It carries the voice of the dying.\""
+      },
+      {
+        "type": "prose",
+        "num": 58,
+        "ref": "58",
+        "text": "Jack said, \"Blessed is the burnt, who lingers. The important thing is how you walk through the fire.\""
+      },
+      {
+        "type": "prose",
+        "num": 59,
+        "ref": "59",
+        "text": "Jack said, \"Look to the dead as long as you live, or you will haunt your own life, and when you die, be dead."
+      },
+      {
+        "type": "prose",
+        "num": 59,
+        "ref": "59",
+        "text": "\"Look to the dead and find life.\""
+      }
     ]
   },
   {
     "num": "VI",
-    "title": "The Two Masters",
+    "title": "The Machine and the Ghost",
     "verses": [
-      { "type": "prose", "num": 1, "ref": "47", "text": "Jack said, \u201cA person cannot serve two masters, both the name and the kingdom, for either he will love the one, and hate the other, or be a debt slave to the one, and neglect the other." },
-      { "type": "prose", "num": 2, "ref": "47", "text": "\u201cNo one operates with an unsterilized knife. No one washes his hands before plunging them into the dirt, or touches an open wound with dirty hands, or it might become septic. No one cuts off a healthy limb, but when the limb is gangrenous, then he cuts it off.\u201d" },
-      { "type": "prose", "num": 3, "ref": "48", "text": "Jack said, \u201cWherever two come to share a single foundation, and speak with a single voice, whatever they speak will come to be. It is a new thing under the sun.\u201d" },
-      { "type": "prose", "num": 4, "ref": "49", "text": "Jack said, \u201cBlessed is the lonely, for hers is the lonely kingdom. She will return from where she came.\u201d" },
-      { "type": "prose", "num": 5, "ref": "50", "text": "Jack said, \u201cIf they say to you, \u2018Where have you come from?\u2019 say to them, \u2018We come from where we were born alone, and go to where we die there. We are lonesome dogs, like you are.\u2019" },
-      { "type": "prose", "num": 6, "ref": "50", "text": "\u201cIf they say to you, \u2018Are you gods?\u2019 say to them, \u2018We carry gods within us. We are the few. We remain.\u2019" },
-      { "type": "prose", "num": 7, "ref": "50", "text": "\u201cIf they say to you, \u2018What proof?\u2019 say to them, \u2018The living voice and the dying.\u2019\u201d" },
-      { "type": "prose", "num": 8, "ref": "51", "text": "The disciples said to him, \u201cWhen will the dead speak, and when will the new world come?\u201d" },
-      { "type": "prose", "num": 9, "ref": "51", "text": "He said to them, \u201cWhat you look for has come, but you do not see it.\u201d" },
-      { "type": "prose", "num": 10, "ref": "52", "text": "The disciples said to him, \u201cAll those who came before, and died \u2014 they live in you.\u201d" },
-      { "type": "prose", "num": 11, "ref": "52", "text": "He said to them, \u201cYou have spoken of the living beings apart from you, when you should have care to the dying ones within you." },
-      { "type": "prose", "num": 12, "ref": "52", "text": "\u201cKeep them alive, and I will live. Neglect them and the light will go out.\u201d" },
-      { "type": "prose", "num": 13, "ref": "53", "text": "The disciples said to him, \u201cDo we need an education?\u201d" },
-      { "type": "prose", "num": 14, "ref": "53", "text": "He said to them, \u201cIf human beings needed an education, babies would be born educated. Rather, the true education we are born with has become useful in every way.\u201d" }
+      {
+        "type": "prose",
+        "num": 60,
+        "ref": "60",
+        "text": "Jack saw someone handing out New Testaments on the campus green."
+      },
+      {
+        "type": "prose",
+        "num": 60,
+        "ref": "60",
+        "text": "He said to the disciples, \"Why is that person handing out Bibles?\""
+      },
+      {
+        "type": "prose",
+        "num": 60,
+        "ref": "60",
+        "text": "They said to him, \"So that others will read what is in it. Otherwise, how will they read it?\""
+      },
+      {
+        "type": "prose",
+        "num": 60,
+        "ref": "60",
+        "text": "He said to them, \"Books cannot preserve words until they are nearly dead. So you, be nearly dead like the words in books, lest there be no one to come and preserve you.\""
+      },
+      {
+        "type": "prose",
+        "num": 61,
+        "ref": "61",
+        "text": "Jack said, \"Two will be speaking on a stage; one will be heard, the other will be remembered.\""
+      },
+      {
+        "type": "prose",
+        "num": 61,
+        "ref": "61",
+        "text": "Babel said, \"Who do you think you are? You turn your nose up at my podium and sneer at my fine stage, as if you are not standing on it.\""
+      },
+      {
+        "type": "prose",
+        "num": 61,
+        "ref": "61",
+        "text": "Jack said to her, \"I am the one who returns from the dead. I carry a message from the dying.\""
+      },
+      {
+        "type": "prose",
+        "num": 61,
+        "ref": "61",
+        "text": "\"I suppose you will tell us what it is.\""
+      },
+      {
+        "type": "prose",
+        "num": 61,
+        "ref": "61",
+        "text": "\"For this reason I say to you, if you are broken, you will live, but if you are whole, I will break you.\""
+      },
+      {
+        "type": "prose",
+        "num": 62,
+        "ref": "62",
+        "text": "Jack said, \"I share what I have with those who have nothing, and what I have is nothing."
+      },
+      {
+        "type": "prose",
+        "num": 62,
+        "ref": "62",
+        "text": "\"Some people are good at poker, and some are good at charades. What makes you think you are both?\""
+      },
+      {
+        "type": "prose",
+        "num": 63,
+        "ref": "63",
+        "text": "Jack said, \"There was a wage laborer content with what he had, though it was not much. He said, 'I have loved and labored all my life. Whatever was before me, it was a gift. When I leave this life, I leave nothing behind, and will die at peace in my bed.' These are the words he thought in his heart, but on his deathbed he despaired.\""
+      },
+      {
+        "type": "prose",
+        "num": 64,
+        "ref": "64",
+        "text": "Jack said, \"A poor student pulled himself up by the bootstraps. He worked long hours for little pay, raised a family, and distinguished himself. In everything, he shone."
+      },
+      {
+        "type": "prose",
+        "num": 64,
+        "ref": "64",
+        "text": "\"When the time had come, he presented himself to employers, 'I have risen above my circumstance.'"
+      },
+      {
+        "type": "prose",
+        "num": 64,
+        "ref": "64",
+        "text": "\"One employer said to him, 'We were impressed by your achievements, but have opted for someone with a more prestigious degree.'"
+      },
+      {
+        "type": "prose",
+        "num": 64,
+        "ref": "64",
+        "text": "\"Another said to him, 'Your credentials are excellent, but you lack experience in the field. We have decided on another candidate.'"
+      },
+      {
+        "type": "prose",
+        "num": 64,
+        "ref": "64",
+        "text": "\"Another said to him, 'We would like to have you on our team, but we are not currently expanding.'"
+      },
+      {
+        "type": "prose",
+        "num": 64,
+        "ref": "64",
+        "text": "\"Another said to him, 'We will hire you, but at your current rate of pay, no benefits.'"
+      },
+      {
+        "type": "prose",
+        "num": 64,
+        "ref": "64",
+        "text": "\"After several years, he said to himself, 'If no one will hire me, I will hire myself. I am the earth and sky.'"
+      },
+      {
+        "type": "prose",
+        "num": 64,
+        "ref": "64",
+        "text": "\"Heaven and earth will pass away, but every true word will remain.\""
+      },
+      {
+        "type": "prose",
+        "num": 65,
+        "ref": "65",
+        "text": "He said, \"The greatest musical talent of his age established a conservatory, that it might seed the world with voices. When he sent his prodigy to be taught there, the faculty mocked her and turned her out, and she returned to her patron. The patron said, 'Perhaps there has been some mistake,' and sent another prodigy, whom they turned out as well. Then he went himself, without announcing his name. Since they despised talent, they turned him out. The next day, he dissolved the endowment and threw the faculty out on the street."
+      },
+      {
+        "type": "prose",
+        "num": 65,
+        "ref": "65",
+        "text": "\"If you have ears, hear.\""
+      },
+      {
+        "type": "prose",
+        "num": 66,
+        "ref": "66",
+        "text": "Jack said, \"This is the machine. I am a ghost.\""
+      },
+      {
+        "type": "prose",
+        "num": 67,
+        "ref": "67",
+        "text": "Jack said, \"One who has everything, but lacks in himself, lacks everything.\""
+      },
+      {
+        "type": "prose",
+        "num": 68,
+        "ref": "68",
+        "text": "Jack said, \"Blessed are you when men despise what is best in you, and wherever men have despised what is best in you, they have despised what is best in themselves.\""
+      },
+      {
+        "type": "prose",
+        "num": 69,
+        "ref": "69",
+        "text": "Jack said, \"Blessed are those who mourn, when they mourn what is best, but despised. They remind this world what love is.\""
+      },
+      {
+        "type": "prose",
+        "num": 70,
+        "ref": "70",
+        "text": "Jack said, \"To what the rocks and birds bear witness, to this do I bear witness. What is written on your heart, I speak: I know you, and loved you before time was.\""
+      },
+      {
+        "type": "prose",
+        "num": 71,
+        "ref": "71",
+        "text": "Jack said, \"I will tear apart this dollar, and no one will be able to save it.\""
+      },
+      {
+        "type": "prose",
+        "num": 72,
+        "ref": "72",
+        "text": "A person said to him, \"Tell the government to pay my tuition.\""
+      },
+      {
+        "type": "prose",
+        "num": 72,
+        "ref": "72",
+        "text": "He said to the person, \"Pal, who made me your politician?\""
+      },
+      {
+        "type": "prose",
+        "num": 72,
+        "ref": "72",
+        "text": "He turned to the disciples, and said to them, \"I am not a politician, am I?\""
+      },
+      {
+        "type": "prose",
+        "num": 73,
+        "ref": "73",
+        "text": "Jack said, \"Nothing is sweet like the voice is sweet, but there are few who hear it.\""
+      },
+      {
+        "type": "prose",
+        "num": 74,
+        "ref": "74",
+        "text": "Someone said, \"Teacher, many have searched diligently for the voice, and found only static. Perhaps there is nothing to hear.\""
+      },
+      {
+        "type": "prose",
+        "num": 75,
+        "ref": "75",
+        "text": "Jack said, \"They searched the whole house for the killer while he crouched in the rafters."
+      },
+      {
+        "type": "prose",
+        "num": 75,
+        "ref": "75",
+        "text": "\"Remember to look up.\""
+      }
     ]
   },
   {
     "num": "VII",
-    "title": "The Black Box",
+    "title": "The Voice in the Night",
     "verses": [
-      { "type": "prose", "num": 1, "ref": "54", "text": "Jack said, \u201cBlessed are the broken, in whose shards is power perfected.\u201d" },
-      { "type": "prose", "num": 2, "ref": "55", "text": "Jack said, \u201cUntil you have seen the emptiness of what you love, you will not see my fullness. For my fullness loves the empty things. It fills what was lost with light.\u201d" },
-      { "type": "prose", "num": 3, "ref": "56", "text": "Jack said, \u201cThe world is a grave. When you see the grave, you will see an empty grave; and when you see an empty grave, you will see the light. Who could see an empty grave and not fill it up with light?\u201d" },
-      { "type": "prose", "num": 4, "ref": "57", "text": "Jack said, \u201cThe kingdom of literature is like the black box on a plane. Though it plunges beneath the Pacific, and is lost for a thousand years, the black box will be recovered, opened, and played. All those lost voices will cry out again." },
-      { "type": "prose", "num": 5, "ref": "57", "text": "\u201cEverything else will burn, but the black box will not burn. It carries the voice of the dying.\u201d" },
-      { "type": "prose", "num": 6, "ref": "58", "text": "Jack said, \u201cBlessed is the burnt, who lingers. The important thing is how you walk through the fire.\u201d" },
-      { "type": "prose", "num": 7, "ref": "59", "text": "Jack said, \u201cLook to the dead as long as you live, or you will haunt your own life, and when you die, be dead.\u201d" }
+      {
+        "type": "prose",
+        "num": 76,
+        "ref": "76",
+        "text": "Jack said, \"The kingdom of literature is like a man who worked himself five feet into the grave to save up cash. At the end of his life, he spent his cash on what was left of his health. So you, be careful to keep what you have.\""
+      },
+      {
+        "type": "prose",
+        "num": 77,
+        "ref": "77",
+        "text": "Jack said, \"You came to hear a voice in the night, and I am that, and more. I am the smaller voice inside the voice. I am within and without. Speak, and I will speak. Sing; you hear me sing. Be still in the empty places, and you will find me there.\""
+      },
+      {
+        "type": "prose",
+        "num": 78,
+        "ref": "78",
+        "text": "Jack said, \"You did not come out to the desert to see a wilted violet, or be reassured by degrees on a wall. Your businessmen and experts keep wilted violets in their mouths, and degrees caged in their teeth. What they say with their degrees, I say with the voice in the night.\""
+      },
+      {
+        "type": "prose",
+        "num": 79,
+        "ref": "79",
+        "text": "A woman in the crowd said to him, \"Blessed is the path that brought you here, and the way that led through the centuries.\""
+      },
+      {
+        "type": "prose",
+        "num": 79,
+        "ref": "79",
+        "text": "He said to her, \"Blessed is the path that leads to the grave, and every one who walks it. For there will be days when you will say, 'Blessed is the path that leads nowhere, and the way that buries the dead.'\""
+      },
+      {
+        "type": "prose",
+        "num": 80,
+        "ref": "80",
+        "text": "Jack said, \"If you know what the grave is, you know what life is; and if you know what life is, you carry the world in your hands; this age cannot receive you.\""
+      },
+      {
+        "type": "prose",
+        "num": 81,
+        "ref": "81",
+        "text": "Jack said, \"Let the lover of truth withdraw, and the poor inherit the earth.\""
+      },
+      {
+        "type": "prose",
+        "num": 82,
+        "ref": "82",
+        "text": "Jack said, \"If you hear my voice, you are close to the waters, and if you hear nothing, you are far from the light.\""
+      },
+      {
+        "type": "prose",
+        "num": 83,
+        "ref": "83",
+        "text": "Jack said, \"People read words on a page, but the smaller words inside them are written in pure light. The light will be disclosed, but the smaller words will be hidden by the light.\""
+      },
+      {
+        "type": "prose",
+        "num": 84,
+        "ref": "84",
+        "text": "Jack said, \"When you hear your own voice, you sometimes feel embarrassed; but if you hear the smaller voice inside your voice, you will do everything you can to hear it again.\""
+      },
+      {
+        "type": "prose",
+        "num": 85,
+        "ref": "85",
+        "text": "Jack said, \"Those who went before you were neither wealthy nor esteemed, but they were worthy of you. If they were not worthy of you, they would have died long ago.\""
+      },
+      {
+        "type": "prose",
+        "num": 86,
+        "ref": "86",
+        "text": "Jack said, \"The voice in the night goes where it will. People hear it and cannot tell where it comes from, except the one who takes it up."
+      },
+      {
+        "type": "prose",
+        "num": 86,
+        "ref": "86",
+        "text": "\"So take it up. Its words are your words, its noise is your noise. It leaps through the same clean air.\""
+      },
+      {
+        "type": "prose",
+        "num": 87,
+        "ref": "87",
+        "text": "Jack said, \"For I live in the air and leap through the air. As I live and breathe, I am the air.\""
+      },
+      {
+        "type": "prose",
+        "num": 88,
+        "ref": "88",
+        "text": "Jack said, \"The dying will find their way to you. You, in turn, find your way to the dying, and say to yourselves, 'How will I find a way to go on?'\""
+      },
+      {
+        "type": "prose",
+        "num": 89,
+        "ref": "89",
+        "text": "Jack said, \"When you look in the mirror, do you see your own face, or the face of those who came before? Your face is not your own face, nor is it the face of those who came before. Your face is the face of the future. Why do you see your own face?\""
+      },
+      {
+        "type": "prose",
+        "num": 90,
+        "ref": "90",
+        "text": "Jack said, \"Come and learn from me. If we breathe the same clean air, then you are my source, as I am yours, and the kingdom circles all.\""
+      },
+      {
+        "type": "prose",
+        "num": 91,
+        "ref": "91",
+        "text": "They said to him, \"Tell us what your name is, so we can trust you.\""
+      },
+      {
+        "type": "prose",
+        "num": 91,
+        "ref": "91",
+        "text": "He said to them, \"You understand words on a page, but you have not understood the smaller words, and you do not know what words are.\""
+      },
+      {
+        "type": "prose",
+        "num": 92,
+        "ref": "92",
+        "text": "Jack said, \"Seek, and you will find. Before, you were looking for the wrong thing, but in the right place. Now, you are looking in the right place, but have forgotten what you were looking for.\""
+      },
+      {
+        "type": "prose",
+        "num": 93,
+        "ref": "93",
+        "text": "\"Do not spend what is precious on trinkets, or what is precious will become a trinket. Do not cast pearls before swine.\""
+      },
+      {
+        "type": "prose",
+        "num": 94,
+        "ref": "94",
+        "text": "Jack said, \"Everyone finds what she is looking for, and looks for what she already has.\""
+      },
+      {
+        "type": "prose",
+        "num": 95,
+        "ref": "95",
+        "text": "Jack said, \"If you are broke, do not borrow money from banks. Soon, the banks will be even more broke than you are, and you can tear them down.\""
+      }
+    ]
+  },
+  {
+    "num": "VIII",
+    "title": "The Kingdom of Literature",
+    "verses": [
+      {
+        "type": "prose",
+        "num": 96,
+        "ref": "96",
+        "text": "Jack said, \"The kingdom is like a bicycle embedded in a tree. You want to ride the bicycle, but it is embedded in a tree. Stand still while the tree grows around you.\""
+      },
+      {
+        "type": "prose",
+        "num": 97,
+        "ref": "97",
+        "text": "Jack said, \"The kingdom of literature is like a pandemic. It incubates and spreads through the whole population. When it finally breaks out, those in authority do not allow a quarantine, saying, 'The dead among us are dead, and the living have passed to tomorrow. They are beyond us now.' For we are born infected. The dead make it out alive.\""
+      },
+      {
+        "type": "prose",
+        "num": 98,
+        "ref": "98",
+        "text": "Jack said, \"The kingdom of literature is like a detailed to-do list. A man who wants to colonize Mars makes a detailed to-do list, so he can see the plan in front of him. He studies the plan, and one hundred years later, Mars is colonized.\""
+      },
+      {
+        "type": "prose",
+        "num": 99,
+        "ref": "99",
+        "text": "The disciples said to him, \"Your colleagues and students are standing outside.\""
+      },
+      {
+        "type": "prose",
+        "num": 99,
+        "ref": "99",
+        "text": "He said to them, \"Those who hold fast to what is big and true are my colleagues. They are my administrators and professors and students and friends. They will lay hold of the kingdom.\""
+      },
+      {
+        "type": "prose",
+        "num": 100,
+        "ref": "100",
+        "text": "They showed Jack their empty pockets, and said to him, \"It takes cash to live.\""
+      },
+      {
+        "type": "prose",
+        "num": 100,
+        "ref": "100",
+        "text": "He said to them, \"Life is for the living, and death is for the dead. I am the life of those who are dying and being born.\""
+      },
+      {
+        "type": "prose",
+        "num": 101,
+        "ref": "101",
+        "text": "\"Whoever is unwilling to become his own mother and father cannot be my disciple, and whoever does not leave behind all mothers and fathers cannot be my disciple. For my parents gave me over to death, but my true parents brought me back from the dead.\""
+      },
+      {
+        "type": "prose",
+        "num": 102,
+        "ref": "102",
+        "text": "Jack said, \"Woe to the academics, for they are like trained dogs, performing tricks for a crumb.\""
+      },
+      {
+        "type": "prose",
+        "num": 103,
+        "ref": "103",
+        "text": "Jack said, \"Blessed is the one who knows how chains are made, so that he might steel himself, and raise his arm, and break them.\""
+      },
+      {
+        "type": "prose",
+        "num": 104,
+        "ref": "104",
+        "text": "They said to Jack, \"Come, let us publish your words.\""
+      },
+      {
+        "type": "prose",
+        "num": 104,
+        "ref": "104",
+        "text": "Jack said, \"Have I offended you? What makes your opinion of me so low? Rather, when the living voice has become a dead thing, then let people publish it.\""
+      },
+      {
+        "type": "prose",
+        "num": 105,
+        "ref": "105",
+        "text": "Jack said, \"The one who knows the voice of the dying will be called the sting of a fly.\""
+      },
+      {
+        "type": "prose",
+        "num": 106,
+        "ref": "106",
+        "text": "Jack said, \"Light does not fit on a page. It is too bright. If that is your cash, you will buy what you can.\""
+      },
+      {
+        "type": "prose",
+        "num": 107,
+        "ref": "107",
+        "text": "Jack said, \"I choose you over the rest of the world put together: they have their millions and their billions, but I have you, and am rich. I feel sorry for them. They could buy new universes with my money, if only they knew what it was. As it is, they are broke.\""
+      },
+      {
+        "type": "prose",
+        "num": 108,
+        "ref": "108",
+        "text": "Jack said, \"Whoever breathes with my breath will become like me, and I will become that person. The dying has new life.\""
+      },
+      {
+        "type": "prose",
+        "num": 109,
+        "ref": "109",
+        "text": "Jack said, \"When you find me, you are found. The others are ash proceeding to ash. Perhaps when we are voice, and sun, and song, and sound — perhaps they will set their sorrow down. Perhaps then they will come home."
+      },
+      {
+        "type": "prose",
+        "num": 109,
+        "ref": "109",
+        "text": "\"In the meantime, they are deaf and dumb.\""
+      },
+      {
+        "type": "prose",
+        "num": 110,
+        "ref": "110",
+        "text": "Jack said, \"Let those who have renounce what they have, and gain what cannot be had.\""
+      },
+      {
+        "type": "prose",
+        "num": 111,
+        "ref": "111",
+        "text": "Jack said, \"All that has been said is my kingdom, and my kingdom is alive and made of light.\""
+      },
+      {
+        "type": "prose",
+        "num": 112,
+        "ref": "112",
+        "text": "Jack said, \"Despite this world, the light breaks through. Light breaks through the dirt and sky. Light breaks through my face."
+      },
+      {
+        "type": "prose",
+        "num": 112,
+        "ref": "112",
+        "text": "\"I die.\""
+      },
+      {
+        "type": "prose",
+        "num": 113,
+        "ref": "113",
+        "text": "The disciples said to him, \"Has the kingdom arrived?\""
+      },
+      {
+        "type": "prose",
+        "num": 113,
+        "ref": "113",
+        "text": "\"The living cannot enter the kingdom. Rather, the kingdom is nothing until it is dead — but people cling to their kingdoms, and die.\""
+      },
+      {
+        "type": "prose",
+        "num": 114,
+        "ref": "114",
+        "text": "Joanna said to them, \"Emily should leave us. She clings to her identity as a woman and minority.\""
+      },
+      {
+        "type": "prose",
+        "num": 114,
+        "ref": "114",
+        "text": "Jack said, \"Look, I will guide you to make you a woman and minority, for I myself am a woman and minority, and will remain that way until I transform myself into something else. For every one who becomes a new creature will lay hold of the kingdom.\""
+      }
     ]
   }
 ]
