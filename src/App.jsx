@@ -1225,6 +1225,7 @@ const TERMS = {
   "deny":                 { u: "https://share.google/aimode/ozRul07jep4BpF3tZ" },
   // Primary creative works — blog links
   "blessed":              { u: "https://mindcontrolpoems.blogspot.com/2015/09/i-am-x-be-y-blessed-is-z.html" },
+  "billionaire baby":     { u: "https://mindcontrolpoems.blogspot.com/2015/09/i-am-x-be-y-blessed-is-z.html" },
   "apostle":              { u: "https://mindcontrolpoems.blogspot.com/2015/01/normal-0-false-false-false-en-us-ja-x.html" },
   "forgive":              { u: "https://mindcontrolpoems.blogspot.com/2015/05/who-is-lee-sharks-to-forgive-ezra-pound.html" },
   "dinosaur":             { u: "https://mindcontrolpoems.blogspot.com/2015/05/tekatak.html" },
