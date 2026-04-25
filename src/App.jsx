@@ -3,6 +3,7 @@ import waltImg from "./whitman_on_a_dinosaur.png";
 import milkyWayBg from "./milky_way_bg.jpg";
 import milkyWaySplash from "./milky_way_splash.jpg";
 import hornImg from "./horn_logo.png";
+import Antioch from "./Antioch.jsx";
 
 /* ─── COLOR TOKENS ─── */
 const C = {
@@ -446,7 +447,7 @@ function Verse({ v, sectionNum, accent, fnColor, isVeil, onFnClick }) {
 
 
 /* ─── ARCHIVE PANEL — labeled top button ─── */
-function ArchivePanel() {
+function ArchivePanel({ onNavigate }) {
   const [open, setOpen] = useState(false);
   return (
     <div style={{ position: "fixed", top: 48, right: 16, zIndex: 100 }}>
@@ -494,6 +495,22 @@ function ArchivePanel() {
             </div>
           </a>
 
+          <div style={{ borderTop: "1px solid rgba(212,175,55,0.1)", paddingTop: 10, marginBottom: 8 }}>
+            <p style={{ color: C.goldDark, fontSize: "0.58rem", letterSpacing: "0.14em",
+              textTransform: "uppercase", marginBottom: 6 }}>COMPANION TEXT</p>
+            <button onClick={() => { setOpen(false); onNavigate("antioch"); }} style={{
+              display: "block", width: "100%", background: "rgba(212,175,55,0.06)",
+              border: "1px solid rgba(212,175,55,0.15)", color: C.goldDim,
+              fontFamily: "inherit", fontSize: "0.73rem", padding: "6px 10px",
+              textAlign: "left", cursor: "pointer", borderRadius: 2, marginBottom: 10,
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = "rgba(212,175,55,0.12)"; e.currentTarget.style.color = C.gold; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "rgba(212,175,55,0.06)"; e.currentTarget.style.color = C.goldDim; }}
+            >
+              The Gospel of Antioch
+              <span style={{ display: "block", fontSize: "0.58rem", opacity: 0.55, marginTop: 2 }}>114 logia · The Waltian Diptych</span>
+            </button>
+          </div>
           <div style={{ borderTop: "1px solid rgba(212,175,55,0.1)", paddingTop: 10 }}>
             <p style={{ color: C.goldDark, fontSize: "0.58rem", letterSpacing: "0.14em",
               textTransform: "uppercase", marginBottom: 8 }}>SITES</p>
@@ -1066,7 +1083,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
       )}
 
       {/* Archive panel — fixed bottom-right */}
-      <ArchivePanel />
+      <ArchivePanel onNavigate={(v) => { window.__sbwNavigate && window.__sbwNavigate(v); }} />
     </div>
   );
 }
@@ -1396,6 +1413,12 @@ export default function App() {
     setView("reading");
   }, []);
 
+  // Expose navigation for ArchivePanel
+  useEffect(() => {
+    window.__sbwNavigate = (v) => setView(v);
+    return () => { delete window.__sbwNavigate; };
+  }, []);
+
   return (
     <>
       <style>{`
@@ -1436,7 +1459,9 @@ export default function App() {
         html { scroll-behavior: smooth; }
       `}</style>
 
-      {view === "splash" ? (
+      {view === "antioch" ? (
+        <Antioch onBack={() => setView("splash")} />
+      ) : view === "splash" ? (
         <Splash onEnter={handleEnter} imgSrc={waltImg} hornSrc={hornImg} />
       ) : loadError ? (
         <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#020001", color: C.goldDim, fontFamily: "'Palatino Linotype', serif", textAlign: "center", padding: 40 }}>
