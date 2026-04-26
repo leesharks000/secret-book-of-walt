@@ -407,53 +407,50 @@ export default function Antioch({ onBack }) {
     });
   }, []);
 
-  // inject crystal CSS once
+  // inject crystal CSS + set drift delays based on DOM position
+  useEffect(() => {
+    // Set --drift-delay on each .verse-text and .leaf-text
+    // based on vertical position — adjacent elements get similar delays
+    // so the "light" drifts across the passage as a wave
+    const setDelays = () => {
+      const els = document.querySelectorAll('.verse-text, .leaf-text');
+      const total = els.length;
+      els.forEach((el, i) => {
+        // Spread delays across a 40-second window
+        // so the full passage takes ~40s for the wave to cross
+        const delay = -(i / total) * 40;
+        el.style.setProperty('--drift-delay', delay + 's');
+      });
+    };
+    // Set after a tick so DOM is ready
+    const t = setTimeout(setDelays, 100);
+    return () => clearTimeout(t);
+  }, [chapters]);
+
   useEffect(() => {
     const el = document.createElement('style');
     el.id = 'antioch-crystal';
     el.textContent = `
-@keyframes sunretreats {
-  0%   { background-position: 0%   40%; }
-  100% { background-position: 100% 60%; }
-}
-@keyframes atmosphericFlutter {
-  0%,100% { opacity: 1; }
-  50%     { opacity: 0.88; }
+@keyframes textDrift {
+  0%   { color: #787878; }
+  15%  { color: #8a8a8a; }
+  30%  { color: #a0a0a0; }
+  45%  { color: #b8b8b8; }
+  55%  { color: #c8c8c8; }
+  65%  { color: #b8b8b8; }
+  78%  { color: #9a9a9a; }
+  90%  { color: #828282; }
+  100% { color: #787878; }
 }
 .veil-mode .verse-text,
 .pierce-mode .leaf-text {
-  /*
-   * background-attachment: fixed = viewport coordinate space.
-   * All verse spans share the same gradient field — adjacent lines
-   * see adjacent gradient values. Light moves across the whole
-   * passage together. Floor #484848 readable on Milky Way bg.
-   */
-  background: linear-gradient(108deg,
-    #d8d8d8  0%,
-    #c0c0c0 18%,
-    #a0a0a0 34%,
-    #808080 50%,
-    #646464 64%,
-    #525252 76%,
-    #484848 88%,
-    #484848 100%
-  );
-  background-size: 180vw 180vh;
-  background-attachment: fixed;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent !important;
+  animation: textDrift 80s ease-in-out infinite;
+  animation-delay: var(--drift-delay, 0s);
   pointer-events: none;
-  animation:
-    sunretreats 90s linear infinite,
-    atmosphericFlutter 18s ease-in-out infinite;
 }
 .veil-mode .verse-text a,
 .pierce-mode .leaf-text a {
   color: #6a9fd8 !important;
-  background: none !important;
-  -webkit-background-clip: unset !important;
-  background-clip: unset !important;
   animation: none !important;
   pointer-events: all;
 }
