@@ -23,11 +23,15 @@ const C = {
 };
 
 /* ─── SPLASH ─── */
-function Splash({ onEnter, imgSrc, hornSrc }) {
-  const [phase, setPhase] = useState(0);
+function Splash({ onEnter, imgSrc, hornSrc, skipAnimation }) {
+  const [phase, setPhase] = useState(skipAnimation ? 3 : 0);
   const [souls, setSouls] = useState(null);
 
   useEffect(() => {
+    if (skipAnimation) {
+      fetch("/api/count").then(r => r.json()).then(d => setSouls(d.count)).catch(() => {});
+      return;
+    }
     const t1 = setTimeout(() => setPhase(1), 9200);
     const t2 = setTimeout(() => setPhase(2), 10200);
     const t3 = setTimeout(() => setPhase(3), 11200);
@@ -1394,6 +1398,7 @@ function FnLeaf({ text, fnColor, isVeil, depth }) {
 /* ─── APP ─── */
 export default function App() {
   const [view, setView] = useState("splash");
+  const [splashSeen, setSplashSeen] = useState(false);
   const [fullData, setFullData] = useState(null);
   const [treeData, setTreeData] = useState(null);
   const [versedData, setVersedData] = useState(null);
@@ -1427,6 +1432,7 @@ export default function App() {
   }, []);
 
   const handleEnter = useCallback(() => {
+    setSplashSeen(true);
     setView("reading");
   }, []);
 
@@ -1481,7 +1487,7 @@ export default function App() {
       ) : view === "antioch" ? (
         <Antioch onBack={() => setView("splash")} />
       ) : view === "splash" ? (
-        <Splash onEnter={handleEnter} imgSrc={waltImg} hornSrc={hornImg} />
+        <Splash onEnter={handleEnter} imgSrc={waltImg} hornSrc={hornImg} skipAnimation={splashSeen} />
       ) : loadError ? (
         <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#020001", color: C.goldDim, fontFamily: "'Palatino Linotype', serif", textAlign: "center", padding: 40 }}>
           <div>
