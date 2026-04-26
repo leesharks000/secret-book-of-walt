@@ -762,7 +762,7 @@ function CosmologyStrip({ expanded, setExpanded }) {
 /* ─── THE HYPOSTATIC TREE — CENTER-OUT ─── */
 function ReadingSpine({ fullData, treeData, versedData, onBack }) {
   const [mode, setMode] = useState("veil");
-  const [expanded, setExpanded] = useState({ gospel_root: true, apparatus: true, front: true, notes: true });
+  const [expanded, setExpanded] = useState({ gospel_root: true, apparatus: false, front: false, notes: false });
 
   const isVeil = mode === "veil";
   const textColor = "#f0ede8";
