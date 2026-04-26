@@ -410,49 +410,42 @@ export default function Antioch({ onBack }) {
     el.id = 'antioch-crystal';
     el.textContent = `
 @keyframes sunretreats {
-  0%   { background-position: 8%  50%; }
-  15%  { background-position: 22% 52%; }
-  30%  { background-position: 38% 49%; }
-  45%  { background-position: 54% 51%; }
-  60%  { background-position: 70% 50%; }
-  75%  { background-position: 84% 51%; }
-  88%  { background-position: 93% 50%; }
-  100% { background-position: 8%  50%; }
+  0%   { background-position: 0%   50%; }
+  100% { background-position: 100% 50%; }
 }
 @keyframes atmosphericFlutter {
   0%,100% { opacity: 1; }
-  25%  { opacity: 0.96; }
-  50%  { opacity: 0.93; }
-  75%  { opacity: 0.97; }
+  50%     { opacity: 0.87; }
 }
 .veil-mode .verse-text,
 .pierce-mode .leaf-text {
-  background: linear-gradient(118deg,
-    #d8d8d8  0%,
-    #d0d0d0  8%,
-    #c4c4c4 14%,
-    #b4b4b4 20%,
-    #a0a0a0 26%,
-    #888888 32%,
-    #707070 38%,
-    #585858 44%,
-    #424242 50%,
-    #303030 56%,
-    #202020 62%,
-    #141414 68%,
-    #0c0c0c 76%,
-    #080808 84%,
-    #050505 92%,
-    #030303 100%
+  /*
+   * background-size: 700% means each verse span sees ~1/7 of the gradient.
+   * Adjacent verses share similar brightness — the whole passage shifts
+   * together like light crossing a wall, not each line cycling independently.
+   * Gradient floor is #424242 — still legible against the Milky Way backdrop.
+   */
+  background: linear-gradient(108deg,
+    #e4e4e4  0%,
+    #d4d4d4  9%,
+    #bebebe 18%,
+    #a4a4a4 27%,
+    #8c8c8c 36%,
+    #767676 45%,
+    #626262 54%,
+    #525252 63%,
+    #464646 72%,
+    #424242 80%,
+    #424242 100%
   );
-  background-size: 280% 280%;
+  background-size: 700% 700%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent !important;
   pointer-events: none;
   animation:
-    sunretreats 90s ease-in-out infinite,
-    atmosphericFlutter 13s ease-in-out infinite;
+    sunretreats 110s linear infinite,
+    atmosphericFlutter 18s ease-in-out infinite;
 }
 .veil-mode .verse-text a,
 .pierce-mode .leaf-text a {
