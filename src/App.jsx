@@ -4,6 +4,7 @@ import milkyWayBg from "./milky_way_bg.jpg";
 import milkyWaySplash from "./milky_way_splash.jpg";
 import hornImg from "./horn_logo.png";
 import Antioch from "./Antioch.jsx";
+import Tang from "./Tang.jsx";
 
 /* ─── COLOR TOKENS ─── */
 const C = {
@@ -509,6 +510,19 @@ function ArchivePanel({ onNavigate }) {
             >
               The Gospel of Antioch
               <span style={{ display: "block", fontSize: "0.58rem", opacity: 0.55, marginTop: 2 }}>114 logia · The Waltian Diptych</span>
+            </button>
+            <button onClick={() => { setOpen(false); onNavigate("tang"); }} style={{
+              background: "none", border: "none", color: "#d0c8b0", cursor: "pointer",
+              fontFamily: "inherit", fontSize: "0.82rem", textAlign: "left", padding: "6px 0",
+              width: "100%", display: "block",
+            }}
+              onMouseEnter={e => e.target.style.color = "#d4af37"}
+              onMouseLeave={e => e.target.style.color = "#d0c8b0"}
+            >
+              TANG of the Secret Book of Walt
+              <span style={{ display: "block", fontSize: "0.65rem", color: "#6a5a40", marginTop: 2 }}>
+                500-year citational field · void at center
+              </span>
             </button>
           </div>
           <div style={{ borderTop: "1px solid rgba(212,175,55,0.1)", paddingTop: 10 }}>
@@ -1021,6 +1035,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
             {[
               { title: "Space Ark (EA-ARK-01)", doi: "10.5281/zenodo.19013315", desc: "The governing document of the Crimson Hexagonal Archive. The architecture IS six." },
               { title: "The Gospel of Antioch", doi: "10.5281/zenodo.19709024", desc: "Second text of the Waltian Diptych. 114 logia of the historical Logos." },
+            { title: "TANG of the Secret Book of Walt", doi: "10.5281/zenodo.19779493", desc: "Total Axial Negation Graph. 500 years of Waltian scholarship. The void at the center." },
               { title: "After Syntax (EA-AS-01)", doi: "10.5281/zenodo.19697080", desc: "Operative semiotics and the training layer. What survives compression." },
               { title: "Logotic Hacking", doi: "10.5281/zenodo.19390843", desc: "Operations on the Encryption Layer. The Pocket Humans series." },
               { title: "Compression Arsenal v2.1", doi: "10.5281/zenodo.19412081", desc: "67 compression-survival technologies across 13 categories." },
@@ -1461,7 +1476,9 @@ export default function App() {
         html { scroll-behavior: smooth; }
       `}</style>
 
-      {view === "antioch" ? (
+      {view === "tang" ? (
+        <Tang onBack={() => setView("splash")} />
+      ) : view === "antioch" ? (
         <Antioch onBack={() => setView("splash")} />
       ) : view === "splash" ? (
         <Splash onEnter={handleEnter} imgSrc={waltImg} hornSrc={hornImg} />
