@@ -141,25 +141,28 @@ function FnLeaf({ text, fnColor, depth }) {
    logion text is controlled content so XSS risk is negligible.  */
 function injectLinks(text) {
   if (!text) return '';
-  // Sort by length descending — match longer terms first
   const sorted = Object.keys(TERMS).sort((a, b) => b.length - a.length);
   let html = text
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+  const links = [];
   for (const term of sorted) {
     const def = TERMS[term];
     const href = def.u || ('https://www.google.com/search?q=' + encodeURIComponent(def.q));
     const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const re = new RegExp(escaped, 'g');
-    html = html.replace(re,
-      '<a href="' + href + '" target="_blank" rel="noopener noreferrer" ' +
-      'style="color:#6a9fd8;text-decoration:none;border-bottom:1px dotted rgba(106,159,216,0.3)">' +
-      term + '</a>'
-    );
+    // Use placeholder so subsequent passes can't match inside injected href URLs
+    html = html.replace(re, () => {
+      const i = links.length;
+      links.push('<a href="' + href + '" target="_blank" rel="noopener noreferrer" ' +
+        'style="color:#6a9fd8;text-decoration:none;border-bottom:1px dotted rgba(106,159,216,0.3)">' +
+        term + '</a>');
+      return '\x00' + i + '\x00';
+    });
   }
-  return html;
+  return html.replace(/\x00(\d+)\x00/g, (_, i) => links[+i]);
 }
 
 /* ─── VERSE — numbered with logion reference ─── */
@@ -410,41 +413,39 @@ export default function Antioch({ onBack }) {
     el.id = 'antioch-crystal';
     el.textContent = `
 @keyframes sunretreats {
-  0%   { background-position: 0%   50%; }
-  100% { background-position: 100% 50%; }
+  0%   { background-position: 0%   40%; }
+  100% { background-position: 100% 60%; }
 }
 @keyframes atmosphericFlutter {
   0%,100% { opacity: 1; }
-  50%     { opacity: 0.87; }
+  50%     { opacity: 0.88; }
 }
 .veil-mode .verse-text,
 .pierce-mode .leaf-text {
   /*
-   * background-size: 700% means each verse span sees ~1/7 of the gradient.
-   * Adjacent verses share similar brightness — the whole passage shifts
-   * together like light crossing a wall, not each line cycling independently.
-   * Gradient floor is #424242 — still legible against the Milky Way backdrop.
+   * background-attachment: fixed = viewport coordinate space.
+   * All verse spans share the same gradient field — adjacent lines
+   * see adjacent gradient values. Light moves across the whole
+   * passage together. Floor #484848 readable on Milky Way bg.
    */
   background: linear-gradient(108deg,
-    #e4e4e4  0%,
-    #d4d4d4  9%,
-    #bebebe 18%,
-    #a4a4a4 27%,
-    #8c8c8c 36%,
-    #767676 45%,
-    #626262 54%,
-    #525252 63%,
-    #464646 72%,
-    #424242 80%,
-    #424242 100%
+    #d8d8d8  0%,
+    #c0c0c0 18%,
+    #a0a0a0 34%,
+    #808080 50%,
+    #646464 64%,
+    #525252 76%,
+    #484848 88%,
+    #484848 100%
   );
-  background-size: 700% 700%;
+  background-size: 180vw 180vh;
+  background-attachment: fixed;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent !important;
   pointer-events: none;
   animation:
-    sunretreats 110s linear infinite,
+    sunretreats 90s linear infinite,
     atmosphericFlutter 18s ease-in-out infinite;
 }
 .veil-mode .verse-text a,
