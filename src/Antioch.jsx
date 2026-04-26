@@ -367,7 +367,7 @@ function ChapterSection({ chapter, expanded, toggle, isVeil, accent, fnColor }) 
 /* ─── MAIN ANTIOCH READING SPINE ─── */
 export default function Antioch({ onBack }) {
   const [mode, setMode] = useState("veil");
-  const [expanded, setExpanded] = useState({ I: true, II: false, III: false, IV: false, V: false, VI: false, VII: false, VIII: false, front: true, apparatus: false, headnote: false, note_edition: false, intro_genre: false, intro_thomas: false, intro_kingdom: false, emily: false, diptych: false, intro_date: false, app_thomas: false, app_somatic: false, app_scroll: false, app_emily: false, app_secret: false, app_logos: false, app_virus: false, app_114: false, app_bib: false });
+  const [expanded, setExpanded] = useState({ I: true, II: true, III: true, IV: true, V: true, VI: true, VII: true, VIII: true, logia_root: true, front: false, apparatus: false, headnote: false, note_edition: false, intro_genre: false, intro_thomas: false, intro_kingdom: false, emily: false, diptych: false, intro_date: false, app_thomas: false, app_somatic: false, app_scroll: false, app_emily: false, app_secret: false, app_logos: false, app_virus: false, app_114: false, app_bib: false });
   const [chapters, setChapters] = useState([]);
 
   const isVeil = mode === "veil";
