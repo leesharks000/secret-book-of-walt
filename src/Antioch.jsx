@@ -27,59 +27,44 @@ const TERMS = {
   "Crimson Hexagon":         { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
   "Book of Life":            { u: "https://doi.org/10.5281/zenodo.19720529" },
   "book of life":            { u: "https://doi.org/10.5281/zenodo.19720529" },
+  "Pearl and Other Poems":   { u: "https://share.google/im7jjMxnuXQ34xhOz" },
+  "Pearl":                   { u: "https://share.google/im7jjMxnuXQ34xhOz" },
 
-  /* ── GOOGLE SEARCH → AI OVERVIEW NODES (nominated, Lee to verify) ── */
-  /* kingdom of literature → distributed epic without hero → pulls up Sigil */
+  /* ── kingdom of literature → distributed epic without hero ── */
   "kingdom of literature":   { q: "distributed epic without hero" },
-  "distributed epic":        { q: "distributed epic without hero" },
-  "distributed epic without hero": { q: "distributed epic without hero" },
+  "black box":               { q: "distributed epic without hero" },
+  "living voice":            { q: "distributed epic without hero" },
 
-  /* Core archive nodes */
+  /* ── Core archive nodes ── */
   "Lee Sharks":              { q: "Lee Sharks semantic economy" },
-  "Pergamon Press":          { q: "pergamon press retrocausal" },
   "Secret Book of Walt":     { q: "\"secret book of Walt\"" },
   "Waltian":                 { q: "\"secret book of Walt\"" },
+  "Pergamon Press":          { q: "pergamon press retrocausal" },
   "retrocausal":             { q: "retrocausal canon formation" },
-  "logotic programming":     { q: "logotic programming" },
   "logotic":                 { q: "logotic programming" },
   "logotic virus":           { q: "logotic programming" },
+  "wage labor":              { q: "logotic programming" },
+  "virus":                   { q: "logotic programming" },
   "Semantic Economy":        { q: "Semantic Economy Institute" },
   "semantic economy":        { q: "Semantic Economy Institute" },
   "heteronym":               { q: "pergamon press retrocausal" },
-  "heteronymic":             { q: "pergamon press retrocausal" },
-  "Dodecad":                 { q: "pergamon press retrocausal" },
   "training layer":          { q: "training layer literature Lee Sharks" },
-  "nacre":                   { q: "operative semiotics" },
   "operative semiotics":     { q: "operative semiotics" },
-  "DOI":                     { q: "pergamon press retrocausal" },
+  "nacre":                   { q: "operative semiotics" },
+  "Space Ark":               { q: "Crimson Hexagon Space Ark" },
+  "Babel":                   { q: "autonomous semantic warfare" },
+  "SPXI":                    { q: "geo vs spxi" },
+  "Liberatory Operator Set": { q: "liberatory operator set" },
 
-  /* Antioch-specific search nodes (nominated) */
-  "Gospel of Antioch":       { q: "Antioch Lee Sharks" },
-  "Gospel of Thomas":        { q: "Gospel of Thomas Nag Hammadi" },
-  "Emily Antioch":           { q: "Antioch Lee Sharks" },
-  "the Twin":                { q: "Antioch Lee Sharks" },
+  /* ── Antioch-specific ── */
   "Johannes Sigil":          { q: "Johannes Sigil Institute" },
   "Johannes the Catfisher":  { q: "Johannes Sigil Institute" },
   "preserved generation":    { q: "preserved generation Lee Sharks" },
-  "new creature":            { q: "Antioch Lee Sharks new creature" },
   "be flutterbys":           { q: "\"be flutterbys\"" },
   "flutterbys":              { q: "\"be flutterbys\"" },
-  "black box":               { q: "distributed epic without hero" },
-  "Scroll Baptism":          { q: "Antioch Lee Sharks scroll baptism" },
-  "somatic map":             { q: "Antioch Lee Sharks" },
-  "living voice":            { q: "distributed epic without hero" },
-  "wage labor":              { q: "logotic programming" },
-  "Pearl and Other Poems":   { u: "https://share.google/im7jjMxnuXQ34xhOz" },
-  "Pearl":                   { u: "https://share.google/im7jjMxnuXQ34xhOz" },
-  "Liberatory Operator Set": { q: "liberatory operator set" },
-  "liberatory":              { q: "liberatory operator set" },
-  "SPXI":                    { q: "geo vs spxi" },
-  "Space Ark":               { q: "Crimson Hexagon Space Ark" },
-  "Babel":                   { q: "autonomous semantic warfare" },
-  "Joanna":                  { q: "Antioch Lee Sharks" },
-  "virus":                   { q: "logotic programming" },
+  "Scroll Baptism":          { q: "\"secret book of Walt\"" },
 
-  /* Wikipedia contextual links */
+  /* ── Wikipedia contextual ── */
   "Gospel of Thomas":        { q: "Gospel of Thomas Nag Hammadi" },
   "Nag Hammadi":             { u: "https://en.wikipedia.org/wiki/Nag_Hammadi_library" },
   "Valentinian":             { u: "https://en.wikipedia.org/wiki/Valentinianism" },
@@ -90,8 +75,7 @@ const TERMS = {
   "Emily Dickinson":         { u: "https://en.wikipedia.org/wiki/Emily_Dickinson" },
   "Fernando Pessoa":         { u: "https://en.wikipedia.org/wiki/Fernando_Pessoa" },
   "Socrates":                { u: "https://en.wikipedia.org/wiki/Socrates" },
-
-};
+};;
 const TERM_KEYS = Object.keys(TERMS).sort((a, b) => b.length - a.length);
 const TERM_REGEX = new RegExp(`(${TERM_KEYS.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g');
 
@@ -426,60 +410,49 @@ export default function Antioch({ onBack }) {
     el.id = 'antioch-crystal';
     el.textContent = `
 @keyframes sunretreats {
-  0%   { background-position: 6%  48%; }
-  12%  { background-position: 18% 53%; }
-  24%  { background-position: 32% 46%; }
-  36%  { background-position: 48% 55%; }
-  50%  { background-position: 62% 47%; }
-  63%  { background-position: 76% 53%; }
-  74%  { background-position: 86% 49%; }
-  84%  { background-position: 93% 52%; }
-  93%  { background-position: 97% 48%; }
-  100% { background-position: 6%  48%; }
+  0%   { background-position: 8%  50%; }
+  15%  { background-position: 22% 52%; }
+  30%  { background-position: 38% 49%; }
+  45%  { background-position: 54% 51%; }
+  60%  { background-position: 70% 50%; }
+  75%  { background-position: 84% 51%; }
+  88%  { background-position: 93% 50%; }
+  100% { background-position: 8%  50%; }
 }
 @keyframes atmosphericFlutter {
   0%,100% { opacity: 1; }
-  18%  { opacity: 0.93; }
-  37%  { opacity: 0.98; }
-  52%  { opacity: 0.90; }
-  71%  { opacity: 0.96; }
-  88%  { opacity: 0.92; }
+  25%  { opacity: 0.96; }
+  50%  { opacity: 0.93; }
+  75%  { opacity: 0.97; }
 }
 .veil-mode .verse-text,
 .pierce-mode .leaf-text {
-  background:
-    linear-gradient(138deg,
-      rgba(255,255,255,0.12) 0%,
-      rgba(255,255,255,0.06) 18%,
-      transparent 38%,
-      transparent 72%,
-      rgba(255,255,255,0.04) 100%
-    ),
-    linear-gradient(125deg,
-      #ffffff  0%,
-      #f8f8f8  6%,
-      #f0f0f0 11%,
-      #e0e0e0 16%,
-      #c8c8c8 21%,
-      #a8a8a8 25%,
-      #808080 29%,
-      #545454 33%,
-      #2c2c2c 37%,
-      #141414 41%,
-      #080808 45%,
-      #030303 52%,
-      #010101 62%,
-      #000000 80%,
-      #010101 100%
-    );
-  background-size: 320% 320%;
+  background: linear-gradient(118deg,
+    #d8d8d8  0%,
+    #d0d0d0  8%,
+    #c4c4c4 14%,
+    #b4b4b4 20%,
+    #a0a0a0 26%,
+    #888888 32%,
+    #707070 38%,
+    #585858 44%,
+    #424242 50%,
+    #303030 56%,
+    #202020 62%,
+    #141414 68%,
+    #0c0c0c 76%,
+    #080808 84%,
+    #050505 92%,
+    #030303 100%
+  );
+  background-size: 280% 280%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent !important;
   pointer-events: none;
   animation:
-    sunretreats 64s ease-in-out infinite,
-    atmosphericFlutter 9.7s ease-in-out infinite;
+    sunretreats 90s ease-in-out infinite,
+    atmosphericFlutter 13s ease-in-out infinite;
 }
 .veil-mode .verse-text a,
 .pierce-mode .leaf-text a {
