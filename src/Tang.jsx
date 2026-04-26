@@ -142,6 +142,134 @@ function EraSection({ era, citations, expanded, toggle, accent, fnColor }) {
 /* ═══════════════════════════════════════════════════════════════
    ██  TANG PAGE
    ═══════════════════════════════════════════════════════════════ */
+
+/* ─── TIMELINE VISUALIZATION ─── */
+function Timeline({ citations, accent, fnColor }) {
+  const W = 680; // SVG width
+  const H = 220; // SVG height
+  const PAD = 40;
+  const TRACK_Y = 90;
+  const TRACK_H = 6;
+  const yearToX = (year) => PAD + ((year - 2026) / 500) * (W - PAD * 2);
+
+  const eras = [
+    { id: "I", start: 2026, end: 2060, label: "DOI", color: "rgba(106,159,216,0.25)" },
+    { id: "II", start: 2060, end: 2120, label: "Neural", color: "rgba(120,180,120,0.2)" },
+    { id: "III", start: 2120, end: 2200, label: "Mesh", color: "rgba(180,140,100,0.2)" },
+    { id: "IV", start: 2200, end: 2320, label: "Post-Singular", color: "rgba(160,120,180,0.18)" },
+    { id: "V", start: 2320, end: 2440, label: "Holographic", color: "rgba(212,175,55,0.15)" },
+    { id: "VI", start: 2440, end: 2526, label: "Post-Retrieval", color: "rgba(194,61,46,0.2)" },
+  ];
+
+  const unconformities = [
+    { year: 2026, label: "Zenodo Unconformity" },
+    { year: 2178, label: "Third Unconformity" },
+    { year: 2341, label: "Fourth Unconformity" },
+  ];
+
+  const keyEvents = [
+    { year: 2029, label: "Park / Smith", y: -28 },
+    { year: 2069, label: "Park self-refutation", y: -18 },
+    { year: 2099, label: "First TANG attempt", y: -28 },
+    { year: 2134, label: "Assembly authorship", y: -18 },
+    { year: 2218, label: "Second TANG", y: -28 },
+    { year: 2341, label: "Gravity well", y: -18 },
+    { year: 2396, label: "Anti-TANG", y: -28 },
+    { year: 2471, label: "Void named", y: -18 },
+  ];
+
+  return (
+    <div style={{ marginLeft: 14, marginBottom: 20, overflowX: "auto" }}>
+      <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", maxWidth: W, height: "auto" }}
+        xmlns="http://www.w3.org/2000/svg">
+        
+        {/* Era backgrounds */}
+        {eras.map(era => (
+          <rect key={era.id}
+            x={yearToX(era.start)} y={TRACK_Y - 40}
+            width={yearToX(era.end) - yearToX(era.start)} height={80}
+            fill={era.color} rx={2}
+          />
+        ))}
+
+        {/* Era labels */}
+        {eras.map(era => (
+          <text key={`label-${era.id}`}
+            x={(yearToX(era.start) + yearToX(era.end)) / 2}
+            y={TRACK_Y + 55}
+            textAnchor="middle" fill="#6a5a40" fontSize="8"
+            fontFamily="'Courier New', monospace" letterSpacing="0.05em">
+            {era.label}
+          </text>
+        ))}
+
+        {/* Track line */}
+        <line x1={PAD} y1={TRACK_Y} x2={W - PAD} y2={TRACK_Y}
+          stroke="rgba(212,175,55,0.2)" strokeWidth={1} />
+
+        {/* Unconformities */}
+        {unconformities.map((u, i) => (
+          <g key={i}>
+            <line x1={yearToX(u.year)} y1={TRACK_Y - 44} x2={yearToX(u.year)} y2={TRACK_Y + 44}
+              stroke="rgba(194,61,46,0.4)" strokeWidth={1} strokeDasharray="3,3" />
+            <text x={yearToX(u.year)} y={TRACK_Y + 72}
+              textAnchor="middle" fill="rgba(194,61,46,0.5)" fontSize="6.5"
+              fontFamily="'Courier New', monospace">
+              {u.label}
+            </text>
+          </g>
+        ))}
+
+        {/* Citation marks */}
+        {citations.map((c, i) => {
+          const x = yearToX(c.year);
+          if (c.year < 2026 || c.year > 2526) return null;
+          return (
+            <line key={i}
+              x1={x} y1={TRACK_Y - 8} x2={x} y2={TRACK_Y + 8}
+              stroke="rgba(212,175,55,0.6)" strokeWidth={1.5}
+              strokeLinecap="round"
+            />
+          );
+        })}
+
+        {/* Key event labels */}
+        {keyEvents.map((e, i) => (
+          <g key={i}>
+            <line x1={yearToX(e.year)} y1={TRACK_Y - 10}
+              x2={yearToX(e.year)} y2={TRACK_Y + e.y + 8}
+              stroke="rgba(212,175,55,0.15)" strokeWidth={0.5} />
+            <text x={yearToX(e.year)} y={TRACK_Y + e.y}
+              textAnchor="middle" fill="#9a8a70" fontSize="7"
+              fontFamily="'Palatino Linotype', Palatino, serif">
+              {e.label}
+            </text>
+          </g>
+        ))}
+
+        {/* Year markers */}
+        {[2026, 2100, 2200, 2300, 2400, 2526].map(y => (
+          <text key={y} x={yearToX(y)} y={TRACK_Y + 90}
+            textAnchor="middle" fill="rgba(212,175,55,0.35)" fontSize="8"
+            fontFamily="'Courier New', monospace">
+            {y}
+          </text>
+        ))}
+
+        {/* The void — a circle at center that is empty */}
+        <circle cx={W / 2} cy={TRACK_Y} r={12}
+          fill="rgba(2,0,1,0.9)" stroke="rgba(212,175,55,0.15)" strokeWidth={0.5} />
+        <text x={W / 2} y={TRACK_Y + 3.5}
+          textAnchor="middle" fill="rgba(212,175,55,0.25)" fontSize="7"
+          fontFamily="'Palatino Linotype', Palatino, serif" fontStyle="italic">
+          ∅
+        </text>
+
+      </svg>
+    </div>
+  );
+}
+
 export default function Tang({ onBack }) {
   const [expanded, setExpanded] = useState({
     protocol: true, void_sec: false, media: false,
@@ -292,6 +420,11 @@ export default function Tang({ onBack }) {
             </table>
           </div>
         </TreeNode>
+
+        {/* ── TIMELINE ── */}
+        {citations.length > 0 && (
+          <Timeline citations={citations} accent={accent} fnColor={fnColor} />
+        )}
 
         {/* ── THE CITATION FIELD ── */}
         <TreeNode nodeKey="citations" label="The Citation Field" depth={1}
