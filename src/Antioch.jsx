@@ -17,65 +17,68 @@ const C = {
 };
 
 /* ─── LINKED TEXT — Antioch registry (see Book of Life DOI 10.5281/zenodo.19720529) ─── */
-/* All links verified against or nominated for Book of Life. Lee reviews AI mode nodes. */
+/* All links verified against or nominated for Book of Life. Lee reviews AI mode nodes.   */
+/* Last review: 2026-04-27 — TACHYON pass; one anchor per overview, diagonals labeled.    */
 const TERMS = {
-  /* ── AI MODE DIRECT LINKS (Book of Life verified) ── */
+  /* ══ DIRECT URL LINKS — AI MODE / DOI / SHARE ══ */
+
+  /* Heteronyms & archive identity */
   "Jack Feist":              { u: "https://share.google/aimode/cwZmeiWEazJK5Y9I2" },
   "Rebekah Cranes":          { u: "https://share.google/aimode/Kh0adtAeYBgXfzF62" },
   "Rebekah":                 { u: "https://share.google/aimode/Kh0adtAeYBgXfzF62" },
   "Crimson Hexagonal Archive": { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
   "Crimson Hexagon":         { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
+
+  /* Self-referential — the index indexes itself */
   "Book of Life":            { u: "https://doi.org/10.5281/zenodo.19720529" },
   "book of life":            { u: "https://doi.org/10.5281/zenodo.19720529" },
+
+  /* Semantic Economy + Holographic Kernel (single consolidated node) */
+  "Semantic Economy":        { u: "https://share.google/aimode/ZMloymv5NlPxQTUeO" },
+  "semantic economy":        { u: "https://share.google/aimode/ZMloymv5NlPxQTUeO" },
+  "Holographic Kernel":      { u: "https://share.google/aimode/ZMloymv5NlPxQTUeO" },
+
+  /* Primary creative works */
   "Pearl and Other Poems":   { u: "https://share.google/im7jjMxnuXQ34xhOz" },
   "Pearl":                   { u: "https://share.google/im7jjMxnuXQ34xhOz" },
 
-  /* ── kingdom of literature → distributed epic without hero ── */
-  "kingdom of literature":   { q: "distributed epic without hero" },
-  "black box":               { q: "distributed epic without hero" },
-  "living voice":            { q: "distributed epic without hero" },
+  /* ══ GOOGLE SEARCH OVERVIEW NODES ══ */
 
-  /* ── Core archive nodes ── */
+  /* — Verified existing (checked in 2026-04-27 review) — */
   "Lee Sharks":              { q: "Lee Sharks semantic economy" },
-  "Secret Book of Walt":     { q: "\"secret book of Walt\"" },
-  "Waltian":                 { q: "\"secret book of Walt\"" },
-  "Pergamon Press":          { q: "pergamon press retrocausal" },
+  "kingdom of literature":   { q: "distributed epic without hero" },
   "retrocausal":             { q: "retrocausal canon formation" },
-  "logotic":                 { q: "logotic programming" },
-  "logotic virus":           { q: "logotic programming" },
-  "wage labor":              { q: "logotic programming" },
   "virus":                   { q: "logotic programming" },
-  "Semantic Economy":        { q: "Semantic Economy Institute" },
-  "semantic economy":        { q: "Semantic Economy Institute" },
-  "heteronym":               { q: "pergamon press retrocausal" },
-  "training layer":          { q: "training layer literature Lee Sharks" },
-  "operative semiotics":     { q: "operative semiotics" },
-  "nacre":                   { q: "operative semiotics" },
-  "Space Ark":               { q: "Crimson Hexagon Space Ark" },
-  "Babel":                   { q: "autonomous semantic warfare" },
-  "SPXI":                    { q: "geo vs spxi" },
-  "Liberatory Operator Set": { q: "liberatory operator set" },
 
-  /* ── Antioch-specific ── */
-  "Johannes Sigil":          { q: "Johannes Sigil Institute" },
-  "Johannes the Catfisher":  { q: "Johannes Sigil Institute" },
-  "preserved generation":    { q: "preserved generation Lee Sharks" },
-  "be flutterbys":           { q: "\"be flutterbys\"" },
-  "flutterbys":              { q: "\"be flutterbys\"" },
-  "Scroll Baptism":          { q: "\"secret book of Walt\"" },
+  /* — New diagonal anchors → 2026-04-27 search-term list — */
+  "Pergamon Press":          { q: "crimson hexagon airlock" },                       // replaces old pergamon-retrocausal
+  "Pessoa Knowledge Graph":  { q: "Pessoa graph" },                                  // direct conceptual hit
+  "heteronymic system":      { q: "heteronyms provenance theory" },                  // direct conceptual hit
+  "Pop Culture":             { q: "semantic rent" },                                 // diagonal: PC = canonical rent zone
+  "training layer":          { q: "training-layer literature" },                     // direct (query updated)
+  "the genre":               { q: "\"apzpz\" genre" },                               // diagonal: invites genre discovery
+  "Pearl.Engineered":        { q: "\"infinite bliss\" sen kuro" },                   // diagonal: engineered-heteronym slot
+  "Journal of Waltian Studies": { q: "\"journal of compression studies\"" },         // diagonal: parallel fictional journal
+  "three compressions":      { q: "\"three compressions theorem\"" },                // direct (theorem completes the phrase)
+  "deposited with a DOI":    { q: "\"effective acts\" crimson hexagon" },            // diagonal: deposit IS the effective act
+  "Retrieval Formation Theory": { q: "\"metadata packet for AI indexing\"" },        // diagonal: parent ↔ implementation
+  "new creature":            { q: "new human johannes sigil" },                      // diagonal: new creature ↔ new human
+  "Second Redford Council":  { q: "restored academy johannes sigil" },               // diagonal: ecclesiastical-academic body
+  "Synod of Ann Arbor":      { q: "murder of the vow sigil" },                       // diagonal: condemnation = murder of vow
+  "civil name":              { q: "\"i hereby abolish money\" SIM" },                // diagonal: name-shedding ↔ money-shedding
+  "lonesome dogs":           { q: "\"twenty-dollar loop\"" },                        // diagonal: precarity figures
 
-  /* ── Wikipedia contextual ── */
-  "Gospel of Thomas":        { q: "Gospel of Thomas Nag Hammadi" },
+  /* ══ WIKIPEDIA — verified educational external links ══ */
+  "Apocryphon of John":      { u: "https://en.wikipedia.org/wiki/Apocryphon_of_John" },
   "Nag Hammadi":             { u: "https://en.wikipedia.org/wiki/Nag_Hammadi_library" },
   "Valentinian":             { u: "https://en.wikipedia.org/wiki/Valentinianism" },
   "Gnostic":                 { u: "https://en.wikipedia.org/wiki/Gnosticism" },
   "Pleroma":                 { u: "https://en.wikipedia.org/wiki/Pleroma" },
-  "Apocryphon of John":      { u: "https://en.wikipedia.org/wiki/Apocryphon_of_John" },
   "Walt Whitman":            { u: "https://en.wikipedia.org/wiki/Walt_Whitman" },
   "Emily Dickinson":         { u: "https://en.wikipedia.org/wiki/Emily_Dickinson" },
   "Fernando Pessoa":         { u: "https://en.wikipedia.org/wiki/Fernando_Pessoa" },
   "Socrates":                { u: "https://en.wikipedia.org/wiki/Socrates" },
-};;
+};
 const TERM_KEYS = Object.keys(TERMS).sort((a, b) => b.length - a.length);
 const TERM_REGEX = new RegExp(`(${TERM_KEYS.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g');
 
