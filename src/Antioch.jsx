@@ -68,6 +68,31 @@ const TERMS = {
   "civil name":              { q: "\"i hereby abolish money\" SIM" },                // diagonal: name-shedding ↔ money-shedding
   "lonesome dogs":           { q: "\"twenty-dollar loop\"" },                        // diagonal: precarity figures
 
+  /* ══ FRONT-MATTER BLUE LINKS — primary works + canonical sites ══ */
+  /* Added 2026-04-27 to push more anchors above the apparatus.            */
+  /* Each fires in the colophon, headnote, or one of the introductions.    */
+
+  /* Sites */
+  "field of utterances":        { u: "https://holographickernel.org" },                                            // Headnote — Holographic Kernel as field substrate
+  "Sovereign Provenance Protocol": { u: "https://spxi.dev" },                                                       // Intro VIII — provenance protocol cousin of SPXI
+  "named positions":            { u: "https://pessoagraph.org" },                                                  // Intro VIII — Pessoa graph names the heteronym positions
+
+  /* Primary creative works (mindcontrolpoems blog) — paired to early prose */
+  "a disciple who records":     { u: "https://mindcontrolpoems.blogspot.com/2015/02/sentimental-murder-for-my-students.html" },  // Headnote
+  "redemption arrives":         { u: "https://mindcontrolpoems.blogspot.com/2015/05/strange-new-earth.html" },                   // Intro I
+  "If you have ears":           { u: "https://mindcontrolpoems.blogspot.com/2025/11/hums-ity-pneumatology-of-textual.html" },    // Intro II
+  "kenotic pattern":            { u: "https://mindcontrolpoems.blogspot.com/2015/05/i-claim-this-mantle-of-good-gray-poet.html" }, // Intro II — claiming the Walt mantle
+  "direction of transformation": { u: "https://mindcontrolpoems.blogspot.com/2014/12/the-parable-of-transformed-dinosaurs.html" },// Intro II
+  "the Thomas tradition":       { u: "https://mindcontrolpoems.blogspot.com/2015/02/tradition-and-individual-seismograph.html" }, // Intro III — Eliot parody
+  "textual survival":           { u: "https://mindcontrolpoems.blogspot.com/2014/12/littachur.html" },                           // Intro III — littachur
+  "five parables":              { u: "https://mindcontrolpoems.blogspot.com/2014/12/the-parable-of-police-brutality.html" },     // Intro III
+  "anonymous journal":          { u: "https://mindcontrolpoems.blogspot.com/2015/02/decrepit-memoir-catalogue-of-minutes.html" },// Intro III
+  "transcript of her silence":  { u: "https://mindcontrolpoems.blogspot.com/2014/12/belief-technique-fortelepathic-prose.html" },// Intro IV — telepathic transmission
+  "naming-site":                { u: "https://mindcontrolpoems.blogspot.com/2015/03/blog-post.html" },                           // Intro IV — yahweh / divine name
+  "naming-act":                 { u: "https://mindcontrolpoems.blogspot.com/2015/03/reverse-catfishing-on-social-identity.html" },// Intro IV — naming swap
+  "terminal incarnation":       { u: "https://mindcontrolpoems.blogspot.com/2015/05/ark-jack-feist.html" },                      // Diptych table
+  "the archive's Dodecad":      { u: "https://mindcontrolpoems.blogspot.com/2015/03/from-crimson-hexagon.html" },                // Intro VIII
+
   /* ══ WIKIPEDIA — verified educational external links ══ */
   "Apocryphon of John":      { u: "https://en.wikipedia.org/wiki/Apocryphon_of_John" },
   "Nag Hammadi":             { u: "https://en.wikipedia.org/wiki/Nag_Hammadi_library" },
