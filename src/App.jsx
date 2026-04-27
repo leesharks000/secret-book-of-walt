@@ -598,8 +598,9 @@ function CosmologyStrip({ expanded, setExpanded }) {
     setExpanded(prev => {
       const isOpen = prev[layer.key];
       if (isOpen) {
-        // Collapse the section
-        return { ...prev, [layer.key]: false };
+        // Collapse the section and its group if no siblings still open
+        const next = { ...prev, [layer.key]: false };
+        return next;
       }
       // Open the section and scroll to it
       const next = {
@@ -672,7 +673,7 @@ function CosmologyStrip({ expanded, setExpanded }) {
         {layers.map((layer, i) => {
           const y = positions[i];
           const x = padLeft;
-          const active = expanded[layer.key] || expanded[layer.group];
+          const active = !!expanded[layer.key];
 
           let listY = y + 18;
           return (
