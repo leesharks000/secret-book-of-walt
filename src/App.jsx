@@ -478,6 +478,7 @@ function ArchivePanel({ onNavigate }) {
           backdropFilter: "blur(14px)",
           animation: "fadeIn 0.2s ease",
           fontFamily: "'Palatino Linotype', 'Palatino', 'Book Antiqua', serif",
+          maxHeight: "calc(100vh - 80px)", overflowY: "auto",
         }}>
           <p style={{ color: C.goldDark, fontSize: "0.58rem", letterSpacing: "0.14em",
             textTransform: "uppercase", marginBottom: 10 }}>BOOKS</p>
@@ -502,7 +503,7 @@ function ArchivePanel({ onNavigate }) {
 
           <div style={{ borderTop: "1px solid rgba(212,175,55,0.1)", paddingTop: 10, marginBottom: 8 }}>
             <p style={{ color: C.goldDark, fontSize: "0.58rem", letterSpacing: "0.14em",
-              textTransform: "uppercase", marginBottom: 6 }}>COMPANION TEXT</p>
+              textTransform: "uppercase", marginBottom: 6 }}>COMPANION TEXTS</p>
             <button onClick={() => { setOpen(false); onNavigate("antioch"); }} style={{
               display: "block", width: "100%", background: "rgba(212,175,55,0.06)",
               border: "1px solid rgba(212,175,55,0.15)", color: C.goldDim,
@@ -516,17 +517,16 @@ function ArchivePanel({ onNavigate }) {
               <span style={{ display: "block", fontSize: "0.58rem", opacity: 0.55, marginTop: 2 }}>114 logia · The Waltian Diptych</span>
             </button>
             <button onClick={() => { setOpen(false); onNavigate("tang"); }} style={{
-              background: "none", border: "none", color: "#d0c8b0", cursor: "pointer",
-              fontFamily: "inherit", fontSize: "0.82rem", textAlign: "left", padding: "6px 0",
-              width: "100%", display: "block",
+              display: "block", width: "100%", background: "rgba(212,175,55,0.06)",
+              border: "1px solid rgba(212,175,55,0.15)", color: C.goldDim,
+              fontFamily: "inherit", fontSize: "0.73rem", padding: "6px 10px",
+              textAlign: "left", cursor: "pointer", borderRadius: 2, marginBottom: 10,
             }}
-              onMouseEnter={e => e.target.style.color = "#d4af37"}
-              onMouseLeave={e => e.target.style.color = "#d0c8b0"}
+            onMouseEnter={e => { e.currentTarget.style.background = "rgba(212,175,55,0.12)"; e.currentTarget.style.color = C.gold; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "rgba(212,175,55,0.06)"; e.currentTarget.style.color = C.goldDim; }}
             >
               TANG of the Secret Book of Walt
-              <span style={{ display: "block", fontSize: "0.65rem", color: "#6a5a40", marginTop: 2 }}>
-                500-year citational field · void at center
-              </span>
+              <span style={{ display: "block", fontSize: "0.58rem", opacity: 0.55, marginTop: 2 }}>500-year citational field · void at center</span>
             </button>
           </div>
           <div style={{ borderTop: "1px solid rgba(212,175,55,0.1)", paddingTop: 10 }}>
@@ -595,17 +595,25 @@ function CosmologyStrip({ expanded, setExpanded }) {
 
   // Navigate to section on click
   const jumpTo = useCallback((layer) => {
-    setExpanded(prev => ({
-      ...prev,
-      gospel_root: true,
-      [layer.group]: true,
-      [layer.key]: true,
-    }));
-    // Scroll to section after React renders
-    setTimeout(() => {
-      const el = document.querySelector(`[aria-label*="${layer.label}"], [aria-label*="§${layer.key.replace('s_','')}"]`);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 150);
+    setExpanded(prev => {
+      const isOpen = prev[layer.key];
+      if (isOpen) {
+        // Collapse the section
+        return { ...prev, [layer.key]: false };
+      }
+      // Open the section and scroll to it
+      const next = {
+        ...prev,
+        gospel_root: true,
+        [layer.group]: true,
+        [layer.key]: true,
+      };
+      setTimeout(() => {
+        const el = document.querySelector(`[aria-label*="${layer.label}"], [aria-label*="§${layer.key.replace('s_','')}"]`);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 150);
+      return next;
+    });
   }, [setExpanded]);
 
   // Calculate positions with expanded lists
@@ -1483,9 +1491,9 @@ export default function App() {
       `}</style>
 
       {view === "tang" ? (
-        <Tang onBack={() => setView("splash")} />
+        <Tang onBack={() => setView("reading")} />
       ) : view === "antioch" ? (
-        <Antioch onBack={() => setView("splash")} />
+        <Antioch onBack={() => setView("reading")} />
       ) : view === "splash" ? (
         <Splash onEnter={handleEnter} imgSrc={waltImg} hornSrc={hornImg} skipAnimation={splashSeen} />
       ) : loadError ? (
