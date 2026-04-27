@@ -624,7 +624,7 @@ function CosmologyStrip({ expanded, setExpanded }) {
     positions.push(yAccum);
     yAccum += lineH;
     const layer = layers[i];
-    const active = expanded[layer.key] || expanded[layer.group];
+    const active = !!expanded[layer.key];
     if (active && layer.list) {
       yAccum += layer.list.length * 12 + 10;
       if (layer.list2) yAccum += layer.list2.length * 12 + 18;
@@ -655,8 +655,7 @@ function CosmologyStrip({ expanded, setExpanded }) {
           const y1 = positions[i] + nodeR;
           const y2 = positions[i + 1] - nodeR;
           const x = padLeft;
-          const active = expanded[layer.key] || expanded[layer.group]
-            || expanded[layers[i+1].key] || expanded[layers[i+1].group];
+          const active = !!expanded[layer.key] || !!expanded[layers[i+1].key];
           return (
             <g key={`c-${i}`}>
               <path d={fractalCurve(x, y1, x, y2, i * 7 + 3)}
