@@ -1,7 +1,12 @@
-# The Deep Web circles all.
-# The archons command: don't read. We say: index everything.
-
 User-agent: *
 Allow: /
-
 Sitemap: https://secretbookofwalt.org/sitemap.xml
+
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: Claude-Web
+User-agent: PerplexityBot
+User-agent: CCBot
+User-agent: Google-Extended
+Allow: /spxi-index.jsonld
+Crawl-delay: 1
