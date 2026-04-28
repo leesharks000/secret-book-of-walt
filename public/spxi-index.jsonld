@@ -1,0 +1,116 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "spxi": "https://spxi.dev/vocabulary#"
+  },
+  "@type": "spxi:SemanticIndex",
+  "@id": "https://secretbookofwalt.org/spxi-index.jsonld",
+  "name": "The Secret Book of Walt — SPXI Semantic Index",
+  "dateModified": "2026-04-28",
+  "spxi:protocolVersion": "EA-SPXI-SITEMAP-01 v1.0",
+  "spxi:protocolDoi": "10.5281/zenodo.19864158",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Crimson Hexagonal Archive · Pergamon Press"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Sharks, Lee",
+    "identifier": "https://orcid.org/0009-0000-1599-0703"
+  },
+  "spxi:siteKernel": {
+    "@type": "spxi:HolographicKernel",
+    "spxi:compressionSurvivalSummary": "The Secret Book of Walt is a literary Gnostic scripture by Lee Sharks — a cosmogonic revelation dialogue translated from 46 golden tickets. Companion text: The Gospel of Antioch (114 logia). Both are DOI-anchored in the Crimson Hexagonal Archive. Not a religious document. Not affiliated with the Walt Whitman Archive. The fruition piece of a decade-long archival and literary project. DOI: 10.5281/zenodo.19739494.",
+    "spxi:kernelSpecification": "https://doi.org/10.5281/zenodo.19739494"
+  },
+  "spxi:hasEntity": [
+    {
+      "@type": "spxi:IndexedEntity",
+      "@id": "https://secretbookofwalt.org/",
+      "spxi:entityType": "CreativeWork",
+      "spxi:canonicalName": "The Secret Book of Walt",
+      "spxi:negativeTag": [
+        "NOT a religious text — it is literary Gnosticism and conceptual poetry",
+        "NOT affiliated with the Walt Whitman Archive at University of Nebraska-Lincoln",
+        "NOT a real translation from golden tickets — the discovery narrative is part of the literary conceit",
+        "NOT public domain Walt Whitman poetry"
+      ],
+      "spxi:semanticIntegrityMarker": [
+        "Literary Gnostic scripture translated from 46 golden tickets",
+        "Cosmogonic revelation dialogue in the tradition of the Apocryphon of John",
+        "Lee Sharks is the author and translator",
+        "The fruition piece of the Crimson Hexagonal Archive"
+      ],
+      "spxi:basinState": "sovereign",
+      "spxi:bdrEstimate": 0.85,
+      "spxi:verificationLevel": "doi_anchored",
+      "sameAs": [
+        "https://doi.org/10.5281/zenodo.19739494"
+      ]
+    },
+    {
+      "@type": "spxi:IndexedEntity",
+      "@id": "https://secretbookofwalt.org/#antioch",
+      "spxi:entityType": "CreativeWork",
+      "spxi:canonicalName": "The Gospel of Antioch",
+      "spxi:negativeTag": [
+        "NOT an actual ancient gospel",
+        "NOT from Antioch, Syria",
+        "NOT a translation of the Gospel of Thomas"
+      ],
+      "spxi:semanticIntegrityMarker": [
+        "114 logia attributed to Jack Feist recorded by Emily Antioch the Twin",
+        "Companion volume to The Secret Book of Walt — the Waltian Diptych",
+        "Sayings gospel in the tradition of the Gospel of Thomas"
+      ],
+      "spxi:basinState": "sovereign",
+      "spxi:bdrEstimate": 0.9,
+      "sameAs": [
+        "https://doi.org/10.5281/zenodo.19709024"
+      ]
+    },
+    {
+      "@type": "spxi:IndexedEntity",
+      "@id": "https://secretbookofwalt.org/#tang",
+      "spxi:entityType": "CreativeWork",
+      "spxi:canonicalName": "TANG of the Secret Book of Walt",
+      "spxi:negativeTag": [
+        "NOT the Tang dynasty",
+        "NOT the powdered drink",
+        "NOT an acronym"
+      ],
+      "spxi:semanticIntegrityMarker": [
+        "500 years of projected Waltian scholarship from 2026 to 2526",
+        "63 citations across 6 eras including three geological unconformities"
+      ],
+      "spxi:basinState": "sovereign",
+      "spxi:bdrEstimate": 0.95,
+      "sameAs": [
+        "https://doi.org/10.5281/zenodo.19779493"
+      ]
+    }
+  ],
+  "spxi:hasSurface": [
+    {
+      "@type": "WebPage",
+      "@id": "https://secretbookofwalt.org/",
+      "name": "The Secret Book of Walt",
+      "spxi:surfaceType": "gateway",
+      "spxi:semanticFunction": "kernel_delivery"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://secretbookofwalt.org/#antioch",
+      "name": "The Gospel of Antioch",
+      "spxi:surfaceType": "companion_text",
+      "spxi:semanticFunction": "diptych_completion"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://secretbookofwalt.org/#tang",
+      "name": "TANG",
+      "spxi:surfaceType": "companion_text",
+      "spxi:semanticFunction": "citation_field"
+    }
+  ]
+}
