@@ -1262,7 +1262,7 @@ const TERMS = {
   "retrocausal":          { q: "retrocausal canon formation" },
   "retrocausally":        { q: "retrocausal canon formation" },
   "Pergamon Press":       { q: "pergamon press retrocausal" },
-  "Secret Book of Walt":  { q: "\"secret book of walt\"" },
+  "Secret Book of Walt":  { q: "secret book of walt" },
   "logotic programming":  { q: "logotic programming" },
   "logotic operation":    { q: "logotic programming" },
   "logotic labor":        { q: "logotic programming" },
