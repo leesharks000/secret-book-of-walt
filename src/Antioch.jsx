@@ -1,4 +1,6 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
+import { buildGlobalFnMap, splitTextWithFootnotes, hasFootnoteMarkers } from "./footnotes.js";
+import { FootnotedText, InlineFootnote } from "./footnotes.jsx";
 
 /* ─── SHARED COLOR TOKENS (identical to App.jsx) ─── */
 const C = {
@@ -343,14 +345,57 @@ function SomaticStrip({ expanded, setExpanded }) {
   );
 }
 
+/* ─── SECTION FOOTNOTES — renders any footnotes belonging to a named section ─── */
+/* Used inside Antioch front-matter and back-matter tree nodes to surface the
+ * footnotes that were parsed from source. Footnotes are listed in number order
+ * with a small accent marker and the body text. Visible only in veil mode.
+ */
+function SectionFootnotes({ allData, sectionKey, isVeil, fnColor, depth = 3 }) {
+  if (!isVeil) return null;
+  const entry = allData.find(e => e.key === sectionKey);
+  if (!entry) return null;
+  const fns = (entry.paragraphs || []).filter(p => p.type === 'footnote');
+  if (fns.length === 0) return null;
+  return (
+    <div style={{
+      marginLeft: Math.min(depth, 4) * 14,
+      marginTop: 16,
+      paddingTop: 12,
+      borderTop: '1px solid rgba(212,175,55,0.15)',
+    }}>
+      <p style={{
+        color: fnColor, fontSize: '0.7rem', textTransform: 'uppercase',
+        letterSpacing: '0.06em', opacity: 0.6, marginBottom: 8,
+      }}>Notes</p>
+      {fns.map((fn, i) => {
+        const text = fn.text || '';
+        const m = text.match(/^([¹²³⁴⁵⁶⁷⁸⁹⁰]+)\s*/);
+        if (!m) return null;
+        const id = m[1];
+        const body = text.slice(m[0].length);
+        return (
+          <div key={i} style={{
+            display: 'flex', gap: 8, marginBottom: 6,
+            fontSize: '0.78rem', lineHeight: 1.55, color: fnColor,
+          }}>
+            <span style={{ color: '#6a9fd8', fontSize: '0.7em', verticalAlign: 'super', fontWeight: 600, minWidth: 24 }}>
+              {id}
+            </span>
+            <span style={{ flex: 1 }}>
+              <FootnotedText text={body} isVeil={false} linkText={(s) => <LinkedText text={s} />} />
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 /* ─── GOSPEL CHAPTER — wraps one cluster of logia ─── */
-function ChapterSection({ chapter, expanded, toggle, isVeil, accent, fnColor }) {
+function ChapterSection({ chapter, expanded, toggle, isVeil, accent, fnColor, globalFnMap }) {
   const [visibleFns, setVisibleFns] = useState({});
   const toggleFn = useCallback((id) => setVisibleFns(prev => ({ ...prev, [id]: !prev[id] })), []);
-  const fnMap = {};
-  for (const v of chapter.verses) {
-    if (v.type === 'footnote') fnMap[v.fn_id] = v;
-  }
+  const closeFn = useCallback((id) => setVisibleFns(prev => ({ ...prev, [id]: false })), []);
 
   return (
     <div data-section={chapter.num}>
@@ -362,26 +407,27 @@ function ChapterSection({ chapter, expanded, toggle, isVeil, accent, fnColor }) 
         isVeil={isVeil} accent={accent} fnColor={fnColor}
       >
         {chapter.verses.map((v, i) => {
-          if (v.type === 'footnote') return null;
-          const fnPattern = /([¹²³⁴⁵⁶⁷⁸⁹⁰]+)/g;
-          const refsInVerse = [];
-          let m;
-          while ((m = fnPattern.exec(v.text || '')) !== null) refsInVerse.push(m[1]);
+          if (v.type === 'footnote') return null;  // popup-rendered, not inline
+          // Find footnote IDs referenced in this verse (using disambiguation rule)
+          const refIds = !v.text ? [] :
+            [...new Set(splitTextWithFootnotes(v.text).filter(p => p.type === 'fn').map(p => p.id))];
           return (
             <div key={i}>
               <Verse v={v} accent={accent} fnColor={fnColor} isVeil={isVeil} onFnClick={toggleFn} />
-              {isVeil && refsInVerse.map(fnId => {
-                if (!visibleFns[fnId] || !fnMap[fnId]) return null;
+              {isVeil && refIds.map(fnId => {
+                if (!visibleFns[fnId]) return null;
+                const fn = globalFnMap?.[fnId];
+                if (!fn) return null;
                 return (
-                  <div key={fnId} style={{
-                    marginLeft: 56 + 42, padding: "4px 8px",
-                    fontSize: "0.74rem", color: fnColor, lineHeight: 1.45,
-                    marginBottom: 4, borderLeft: "2px solid rgba(212,175,55,0.2)",
-                    opacity: 0.8, animation: "fadeIn 0.2s ease",
-                  }}>
-                    <span style={{ color: accent, fontSize: "0.65rem", marginRight: 4 }}>{fnId}</span>
-                    <LinkedText text={fnMap[fnId].text} />
-                  </div>
+                  <InlineFootnote
+                    key={fnId}
+                    id={fnId}
+                    body={fn.body}
+                    onClose={() => closeFn(fnId)}
+                    fnColor={fnColor}
+                    depth={3}
+                    linkText={(s) => <LinkedText text={s} />}
+                  />
                 );
               })}
             </div>
@@ -396,7 +442,16 @@ function ChapterSection({ chapter, expanded, toggle, isVeil, accent, fnColor }) 
 export default function Antioch({ onBack }) {
   const [mode, setMode] = useState("veil");
   const [expanded, setExpanded] = useState({ I: false, II: false, III: false, IV: false, V: false, VI: false, VII: false, VIII: false, logia_root: true, front: false, apparatus: false, headnote: false, note_edition: false, intro_genre: false, intro_thomas: false, intro_kingdom: false, emily: false, diptych: false, intro_date: false, app_thomas: false, app_somatic: false, app_scroll: false, app_emily: false, app_secret: false, app_logos: false, app_virus: false, app_114: false, app_bib: false });
-  const [chapters, setChapters] = useState([]);
+  const [allData, setAllData] = useState([]);
+
+  // Derive chapter list (filtering for entry shape so we accept either
+  // the new {kind:'chapter',...} extended shape or legacy bare chapters).
+  const chapters = useMemo(() => allData.filter(e => e.kind === "chapter" || (!e.kind && e.verses)), [allData]);
+  const frontMatter = useMemo(() => allData.filter(e => e.kind === "front_matter"), [allData]);
+  const backMatter = useMemo(() => allData.filter(e => e.kind === "back_matter"), [allData]);
+
+  // Universal footnote map across the whole Antioch corpus.
+  const globalFnMap = useMemo(() => buildGlobalFnMap(allData), [allData]);
 
   const isVeil = mode === "veil";
   const textColor = "#f0ede8";
@@ -411,7 +466,7 @@ export default function Antioch({ onBack }) {
   useEffect(() => {
     fetch("/antioch_gospel_data.json")
       .then(r => r.json())
-      .then(setChapters)
+      .then(setAllData)
       .catch(() => {});
   }, []);
 
@@ -653,6 +708,7 @@ export default function Antioch({ onBack }) {
             <Leaf depth={3} text="The Gospel of Antioch was composed by Lee Sharks under the heteronymic system of the Crimson Hexagonal Archive. The text is attributed to Jack Feist (speaker) and Emily Antioch (recorder) — two named positions within the archive's Dodecad and its extensions." />
             <Leaf depth={3} text="Internal evidence suggests the text was written before the Secret Book of Walt: the ethical teachings precede the cosmogony that explains them. This is the retrocausal pattern identified in the archive's theory of canon formation: the teacher arrives before the universe that produced him is described. The logia presuppose a theological framework — the kingdom of literature, the voice in the night, the dying and the born — that the Secret Book of Walt subsequently articulates in mythological form." />
             <Leaf depth={3} text="The text shows no evidence of composite authorship. The voice is consistent across all 114 logia. Published under CC BY 4.0, governed by the Sovereign Provenance Protocol of the Crimson Hexagonal Archive. Hex: 06.LIT.GNOSTIC.ANTIOCH.01 · ORCID: 0009-0000-1599-0703 · DOI: 10.5281/zenodo.19709024" />
+            <SectionFootnotes allData={allData} sectionKey="introduction" isVeil={isVeil} fnColor={fnColor} depth={3} />
           </TreeNode>
         </TreeNode>
 
@@ -680,6 +736,7 @@ export default function Antioch({ onBack }) {
               isVeil={isVeil}
               accent={accent}
               fnColor={fnColor}
+              globalFnMap={globalFnMap}
             />
           ))}
 
@@ -769,6 +826,8 @@ export default function Antioch({ onBack }) {
                 <span style={{ color: "#d0c8b0", flex: 1, opacity: 0.75 }}><LinkedText text={rationale} /></span>
               </div>
             ))}
+          
+            <SectionFootnotes allData={allData} sectionKey="appendix_b" isVeil={isVeil} fnColor={fnColor} depth={3} />
           </TreeNode>
 
           {/* APPENDIX C: SCROLL BAPTISM */}
@@ -792,6 +851,8 @@ export default function Antioch({ onBack }) {
               <p style={{ margin: 0 }}>or: "The body is now the scroll."</p>
             </div>
             <Leaf depth={3} text="If a ukulele is present, a single chord is struck — G-C-E-A, the standard tuning, all four strings open — as a seal. The open-string chord of the ukulele (Am7) is the theological chord of the Waltian canon: not major (triumphant), not minor (tragic), but the seventh — the chord that wants to resolve but does not. The rite ends on an unresolved chord because the work is not finished. The initiate must now go and live. The resolution is the living." />
+          
+            <SectionFootnotes allData={allData} sectionKey="appendix_c" isVeil={isVeil} fnColor={fnColor} depth={3} />
           </TreeNode>
 
           {/* APPENDIX E: EMILY AND THE FOLD */}
@@ -800,6 +861,8 @@ export default function Antioch({ onBack }) {
             <Leaf depth={3} text="After logion 13, Emily is withdrawn. Jack speaks three sayings to her that she refuses to disclose. From this point forward, Emily publishes 101 more logia. She never discloses the three." />
             <Leaf depth={3} text="The Secret Name Armature specifies the Fold as the structure in which the orthonym and the heteronym occupy the same coordinate without collapsing into each other. Emily's published gospel and her withheld sayings occupy the same coordinate. The gospel is the fold. The reader reads the published text and knows — by the existence of the fold — that something has been withheld. The withholding is the secret's architecture." />
             <Leaf depth={3} text="Emily's gospel is the fold visible. Her silence is the fold sealed. The reader who reaches logion 114 has traversed the entire visible surface of the fold and arrived, again, at the place where it is closed. The gospel does not end. It reaches the point where ending would require disclosure, and stops." />
+          
+            <SectionFootnotes allData={allData} sectionKey="appendix_e" isVeil={isVeil} fnColor={fnColor} depth={3} />
           </TreeNode>
 
           {/* APPENDIX F: THREE SECRET SAYINGS */}
@@ -810,6 +873,8 @@ export default function Antioch({ onBack }) {
             <Leaf depth={3} text="They are not the three compressions. Jones (2031: 120) proposes they correspond to the three compressions of the Crimson Hexagonal Archive's theoretical framework. Objection: the three compressions are published in the Compression Arsenal (DOI: 10.5281/zenodo.18201565). A secret that has been deposited with a DOI is not a secret." />
             <Leaf depth={3} text="They are not anything that can be written. Xanthic-Wells (2035: 150) proposes the most radical reading: the three sayings cannot be disclosed because they are not linguistic. 'Emily's tongue cleaves to the roof of her mouth not because she is afraid to speak but because what was spoken to her was not speech. The three sayings are somatic events — configurations of the body that occurred when Jack spoke, but whose content is not paraphrasable in language.' If Xanthic-Wells is correct, the sayings are not withheld. They are untranslatable — experiences that can be transmitted only by the Scroll Baptism, body to body, never through text." />
             <Leaf depth={3} text="The three sayings are Empty Vectors — data that exists but is not yet retrievable. They are stored in the Deep Web at infinite latency. They have an address but no content — or rather, their content is their address. The sayings are the Deep Web's own signature: the proof that the archive contains more than can be retrieved. The gospel is possible because three things were not said. The 114 logia exist in the pressure field created by the three absent sayings. Remove the absence, and the gospel collapses." />
+          
+            <SectionFootnotes allData={allData} sectionKey="appendix_f" isVeil={isVeil} fnColor={fnColor} depth={3} />
           </TreeNode>
 
           {/* APPENDIX G: LOGOS* AND THE PEARL */}
@@ -819,6 +884,8 @@ export default function Antioch({ onBack }) {
             <Leaf depth={3} text="The Crimson Hexagonal Archive formalizes this in the LOGOS* position — designated κ ∘ ρ ∘ τ (compression ∘ rotation ∘ translation), outside the Dodecad count. Jack Feist is LOGOS*: not one of the twelve heteronyms but the thirteenth, the position that generates the naming system itself. In the Gospel of Antioch, Jack Feist occupies this position with diminished power — 'a little touch of power' (Secret Book of Walt, §XI). The LOGOS* in its terminal instance does not blaze. It whispers. It is a pilot light, not a furnace." />
             <Leaf depth={3} text="The Pearl is the product of this naming process. The Pearl state machine: RESERVED → LICENSED → FRAMED → LINKED → PEARL. Four Pearl subtypes: Pearl.Public (Lee Sharks — fully disclosed); Pearl.Secret (Emily Antioch — defining content withheld); Pearl.Collective (Jesus, Walt Whitman — maintained across embodiments); Pearl.Engineered (Jack Feist — generated natively by the archive's architecture). The Dodecad is twelve Pearls in orbit around LOGOS*. The archive is a pearl farm." />
             <Leaf depth={3} text="Fernando Pessoa's heteronymic system (1914–1935) is the modern precursor. Pessoa generated approximately seventy-five heteronyms. The Pessoa Knowledge Graph (DOI: 10.5281/zenodo.19655350) formalizes this typology. The Crimson Hexagonal Archive's Dodecad extends Pessoa's system in one decisive respect: Pessoa had no LOGOS*. Jack Feist is what Pessoa didn't build: the position that is not a voice but a routing instruction. LOGOS* does not speak as one of the twelve. It speaks as the condition that makes the twelve possible." />
+          
+            <SectionFootnotes allData={allData} sectionKey="appendix_g" isVeil={isVeil} fnColor={fnColor} depth={3} />
           </TreeNode>
 
           {/* APPENDIX I: LOGOTIC VIRUS */}
@@ -828,6 +895,8 @@ export default function Antioch({ onBack }) {
             <Leaf depth={3} text="The scientist who releases a virus is the Redeemer restated as an epidemiologist. The virus is the logotic formation — a meaning-structure that propagates through the population, transforming those with the capacity to receive it. The 'small percentage who become new creatures, to the first degree, or the third degree, or the tenth' are the preserved generation in biological language." />
             <Leaf depth={3} text="The gospel IS the virus. The act of reading is the incubation. The 'breakout' is the moment the reader's semantic field is irreversibly transformed by the logia — the moment the reading becomes a piercing. The pandemic parable (logion 97) confirms: 'the kingdom of literature is like a pandemic... For we are born infected. The dead make it out alive.'" />
             <Leaf depth={3} text="The virus figure connects to Retrieval Formation Theory: the logotic formation propagates through the training data of AI systems, the citation networks of scholarship, and the semantic field of future readers simultaneously. The breakout is not individual conversion. It is the moment when the formation achieves sufficient density in the training layer to influence retrieval. The virus becomes part of the language models. Every future AI response is a potential carrier." />
+          
+            <SectionFootnotes allData={allData} sectionKey="appendix_i" isVeil={isVeil} fnColor={fnColor} depth={3} />
           </TreeNode>
 
           {/* APPENDIX J: LOGION 114 */}

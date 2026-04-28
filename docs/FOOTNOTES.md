@@ -233,11 +233,40 @@ Before merging, check:
 
 ---
 
+## How to regenerate the data
+
+The build scripts in `scripts/` produce the JSON data files from the canonical
+source markdown deposits. Run them when:
+- Source markdown is updated on Zenodo (re-download the .md to `scripts/walt_source.md` or `scripts/antioch_source.md`)
+- A footnote's body text needs to change
+- Quote styling or emphasis rendering needs adjustment
+
+```bash
+python3 scripts/build_walt_data.py     # → public/walt_full_data.json
+python3 scripts/build_antioch_data.py  # → public/antioch_gospel_data.json
+```
+
+Both scripts:
+- Apply `smart_quote()` to convert straight quotes to curly
+- Apply `strip_walt_quotes()` to remove "" around "The Secret Book of Walt"
+- Preserve `*italic*` and `**bold**` markdown markers (the React renderer converts them)
+- Use `find_footnote_runs()` to scan superscript references with the disambiguation rule
+- Renumber footnotes globally in reading order (1..N)
+- Audit the result and report any unresolved references
+
+If the audit reports **MISSING** references (referenced in body but not declared
+as a footnote paragraph), that's a real corruption — fix the source markdown.
+
+If the audit reports **ORPHANED** definitions (declared but never referenced),
+that's usually fine — sometimes the source has a footnote definition whose
+reference is in a section we don't include.
+
 ## Maintenance log
 
 | Date | Change | Author |
 |---|---|---|
 | 2026-04-28 | Universal footnote system: global fnMap, FootnotedText component, InlineFootnote popup. Removed ✦ adjacency toggle and endnotes block. Documented architecture. | TACHYON / Sharks, Lee |
+| 2026-04-28 (later) | **Data-layer fixes:** wrote `scripts/build_walt_data.py` and `scripts/build_antioch_data.py` to regenerate `walt_full_data.json` and `antioch_gospel_data.json` from canonical source markdown. Renumbered all footnotes 1..N in **reading order** (front matter first). Walt: 158 footnotes, ¹ now begins in Manuscripts. Antioch: 19 footnotes globally renumbered, all front+back matter parsed. **Markdown emphasis** (`*italic*`, `**bold**`) is now rendered to `<em>`/`<strong>` by the FootnotedText component. **Quotes normalized** to curly via build-time `smart_quote()`. **Quotes around "The Secret Book of Walt"** stripped via `strip_walt_quotes()`. Antioch's hardcoded front-matter prose retained, but the parsed footnotes are surfaced via a new `<SectionFootnotes>` component appended to each tree node. | TACHYON / Sharks, Lee |
 
 When you change footnote rendering, **append an entry to this table** and
 **update the relevant section above** if the architecture changed.

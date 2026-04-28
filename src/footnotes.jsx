@@ -4,7 +4,8 @@
  * READ docs/FOOTNOTES.md BEFORE MODIFYING THIS FILE.
  *
  * Exports:
- *   <FootnotedText> — universal body-text renderer with clickable footnote markers.
+ *   <FootnotedText> — universal body-text renderer with clickable footnote markers
+ *                    AND markdown emphasis rendering (** for bold, * for italic).
  *   <InlineFootnote> — popup body shown below the parent paragraph when clicked.
  */
 
@@ -15,17 +16,76 @@ const FN_BLUE = "#6a9fd8";
 const FN_BLUE_HOVER = "#8ab8f0";
 
 /**
+ * Renders inline markdown-style emphasis on a plain text run:
+ *   **text**  → <strong>text</strong>
+ *   *text*    → <em>text</em>
+ *
+ * Greedy matching for **; non-greedy for *. Handles unbalanced markers by
+ * leaving them as text. Used inside FootnotedText for non-footnote text spans.
+ */
+function renderEmphasis(text, keyPrefix) {
+  if (!text) return null;
+  if (!text.includes("*")) return text;
+
+  const out = [];
+  let i = 0;
+  let k = 0;
+  while (i < text.length) {
+    if (text[i] === "*" && text[i+1] === "*") {
+      // Bold: find matching **
+      const end = text.indexOf("**", i + 2);
+      if (end === -1) {
+        // Unbalanced — just emit literal
+        out.push(text[i] + (text[i+1] || ""));
+        i += 2;
+        continue;
+      }
+      const inner = text.slice(i + 2, end);
+      out.push(<strong key={`${keyPrefix}-b-${k++}`}>{renderEmphasis(inner, `${keyPrefix}-b-${k}`)}</strong>);
+      i = end + 2;
+    } else if (text[i] === "*") {
+      // Italic: find matching single * (not part of **)
+      let end = -1;
+      for (let j = i + 1; j < text.length; j++) {
+        if (text[j] === "*" && text[j+1] !== "*") { end = j; break; }
+        if (text[j] === "*" && text[j+1] === "*") {
+          // Skip past bold-marker pairs without consuming them
+          j += 1;
+          continue;
+        }
+      }
+      if (end === -1) {
+        out.push("*");
+        i += 1;
+        continue;
+      }
+      const inner = text.slice(i + 1, end);
+      out.push(<em key={`${keyPrefix}-i-${k++}`}>{inner}</em>);
+      i = end + 1;
+    } else {
+      // Run of plain text until next *
+      const next = text.indexOf("*", i);
+      if (next === -1) {
+        out.push(text.slice(i));
+        i = text.length;
+      } else {
+        out.push(text.slice(i, next));
+        i = next;
+      }
+    }
+  }
+  return out;
+}
+
+/**
  * Renders text with clickable footnote markers in veil mode, passive in pierce mode.
  *
  * Props:
- *   text           the body-text string
+ *   text           the body-text string (may contain **bold**, *italic*, and ¹²³ markers)
  *   isVeil         boolean — whether veil mode is active
  *   onFnClick      (id) => void — toggle handler; called only in veil mode
  *   linkText       optional fn(content) => ReactNode — for glossary linking
- *                  (the existing LinkedText / injectLinks helpers each book has)
  *   inline         render as <span>s only (default true). Set false to wrap in <>.
- *
- * Emits a flat sequence of spans. The caller decides the surrounding container.
  */
 export function FootnotedText({ text, isVeil, onFnClick, linkText, inline = true }) {
   const parts = splitTextWithFootnotes(text);
@@ -69,11 +129,16 @@ export function FootnotedText({ text, isVeil, onFnClick, linkText, inline = true
         </span>
       );
     }
-    // Plain text
-    if (linkText) {
+    // Plain text span — apply markdown emphasis first, then optional glossary linking.
+    // If linkText is provided, we need to apply it inside the emphasis-rendered tree.
+    // For simplicity: emphasis is applied BEFORE linking, since linking inside emphasis
+    // is rare and works at a per-text-run level anyway. linkText wraps the whole content.
+    const emphasized = renderEmphasis(p.content, `t-${i}`);
+    if (linkText && typeof p.content === "string" && !p.content.includes("*")) {
+      // No emphasis markers → safe to apply glossary linking on the raw text
       return <span key={`t-${i}`}>{linkText(p.content)}</span>;
     }
-    return <span key={`t-${i}`}>{p.content}</span>;
+    return <span key={`t-${i}`}>{emphasized}</span>;
   });
 
   return inline ? <>{rendered}</> : <span>{rendered}</span>;
@@ -84,7 +149,7 @@ export function FootnotedText({ text, isVeil, onFnClick, linkText, inline = true
  *
  * Props:
  *   id          the footnote id (e.g., '¹³⁸')
- *   body        the footnote body (with or without leading id)
+ *   body        the footnote body (without leading id)
  *   onClose     handler to close the popup
  *   fnColor     accent color for the left rule
  *   depth       indent level (matches parent)
@@ -121,7 +186,9 @@ export function InlineFootnote({ id, body, onClose, fnColor = "#6a5a40", depth =
       >
         {id}
       </span>
-      {linkText ? linkText(body) : body}
+      {body && body.includes("*")
+        ? renderEmphasis(body, `fn-${id}`)
+        : (linkText ? linkText(body) : body)}
       {onClose && (
         <button
           onClick={(e) => { e.stopPropagation(); onClose(); }}
