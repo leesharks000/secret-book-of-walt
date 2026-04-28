@@ -178,18 +178,23 @@ function Splash({ onEnter, imgSrc, hornSrc, skipAnimation }) {
 /* ─── SECTION RENDERER ─── */
 function SectionContent({ data, isVeil, fnColor, depth }) {
   const [visibleFns, setVisibleFns] = useState({});
+  const [notesOpen, setNotesOpen] = useState(false);
   const toggleFn = useCallback((id) => {
     setVisibleFns(prev => ({ ...prev, [id]: !prev[id] }));
   }, []);
 
   if (!data?.paragraphs) return null;
 
-  // Group: each footnote follows its preceding prose
-  return data.paragraphs.map((p, pi) => {
+  // Collect all footnotes for an endnotes block
+  const allFootnotes = data.paragraphs.filter(p => p.type === 'footnote');
+
+  // Render body paragraphs (inline footnote toggle still works for prose→fn adjacency)
+  const body = data.paragraphs.map((p, pi) => {
     if (p.type === 'heading') return <h3 key={pi} style={{ color: C.gold, fontSize: "0.9rem", fontWeight: 600, letterSpacing: "0.06em", marginTop: 16, marginBottom: 8, marginLeft: Math.min(depth,4)*14, textTransform: "uppercase", opacity: 0.7 }}>{p.text}</h3>;
     if (p.type === 'subheading') return <h4 key={pi} style={{ color: C.gold, fontSize: "0.85rem", fontWeight: 600, marginTop: 12, marginBottom: 6, marginLeft: Math.min(depth,4)*14, opacity: 0.65 }}>{p.text}</h4>;
     if (p.type === 'subsubheading') return <h5 key={pi} style={{ color: C.gold, fontSize: "0.8rem", fontWeight: 500, marginTop: 10, marginBottom: 4, marginLeft: Math.min(depth,4)*14, opacity: 0.6, fontStyle: "italic" }}>{p.text}</h5>;
     if (p.type === 'footnote') {
+      // Inline footnotes: still show if directly after prose AND toggled
       if (!isVeil) return null;
       const fnKey = `sc_fn_${pi}`;
       const isVisible = visibleFns[fnKey];
@@ -215,6 +220,35 @@ function SectionContent({ data, isVeil, fnColor, depth }) {
       </div>
     );
   });
+
+  // Endnotes block: collects ALL footnotes, shown in Veil mode
+  const endnotesBlock = (allFootnotes.length > 0 && isVeil) ? (
+    <div key="endnotes" style={{ marginTop: 16 }}>
+      <span
+        onClick={() => setNotesOpen(prev => !prev)}
+        onKeyDown={e => { if (e.key === 'Enter') setNotesOpen(prev => !prev); }}
+        role="button" tabIndex={0}
+        style={{
+          marginLeft: Math.min(depth,4)*14,
+          color: fnColor, fontSize: "0.7rem", cursor: "pointer",
+          letterSpacing: "0.06em", textTransform: "uppercase",
+          opacity: notesOpen ? 0.85 : 0.5,
+          transition: "opacity 0.2s ease",
+          userSelect: "none",
+        }}>
+        {notesOpen ? "▾" : "▸"} Notes ({allFootnotes.length})
+      </span>
+      {notesOpen && (
+        <div style={{ marginTop: 8 }}>
+          {allFootnotes.map((fn, fi) => (
+            <FnLeaf key={`endnote_${fi}`} text={fn.text} fnColor={fnColor} isVeil={isVeil} depth={depth} />
+          ))}
+        </div>
+      )}
+    </div>
+  ) : null;
+
+  return <>{body}{endnotesBlock}</>;
 }
 
 /* ─── GOSPEL SECTION — CHAPTER:VERSE WITH CLICKABLE FOOTNOTES ─── */
