@@ -1,10 +1,12 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import waltImg from "./whitman_on_a_dinosaur.png";
 import milkyWayBg from "./milky_way_bg.jpg";
 import milkyWaySplash from "./milky_way_splash.jpg";
 import hornImg from "./horn_logo.png";
 import Antioch from "./Antioch.jsx";
 import Tang from "./Tang.jsx";
+import { buildGlobalFnMap, splitTextWithFootnotes, hasFootnoteMarkers } from "./footnotes.js";
+import { FootnotedText, InlineFootnote } from "./footnotes.jsx";
 
 /* ─── COLOR TOKENS ─── */
 const C = {
@@ -176,79 +178,109 @@ function Splash({ onEnter, imgSrc, hornSrc, skipAnimation }) {
 
 
 /* ─── SECTION RENDERER ─── */
-function SectionContent({ data, isVeil, fnColor, depth }) {
+/* Renders a section's paragraphs with universal footnote support.
+ * Body text scans for ¹²³ markers (per docs/FOOTNOTES.md disambiguation rule)
+ * and renders them as clickable spans in veil mode (passive in pierce mode).
+ * Click → inline popup with the footnote body, sourced from the GLOBAL fnMap.
+ *
+ * The global fnMap is built once at the App level by walking all sections.
+ * It is passed down via prop so any subsection can reference any footnote.
+ */
+function SectionContent({ data, isVeil, fnColor, depth, globalFnMap }) {
   const [visibleFns, setVisibleFns] = useState({});
-  const [notesOpen, setNotesOpen] = useState(false);
   const toggleFn = useCallback((id) => {
     setVisibleFns(prev => ({ ...prev, [id]: !prev[id] }));
+  }, []);
+  const closeFn = useCallback((id) => {
+    setVisibleFns(prev => ({ ...prev, [id]: false }));
   }, []);
 
   if (!data?.paragraphs) return null;
 
-  // Collect all footnotes for an endnotes block
-  const allFootnotes = data.paragraphs.filter(p => p.type === 'footnote');
-
-  // Render body paragraphs (inline footnote toggle still works for prose→fn adjacency)
-  const body = data.paragraphs.map((p, pi) => {
-    if (p.type === 'heading') return <h3 key={pi} style={{ color: C.gold, fontSize: "0.9rem", fontWeight: 600, letterSpacing: "0.06em", marginTop: 16, marginBottom: 8, marginLeft: Math.min(depth,4)*14, textTransform: "uppercase", opacity: 0.7 }}>{p.text}</h3>;
-    if (p.type === 'subheading') return <h4 key={pi} style={{ color: C.gold, fontSize: "0.85rem", fontWeight: 600, marginTop: 12, marginBottom: 6, marginLeft: Math.min(depth,4)*14, opacity: 0.65 }}>{p.text}</h4>;
-    if (p.type === 'subsubheading') return <h5 key={pi} style={{ color: C.gold, fontSize: "0.8rem", fontWeight: 500, marginTop: 10, marginBottom: 4, marginLeft: Math.min(depth,4)*14, opacity: 0.6, fontStyle: "italic" }}>{p.text}</h5>;
-    if (p.type === 'footnote') {
-      // Inline footnotes: still show if directly after prose AND toggled
-      if (!isVeil) return null;
-      const fnKey = `sc_fn_${pi}`;
-      const isVisible = visibleFns[fnKey];
-      if (!isVisible) return null;
-      return <FnLeaf key={pi} text={p.text} fnColor={fnColor} isVeil={isVeil} depth={depth} />;
+  // Render the body. Skip footnote paragraphs in their original position
+  // (they're now displayed as inline popups when triggered from the body text).
+  const body = [];
+  data.paragraphs.forEach((p, pi) => {
+    if (p.type === 'footnote') return;  // displayed via popup, not inline by default
+    if (p.type === 'heading') {
+      body.push(<h3 key={pi} style={{ color: C.gold, fontSize: "0.9rem", fontWeight: 600, letterSpacing: "0.06em", marginTop: 16, marginBottom: 8, marginLeft: Math.min(depth,4)*14, textTransform: "uppercase", opacity: 0.7 }}>
+        <FootnotedText text={p.text} isVeil={isVeil} onFnClick={toggleFn} />
+      </h3>);
+      return;
     }
-    if (p.type === 'divider') return <hr key={pi} style={{ border: 'none', borderTop: `1px solid ${'rgba(212,175,55,0.2)'}`, margin: '16px auto', width: '25%' }} />;
-    if (p.type === 'table') return <p key={pi} style={{ marginLeft: Math.min(depth,4)*14, padding: "2px 5px", fontSize: "0.78rem", lineHeight: 1.5, marginBottom: 3, color: "#b0a080", fontFamily: "monospace", letterSpacing: "-0.02em" }}><LinkedText text={p.text} /></p>;
-    if (p.type === 'list') return <p key={pi} style={{ marginLeft: Math.min(depth,4)*14 + 12, padding: "2px 5px", fontSize: "clamp(0.8rem, 2vw, 0.9rem)", lineHeight: 1.65, marginBottom: 4, textIndent: "-0.8em", paddingLeft: "0.8em" }}>• <LinkedText text={p.text} /></p>;
-    // Check if next paragraph is a footnote — show ✦ toggle
-    const nextP = data.paragraphs[pi + 1];
-    const hasFollowingFn = nextP?.type === 'footnote';
-    const fnKey = `sc_fn_${pi + 1}`;
-    return (
-      <div key={pi}>
-        <Leaf text={p.text} depth={depth} italic={p.type === 'verse'} />
-        {hasFollowingFn && isVeil && (
-          <span onClick={() => toggleFn(fnKey)}
-            onKeyDown={e => { if (e.key === 'Enter') toggleFn(fnKey); }}
-            role="button" tabIndex={0}
-            style={{ marginLeft: Math.min(depth,4)*14 + 5, color: fnColor, fontSize: "0.55rem", cursor: "pointer", opacity: visibleFns[fnKey] ? 0.8 : 0.4 }}>✦</span>
-        )}
-      </div>
-    );
+    if (p.type === 'subheading') {
+      body.push(<h4 key={pi} style={{ color: C.gold, fontSize: "0.85rem", fontWeight: 600, marginTop: 12, marginBottom: 6, marginLeft: Math.min(depth,4)*14, opacity: 0.65 }}>
+        <FootnotedText text={p.text} isVeil={isVeil} onFnClick={toggleFn} />
+      </h4>);
+      return;
+    }
+    if (p.type === 'subsubheading') {
+      body.push(<h5 key={pi} style={{ color: C.gold, fontSize: "0.8rem", fontWeight: 500, marginTop: 10, marginBottom: 4, marginLeft: Math.min(depth,4)*14, opacity: 0.6, fontStyle: "italic" }}>
+        <FootnotedText text={p.text} isVeil={isVeil} onFnClick={toggleFn} />
+      </h5>);
+      return;
+    }
+    if (p.type === 'divider') {
+      body.push(<hr key={pi} style={{ border: 'none', borderTop: `1px solid rgba(212,175,55,0.2)`, margin: '16px auto', width: '25%' }} />);
+      return;
+    }
+
+    // Body-text types — render with FootnotedText.
+    const linkText = (s) => <LinkedText text={s} />;
+    const indent = Math.min(depth,4) * 14;
+
+    let paragraphEl;
+    if (p.type === 'table') {
+      paragraphEl = (
+        <p key={pi} style={{ marginLeft: indent, padding: "2px 5px", fontSize: "0.78rem", lineHeight: 1.5, marginBottom: 3, color: "#b0a080", fontFamily: "monospace", letterSpacing: "-0.02em" }}>
+          <FootnotedText text={p.text} isVeil={isVeil} onFnClick={toggleFn} linkText={linkText} />
+        </p>
+      );
+    } else if (p.type === 'list') {
+      paragraphEl = (
+        <p key={pi} style={{ marginLeft: indent + 12, padding: "2px 5px", fontSize: "clamp(0.8rem, 2vw, 0.9rem)", lineHeight: 1.65, marginBottom: 4, textIndent: "-0.8em", paddingLeft: "0.8em" }}>
+          • <FootnotedText text={p.text} isVeil={isVeil} onFnClick={toggleFn} linkText={linkText} />
+        </p>
+      );
+    } else {
+      // prose / verse / unknown — default leaf
+      const italic = p.type === 'verse';
+      paragraphEl = (
+        <p key={pi} style={{
+          marginLeft: indent, padding: "2px 5px",
+          fontSize: "clamp(0.83rem, 2.1vw, 0.94rem)", lineHeight: 1.7, marginBottom: 5,
+          textAlign: "justify", fontStyle: italic ? "italic" : "normal",
+        }}>
+          <FootnotedText text={p.text} isVeil={isVeil} onFnClick={toggleFn} linkText={linkText} />
+        </p>
+      );
+    }
+    body.push(paragraphEl);
+
+    // Identify which footnote IDs this paragraph references, and render
+    // visible inline popups directly below it (veil mode only).
+    if (isVeil && globalFnMap && hasFootnoteMarkers(p.text)) {
+      const parts = splitTextWithFootnotes(p.text);
+      const refIds = [...new Set(parts.filter(x => x.type === 'fn').map(x => x.id))];
+      refIds.forEach(id => {
+        if (visibleFns[id] && globalFnMap[id]) {
+          body.push(
+            <InlineFootnote
+              key={`inline-fn-${pi}-${id}`}
+              id={id}
+              body={globalFnMap[id].body}
+              onClose={() => closeFn(id)}
+              fnColor={fnColor}
+              depth={depth}
+              linkText={linkText}
+            />
+          );
+        }
+      });
+    }
   });
 
-  // Endnotes block: collects ALL footnotes, shown in Veil mode
-  const endnotesBlock = (allFootnotes.length > 0 && isVeil) ? (
-    <div key="endnotes" style={{ marginTop: 16 }}>
-      <span
-        onClick={() => setNotesOpen(prev => !prev)}
-        onKeyDown={e => { if (e.key === 'Enter') setNotesOpen(prev => !prev); }}
-        role="button" tabIndex={0}
-        style={{
-          marginLeft: Math.min(depth,4)*14,
-          color: fnColor, fontSize: "0.7rem", cursor: "pointer",
-          letterSpacing: "0.06em", textTransform: "uppercase",
-          opacity: notesOpen ? 0.85 : 0.5,
-          transition: "opacity 0.2s ease",
-          userSelect: "none",
-        }}>
-        {notesOpen ? "▾" : "▸"} Notes ({allFootnotes.length})
-      </span>
-      {notesOpen && (
-        <div style={{ marginTop: 8 }}>
-          {allFootnotes.map((fn, fi) => (
-            <FnLeaf key={`endnote_${fi}`} text={fn.text} fnColor={fnColor} isVeil={isVeil} depth={depth} />
-          ))}
-        </div>
-      )}
-    </div>
-  ) : null;
-
-  return <>{body}{endnotesBlock}</>;
+  return <>{body}</>;
 }
 
 /* ─── GOSPEL SECTION — CHAPTER:VERSE WITH CLICKABLE FOOTNOTES ─── */
@@ -811,6 +843,14 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
   const fnColor = "#9a8a70";
   const accent = C.gold;
 
+  // Universal footnote map — built once from full data + versed data + tree data.
+  // Lookup is keyed by superscript ID (e.g. '¹³⁸'). See docs/FOOTNOTES.md.
+  const globalFnMap = useMemo(() => {
+    const m1 = buildGlobalFnMap(fullData);
+    const m2 = buildGlobalFnMap(versedData);
+    return { ...m1, ...m2 };
+  }, [fullData, versedData]);
+
   const toggle = useCallback((key) => {
     setExpanded(prev => ({ ...prev, [key]: !prev[key] }));
   }, []);
@@ -952,19 +992,19 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
             isVeil={isVeil} accent={accent} fnColor={fnColor} icon="◊" direction="up">
             <TreeNode nodeKey="redford" label="Note on the Redford Discovery" depth={2}
               expanded={expanded} toggle={toggle} isVeil={isVeil} accent={accent} fnColor={fnColor}>
-              <SectionContent data={fullData?.redford} isVeil={isVeil} fnColor={fnColor} depth={3} />
+              <SectionContent data={fullData?.redford} isVeil={isVeil} fnColor={fnColor} depth={3} globalFnMap={globalFnMap} />
             </TreeNode>
             <TreeNode nodeKey="translator" label="Translator's Note" depth={2}
               expanded={expanded} toggle={toggle} isVeil={isVeil} accent={accent} fnColor={fnColor}>
-              <SectionContent data={fullData?.translator} isVeil={isVeil} fnColor={fnColor} depth={3} />
+              <SectionContent data={fullData?.translator} isVeil={isVeil} fnColor={fnColor} depth={3} globalFnMap={globalFnMap} />
             </TreeNode>
             <TreeNode nodeKey="manuscripts" label="Note on the Manuscripts" depth={2}
               expanded={expanded} toggle={toggle} isVeil={isVeil} accent={accent} fnColor={fnColor}>
-              <SectionContent data={fullData?.manuscripts} isVeil={isVeil} fnColor={fnColor} depth={3} />
+              <SectionContent data={fullData?.manuscripts} isVeil={isVeil} fnColor={fnColor} depth={3} globalFnMap={globalFnMap} />
             </TreeNode>
             <TreeNode nodeKey="note_text" label="Note on the Text" depth={2}
               expanded={expanded} toggle={toggle} isVeil={isVeil} accent={accent} fnColor={fnColor}>
-              <SectionContent data={fullData?.note_text} isVeil={isVeil} fnColor={fnColor} depth={3} />
+              <SectionContent data={fullData?.note_text} isVeil={isVeil} fnColor={fnColor} depth={3} globalFnMap={globalFnMap} />
             </TreeNode>
           </TreeNode>
 
@@ -974,11 +1014,11 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
             isVeil={isVeil} accent={accent} fnColor={fnColor} icon="✧" direction="up">
             <TreeNode nodeKey="prefatory_poem" label="Prefatory Poem" depth={2}
               expanded={expanded} toggle={toggle} isVeil={isVeil} accent={accent} fnColor={fnColor}>
-              <SectionContent data={fullData?.prefatory_poem} isVeil={isVeil} fnColor={fnColor} depth={3} />
+              <SectionContent data={fullData?.prefatory_poem} isVeil={isVeil} fnColor={fnColor} depth={3} globalFnMap={globalFnMap} />
             </TreeNode>
             <TreeNode nodeKey="preface" label="Preface to the Preserved Generation" depth={2}
               expanded={expanded} toggle={toggle} isVeil={isVeil} accent={accent} fnColor={fnColor}>
-              <SectionContent data={fullData?.preface} isVeil={isVeil} fnColor={fnColor} depth={3} />
+              <SectionContent data={fullData?.preface} isVeil={isVeil} fnColor={fnColor} depth={3} globalFnMap={globalFnMap} />
             </TreeNode>
             <TreeNode nodeKey="introduction" label="Introduction" depth={2}
               expanded={expanded} toggle={toggle} isVeil={isVeil} accent={accent} fnColor={fnColor}>
@@ -987,7 +1027,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
                   label={sub.title} depth={3}
                   expanded={expanded} toggle={toggle}
                   isVeil={isVeil} accent={accent} fnColor={fnColor} small>
-                  <SectionContent data={sub} isVeil={isVeil} fnColor={fnColor} depth={4} />
+                  <SectionContent data={sub} isVeil={isVeil} fnColor={fnColor} depth={4} globalFnMap={globalFnMap} />
                 </TreeNode>
               ))}
             </TreeNode>
@@ -1060,7 +1100,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
               <TreeNode key={app.key} nodeKey={app.key} label={app.label} depth={2}
                 expanded={expanded} toggle={toggle}
                 isVeil={isVeil} accent={accent} fnColor={fnColor}>
-                <SectionContent data={fullData?.[app.key]} isVeil={isVeil} fnColor={fnColor} depth={3} />
+                <SectionContent data={fullData?.[app.key]} isVeil={isVeil} fnColor={fnColor} depth={3} globalFnMap={globalFnMap} />
               </TreeNode>
             ))}
           </TreeNode>
