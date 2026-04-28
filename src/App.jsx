@@ -1411,42 +1411,76 @@ const TERM_REGEX = new RegExp(`(${TERM_KEYS.map(t => t.replace(/[.*+?^${}()|[\]\
 
 function LinkedText({ text }) {
   if (!text) return null;
-  const parts = [];
-  let lastIdx = 0;
-  let match;
-  const regex = new RegExp(TERM_REGEX.source, 'g');
 
-  while ((match = regex.exec(text)) !== null) {
-    if (match.index > lastIdx) {
-      parts.push(text.slice(lastIdx, match.index));
+  // Phase 1: Process markdown emphasis (* and **) into React elements
+  // This strips the markers and wraps content in <em>/<strong>
+  function processEmphasis(t) {
+    if (!t || !t.includes("*")) return [t];
+    const out = [];
+    let i = 0, k = 0;
+    while (i < t.length) {
+      if (t[i] === "*" && t[i+1] === "*") {
+        const end = t.indexOf("**", i + 2);
+        if (end === -1) { out.push("**"); i += 2; continue; }
+        const inner = t.slice(i+2, end);
+        out.push(<strong key={`b${k++}`}>{linkifyText(inner)}</strong>);
+        i = end + 2;
+      } else if (t[i] === "*") {
+        let end = -1;
+        for (let j = i+1; j < t.length; j++) {
+          if (t[j] === "*" && t[j+1] !== "*") { end = j; break; }
+          if (t[j] === "*" && t[j+1] === "*") { j++; continue; }
+        }
+        if (end === -1) { out.push("*"); i++; continue; }
+        const inner = t.slice(i+1, end);
+        out.push(<em key={`i${k++}`}>{linkifyText(inner)}</em>);
+        i = end + 1;
+      } else {
+        const next = t.indexOf("*", i);
+        const segment = next === -1 ? t.slice(i) : t.slice(i, next);
+        out.push(linkifyText(segment));
+        i = next === -1 ? t.length : next;
+      }
     }
-    const term = match[1];
-    const entry = TERMS[term];
-    // Extend match to end of word + optional 's
-    let extEnd = match.index + match[0].length;
-    while (extEnd < text.length && /\w/.test(text[extEnd])) extEnd++;
-    if (extEnd + 1 < text.length && text[extEnd] === '\u2019' && text[extEnd + 1] === 's') extEnd += 2;
-    else if (extEnd + 1 < text.length && text[extEnd] === "'" && text[extEnd + 1] === 's') extEnd += 2;
-    const displayText = text.slice(match.index, extEnd);
-    const href = entry.u ? entry.u
-      : entry.q ? `https://www.google.com/search?q=${encodeURIComponent(entry.q)}`
-      : `https://en.wikipedia.org/wiki/${entry.w}`;
-    parts.push(
-      <a key={match.index} href={href}
-        target="_blank" rel="noopener noreferrer"
-        style={{ color: "#6a9fd8", textDecoration: "none", borderBottom: "1px dotted rgba(106,159,216,0.3)" }}
-        onMouseEnter={e => e.target.style.borderBottomColor = "rgba(106,159,216,0.7)"}
-        onMouseLeave={e => e.target.style.borderBottomColor = "rgba(106,159,216,0.3)"}
-      >{displayText}</a>
-    );
-    lastIdx = extEnd;
-    regex.lastIndex = extEnd;
+    return out;
   }
-  if (lastIdx < text.length) {
-    parts.push(text.slice(lastIdx));
+
+  // Phase 2: Apply glossary linking to a plain text segment
+  function linkifyText(t) {
+    if (!t) return t;
+    const parts = [];
+    let lastIdx = 0;
+    let match;
+    const regex = new RegExp(TERM_REGEX.source, 'g');
+    while ((match = regex.exec(t)) !== null) {
+      if (match.index > lastIdx) parts.push(t.slice(lastIdx, match.index));
+      const entry = TERMS[match[1]];
+      let extEnd = match.index + match[0].length;
+      while (extEnd < t.length && /\w/.test(t[extEnd])) extEnd++;
+      if (extEnd + 1 < t.length && t[extEnd] === '\u2019' && t[extEnd + 1] === 's') extEnd += 2;
+      else if (extEnd + 1 < t.length && t[extEnd] === "'" && t[extEnd + 1] === 's') extEnd += 2;
+      const displayText = t.slice(match.index, extEnd);
+      const href = entry.u ? entry.u
+        : entry.q ? `https://www.google.com/search?q=${encodeURIComponent(entry.q)}`
+        : `https://en.wikipedia.org/wiki/${entry.w}`;
+      parts.push(
+        <a key={`gl-${match.index}`} href={href}
+          target="_blank" rel="noopener noreferrer"
+          style={{ color: "#6a9fd8", textDecoration: "none", borderBottom: "1px dotted rgba(106,159,216,0.3)" }}
+          onMouseEnter={e => e.target.style.borderBottomColor = "rgba(106,159,216,0.7)"}
+          onMouseLeave={e => e.target.style.borderBottomColor = "rgba(106,159,216,0.3)"}
+        >{displayText}</a>
+      );
+      lastIdx = extEnd;
+      regex.lastIndex = extEnd;
+    }
+    if (lastIdx < t.length) parts.push(t.slice(lastIdx));
+    return parts.length === 0 ? t : parts.length === 1 ? parts[0] : <>{parts}</>;
   }
-  if (parts.length === 0) return text;
-  return <>{parts}</>;
+
+  // Process emphasis first (strips * / **), then linkify the text segments
+  const result = processEmphasis(text);
+  return <>{result}</>;
 }
 
 /* ─── LEAF ─── */
