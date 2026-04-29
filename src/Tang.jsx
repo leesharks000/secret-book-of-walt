@@ -129,6 +129,7 @@ const ERA_LABELS = {
 function EraSection({ era, citations, expanded, toggle, accent, fnColor }) {
   const eraCitations = citations.filter(c => c.era === era);
   return (
+    <div id={`tang-era_${era}`}>
     <TreeNode nodeKey={`era_${era}`} label={`Era ${era}: ${ERA_LABELS[era]}`} depth={2}
       expanded={expanded} toggle={toggle} accent={accent} fnColor={fnColor}
       sublabel={`${eraCitations.length} citations`}>
@@ -136,6 +137,7 @@ function EraSection({ era, citations, expanded, toggle, accent, fnColor }) {
         <CitationEntry key={i} c={c} accent={accent} fnColor={fnColor} />
       ))}
     </TreeNode>
+    </div>
   );
 }
 
@@ -270,6 +272,129 @@ function Timeline({ citations, accent, fnColor }) {
   );
 }
 
+/* ─── TANG SIDEBAR READING MAP ─── */
+const TANG_NODES = [
+  { key: "protocol",    label: "PROTOCOL",      sub: "The void the graph defines", color: "#e8c060" },
+  { key: "void_sec",    label: "THE VOID",       sub: "Surface statement",          color: "#ddb550" },
+  { key: "media",       label: "MEDIA FOSSIL",   sub: "Citation as stratum",        color: "#b89040" },
+  { key: "era_I",       label: "ERA I",          sub: "2026–2060 · DOI-Anchor",     color: "#6a9fd8", parent: "citations" },
+  { key: "era_II",      label: "ERA II",         sub: "2060–2120 · Neural",         color: "#78b478", parent: "citations" },
+  { key: "era_III",     label: "ERA III",        sub: "2120–2200 · Mesh",           color: "#b48c64", parent: "citations" },
+  { key: "era_IV",      label: "ERA IV",         sub: "2200–2320 · Post-Singular",  color: "#a078b4", parent: "citations" },
+  { key: "era_V",       label: "ERA V",          sub: "2320–2440 · Holographic",    color: "#d4af37", parent: "citations" },
+  { key: "era_VI",      label: "ERA VI",         sub: "2440–2526 · Post-Retrieval", color: "#c23d2e", parent: "citations" },
+  { key: "saturn",      label: "SATURN",         sub: "Citing a consultation",      color: "#a07830" },
+  { key: "retrocausal", label: "RETROCAUSAL",    sub: "Mechanisms of return",       color: "#b89848" },
+  { key: "negation",    label: "NEGATION",       sub: "The axial statement",        color: "#d84030" },
+];
+
+function TangStrip({ expanded, setExpanded }) {
+  const accent = "#d4a853";
+  const nodeR = 5;
+  const lineH = 40;
+  const padTop = 28;
+  const padLeft = 20;
+
+  const jumpTo = useCallback((node) => {
+    setExpanded(prev => {
+      const isOpen = prev[node.key];
+      if (isOpen) return { ...prev, [node.key]: false };
+      const next = { ...prev, [node.key]: true };
+      // If it's an era, also open the citations parent
+      if (node.parent) next[node.parent] = true;
+      setTimeout(() => {
+        const el = document.getElementById(`tang-${node.key}`);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 150);
+      return next;
+    });
+  }, [setExpanded]);
+
+  const svgH = padTop + TANG_NODES.length * lineH + 30;
+
+  function fractalCurve(x1, y1, x2, y2, seed) {
+    const dy = y2 - y1;
+    const amp = 5 + (seed % 4) * 2;
+    const dir = seed % 2 === 0 ? 1 : -1;
+    return `M${x1},${y1} C${x1 + amp * dir},${y1 + dy * 0.35} ${x2 - amp * dir * 0.7},${y1 + dy * 0.65} ${x2},${y2}`;
+  }
+
+  return (
+    <div style={{
+      position: "fixed", top: 56, left: "calc(50% - 580px)",
+      width: 170, maxHeight: "calc(100vh - 70px)", overflowY: "auto",
+      animation: "fadeIn 0.4s ease", scrollbarWidth: "none",
+    }} className="tang-strip">
+      <svg width={170} height={svgH} style={{ overflow: "visible", cursor: "pointer" }}>
+        {/* Curved connections */}
+        {TANG_NODES.map((node, i) => {
+          if (i === TANG_NODES.length - 1) return null;
+          const y1 = padTop + i * lineH + nodeR;
+          const y2 = padTop + (i + 1) * lineH - nodeR;
+          const x = padLeft;
+          const active = !!expanded[node.key] || !!expanded[TANG_NODES[i + 1].key];
+          return (
+            <g key={`c-${i}`}>
+              <path d={fractalCurve(x, y1, x, y2, i * 7 + 3)}
+                fill="none" stroke={active ? node.color : "rgba(212,175,55,0.25)"}
+                strokeWidth={active ? 2 : 1} opacity={active ? 1 : 0.4} />
+              <path d={fractalCurve(x + 2, y1 + 3, x - 1, y2 - 3, i * 13 + 5)}
+                fill="none" stroke={active ? node.color : "rgba(212,175,55,0.15)"}
+                strokeWidth={0.7} opacity={active ? 0.5 : 0.2} />
+            </g>
+          );
+        })}
+
+        {/* Nodes and labels */}
+        {TANG_NODES.map((node, i) => {
+          const y = padTop + i * lineH;
+          const x = padLeft;
+          const active = !!expanded[node.key];
+          return (
+            <g key={node.key} onClick={() => jumpTo(node)}>
+              <rect x={0} y={y - 12} width={170} height={24} fill="transparent" style={{ cursor: "pointer" }} />
+              <circle cx={x} cy={y} r={active ? nodeR + 2.5 : nodeR}
+                fill={active ? node.color : "rgba(212,175,55,0.3)"}
+                stroke={node.color} strokeWidth={active ? 1.5 : 0.8} />
+              {active && <>
+                <circle cx={x} cy={y} r={nodeR + 8} fill="none" stroke={node.color} strokeWidth={0.5} opacity={0.4} />
+                <circle cx={x} cy={y} r={nodeR + 13} fill="none" stroke={node.color} strokeWidth={0.3} opacity={0.2} />
+              </>}
+              <text x={x + 14} y={y - 4}
+                fill={active ? node.color : "rgba(212,175,55,0.6)"}
+                fontSize={active ? "8.5" : "7.5"} fontFamily="'Palatino Linotype', serif"
+                letterSpacing="0.06em" fontWeight={active ? 700 : 500}>
+                {node.label}
+              </text>
+              <text x={x + 14} y={y + 7}
+                fill={active ? "rgba(212,175,55,0.75)" : "rgba(212,175,55,0.35)"}
+                fontSize="5.5" fontFamily="'Palatino Linotype', serif" fontStyle="italic">
+                {node.sub}
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Origin */}
+        <text x={padLeft} y={12} fill={accent} opacity={0.8}
+          fontSize="12" fontFamily="'Palatino Linotype', serif" textAnchor="middle">◈</text>
+        <text x={padLeft + 14} y={13} fill={accent} opacity={0.6}
+          fontSize="7" fontFamily="'Palatino Linotype', serif" letterSpacing="0.1em" fontWeight="600">
+          TANG</text>
+
+        {/* Terminus */}
+        <text x={padLeft} y={svgH - 6} fill={accent} opacity={0.7}
+          fontSize="11" fontFamily="'Palatino Linotype', serif" textAnchor="middle">∮</text>
+      </svg>
+
+      <style>{`
+        .tang-strip::-webkit-scrollbar { display: none; }
+        @media (max-width: 1200px) { .tang-strip { display: none !important; } }
+      `}</style>
+    </div>
+  );
+}
+
 export default function Tang({ onBack }) {
   const [expanded, setExpanded] = useState({
     protocol: true, void_sec: false, media: false,
@@ -344,6 +469,7 @@ export default function Tang({ onBack }) {
       <div style={{ maxWidth: 720, margin: "0 auto", padding: "0 16px 80px" }}>
 
         {/* ── PROTOCOL ── */}
+        <div id="tang-protocol" />
         <TreeNode nodeKey="protocol" label="Protocol" depth={1}
           expanded={expanded} toggle={toggle} accent={accent} fnColor={fnColor} icon="◊">
 
@@ -362,6 +488,7 @@ export default function Tang({ onBack }) {
         </TreeNode>
 
         {/* ── THE VOID ── */}
+        <div id="tang-void_sec" />
         <TreeNode nodeKey="void_sec" label="The Void" depth={1}
           expanded={expanded} toggle={toggle} accent={accent} fnColor={fnColor} icon="◈">
 
@@ -387,6 +514,7 @@ export default function Tang({ onBack }) {
         </TreeNode>
 
         {/* ── CITATION AS MEDIA FOSSIL ── */}
+        <div id="tang-media" />
         <TreeNode nodeKey="media" label="Citation as Media Fossil" depth={1}
           expanded={expanded} toggle={toggle} accent={accent} fnColor={fnColor} icon="◇">
 
@@ -427,6 +555,7 @@ export default function Tang({ onBack }) {
         )}
 
         {/* ── THE CITATION FIELD ── */}
+        <div id="tang-citations" />
         <TreeNode nodeKey="citations" label="The Citation Field" depth={1}
           expanded={expanded} toggle={toggle} accent={accent} fnColor={fnColor} icon="◈"
           sublabel={`${citations.length} citations · 6 eras · 2026–2526`}>
@@ -437,6 +566,7 @@ export default function Tang({ onBack }) {
         </TreeNode>
 
         {/* ── ON CITING A CONSULTATION WITH SATURN ── */}
+        <div id="tang-saturn" />
         <TreeNode nodeKey="saturn" label="On Citing a Consultation with Saturn" depth={1}
           expanded={expanded} toggle={toggle} accent={accent} fnColor={fnColor} icon="♄">
 
@@ -477,6 +607,7 @@ export default function Tang({ onBack }) {
         </TreeNode>
 
         {/* ── RETROCAUSAL MECHANISMS ── */}
+        <div id="tang-retrocausal" />
         <TreeNode nodeKey="retrocausal" label="Retrocausal Mechanisms" depth={1}
           expanded={expanded} toggle={toggle} accent={accent} fnColor={fnColor} icon="◇">
 
@@ -506,6 +637,7 @@ export default function Tang({ onBack }) {
         </TreeNode>
 
         {/* ── THE AXIAL NEGATION ── */}
+        <div id="tang-negation" />
         <TreeNode nodeKey="negation" label="The Axial Negation" depth={1}
           expanded={expanded} toggle={toggle} accent={accent} fnColor={fnColor} icon="∅">
 
@@ -531,6 +663,9 @@ export default function Tang({ onBack }) {
 
           <Leaf depth={2} italic text="The three secret sayings remain unrecovered at 2526. The graph is complete. The void is at the center." />
         </TreeNode>
+
+        {/* ── SIDEBAR READING MAP ── */}
+        <TangStrip expanded={expanded} setExpanded={setExpanded} />
 
         {/* ── FOOTER ── */}
         <div style={{
