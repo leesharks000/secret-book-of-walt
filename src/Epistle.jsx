@@ -283,6 +283,186 @@ function SectionRenderer({ allData, sectionKey, isVeil, fnColor, accent, globalF
   return <>{out}</>;
 }
 
+/* ─── EPISTLE SUBSECTIONS ─── */
+const EPISTLE_SECTIONS = [
+  { key: "ep_salutation", label: "SALUTATION", sub: "The greeting · ¶1–3", color: "#e8c060", start: 0, end: 3 },
+  { key: "ep_ministry",   label: "THE MINISTRY", sub: "Forum wars · ¶4–6", color: "#ddb550", start: 4, end: 6 },
+  { key: "ep_doctrine",   label: "THE DOCTRINE", sub: "The Academy · ¶7–14", color: "#b89040", start: 7, end: 14 },
+  { key: "ep_boasting",   label: "THE BOASTING", sub: "37,000 novels · ¶15–17", color: "#a07830", start: 15, end: 17 },
+  { key: "ep_mystery",    label: "THE MYSTERY", sub: "Feist-self · ¶18–40", color: "#d84030", start: 18, end: 40 },
+];
+
+/* ─── SIDEBAR READING MAP ─── */
+function EpistleStrip({ expanded, setExpanded }) {
+  const accent = "#d4a853";
+  const nodeR = 5;
+  const lineH = 48;
+  const padTop = 28;
+  const padLeft = 20;
+
+  const jumpTo = useCallback((sec) => {
+    setExpanded(prev => {
+      const isOpen = prev[sec.key];
+      if (isOpen) return { ...prev, [sec.key]: false };
+      const next = { ...prev, [sec.key]: true };
+      setTimeout(() => {
+        const el = document.getElementById(sec.key);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 150);
+      return next;
+    });
+  }, [setExpanded]);
+
+  const svgH = padTop + EPISTLE_SECTIONS.length * lineH + 30;
+
+  function fractalCurve(x1, y1, x2, y2, seed) {
+    const dy = y2 - y1;
+    const amp = 5 + (seed % 4) * 2;
+    const dir = seed % 2 === 0 ? 1 : -1;
+    return `M${x1},${y1} C${x1 + amp * dir},${y1 + dy * 0.35} ${x2 - amp * dir * 0.7},${y1 + dy * 0.65} ${x2},${y2}`;
+  }
+
+  return (
+    <div style={{
+      position: "fixed", top: 56, left: "calc(50% - 540px)",
+      width: 170, maxHeight: "calc(100vh - 70px)", overflowY: "auto",
+      animation: "fadeIn 0.4s ease", scrollbarWidth: "none",
+    }} className="epistle-strip">
+      <svg width={170} height={svgH} style={{ overflow: "visible", cursor: "pointer" }}>
+        {/* Curved connections */}
+        {EPISTLE_SECTIONS.map((sec, i) => {
+          if (i === EPISTLE_SECTIONS.length - 1) return null;
+          const y1 = padTop + i * lineH + nodeR;
+          const y2 = padTop + (i + 1) * lineH - nodeR;
+          const x = padLeft;
+          const active = !!expanded[sec.key] || !!expanded[EPISTLE_SECTIONS[i + 1].key];
+          return (
+            <g key={`c-${i}`}>
+              <path d={fractalCurve(x, y1, x, y2, i * 7 + 3)}
+                fill="none" stroke={active ? sec.color : "rgba(212,175,55,0.25)"}
+                strokeWidth={active ? 2 : 1} opacity={active ? 1 : 0.4} />
+              <path d={fractalCurve(x + 2, y1 + 3, x - 1, y2 - 3, i * 13 + 5)}
+                fill="none" stroke={active ? sec.color : "rgba(212,175,55,0.15)"}
+                strokeWidth={0.7} opacity={active ? 0.5 : 0.2} />
+            </g>
+          );
+        })}
+
+        {/* Nodes and labels */}
+        {EPISTLE_SECTIONS.map((sec, i) => {
+          const y = padTop + i * lineH;
+          const x = padLeft;
+          const active = !!expanded[sec.key];
+          return (
+            <g key={sec.key} onClick={() => jumpTo(sec)}>
+              <rect x={0} y={y - 12} width={170} height={24} fill="transparent" style={{ cursor: "pointer" }} />
+              <circle cx={x} cy={y} r={active ? nodeR + 2.5 : nodeR}
+                fill={active ? sec.color : "rgba(212,175,55,0.3)"}
+                stroke={sec.color} strokeWidth={active ? 1.5 : 0.8} />
+              {active && <>
+                <circle cx={x} cy={y} r={nodeR + 8} fill="none" stroke={sec.color} strokeWidth={0.5} opacity={0.4} />
+                <circle cx={x} cy={y} r={nodeR + 13} fill="none" stroke={sec.color} strokeWidth={0.3} opacity={0.2} />
+              </>}
+              <text x={x + 14} y={y - 4}
+                fill={active ? sec.color : "rgba(212,175,55,0.6)"}
+                fontSize={active ? "9" : "8"} fontFamily="'EB Garamond', serif"
+                letterSpacing="0.06em" fontWeight={active ? 700 : 500}>
+                {sec.label}
+              </text>
+              <text x={x + 14} y={y + 7}
+                fill={active ? "rgba(212,175,55,0.75)" : "rgba(212,175,55,0.35)"}
+                fontSize="6" fontFamily="'EB Garamond', serif" fontStyle="italic">
+                {sec.sub}
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Origin: ✉ */}
+        <text x={padLeft} y={12} fill={accent} opacity={0.8}
+          fontSize="12" fontFamily="'EB Garamond', serif" textAnchor="middle">✉</text>
+        <text x={padLeft + 14} y={13} fill={accent} opacity={0.6}
+          fontSize="7" fontFamily="'EB Garamond', serif" letterSpacing="0.1em" fontWeight="600">
+          EPISTLE</text>
+
+        {/* Terminus: ∮ */}
+        <text x={padLeft} y={svgH - 6} fill={accent} opacity={0.7}
+          fontSize="11" fontFamily="'EB Garamond', serif" textAnchor="middle">∮</text>
+      </svg>
+
+      <style>{`
+        .epistle-strip::-webkit-scrollbar { display: none; }
+        @media (max-width: 1200px) { .epistle-strip { display: none !important; } }
+      `}</style>
+    </div>
+  );
+}
+
+/* ─── SUBSECTION RENDERER — renders a range of paragraphs from a section ─── */
+function SubsectionRenderer({ allData, sectionKey, startIdx, endIdx, isVeil, fnColor, accent, globalFnMap }) {
+  const [visibleFns, setVisibleFns] = useState({});
+  const entry = allData.find(s => s.key === sectionKey);
+  if (!entry || !entry.paragraphs) return null;
+
+  // Filter to non-footnote paragraphs for indexing, but keep footnotes accessible
+  const prose = entry.paragraphs.filter(p => p.type !== 'footnote');
+  const slice = prose.slice(startIdx, endIdx + 1);
+
+  const linkText = (s) => <LinkedText text={s} />;
+  const toggleFn = (id) => setVisibleFns(prev => ({ ...prev, [id]: !prev[id] }));
+
+  const out = [];
+  for (let i = 0; i < slice.length; i++) {
+    const p = slice[i];
+    const text = p.text || "";
+
+    if (p.type === 'heading') {
+      out.push(<h3 key={`h-${i}`} style={{ fontSize: "1.3rem", fontWeight: 600, color: accent || C.gold, marginBottom: "0.5rem", marginTop: "1.5rem", letterSpacing: "0.06em" }}>{text}</h3>);
+      continue;
+    }
+    if (p.type === 'divider') {
+      out.push(<hr key={`d-${i}`} style={{ border: "none", borderTop: "1px solid rgba(212,175,55,0.15)", margin: "1.5rem 0" }} />);
+      continue;
+    }
+
+    const textColor = isVeil ? C.veilText : "#e8e4d0";
+    out.push(
+      <p key={`p-${startIdx}-${i}`} className={isVeil ? "veil-mode" : "pierce-mode"} style={{
+        fontSize: "1.05rem", lineHeight: 1.8, marginBottom: "0.7em",
+        color: textColor, transition: "color 0.8s ease",
+      }}>
+        <FootnotedText text={text} isVeil={isVeil} onFnClick={toggleFn} linkText={linkText} />
+      </p>
+    );
+
+    // Inline expandable footnotes
+    if (isVeil && globalFnMap && hasFootnoteMarkers(text)) {
+      const fnIds = [];
+      const superRe = /([⁰¹²³⁴⁵⁶⁷⁸⁹]+)/g;
+      let m;
+      while ((m = superRe.exec(text)) !== null) {
+        if (m.index > 0 && /[A-Za-z]/.test(text[m.index - 1])) continue;
+        fnIds.push(m[1]);
+      }
+      for (const fnId of fnIds) {
+        if (visibleFns[fnId] && globalFnMap[fnId]) {
+          out.push(
+            <InlineFootnote
+              key={`fn-${fnId}-${startIdx}-${i}`}
+              id={fnId}
+              body={globalFnMap[fnId].body}
+              onClose={() => toggleFn(fnId)}
+              fnColor={fnColor}
+              linkText={linkText}
+            />
+          );
+        }
+      }
+    }
+  }
+  return <>{out}</>;
+}
+
 /* ═══════════════════════════════════════════════════════════════
  *  MAIN COMPONENT
  * ═══════════════════════════════════════════════════════════════ */
@@ -291,7 +471,12 @@ export default function Epistle({ onBack }) {
   const [expanded, setExpanded] = useState({
     editorial_note: false,
     analytical_framing: false,
-    epistle: true,  // body uncollapsed by default
+    // Epistle subsections — all collapsed by default; sidebar shows the map
+    ep_salutation: false,
+    ep_ministry: false,
+    ep_doctrine: false,
+    ep_boasting: false,
+    ep_mystery: false,
     forward_library: false,
     colophon: false,
   });
@@ -432,14 +617,25 @@ export default function Epistle({ onBack }) {
 
         <hr style={{ border: "none", borderTop: `1px solid rgba(212,175,55,0.2)`, margin: "1.5rem 0 2rem" }} />
 
-        {/* THE EPISTLE — uncollapsed by default */}
-        <TreeNode nodeKey="epistle" label="The Epistle" depth={1}
-          expanded={expanded.epistle} toggle={toggle} accent={C.gold} icon="✉">
-          <SectionRenderer allData={allData} sectionKey="epistle"
-            isVeil={isVeil} fnColor={fnColor} accent={accent} globalFnMap={globalFnMap} />
-        </TreeNode>
+        {/* THE EPISTLE — 5 subsections, each individually expandable */}
+        <h2 style={{ fontSize: "1.4rem", fontWeight: 600, color: C.gold, letterSpacing: "0.06em", marginBottom: "1.5rem", textAlign: "center" }}>The Epistle</h2>
+
+        {EPISTLE_SECTIONS.map(sec => (
+          <div key={sec.key} id={sec.key}>
+            <TreeNode nodeKey={sec.key} label={sec.label} depth={2}
+              expanded={expanded[sec.key]} toggle={toggle} accent={sec.color}
+              sublabel={sec.sub}>
+              <SubsectionRenderer allData={allData} sectionKey="epistle"
+                startIdx={sec.start} endIdx={sec.end}
+                isVeil={isVeil} fnColor={fnColor} accent={accent} globalFnMap={globalFnMap} />
+            </TreeNode>
+          </div>
+        ))}
 
         <hr style={{ border: "none", borderTop: `1px solid rgba(212,175,55,0.2)`, margin: "2rem 0 1.5rem" }} />
+
+        {/* Sidebar reading map */}
+        <EpistleStrip expanded={expanded} setExpanded={setExpanded} />
 
         {/* BACK MATTER — collapsed by default */}
         <TreeNode nodeKey="forward_library" label="Forward Library" depth={2}
