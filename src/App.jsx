@@ -1415,7 +1415,7 @@ function LinkedText({ text }) {
   // Phase 1: Process markdown emphasis (* and **) into React elements
   // This strips the markers and wraps content in <em>/<strong>
   function processEmphasis(t) {
-    if (!t || !t.includes("*")) return [t];
+    if (!t || !t.includes("*")) return [linkifyText(t)];
     const out = [];
     let i = 0, k = 0;
     while (i < t.length) {

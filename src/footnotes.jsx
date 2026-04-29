@@ -129,15 +129,14 @@ export function FootnotedText({ text, isVeil, onFnClick, linkText, inline = true
         </span>
       );
     }
-    // Plain text span — apply markdown emphasis first, then optional glossary linking.
-    // If linkText is provided, we need to apply it inside the emphasis-rendered tree.
-    // For simplicity: emphasis is applied BEFORE linking, since linking inside emphasis
-    // is rare and works at a per-text-run level anyway. linkText wraps the whole content.
-    const emphasized = renderEmphasis(p.content, `t-${i}`);
-    if (linkText && typeof p.content === "string" && !p.content.includes("*")) {
-      // No emphasis markers → safe to apply glossary linking on the raw text
+    // Plain text span — apply glossary linking (which now also handles emphasis).
+    // When linkText is provided (which wraps in LinkedText), it handles BOTH
+    // emphasis rendering AND glossary linking. Only fall back to renderEmphasis
+    // when no linkText is available.
+    if (linkText) {
       return <span key={`t-${i}`}>{linkText(p.content)}</span>;
     }
+    const emphasized = renderEmphasis(p.content, `t-${i}`);
     return <span key={`t-${i}`}>{emphasized}</span>;
   });
 
