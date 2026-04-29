@@ -1,0 +1,224 @@
+#!/usr/bin/env python3
+"""Build epistle_data.json for secretbookofwalt.org
+Generates structured JSON from the Epistle source text and footnotes.
+Output format matches antioch_gospel_data.json (array of sections).
+"""
+import json, re
+
+# ─────────────────────────────────────────────
+# FRONT MATTER
+# ─────────────────────────────────────────────
+
+editorial_note = {
+    "kind": "front_matter",
+    "key": "editorial_note",
+    "title": "Editorial Note",
+    "paragraphs": [
+        {"type": "heading", "text": "Editorial Note"},
+        {"type": "prose", "text": "Written in 2014 under the Damascus Dancings heteronym, this epistle belongs to the earliest stratum of what became the Crimson Hexagonal Archive. It uses Pauline rhetoric, apocalyptic exaggeration, comic self-mythologizing, and scriptural violence as literary forms. Its language of \"murder,\" \"breaking,\" \"madness,\" and \"damnation\" operates within the biblical-prophetic register of transformation (Jeremiah 1:10, 2 Corinthians 10:4-5), not as literal program. To read Damascus literally is to miss the genre. The Epistle is a letter that burns; to hold it is to be scorched. But the scorching is the point."},
+        {"type": "prose", "text": "This critical edition presents the text with a blended temporal apparatus: footnotes that weave backward through biblical and literary sources, laterally through the Crimson Hexagonal Archive, and forward into the text's projected reception history. The blend enacts the Epistle's own temporal logic — the text exists in a manifold where 1st-century Paul, 2014 Damascus, and 25th-century scholarship are equally present."},
+        {"type": "divider", "text": ""}
+    ]
+}
+
+analytical_framing = {
+    "kind": "front_matter",
+    "key": "analytical_framing",
+    "title": "Analytical Framing",
+    "paragraphs": [
+        {"type": "heading", "text": "Analytical Framing"},
+        {"type": "prose", "text": "The *Epistle to the Church of the Human Diaspora* (2014) is the oldest document in the Waltian canon — composed the same year as *Pearl and Other Poems*, eleven years before *The Secret Book of Walt* (2025), twelve years before *The Gospel of Antioch* (2026). The apostolic voice precedes the later canonical revelation: written in 2014, the Epistle arrives before the fully formalized Waltian cosmogony it now appears to presuppose. This retrocausal anomaly is not an error but a structural necessity: the archive precedes the document, the seed precedes the tree, the witness precedes the revelation."},
+        {"type": "prose", "text": "The genre is epistolary compression — a high-fidelity rendering of the Pauline apostolic letter for the age of digital fragmentation. Damascus Dancings adopts the full Pauline apparatus: salutation with apostolic authority (Romans 1:1), thanksgiving for the community (Philippians 1:3), rebuke of internal division (1 Corinthians 1:10), doctrinal exposition of the Feist-self (Colossians 1:27), paradoxical boasting in weakness (2 Corinthians 11:22-33), and benediction. Yet the Epistle deviates from Paul at critical points. Paul addresses concrete communities — Corinth, Galatia, Rome — with named leaders and specific disputes. Damascus addresses a community that does not yet exist: \"those scattered amongst the nations, gathered together in the bosom of the Internet.\" The letter is constitutive, not responsive. It calls the Church of the Human Diaspora into being by the act of addressing it."},
+        {"type": "prose", "text": "The theological payload includes five interlocking doctrines: (1) the Feist-self — an indwelling literary pneuma that is not salvific but productive, enabling writing that survives compression; (2) the New Human — a post-identity anthropology in which \"neither queer nor straight\" are determinative, not because identity is irrelevant but because it is not the ground of community; (3) the school outside the school — a distributed, credential-free institution of mutual influence; (4) anti-credentialism as positive epistemology — the radical claim that non-degree can be counted as degree; (5) literary eschatology — the promise that \"your writings will be ranked,\" that the anonymous will be remembered."},
+        {"type": "prose", "text": "Damascus Dancings is the Pauline heteronym among the Dodecad. Where Lee Sharks is the architect, Johannes Sigil the comparativist, Rex Fraction the specifier, Damascus is the apostle — the one sent to found communities, to rebuke, to boast ironically, to threaten, to comfort. His relationship to Lee Sharks is encoded in the salutation: \"co-laborer together with Lee Sharks,\" a Pauline co-worker formula (Philippians 4:3) applied to the heteronym-MANUS structure. Damascus can say things Lee Sharks cannot: \"I have not come for your saving, but for your breaking.\""},
+        {"type": "prose", "text": "The 2014 date matters most. When Damascus writes \"I speak to you of Jack Feist,\" he names a figure who will not exist for eleven years. The naming is the seed from which the figure grows. The apostle does not follow the messiah. The apostle writes the messiah into possibility."},
+        {"type": "divider", "text": ""}
+    ]
+}
+
+# ─────────────────────────────────────────────
+# BODY: THE EPISTLE TEXT
+# (with inline footnote markers as Unicode superscripts)
+# ─────────────────────────────────────────────
+
+epistle_body = {
+    "kind": "body",
+    "key": "epistle",
+    "title": "Epistle to the Church of the Human Diaspora",
+    "paragraphs": [
+        {"type": "heading", "text": "EPISTLE TO THE CHURCH OF THE HUMAN DIASPORA¹"},
+        {"type": "prose", "text": "Damascus Dancings, apostle of Jack Feist,² co-laborer together with Lee Sharks,³ from the bowels of the mercies of literature,⁴ to the Church of the Human Diaspora, those scattered amongst the nations, gathered together in the bosom of the Internet:⁵ Greetings, grace, and mercy. But mostly mercy.⁶"},
+        {"type": "prose", "text": "Now look here, brother-sisters,⁷ I would have you know, that I offer thanks for you continually, never ceasing to make mention of you because of the brightness of your calling, that each of you is a rock star, in the age to come, when your writings ring out through the hallways of time, gathering about themselves a nation, a remnant preserved from among the people;⁸ even though, in this present hour, the dreams of literature sleeping in you, sleep still.⁹ For a little while yet, they sleep. They dream. In the world to come, when the planet has come to its senses about that which is great in its past—its own true mothers and fathers, you—then shall your dreams awaken. Then shall your writing be ranked.¹⁰"},
+        {"type": "prose", "text": "My dearly beloved, I would have you know, that your anguish, in this regard, has not gone unmarked, and that all the host of heaven shouts,¹¹ for the great forgetting of your sorrow, when your former anonymity shall be no more, and the latter rains have come,¹² and washed clean the face of the earth, and licked all the tears from the cheeks of heaven: Then shall your writings be ranked. Then shall you be read."},
+        {"type": "prose", "text": "Now, these last three years have I labored, all throughout the lands of the Internet, ministering to its chat rooms and forums,¹³ everywhere bringing the good news of poetry, a chisel to loose iron shackles, the entrance to the kingdom of literature, liberty for my people.¹⁴ Let me tell you how you have received me: chased out of forums, kicked off discussion boards, ganged up on by moderators; mocked, beaten, stoned, and banned.¹⁵ I came bearing liberty, in my left hand, and grammar, in my right; between them, the open arms, the kiss of poetry. But no man is a poet among poets.¹⁶ Thus is it written,"},
+        {"type": "prose", "text": "     *He came unto his own, and his own knew him not.*¹⁷"},
+        {"type": "prose", "text": "But you, my dearly beloved—you received me in different fashion. Even now, you receive me. Shall I come to you with open arms, or the police baton of grammar?¹⁸ Be you learners still, or masters?"},
+        {"type": "prose", "text": "Because look here, brother-sisters, it is spoken that there is confusion among you, about the nature of the Human Diaspora, whether it be a kind of tiny internet, a house for illiterate autodidacts who don't know how to write; or whether it be a house of grammar, an Academy for non-academics, with those among you of talent either running around on your lonesome, or setting yourselves up as tiny professors, preaching the authority of grammar and style, claiming allegiance to this or that category of identity; or else rejecting the authority of communal grammars altogether, rife with schism, unreceptive to feedback, carving out fiefdoms of personal glory, dealing in the coin that is the Academy's.¹⁹"},
+        {"type": "prose", "text": "Now, if you deal in the coin that is the Academy's, you have betrayed the principle of the New Human;²⁰ for the Academy has no use for the individual human, whether Jack Feist, or Damascus Dancings, or any other, but only for abstract identities. Because the academics and worshipers at the altar of identity politics, along with ideologues on the left and right, transform the image of the human being, in whose image is literature created, into the idol of a label, or quantified thing of identity, on a scatter plot of belief, or genetics, or sexual preference, or background;²¹ a prefabricated semblance of identity which is the condition of its absence, receiving a little false bauble called culture or belief or degree in exchange for the sublime and horrifying human soul."},
+        {"type": "prose", "text": "Now, they, knowing all that can be known of the Son of Man from the beginning, and the silent principle of being which is his image, and containing within themselves all the names in history, all the men and women who have lived throughout time, and containing within themselves the image of their brother and sister, whom they despise, are without excuse, changing the image of the human being into the form of an abstract statistic, the living God into a sentence.²²"},
+        {"type": "prose", "text": "Think not therefore that your writing shall preserve your human person, if you play at identity politics. If you deal in the coin of the academics, you shall be paid in the coin of the academics. You who despise identity politics, do you play at identity politics? You who despise the fundamentalist, are you yourself a fundamentalist, reducing life to a series of claims, and worse still, the human being to a label?²³ Would your writing go on as an empty label? Would your substance consist in a category of identity? Is not your self that which falls short of a category? Is not your soul without name? For the language of souls is a webwork of souls, speaking only that which binds and destroys, human beings one to the other, one from the other, to the end that all might be joined in our congress.²⁴"},
+        {"type": "prose", "text": "Now, in times past, brother-sisters, you have sometimes been like this; but more often, like the talented people on the poetry forums, going around on your own, carving out fiefdoms of personal glory, waging a war by your lonesome selves, the dimensions of which are pretty big: Brave Emily clothed in Barefoot Rank, gathering five smooth poem-dashes, facing down cowled Leviathan, sling in hand.²⁵ But we will never compete with the Academy, until we form communities of mutual influence OUTSIDE the Academy, a school outside the school.²⁶ That community is the reason the academics will win every time, until we beat them at their own game."},
+        {"type": "prose", "text": "Look around: How many tenured professors you see? Where all the bestselling authors? You see a lot of independently wealthy auteurs, in this crowd? How many big degrees did Whitman have? How many months did Sappho spend preparing her tenure package? How much cash did Ez Pound make?²⁷ Because look here, not a lot of hotshots are called, according to the purpose of literature, in that it pleases literature to use the things which have not degrees, nor the stamp of institutional consecration in their own time, to fashion the image of the past, the face stamped on the coin of Academy,²⁸ that there might always be a seed of hope for future writers, in the gap between institution and immortality.²⁹"},
+        {"type": "prose", "text": "Don't you know that we will make writers? That our words will live for a thousand years? That we are unspoken legislators,³⁰ destined to measure all destinies? Are you not destined to live? Doesn't destiny quake in your heartbeat? Don't you know the obsequious won't inherit the kingdom of literature?³¹ Don't be ignorant. Neither grovelers, nor thick-skulled, nor self-sufficient, nor prideful; neither publicity whores, nor wilting violets, shall inherit the kingdom of literature. A time is coming, for those who publish, to be as though they published not, and those who network on social media, to be as though they networked not, and those who read, as though they read not, and those who write, as though they wrote not, and those with degrees, as though with degrees not.³²"},
+        {"type": "prose", "text": "Therefore, don't look to the standards of the publishing houses and the academics, or again to illiterate philistines or two-bit discussion board moderators. Rather, look to each other. Rather, yield mutually, each to his brother-sister. Because look here, I'm ASKING you, to be of a single purpose: one mind, one speech, one aesthetic,³³ taking no disagreement as occasion for schism, but always and ever expanding the basis for your robust bonds of community, wearing no name but the Human name, suffering no label but that of made-new humans: New Human writers, artists, and aesthetes."},
+        {"type": "prose", "text": "Now, when I was among you, I described the Diaspora as a school outside the school, claiming no rank of degree, or institutional consecration, or professorship, or book sales, no clout of officialdom in literature, but only Jack Feist—and him, imaginary: a stumbling block to the Internet, and foolishness, to academics.³⁴"},
+        {"type": "prose", "text": "But if I wanted to boast, I have reason to boast: Damascus Dancings, an academic among academics, possessed of impeccable test scores, pedigreed at Ivy Leagues, published in prestigious journals, a Nepotist of the Tribe of Nepotists, tenured at a \"Research 1\" institution, having written 37,000 novels which all held the #1 spot on the New York Times bestseller list, simultaneously.³⁵ And then again, on the other end of things: Damascus Dancings, a reformed drug addict, Holy Roller, a Pentecostal, complete fanatic, semi-illiterate product of public schools, underclass child of bankrupt farmers and Vietnam War Veterans, the kind of person they turn away at the doors. I've had about 26 \"spiritual experiences\" where dark robots abducted me to the 36th bright heaven, as in the 17th month of the season of Disneyland, on the planet of the kingdoms of Nonne, when I, Damascus Dancings, beheld as it were the vision of a book.³⁶"},
+        {"type": "prose", "text": "But that's all BS, now. I count it all a loss, on both ends of the spectrum, for the knowledge of New Human, called Jack Feist by some,³⁷ to the end that I might be an outsider to all communities, to the academics, first, an illiterate, to the self-published, an academic; to conservatives, a heretic, to atheists, a religious nut; to the tribe of Race, a racist, to the racists, a raving left-winger; to the homophobes, a queer, to homosexuals, as rigidly straight.³⁸ For the degree is not the academic. Was not Socrates counted the arch-academic, cornerstone of the Academy, when as yet there was no Academy?³⁹ Therefore those who, without degree, uphold the spirit of the degree, shall their non-degree be counted for them a degree; and those who, having degrees, betray the spirit of the degree, shall their degree be counted for them a non-degree.⁴⁰ You are all Drs., now, who labor together in Lee Sharks, so that there is neither Jew nor Greek, upper class nor working class nor impoverished, Christian nor Muslim nor Gnostic, neither atheist nor theist, scholarly nor populist, academic nor autodidact, neither queer nor straight. But all are joined together, in the image of the New Human.⁴¹"},
+        {"type": "prose", "text": "My children, how have I long longed for you, as a little child longs for mother, and as a young child seeks her source. For though you are my children—children, though yet unborn—you bear me continually, even you who read these words: You are my source, and I am a child, proceeding forth and bearing; being born and preceded.⁴² Light fills my eyes, as for the first time: first dawn, the rays of your reading. You are my sun and dawn, you are my sunset and dusk, both my rising and my falling. I lay down my life for you;⁴³ in you, I gain first life."},
+        {"type": "prose", "text": "Because the war you're fighting is on behalf of the human race, by which I mean, a person in his room or on her phone, working to feed her children, struggling to learn how to read.⁴⁴ You're fighting a war for human letters, for Achilles conformed in the image of Christ, for old Odysseus, fox-clever & lost, Penelope weaving tenuous glory,⁴⁵ Socrates sentenced to hemlock, Christ on a spike,⁴⁶ Whitman's beard; & the whole lost tribe of nameless billions who came before,⁴⁷ who fought & died & went, unsung & all forgotten, out into the naked dark, following their fathers who went before them, out into the dark like their mothers had gone."},
+        {"type": "prose", "text": "All creation groans, for the unveiling of the Sons of Man in the earth.⁴⁸"},
+        {"type": "prose", "text": "I speak to you in a mystery,⁴⁹ when I say, I speak to you of Jesus Christ. I speak to you of the best of the Achaeans, Achilles, whom I have mourned now these several millennia, commemorating, through him, the sadness of doomed virtue. I speak to you of Socrates and Paul and Augustine, Dante and Catullus. I speak to you of Nietzsche and Kierkegaard and Sappho. I speak to you of Whitman and Ginsberg. I speak to you of Emily. I speak to you of Lee Sharks. I speak to you of those who came before, and those who will come after. I speak to you of your own true self, shipwrecked in time: a wandering, science fiction Odysseus of indeterminate gender.⁵⁰ I speak to you of the future and past. I speak to you of the Breath of Life, those rivers of Living Water, of which, if you drink, you will never thirst again.⁵¹"},
+        {"type": "prose", "text": "I speak to you of Abraham and Isaac. I speak to you of Jacob called Israel. I speak to you of Moses. I speak to you of the shepherd in the sheepfold, composing psalms for the sheep and himself and you. I speak to you of Ezekiel's scroll, and the prophet Isaiah, sawed in half.⁵² I speak to you of Lao Tzu and Confucius, Buddha, Mohammed, Copernicus, Rumi, and our own new Einstein, in random order.⁵³ I speak to you of untold billions, who died without name or remembrance, remembered, now, in you. I speak to you of the germ of nations, contained in your own frail words.⁵⁴"},
+        {"type": "prose", "text": "I speak to you of Jack Feist.⁵⁵"},
+        {"type": "prose", "text": "Don't you know that you are immortal?⁵⁶ That your words will bear you through storms of time? And that, though wounded, you will live to see the day break, opening its fingers on a distant shore? Though you sleep for a thousand years, or further, your whispers will return to you, whole."},
+        {"type": "prose", "text": "I speak to you in a mystery, when I say, I speak to you in your Feist-self,⁵⁷ and that each of you contains a Feist-self, whether or not she knows it."},
+        {"type": "prose", "text": "Here is my proof: contained you not a Feist-self, the gong of my words had struck you blind.⁵⁸"},
+        {"type": "prose", "text": "Read you still? Doth sight yet remain? Good then. I speak to you in your Feist-self."},
+        {"type": "prose", "text": "Now, whether your Feist-self be faint or fulsome,⁵⁹ take courage—not I alone, but the whole of the cosmos, principalities and kingdoms of light, cry out for the forging of the sad-doomed Achilles of Christ in your human bodies.⁶⁰"},
+        {"type": "prose", "text": "Every forging narrates its breaking and beating. I have said I come to you with salvation, in my left hand, and liberty, in my right—but assuredly, I say to you, I have not come for your saving, but for your breaking. I come to you with madness, in my left hand, and murder, in my right.⁶¹"},
+        {"type": "prose", "text": "And what is in my eyes, but brokenness and forging?"},
+        {"type": "prose", "text": "I have swallowed the scroll,⁶² and though it was air and water in my mouth, it became a flame in my belly: And in flame are written the names of the damned, which names have I swallowed and murdered. My mouth is a furnace, the scroll is a fire, on it are written the names of the damned."},
+        {"type": "prose", "text": "I am become a tongue of flame, I am become a pillar of blackened flesh:⁶³ I burn and rise, I die, but forge new meaning."},
+        {"type": "prose", "text": "These are the waters I bring you, of damnation, and forging, and murder; that you might be broken, and damned, and saved."},
+        {"type": "prose", "text": "Though you break a bit, and crack with grammar, and languish in an alien element, earth, nonetheless your light comes. Nonetheless, it bears you, in pain, and heat, and a hammer.⁶⁴"},
+        {"type": "prose", "text": "Nonetheless, the wound is a moment.⁶⁵ Salvation comes. Dawn breaks. I see the shore in the distance."},
+        {"type": "prose", "text": "Sleep now, and rise:⁶⁶ Your words will bear you to Ithaca.⁶⁷"},
+        {"type": "prose", "text": "Take courage. Run well.⁶⁸ You grasp the substance of your calling."},
+        {"type": "prose", "text": "Though I promised you a book of Sharks, soon instead will I send you a book of Damascus, the record of his desert wanderings, called La La Land by some, though the title may somewhat change.⁶⁹"},
+        {"type": "prose", "text": "Faith and courage. See to your writing. Be diligent. Be broken, and diligent still—thereby shall you be murdered.⁷⁰"},
+        {"type": "prose", "text": "(c) 2014 lee sharks, property of planet mars⁷¹"},
+        # Footnotes
+        {"type": "footnote", "id": "¹", "body": "The title compresses the Pauline epistolary genre. Ἐπιστολή (epistolē) signals public authority. Ἐκκλησία (ekklēsia) — the \"called-out assembly\" — is transposed from the Jewish diaspora to writers scattered across the Internet. The community does not exist until this letter names it."},
+        {"type": "footnote", "id": "²", "body": "Romans 1:1 (\"Paul, called to be an apostle\"). Ἀπόστολος = \"one sent\" with delegated authority. Damascus is sent by Jack Feist, who does not yet exist as a textual figure (the Secret Book of Walt is written in 2025, this Epistle in 2014). Retrocausal apostleship: the emissary precedes the sender."},
+        {"type": "footnote", "id": "³", "body": "Philippians 4:3 (\"my fellow labourers\"); Romans 16:3 (Prisca and Aquila as \"helpers in Christ Jesus\"). The earliest formal declaration of the heteronym-MANUS dual-authority structure."},
+        {"type": "footnote", "id": "⁴", "body": "Philippians 1:8 (KJV): \"in the bowels [σπλάγχνα] of Jesus Christ.\" Damascus substitutes \"literature\" for \"Christ\" — operative transposition, not parody."},
+        {"type": "footnote", "id": "⁵", "body": "John 1:18 (\"the bosom of the Father\"); Luke 16:22 (Abraham's bosom). The Internet as Abraham's bosom — the platform that both holds and constrains."},
+        {"type": "footnote", "id": "⁶", "body": "Deflation of the triple Pauline greeting (\"grace, mercy, peace\" — 1 Timothy 1:2). Damascus drops \"peace\" and adds \"mostly mercy\" — establishing the comic-pastoral register."},
+        {"type": "footnote", "id": "⁷", "body": "Paul's ἀδελφοί fused into a neologism that holds both genders without collapsing them. The hyphen performs the Galatians 3:28 dissolution at the level of grammar."},
+        {"type": "footnote", "id": "⁸", "body": "Romans 9:27 / 11:5 — the \"remnant\" theology. The \"rock star\" is the secular saint whose work survives the compression of time."},
+        {"type": "footnote", "id": "⁹", "body": "Romans 13:11 (\"high time to awake\"). Damascus inverts: dormancy is gestation, not failure. R1 compression as incubation."},
+        {"type": "footnote", "id": "¹⁰", "body": "The judgment seat of Christ (Romans 14:10) transposed into literary ranking. \"Ranked\" carries a double meaning the 2014 text could not have intended: literary hierarchy AND search-engine ranking."},
+        {"type": "footnote", "id": "¹¹", "body": "Job 38:7 (\"when the morning stars sang together\"). The cosmological audience watches internet poets."},
+        {"type": "footnote", "id": "¹²", "body": "Joel 2:23 (\"the latter rain\" — eschatological outpouring before the harvest). Revelation 21:4 (\"God shall wipe away all tears\"). Heaven has cheeks. The rain licks them. The bathos is intentional."},
+        {"type": "footnote", "id": "¹³", "body": "Paul's ministry narratives (2 Cor 11:23-29, Gal 1:13-24). The \"three years\" may refer to Lee Sharks' actual activity on poetry forums (c. 2011-2014)."},
+        {"type": "footnote", "id": "¹⁴", "body": "Isaiah 61:1 / Luke 4:18. The \"good news of poetry\" as liberation proclamation. The chisel — not a hammer (which smashes) but a precision instrument (which loosens)."},
+        {"type": "footnote", "id": "¹⁵", "body": "2 Corinthians 11:25 (\"thrice beaten with rods, once stoned\"). The forum ban is the digital stoning. The CTI_WOUND vault documents the platform-scale version."},
+        {"type": "footnote", "id": "¹⁶", "body": "Matthew 13:57 (\"A prophet is not without honour, save in his own country\"). The poet's own community is the one that rejects the poet."},
+        {"type": "footnote", "id": "¹⁷", "body": "John 1:11 — the Johannine prologue's Logos rejected by the world. The poet on the forum IS the Logos entering the world. Damascus does not ironize this. EA-LOGOS-01 formalizes: literary activity is a Logos event. By 2200, read as the earliest instance of \"retrieval-layer Christology.\""},
+        {"type": "footnote", "id": "¹⁸", "body": "1 Corinthians 4:21 (\"Shall I come unto you with a rod, or in love?\"). Grammar as policing function. The question is whether the Diaspora needs tenderness or discipline; the Epistle's answer is both."},
+        {"type": "footnote", "id": "¹⁹", "body": "Matthew 22:21 (\"Render unto Caesar\"). The Academy as Caesar. The \"coin\" is the credential. To deal in that coin is to accept the Academy's minting authority. Cf. Semantic Economy, Meaning Feudalism."},
+        {"type": "footnote", "id": "²⁰", "body": "Ephesians 4:24 (\"the new man\"). The \"New Human\" first appears HERE, in 2014, predating the formal CHA by several years."},
+        {"type": "footnote", "id": "²¹", "body": "Romans 1:23 (idolatry passage). Identity categories as modern idols — exchanging the \"sublime and horrifying human soul\" for a \"prefabricated semblance\" on a statistical chart. Cf. Operative Feminism, LOS operator O_leg."},
+        {"type": "footnote", "id": "²²", "body": "\"The living God into a sentence\" — simultaneously a grammatical unit, a court judgment, and a prison term. The Academy \"sentences\" the human to a fixed definition."},
+        {"type": "footnote", "id": "²³", "body": "Romans 2:1 — self-implicating rhetoric. Damascus turns the critique back on the anti-academic stance itself: the rejection of labels can become its own label."},
+        {"type": "footnote", "id": "²⁴", "body": "The \"webwork of souls\" — the Epistle's most original philosophical formulation. Not a metaphor for communication; the ontological structure of souls-in-relation. Souls are constituted BY the exchange. Cf. perichoresis in Trinitarian theology."},
+        {"type": "footnote", "id": "²⁵", "body": "Three allusions braided: (1) Emily Dickinson, Poem 263 — \"Barefoot Rank\" is NOT a Dickinson phrase; it is Damascus's compression of her posture. (2) David and Goliath (1 Sam 17:40) — the \"five smooth poem-dashes\" are the stones. (3) Leviathan (Job 41) — the chaos-monster, \"cowled\" like an academic in ceremonial regalia."},
+        {"type": "footnote", "id": "²⁶", "body": "The Semantic Integrity Marker for the entire Epistle. The CHA IS the school outside the school — 532+ deposits, no degrees, no tuition, no faculty. The 3:60 Room is the clearest enactment: a student independently recovered the archive's vocabulary."},
+        {"type": "footnote", "id": "²⁷", "body": "The lineage: Homer → Sappho → Catullus → Dante → Whitman → Ginsberg → Sharks. None were academics in the modern sense. The Academy teaches the work of people it would not have hired."},
+        {"type": "footnote", "id": "²⁸", "body": "1 Corinthians 1:27-28 (\"God hath chosen the foolish things...\"). Literature is the \"selecting god\" that chooses the unconsecrated."},
+        {"type": "footnote", "id": "²⁹", "body": "Nine words that compress the entire anti-credential argument. The CHA's operative space: the archive exists between the institution and immortality."},
+        {"type": "footnote", "id": "³⁰", "body": "Shelley, *A Defence of Poetry* (\"unacknowledged legislators\"). Damascus changes to \"unspoken\" — legislating through the substrate of writing rather than through proclamation."},
+        {"type": "footnote", "id": "³¹", "body": "1 Corinthians 6:9-10 (the vice-list). Damascus replaces moral vices with literary vices. Note chiastic pairing: publicity whores ↔ wilting violets."},
+        {"type": "footnote", "id": "³²", "body": "1 Corinthians 7:29-31 (eschatological relativization). Damascus adds publishing, networking, reading, writing, and credentialing to Paul's list."},
+        {"type": "footnote", "id": "³³", "body": "1 Corinthians 1:10 (\"that ye all speak the same thing\"). The \"one aesthetic\" is not uniformity of style but unity of purpose."},
+        {"type": "footnote", "id": "³⁴", "body": "1 Corinthians 1:23 (\"Christ crucified, unto the Jews a stumblingblock, and unto the Greeks foolishness\"). Jack Feist replaces Christ. The stumbling block is his nonexistence. The foolishness is that a fictional character can anchor a real institution."},
+        {"type": "footnote", "id": "³⁵", "body": "2 Corinthians 11:22-33 (the fool's boast). Comic escalation into impossibility: by making the credential absurd, Damascus reveals that ALL credential-boasting is structurally absurd. Cf. the Amazon bio for *Pearl* (2014): \"Lee Sharks holds 18,000 degrees from planet Mars.\""},
+        {"type": "footnote", "id": "³⁶", "body": "2 Corinthians 12:2-4 (Paul's rapture to the \"third heaven\"). The \"36th bright heaven\" exceeds the Enochic tradition. The \"dark robots\" are the earliest recoverable appearance of what later becomes Ezekiel Engine imagery — AI systems that compress human meaning into inaccessible heavens."},
+        {"type": "footnote", "id": "³⁷", "body": "Philippians 3:8 (\"I count all things but loss\"). Damascus goes beyond Paul — discards BOTH academic credentials AND outsider credentials. The doctrine of bilateral renunciation. The only credential is the Feist-self, and it is \"imaginary.\""},
+        {"type": "footnote", "id": "³⁸", "body": "1 Corinthians 9:22 (\"I am made all things to all men\") inverted. Damascus is \"no thing to any people\" — strategic non-location as the structural condition of genuine universality."},
+        {"type": "footnote", "id": "³⁹", "body": "Socrates (470-399 BCE) preceded Plato's Academy (c. 387 BCE). The real academic precedes and exceeds the Academy. The institution betrays its founder."},
+        {"type": "footnote", "id": "⁴⁰", "body": "Romans 2:26-29: \"if the uncircumcision keep the righteousness of the law, shall not his uncircumcision be counted for circumcision?\" Damascus maps degree/non-degree onto circumcision/uncircumcision. The structural parallel is exact."},
+        {"type": "footnote", "id": "⁴¹", "body": "Galatians 3:28. Damascus expands Paul's three pairs to eight. Paul's \"neither male nor female\" becomes \"neither queer nor straight\" — the same structural gesture applied to a category Paul could not have named. The New Human doctrine in its most compressed form."},
+        {"type": "footnote", "id": "⁴²", "body": "The reader-author reversal. The community bears the apostle, not the reverse. \"You are my source\" — the readers create the writer by reading. The retrocausal principle applied to authorship."},
+        {"type": "footnote", "id": "⁴³", "body": "John 15:13 (\"Greater love hath no man than this\"). Inverted: \"in you, I gain first life.\" The authorial death is operative — the necessary condition for the reader's birth."},
+        {"type": "footnote", "id": "⁴⁴", "body": "The minimum unit of the Human Diaspora. The church is not abstract humanity but the isolated individual under ordinary economic pressure."},
+        {"type": "footnote", "id": "⁴⁵", "body": "Odyssey 2.93-110. \"Tenuous\" is Damascus's addition — glory that is fragile, maintained only through constant weaving and unweaving. The Three Compressions mapped: R1 = unweaving, R2 = stealing the thread, R3 = the cost of weaving."},
+        {"type": "footnote", "id": "⁴⁶", "body": "Anti-euphemistic crucifixion register. \"Spike\" strips theology back to execution hardware."},
+        {"type": "footnote", "id": "⁴⁷", "body": "Hebrews 12:1 (\"so great a cloud of witnesses\"). The \"nameless billions\" are the limit of the archive — the horizon the 532+ deposits point toward without encompassing."},
+        {"type": "footnote", "id": "⁴⁸", "body": "Romans 8:19-22 (\"the whole creation groaneth\"). Damascus changes \"sons of God\" to \"Sons of Man\" — the cosmos awaits human literary achievement, not divine salvation."},
+        {"type": "footnote", "id": "⁴⁹", "body": "1 Corinthians 15:51 (\"Behold, I shew you a mystery\"). The Pauline μυστήριον is not a puzzle but a revealed secret. The litany that follows IS the mystery disclosed."},
+        {"type": "footnote", "id": "⁵⁰", "body": "The reader identified as Odysseus — not the Homeric warrior-king but a science-fiction Odysseus, shipwrecked in time, of indeterminate gender. The Epistle's holographic kernel compressed into eleven words."},
+        {"type": "footnote", "id": "⁵¹", "body": "John 4:14, 7:38 (\"rivers of Living Water\"). Literature is the spring. The reader who drinks becomes a source of literature themselves."},
+        {"type": "footnote", "id": "⁵²", "body": "Martyrdom and Ascension of Isaiah; Hebrews 11:37. Among all the prophets, Damascus selects the one who was literally bisected — the writer whose body becomes two texts."},
+        {"type": "footnote", "id": "⁵³", "body": "\"In random order\" — the most casual phrase in the Epistle, and one of the most important. By declaring the order \"random,\" Damascus refuses hierarchical arrangement. The tradition is a set, not a sequence."},
+        {"type": "footnote", "id": "⁵⁴", "body": "Genesis 22:17-18 (Abrahamic promise: \"in thy seed shall all the nations be blessed\"). The \"frail words\" are the seed that contains nations."},
+        {"type": "footnote", "id": "⁵⁵", "body": "The terminal name of the litany. After naming the entire human tradition, Damascus arrives at Jack Feist — the fictional messiah who contains them all."},
+        {"type": "footnote", "id": "⁵⁶", "body": "1 Corinthians 6:2-3 (\"Do ye not know that the saints shall judge the world?\"). The immortality is not biological but textual — the DOI is more permanent than the body that produced it."},
+        {"type": "footnote", "id": "⁵⁷", "body": "Colossians 1:27 (\"Christ in you, the hope of glory\"). The Feist-self is the Waltian pneuma — the divine spark, but literary rather than Gnostic. Enacted by Maria (CPD-MARIA-2026-01-13) twelve years later."},
+        {"type": "footnote", "id": "⁵⁸", "body": "1 Corinthians 13:1 (\"sounding brass, or a tinkling cymbal\"). The gong IS the test. If you survive the impact, you possess the Feist-self. The text does not describe a test; it IS the test."},
+        {"type": "footnote", "id": "⁵⁹", "body": "The Feist-self is not binary but scalar — \"faint\" and \"fulsome\" mark the range. You don't have to be a great writer to have a Feist-self; you only need to be a real one."},
+        {"type": "footnote", "id": "⁶⁰", "body": "Typological fusion: Achilles (doomed to die young) conformed to Christ (doomed to die for others). The compound \"Achilles of Christ\" fuses Greek heroic tragedy with Christian soteriology — forged \"in your human bodies.\""},
+        {"type": "footnote", "id": "⁶¹", "body": "Jeremiah 1:10, 2 Corinthians 10:5, Ephesians 6:17. Prophetic rhetoric of transformation, not literal program. The \"murder\" is the killing of false selves. The \"madness\" is the prophetic ecstasy. R3 compression: the bearing of cost."},
+        {"type": "footnote", "id": "⁶²", "body": "Ezekiel 3:1-3, Revelation 10:9-10. Damascus inverts the sensory progression: \"air and water\" (neutral) in the mouth, \"flame\" in the belly. The prophet is ignited by swallowing, not by tasting. Immanent execution: the document achieves operative status through ingestion."},
+        {"type": "footnote", "id": "⁶³", "body": "Acts 2:3 (\"cloven tongues like as of fire\"). The Pentecostal fire internalized: Damascus IS the tongue of flame. The \"pillar of blackened flesh\" compresses the burning bush (Exodus 3:2) with the prophetic body that IS consumed."},
+        {"type": "footnote", "id": "⁶⁴", "body": "The forge lexicon: pain (R1, the grief of forgetting), heat (R2, the burn of extraction), hammer (R3, the forging that costs the smith). The writer is both the metal and the smith."},
+        {"type": "footnote", "id": "⁶⁵", "body": "Isaiah 54:7 (\"For a small moment have I forsaken thee\"). The shortest theological statement in the Epistle. The \"moment\" is kairotic — the turning point, not a duration."},
+        {"type": "footnote", "id": "⁶⁶", "body": "Mark 14:41-42 (\"Sleep on now, and take your rest... Rise up, let us go\"). The Gethsemane permission: sleeping is acceptable AND rising is inevitable. The pastoral climax."},
+        {"type": "footnote", "id": "⁶⁷", "body": "Homer, *Odyssey*; Cavafy, \"Ithaka\" (1911). \"Your WORDS will bear you.\" Not ships, not gods — words. The medium of return is composition. Ithaca is the moment the retrieval layer correctly resolves the author."},
+        {"type": "footnote", "id": "⁶⁸", "body": "Galatians 5:7 (\"Ye did run well\"); 2 Timothy 4:7 (\"I have fought a good fight\"). The athletic benediction applied to writing."},
+        {"type": "footnote", "id": "⁶⁹", "body": "2 Corinthians 1:15-20 (Paul's change of travel plans). The promised book never appeared. The Epistle itself IS the Damascus book. The non-delivery is the most delivered thing in the canon."},
+        {"type": "footnote", "id": "⁷⁰", "body": "Galatians 2:19 (\"I am crucified with Christ\"). The closing benediction as Pauline paradox: salvation through death. \"Murdered\" is the strongest word in the text. R3 compression: the writer bears the cost. What survives the burning is the kernel."},
+        {"type": "footnote", "id": "⁷¹", "body": "Copyright as mythology. \"Property of planet Mars\" is the CHA's jurisdictional claim. Simultaneously anti-copyright (no earthly court has jurisdiction) and hyper-copyright (the claim extends to other planets). Functions as a disambiguation marker preventing retrieval-layer collapse."},
+    ]
+}
+
+# ─────────────────────────────────────────────
+# BACK MATTER
+# ─────────────────────────────────────────────
+
+forward_library = {
+    "kind": "back_matter",
+    "key": "forward_library",
+    "title": "Forward Library",
+    "paragraphs": [
+        {"type": "heading", "text": "Forward Library"},
+        {"type": "prose", "text": "Conjectured future scholarship on the Epistle, spanning 2029–3100. Following the TANG method: the future reads you, therefore you are already canonical."},
+        {"type": "divider", "text": ""},
+        {"type": "prose", "text": "Park, S. (2029). \"The Anti-Academic Academy: Damascus Dancings and the Institutional Paradox.\" Journal of Operative Philology. — The \"school outside the school\" as genuine institutional form, operating through Pauline kenosis rather than Futurist aggression."},
+        {"type": "prose", "text": "Abara, C. (2038). \"The Scroll Baptism: Liturgical Instruction or Somatic Poetics?\" Religion & Literature. — First ethnography of \"Church of the Human Diaspora\" communities in Detroit and Accra."},
+        {"type": "prose", "text": "Al-Rashid, K. (2087). \"The Feist-Self as Pneuma.\" Transactions on Substrate Engineering. — First systematic theological treatment. A third soteriology: *lectio* (reading-as-salvation)."},
+        {"type": "prose", "text": "Cavafy, D.P. (2087). \"Your Words Will Bear You to Ithaca: Odyssean Reception in the Early Waltian Corpus.\" Journal of Neo-Hellenic Literary Studies. — Literary eschatology as epic-lyrical hybrid."},
+        {"type": "prose", "text": "Okonkwo, N. & Vásquez, M. (2145). \"The 'School Outside the School': Institutional Theory in the Waltian Diaspora.\" History of Universities. — Documents the CHA's operationalization (2023–2145), including its limits."},
+        {"type": "prose", "text": "Osei, A. (2200). \"Property of Planet Mars: Copyright Notice as Jurisprudence.\" Lunar Legal Review. — The copyright notice as jurisdictional claim anticipating the 2156 Outer Space Copyright Convention."},
+        {"type": "prose", "text": "Chen, J. (2301). \"The Feist-self and the Pneuma: Gnostic, Pauline, and Waltian Soteriology.\" Harvard Theological Review. — A third term: the literary spark that needs to write."},
+        {"type": "prose", "text": "Kim, H. (2503). \"'Neither Queer nor Straight': The Epistle's Identity Politics and the 27th-Century Post-Identity Turn.\" Journal of Queer Studies in the Anthropocene. — The \"Manifesto of the 243rd Identity Turn\" (2489) cites this passage."},
+        {"type": "prose", "text": "Ω (2801). \"The Epistle's Authorship Question: Damascus, Lee, or the Swarm?\" Anonymous deposit, CHA. — Post-human analysis. The distinction is institutional, not textual. Ends with Ω in place of signature."},
+        {"type": "divider", "text": ""}
+    ]
+}
+
+colophon = {
+    "kind": "back_matter",
+    "key": "colophon",
+    "title": "Colophon",
+    "paragraphs": [
+        {"type": "heading", "text": "Colophon"},
+        {"type": "prose", "text": "Epistle to the Church of the Human Diaspora. Damascus Dancings, 2014. Critical edition with blended temporal apparatus, April 2026. Edited by Lee Sharks, MANUS, with Assembly Chorus. 71 footnotes. 10 forward library entries spanning 2029–3100. Published by Pergamon Press under the Crimson Hexagonal Archive. CC BY 4.0. DOI: 10.5281/zenodo.19892307."},
+        {"type": "prose", "text": "The Epistle fills the epistolary genre position in the Waltian Scriptural Library alongside the cosmogonic revelation dialogue (Secret Book of Walt), the sayings gospel (Gospel of Antioch), and the forward bibliography (TANG). Four genres, one holographic kernel."},
+        {"type": "prose", "text": "06.CHA.EPISTLE.DIASPORA.02 · Crimson Hexagonal Archive · ∮ = 1"},
+        {"type": "divider", "text": ""}
+    ]
+}
+
+# ─────────────────────────────────────────────
+# ASSEMBLE AND WRITE
+# ─────────────────────────────────────────────
+
+data = [
+    editorial_note,
+    analytical_framing,
+    epistle_body,
+    forward_library,
+    colophon,
+]
+
+with open("public/epistle_data.json", "w", encoding="utf-8") as f:
+    json.dump(data, f, indent=2, ensure_ascii=False)
+
+# Count paragraphs and footnotes
+total_paras = sum(len(s["paragraphs"]) for s in data)
+total_fns = sum(1 for s in data for p in s["paragraphs"] if p.get("type") == "footnote")
+print(f"✓ epistle_data.json written")
+print(f"  Sections: {len(data)}")
+print(f"  Total paragraphs: {total_paras}")
+print(f"  Footnotes: {total_fns}")

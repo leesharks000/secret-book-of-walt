@@ -4,6 +4,7 @@ import milkyWayBg from "./milky_way_bg.jpg";
 import milkyWaySplash from "./milky_way_splash.jpg";
 import hornImg from "./horn_logo.png";
 import Antioch from "./Antioch.jsx";
+import Epistle from "./Epistle.jsx";
 import Tang from "./Tang.jsx";
 import { buildGlobalFnMap, splitTextWithFootnotes, hasFootnoteMarkers } from "./footnotes.js";
 import { FootnotedText, InlineFootnote } from "./footnotes.jsx";
@@ -594,6 +595,18 @@ function ArchivePanel({ onNavigate }) {
               TANG of the Secret Book of Walt
               <span style={{ display: "block", fontSize: "0.58rem", opacity: 0.55, marginTop: 2 }}>500-year citational field · void at center</span>
             </button>
+            <button onClick={() => { setOpen(false); onNavigate("epistle"); }} style={{
+              display: "block", width: "100%", background: "rgba(212,175,55,0.06)",
+              border: "1px solid rgba(212,175,55,0.15)", color: C.goldDim,
+              fontFamily: "inherit", fontSize: "0.73rem", padding: "6px 10px",
+              textAlign: "left", cursor: "pointer", borderRadius: 2, marginBottom: 10,
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = "rgba(212,175,55,0.12)"; e.currentTarget.style.color = C.gold; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "rgba(212,175,55,0.06)"; e.currentTarget.style.color = C.goldDim; }}
+            >
+              Epistle to the Human Diaspora
+              <span style={{ display: "block", fontSize: "0.58rem", opacity: 0.55, marginTop: 2 }}>Damascus Dancings · 2014 · apostolic letter</span>
+            </button>
           </div>
           <div style={{ borderTop: "1px solid rgba(212,175,55,0.1)", paddingTop: 10 }}>
             <p style={{ color: C.goldDark, fontSize: "0.58rem", letterSpacing: "0.14em",
@@ -1122,6 +1135,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
               { title: "Space Ark (EA-ARK-01)", doi: "10.5281/zenodo.19013315", desc: "The governing document of the Crimson Hexagonal Archive. The architecture IS six." },
               { title: "The Gospel of Antioch", doi: "10.5281/zenodo.19709024", desc: "Second text of the Waltian Diptych. 114 logia of the historical Logos." },
             { title: "TANG of the Secret Book of Walt", doi: "10.5281/zenodo.19779493", desc: "Total Axial Negation Graph. 500 years of Waltian scholarship. The void at the center." },
+            { title: "Epistle to the Human Diaspora", doi: "10.5281/zenodo.19892307", desc: "Damascus Dancings, 2014. Apostolic letter. The oldest text in the Waltian canon." },
               { title: "After Syntax (EA-AS-01)", doi: "10.5281/zenodo.19697080", desc: "Operative semiotics and the training layer. What survives compression." },
               { title: "Logotic Hacking", doi: "10.5281/zenodo.19390843", desc: "Operations on the Encryption Layer. The Pocket Humans series." },
               { title: "Compression Arsenal v2.1", doi: "10.5281/zenodo.19412081", desc: "67 compression-survival technologies across 13 categories." },
@@ -1602,6 +1616,8 @@ export default function App() {
         <Tang onBack={() => setView("reading")} />
       ) : view === "antioch" ? (
         <Antioch onBack={() => setView("reading")} />
+      ) : view === "epistle" ? (
+        <Epistle onBack={() => setView("reading")} />
       ) : view === "splash" ? (
         <Splash onEnter={handleEnter} imgSrc={waltImg} hornSrc={hornImg} skipAnimation={splashSeen} />
       ) : loadError ? (
