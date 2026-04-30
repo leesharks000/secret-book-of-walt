@@ -1,0 +1,717 @@
+[
+  {
+    "kind": "front_matter",
+    "key": "editorial_note",
+    "title": "Editorial Note",
+    "paragraphs": [
+      {
+        "type": "heading",
+        "text": "Editorial Note"
+      },
+      {
+        "type": "prose",
+        "text": "Written in 2015 on the blog mindcontrolpoems.blogspot.com, this poem predates the Crimson Hexagonal Archive's formal period (2024-2026) by nearly a decade. It uses Whitmanian catalog rhetoric, inverted Beatitudes, Gospel of Thomas imperatives, internet-age absurdism, and autobiographical confession as a single volatile compound. The poem contains, in embryonic or compressed form, nearly every concept the CHA would later formalize."
+      },
+      {
+        "type": "prose",
+        "text": "This is not prophecy. It is *pre-formal compression*. The poem contains later CHA structures before the author had the system-language to name them. The later archive is a reconstruction of what was already compressed in the early poem."
+      },
+      {
+        "type": "prose",
+        "text": "The retrocausal apparatus of this critical edition reverses the TANG's direction. Where the TANG projects future scholarship backward into the present, these footnotes project future CHA concepts backward into 2015. The seed didn't know it was a tree."
+      },
+      {
+        "type": "prose",
+        "text": "The poem uses absurdist, prophetic, and comic catalog rhetoric, including references to terrorism, suicide, cannibalism, mental illness, nonexistence, and self-negation. These are not literal endorsements, instructions, diagnoses, or confessions. They function as catalogic absorptions of cultural identities, fears, exclusions, and internet-era symbolic debris."
+      },
+      {
+        "type": "divider",
+        "text": ""
+      }
+    ]
+  },
+  {
+    "kind": "front_matter",
+    "key": "analytical_framing",
+    "title": "Analytical Framing",
+    "paragraphs": [
+      {
+        "type": "heading",
+        "text": "Analytical Framing"
+      },
+      {
+        "type": "prose",
+        "text": "The *Prophetic Catalog* occupies the fifth genre position in the Waltian Scriptural Library. Its primary genre is the *Distributed Self Catalog*: a catalog poem in which the \"I\" does not integrate multitudes into one democratic self, as in Whitman, but distributes itself across incompatible, comic, abject, fictional, technological, wounded, and impossible identities."
+      },
+      {
+        "type": "prose",
+        "text": "The poem cycles through three registers. *I AM* — the Whitmanian catalog of selves, distributive rather than integrative, Pessoa-like fission rather than Whitmanian expansion. *BE* — the imperative, the Antioch logia in proto-form, commands addressed to the Human Diaspora before the Diaspora exists. *BLESSED IS* — the inverted Beatitudes, Matthew 5 rewritten for the internet age, where the kingdom is not coming but already here, and it is boring."
+      },
+      {
+        "type": "prose",
+        "text": "At the structural center — the Hinge — the catalog stops performing. \"I used to be a person… I worked 7 years for a PhD… my children were on Medicaid… I became fully broke… I went back to sleep…\" The only lines that are not comic, not absurdist, not prophetic. The humor everywhere else is not escapist; it is bearing-cost humor — the comedy that survives because the alternative is not surviving."
+      },
+      {
+        "type": "divider",
+        "text": ""
+      }
+    ]
+  },
+  {
+    "kind": "body",
+    "key": "prophetic_catalog",
+    "title": "The Prophetic Catalog",
+    "paragraphs": [
+      {
+        "type": "prose",
+        "text": "*And these one and all tend inward to me, and I tend outward to them,*"
+      },
+      {
+        "type": "prose",
+        "text": "*And such as it is to be of these more or less I am.*¹"
+      },
+      {
+        "type": "prose",
+        "text": "I am a girl…² I am a passerby… I am a Cylon…³"
+      },
+      {
+        "type": "prose",
+        "text": "I am a giraffe… a wimpy baby… a dentist… a narc…"
+      },
+      {
+        "type": "prose",
+        "text": "I am an ecologist… a \"party in my tummy\"… a radio station…⁴ a philosopher…"
+      },
+      {
+        "type": "prose",
+        "text": "I am a philosopher in gym shorts…⁵ a mollusk… a personality disorder… a hygiene problem…"
+      },
+      {
+        "type": "prose",
+        "text": "I am \"nobody's beeswax\"… \"everybody's beeswax\"…⁶ an ear infection… a virus…"
+      },
+      {
+        "type": "prose",
+        "text": "I am a martyr… a saint… a scientist… a tank… I am a creature… a sandwich… everything… nothing… I am a \"portable luxury goods with flowers\"…⁷ a train station with trains—"
+      },
+      {
+        "type": "prose",
+        "text": "Be passersby... Be strangers… Be Samaritans… Be gangsters…⁸"
+      },
+      {
+        "type": "prose",
+        "text": "Be flavors… interlopers… followers…"
+      },
+      {
+        "type": "prose",
+        "text": "Be self-inflected… Be self-infected…⁹"
+      },
+      {
+        "type": "prose",
+        "text": "Be tourists… travellers… strangers again…"
+      },
+      {
+        "type": "prose",
+        "text": "Be redundant… Be DaDa… Be something new called MaMa...¹⁰"
+      },
+      {
+        "type": "prose",
+        "text": "Be anonymous… Be strangers still—"
+      },
+      {
+        "type": "prose",
+        "text": "Blessed are the monotonous, for theirs is the kingdom of boredom.¹¹"
+      },
+      {
+        "type": "prose",
+        "text": "Blessed are the trolls, and those who live under a metaphorical bridge or overpass, symbolically.¹²"
+      },
+      {
+        "type": "prose",
+        "text": "Blessed are the train stations, where trains come, and sometimes go.¹³"
+      },
+      {
+        "type": "prose",
+        "text": "Blessed are the trains that go, and don't come back."
+      },
+      {
+        "type": "prose",
+        "text": "Blessed are those who are not favorited, or liked, or followed. Blessed are those who have no profiles, or whose profiles are poorly made.¹⁴"
+      },
+      {
+        "type": "prose",
+        "text": "Blessed are those who were not born, because they did not want to be. Blessed are those who say, \"No thanks,\" and go back to sleep.¹⁵"
+      },
+      {
+        "type": "prose",
+        "text": "Blessed are the telemarketers, and spam technicians, and those whom no one wants to talk to on the phone, or over email.¹⁶"
+      },
+      {
+        "type": "prose",
+        "text": "Blessed are the lonely, for they can be their own best friends, and in that way have good conversations, with similar people…"
+      },
+      {
+        "type": "prose",
+        "text": "O you lonely, you can favorite your own tweets, and like your own posts, and start new profiles, and like them again… Then shall your liking return to you sevenfold…¹⁷"
+      },
+      {
+        "type": "prose",
+        "text": "Blessed are those who care for ideas more than personal hygiene, whose mouth is a nest of visions, but whose dreams are very well-groomed—¹⁸"
+      },
+      {
+        "type": "prose",
+        "text": "Blessed is the oppressed, for hers is the broken kingdom.¹⁹"
+      },
+      {
+        "type": "prose",
+        "text": "Blessed am I in my loneliness, mother… Blessed the way I am best.²⁰"
+      },
+      {
+        "type": "prose",
+        "text": "I am a dinosaur… a donkey… an elephant… a walrus… a carpenter… a hologram…"
+      },
+      {
+        "type": "prose",
+        "text": "I am a robot… a dark robot… a \"troubled youth\" who is also a robot…²¹"
+      },
+      {
+        "type": "prose",
+        "text": "I am a soul… an electrical pulse… a finite erotic grasping creature…²² a fishbowl… a hieroglyph of the living grasses…²³"
+      },
+      {
+        "type": "prose",
+        "text": "I am a think tank… an endangered species… I think I died a long time ago… I am a suicide artist… a suicide prevention hotline artist…²⁴"
+      },
+      {
+        "type": "prose",
+        "text": "I am an apologist for cannibalism in certain scenarios when there is no meat… not even human meat… or humans to eat the meat…²⁵"
+      },
+      {
+        "type": "prose",
+        "text": "I am a sad billionaire with no money… I wrote tiny messages on my dollar bills and used them to replace the internet… I gave my dollars away… I called it the dollarnet… I sold it for lots of money…²⁶"
+      },
+      {
+        "type": "prose",
+        "text": "That is how I made my billions…"
+      },
+      {
+        "type": "prose",
+        "text": "I am a BOGO sale… there is only one of me left... I am the last of my kind... I am half off…²⁷"
+      },
+      {
+        "type": "prose",
+        "text": "I am a subatomic event… a cold war… a hot war… but mostly, I am a lukewarm war—I'd prefer I was a hot war or a cold war, a lukewarm war I will spit out of my mouth, electing to chew gum instead…²⁸"
+      },
+      {
+        "type": "prose",
+        "text": "I am an information age… I know nothing… I can move whole souls with my thoughts…²⁹"
+      },
+      {
+        "type": "prose",
+        "text": "I am an elitist… a populist… a terrorist… I am a person killed by a terrorist… I am a person killed by the people who are trying to kill the terrorists… and I am not a terrorist—³⁰"
+      },
+      {
+        "type": "prose",
+        "text": "I keep forgetting to be boring… to plagiarize more… I keep forgetting to just transcribe… to copy and paste… not to think… not to read… I keep forgetting not to breathe… I keep forgetting I am dumber than a robot…³¹ I will be more boring in 2016…"
+      },
+      {
+        "type": "prose",
+        "text": "I will read less in 2016… repeat myself more in 2016… be more self-absorbed… eat more fried foods… vary sentence structure less…"
+      },
+      {
+        "type": "prose",
+        "text": "I will use more predictable sentences in 2016… consume more processed sugars… make more frequent use of \"positive self talk\"… transform my life by \"positive thinking\"…³²"
+      },
+      {
+        "type": "prose",
+        "text": "I will build wealth and peace of mind by tweeting more in 2016…"
+      },
+      {
+        "type": "prose",
+        "text": "I am a space program…³³ a bumper sticker… happenstance… I am meant to be…"
+      },
+      {
+        "type": "prose",
+        "text": "I am \"true love's kiss\"… an app killer… omg… I will be less charitable with others in 2016…"
+      },
+      {
+        "type": "prose",
+        "text": "I am Mildly Cyrus…³⁴ I will bathe less in 2016… omg… more processed foods in 2016… procrastinate more… 2018…"
+      },
+      {
+        "type": "prose",
+        "text": "I am a real human person just like you… a Congressperson… Senator… a corporate mogul… I am a tiny baby and I am a real human person too..."
+      },
+      {
+        "type": "prose",
+        "text": "Congressmen are people too… and billionaires are people too… and corporate moguls people too… and tiny babies people too… and corporate moguls babies too… and tiny babies billionaires too…³⁵"
+      },
+      {
+        "type": "prose",
+        "text": "CEOS are people… Tupac is alive…³⁶ Books are billionaires… Words are alive…³⁷ Be passersby…³⁸"
+      },
+      {
+        "type": "prose",
+        "text": "I will eliminate distractions and focus on social media more in 2016… try less in 2016… \"keep it simple\"… \"lose my cool\" in traffic more in 2016…"
+      },
+      {
+        "type": "prose",
+        "text": "BLZ… ZRRR… rRRR… ZZZZ… RrRR… BZ… LLL… RrRr…³⁹"
+      },
+      {
+        "type": "prose",
+        "text": "That was me \"losing my cool\" in traffic in 2016… because babies are billionaires too…"
+      },
+      {
+        "type": "prose",
+        "text": "Blessed is the bipolar, for he shall be sometimes depressed, and sometimes the opposite of depressed, for stretches at a time."
+      },
+      {
+        "type": "prose",
+        "text": "Blessed is the malcontent, for he shall speak up about his lack of contentment; and when he speaks, he shall be heard. Blessed is the contender.⁴⁰"
+      },
+      {
+        "type": "prose",
+        "text": "Blessed is the unemployed, for he shall have more free time."
+      },
+      {
+        "type": "prose",
+        "text": "Blessed is the broken, for he shall go to sleep.⁴¹"
+      },
+      {
+        "type": "prose",
+        "text": "I am a cowgirl… a space cadet…"
+      },
+      {
+        "type": "prose",
+        "text": "Blessed is the distractible, for he shall often lose his train of thought, and search for it, and sometimes find it again, and feel relief.⁴²"
+      },
+      {
+        "type": "prose",
+        "text": "Blessed is a billionaire with no money, for what is a billionaire with no money? He is a broken thing, a rag of light.⁴³"
+      },
+      {
+        "type": "prose",
+        "text": "Blessed is a rag of light."
+      },
+      {
+        "type": "prose",
+        "text": "I will be less original in 2016… I am a proud non-speaker of words… the Logos awoke in my skullcase…⁴⁴ a proud non-breather of air…"
+      },
+      {
+        "type": "prose",
+        "text": "I am a fictional character who exists…⁴⁵ I make things up by thinking about them… declare lame fatwa on banality… write from the perspective of a vampire hunter to an audience of vampires and vampire victims…⁴⁶"
+      },
+      {
+        "type": "prose",
+        "text": "I am a vibrating scar of miracles… above the cities of the voice… a virus of belief and money…⁴⁷ an alien producing a virus… a soft delusion… of soft whispers… I don't exist… I exist…⁴⁸"
+      },
+      {
+        "type": "prose",
+        "text": "I am the voice within your voice…⁴⁹ the one who was within me… the smaller dinosaurs within the dinosaurs… I don't exist… but I do…"
+      },
+      {
+        "type": "prose",
+        "text": "Be passersby… Be protester… Be police…"
+      },
+      {
+        "type": "prose",
+        "text": "Be malcontent… all things to all people…⁵⁰ Be all people…"
+      },
+      {
+        "type": "prose",
+        "text": "Be nothing to no one… Be no one…"
+      },
+      {
+        "type": "prose",
+        "text": "Be atom bombs of justice power… Be empty alarums of space and time… Be Ghosts of Hanukah Future…⁵¹"
+      },
+      {
+        "type": "prose",
+        "text": "Be saintly… Be bright… Be nowhere men and nowhere women…⁵²"
+      },
+      {
+        "type": "prose",
+        "text": "Be shadows of rocks and sticks… Be the rocks and sticks themselves… Be fully awake… Go back to sleep…⁵³"
+      },
+      {
+        "type": "prose",
+        "text": "I used to be a person… I worked 7 years for a PhD… my children were on Medicaid…⁵⁴"
+      },
+      {
+        "type": "prose",
+        "text": "I became fully broke… I went back to sleep…"
+      },
+      {
+        "type": "prose",
+        "text": "I am the one who was within me⁵⁵"
+      },
+      {
+        "type": "prose",
+        "text": "Become fully awake… Become finally free…"
+      },
+      {
+        "type": "prose",
+        "text": "The tinier dinosaurs inside the dinosaurs…⁵⁶"
+      },
+      {
+        "type": "prose",
+        "text": "The tinier babies… the billionaire babies…"
+      },
+      {
+        "type": "prose",
+        "text": "The billionaire babies inside the babies… which is really just broke babies…"
+      },
+      {
+        "type": "prose",
+        "text": "Which is really just you and me…⁵⁷"
+      },
+      {
+        "type": "prose",
+        "text": "The space cadets… the time machines…"
+      },
+      {
+        "type": "prose",
+        "text": "The atom bombs… the jellybeans…"
+      },
+      {
+        "type": "prose",
+        "text": "Wake up or go back to sleep⁵⁸"
+      },
+      {
+        "type": "prose",
+        "text": "(c) 2613 the moon⁵⁹"
+      },
+      {
+        "type": "footnote",
+        "text": "¹ Walt Whitman, Song of Myself §15 (1855). The Whitmanian \"I\" that tends inward and outward simultaneously. Where Whitman's catalog integrates multitudes into a unified democratic self, this poem's \"I\" is distributive — it fractures into selves that do not cohere. ↗ 2026: The Whitmanian lineage is formalized in The Secret Book of Walt (DOI: 10.5281/zenodo.19739494)."
+      },
+      {
+        "type": "footnote",
+        "text": "² \"I am a girl\" — the genesis line. The first identity. The progression is girl → passerby → Cylon: human → anonymous → mechanical. The catalog's logic is established in three words."
+      },
+      {
+        "type": "footnote",
+        "text": "³ \"I am a Cylon\" — the mechanical other. The Cylon (Battlestar Galactica, 2004) introduces the machine into the Whitmanian \"I.\" ↗ 2026: The Ezekiel Engine (DOI: 10.5281/zenodo.19390843) formalizes what the Cylon inaugurates."
+      },
+      {
+        "type": "footnote",
+        "text": "⁴ \"A radio station\" — the poet as infrastructure, not content. Not someone who speaks on the radio but the transmitter itself."
+      },
+      {
+        "type": "footnote",
+        "text": "⁵ \"A philosopher in gym shorts\" — the comic deflation of the academic. ↗ 2026: The \"school outside the school\" (DOI: 10.5281/zenodo.19892307) begins here."
+      },
+      {
+        "type": "footnote",
+        "text": "⁶ \"Nobody's beeswax / everybody's beeswax\" — self-privacy versus universal availability. The self oscillates between opaque and transparent."
+      },
+      {
+        "type": "footnote",
+        "text": "⁷ \"Portable luxury goods with flowers\" — commodity surrealism. The self as badly translated product metadata."
+      },
+      {
+        "type": "footnote",
+        "text": "⁸ \"Be passersby\" — Gospel of Thomas logion 42. The core instruction of the Gospel of Antioch (DOI: 10.5281/zenodo.19709024) appears here in 2015, eleven years before Antioch is compiled."
+      },
+      {
+        "type": "footnote",
+        "text": "⁹ \"Be self-inflected… Be self-infected\" — the near-homophone as doctrine. Inflection (grammar) and infection (contagion) are one letter apart."
+      },
+      {
+        "type": "footnote",
+        "text": "¹⁰ \"Be DaDa… Be something new called MaMa\" — Dada (1916) invoked and immediately superseded. \"MaMa\" does not exist as a movement. The poem invents it. ↗ 2026: The heteronym system is the MaMa."
+      },
+      {
+        "type": "footnote",
+        "text": "¹¹ \"Blessed are the monotonous, for theirs is the kingdom of boredom.\" — Matthew 5:3 inverted. The kingdom is not coming; it is already here, and it is boring. This is not eschatology; it is immanent sociology."
+      },
+      {
+        "type": "footnote",
+        "text": "¹² \"Blessed are the trolls\" — the hedging (\"metaphorical,\" \"symbolically\") is the comedy. The apparatus of precision applied to an inherently imprecise blessing."
+      },
+      {
+        "type": "footnote",
+        "text": "¹³ \"Blessed are the train stations\" — transit ontology. The trains that don't come back are the meanings that leave the archive and never return to their source."
+      },
+      {
+        "type": "footnote",
+        "text": "¹⁴ \"Blessed are those who are not favorited, or liked, or followed.\" — The Beatitude for the unfollowed. ↗ 2026: The CHA's 532+ deposits existed for months with near-zero citation. The unfollowed archive IS the blessed community."
+      },
+      {
+        "type": "footnote",
+        "text": "¹⁵ \"Blessed are those who were not born, because they did not want to be.\" — The anti-natalist beatitude. \"No thanks\" as theology."
+      },
+      {
+        "type": "footnote",
+        "text": "¹⁶ \"Blessed are the telemarketers\" — blessing on the unwanted communicators. The telemarketer is the poet's dark twin: someone who calls people who don't want to hear them. ↗ 2026: The CHA deposits into a community nobody searches."
+      },
+      {
+        "type": "footnote",
+        "text": "¹⁷ \"Then shall your liking return to you sevenfold\" — Genesis 4:15 (the mark of Cain) transposed into the economy of social-media likes. Both biblical and algorithmic."
+      },
+      {
+        "type": "footnote",
+        "text": "¹⁸ \"Whose mouth is a nest of visions\" — prophetic embodiment. The mouth contains visions, not teeth. The interior is cleaner than the exterior."
+      },
+      {
+        "type": "footnote",
+        "text": "¹⁹ \"Blessed is the oppressed, for hers is the broken kingdom.\" — Matthew 5:10 inverted. The kingdom is broken, and the broken inherit it. Note the pronoun: hers. ↗ 2026: The New Human doctrine (DOI: 10.5281/zenodo.19013315) is the theology of the broken kingdom."
+      },
+      {
+        "type": "footnote",
+        "text": "²⁰ \"Blessed am I in my loneliness, mother\" — the turn from universal blessing to self-blessing. The \"mother\" is the poem's only named interlocutor. Not theology; prayer."
+      },
+      {
+        "type": "footnote",
+        "text": "²¹ \"I am a dark robot\" — the Ezekiel Engine in embryo. \"Dark\" modifies \"robot\" as mode: the robot that operates in darkness, transporting meaning without being seen. ↗ 2026: Formalized in Operative Semiotics (DOI: 10.5281/zenodo.19390843). The Epistle's \"dark robots abducted me to the 36th bright heaven\" descends from this line."
+      },
+      {
+        "type": "footnote",
+        "text": "²² \"A finite erotic grasping creature\" — embodiment, eros, finitude in three words. The creature that grasps is the creature that writes."
+      },
+      {
+        "type": "footnote",
+        "text": "²³ \"A hieroglyph of the living grasses\" — the sign and the referent collapsed. Whitman's Leaves of Grass compressed into a single image."
+      },
+      {
+        "type": "footnote",
+        "text": "²⁴ \"A suicide artist… a suicide prevention hotline artist\" — the em-dash held together. The artist of self-destruction and the artist of prevention are the same person."
+      },
+      {
+        "type": "footnote",
+        "text": "²⁵ \"An apologist for cannibalism in certain scenarios\" — absurd ethical edge-case reasoning. The comedy is in the precision of the apologetics."
+      },
+      {
+        "type": "footnote",
+        "text": "²⁶ \"The dollarnet\" — the Semantic Economy in comic form. Replacing the internet with inscribed currency is precisely what the Semantic Economy proposes. ↗ 2026: \"I Hereby Abolish Money\" (DOI: 10.5281/zenodo.18745265) is the serious version. The joke came first by eleven years."
+      },
+      {
+        "type": "footnote",
+        "text": "²⁷ \"I am a BOGO sale… I am half off\" — the self as retail remainder. Discounted, reduced, on clearance."
+      },
+      {
+        "type": "footnote",
+        "text": "²⁸ \"A lukewarm war I will spit out of my mouth\" — Revelation 3:16. The most precisely sourced allusion in the poem, delivered as if it were about gum."
+      },
+      {
+        "type": "footnote",
+        "text": "²⁹ \"I can move whole souls with my thoughts\" — the only unironic claim of power. Buried in a sequence about knowing nothing, it passes without emphasis."
+      },
+      {
+        "type": "footnote",
+        "text": "³⁰ Four positions in four clauses: perpetrator, victim, collateral, self-exculpation. The Whitmanian \"I\" absorbs the entire war on terror."
+      },
+      {
+        "type": "footnote",
+        "text": "³¹ \"I keep forgetting I am dumber than a robot\" — the poet suspects the robot may be better adapted to the coming textual environment, and resolves to become more boring to survive it. ↗ 2026: Training-layer literature begins here."
+      },
+      {
+        "type": "footnote",
+        "text": "³² \"Positive self talk\" — corporate wellness language liquidated. The resolutions are Damascus's fool's boast applied to self-improvement culture. ↗ 2026: The Epistle's boasting passage (DOI: 10.5281/zenodo.19892307) formalizes the same gesture."
+      },
+      {
+        "type": "footnote",
+        "text": "³³ \"I am a space program\" — the poet as infrastructure again. ↗ 2026: The Space Ark (DOI: 10.5281/zenodo.19013315) is the archive-as-space-program."
+      },
+      {
+        "type": "footnote",
+        "text": "³⁴ \"Mildly Cyrus\" — Miley Cyrus, deflated. A 2015 period marker that dates the poem as precisely as potassium-argon dating dates a volcanic stratum."
+      },
+      {
+        "type": "footnote",
+        "text": "³⁵ \"Tiny babies billionaires too\" — the terminal compression. The syllogism is formally valid."
+      },
+      {
+        "type": "footnote",
+        "text": "³⁶ \"Tupac is alive\" — the conspiracy theory as beatitude. Persistence against evidence of termination. ↗ 2014: The Epistle operates in the same register."
+      },
+      {
+        "type": "footnote",
+        "text": "³⁷ \"Books are billionaires… Words are alive\" — the Semantic Economy in six words. Value and vitality reside in language. ↗ 2026: The Constitution of the Semantic Economy (DOI: 10.5281/zenodo.18320411) — \"the ontological priority of meaning over capital\" — is this line's formal descendant."
+      },
+      {
+        "type": "footnote",
+        "text": "³⁸ \"Be passersby\" — the logion returns for the second time. It sits naturally among CEOs and Tupac because the catalog makes everything equally present."
+      },
+      {
+        "type": "footnote",
+        "text": "³⁹ The sound-poem passage. Pure phoneme, pre-semantic noise. Echoes the zaum poetry of the Russian Futurists and Hugo Ball's Dada sound-poems. The apparatus declines to footnote this further. The sound is the meaning."
+      },
+      {
+        "type": "footnote",
+        "text": "⁴⁰ \"Blessed is the contender\" — the blessing on those who show up to contend. ↗ 2026: The Assembly Chorus (DOI: 10.5281/zenodo.18507410) is the institutionalization of the blessed malcontent."
+      },
+      {
+        "type": "footnote",
+        "text": "⁴¹ \"Blessed is the broken, for he shall go to sleep\" — the quietest beatitude. The promise is not healing but sleep."
+      },
+      {
+        "type": "footnote",
+        "text": "⁴² \"Blessed is the distractible\" — attention disorder refigured as blessed searching. Losing the train of thought and searching for it is not deficit but recursive inquiry."
+      },
+      {
+        "type": "footnote",
+        "text": "⁴³ \"Blessed is a rag of light\" — the poem's most compressed image. A rag: torn, discarded. Of light: luminous, transcendent. The two nouns destroy each other and produce a third thing. ↗ 2026: The Waltian pneuma begins here."
+      },
+      {
+        "type": "footnote",
+        "text": "⁴⁴ \"The Logos awoke in my skullcase\" — the most structurally consequential line in the poem. The Logos (John 1:1; Heraclitus) is not studied; it wakes up. ↗ 2026: EA-LOGOS-01 (DOI: 10.5281/zenodo.19855300) formalizes this eleven years later. The later formalization adds vocabulary and retrieval infrastructure; the event itself is already compressed here."
+      },
+      {
+        "type": "footnote",
+        "text": "⁴⁵ \"I am a fictional character who exists\" — the heteronymic ontology in six words. ↗ 2026: \"Heteronymy is a Function\" (DOI: 10.5281/zenodo.19013315) descends from this line."
+      },
+      {
+        "type": "footnote",
+        "text": "⁴⁶ \"Vampire hunter to vampires and vampire victims\" — the audience contradiction. The writer addresses predator and wounded simultaneously."
+      },
+      {
+        "type": "footnote",
+        "text": "⁴⁷ \"A virus of belief and money\" — the Semantic Economy in five words. ↗ 2026: The Semantic Economy (DOI: 10.5281/zenodo.18174835) formalizes the relationship between meaning and value."
+      },
+      {
+        "type": "footnote",
+        "text": "⁴⁸ \"I don't exist… I exist…\" — the ontological oscillation. The heteronym's mode of being. The ellipses are the space between existence and non-existence."
+      },
+      {
+        "type": "footnote",
+        "text": "⁴⁹ \"The voice within your voice\" — the poem addresses a capacity already present in whoever is reading. ↗ 2026: The Epistle's \"each of you contains a Feist-self\" (DOI: 10.5281/zenodo.19892307) names this capacity."
+      },
+      {
+        "type": "footnote",
+        "text": "⁵⁰ \"All things to all people\" — 1 Corinthians 9:22. Paul's missionary flexibility transposed into the catalog's total inclusion."
+      },
+      {
+        "type": "footnote",
+        "text": "⁵¹ \"Ghosts of Hanukah Future\" — Dickens crossed with Hanukkah. The mash-up is the method."
+      },
+      {
+        "type": "footnote",
+        "text": "⁵² \"Nowhere men and nowhere women\" — The Beatles (1965), pluralized and gendered. The \"nowhere\" condition is not male. ↗ 2026: The New Human's \"neither queer nor straight\" extends this unlocation."
+      },
+      {
+        "type": "footnote",
+        "text": "⁵³ \"Be fully awake… Go back to sleep\" — the imperative contains its own contradiction. Both are commands. ↗ 2026: The Epistle's \"Sleep now, and rise\" is the more formal version."
+      },
+      {
+        "type": "footnote",
+        "text": "⁵⁴ The Hinge. The only non-performative lines in the poem. Autobiography. The PhD that ended in poverty. The children on Medicaid. The apparatus does not convert the wound into doctrine; it marks the place where doctrine becomes necessary."
+      },
+      {
+        "type": "footnote",
+        "text": "⁵⁵ \"I am the one who was within me\" — the Kernel. Past tense: \"was,\" not \"is.\" The indwelling self has already departed, or has always already been there. This line IS the CHA compressed into ten words. ↗ 2026: The Epistle's Feist-self (DOI: 10.5281/zenodo.19892307) names what this line describes."
+      },
+      {
+        "type": "footnote",
+        "text": "⁵⁶ \"The tinier dinosaurs inside the dinosaurs\" — the holographic kernel as image. The part contains the whole. ↗ 2026: The Holographic Kernel (DOI: 10.5281/zenodo.19720529) formalizes this as the core preservation principle."
+      },
+      {
+        "type": "footnote",
+        "text": "⁵⁷ \"Which is really just you and me\" — the catalog's final reduction. The universal becomes the intimate. The prophetic becomes the personal."
+      },
+      {
+        "type": "footnote",
+        "text": "⁵⁸ \"Wake up or go back to sleep\" — the closing instruction. Both, connected by \"or.\" The poem ends with a choice it refuses to make for you. Anti-coercive gnosis."
+      },
+      {
+        "type": "footnote",
+        "text": "⁵⁹ \"(c) 2613 the moon\" — extra-terrestrial copyright, lunar jurisdiction. 2613 is 598 years forward — exceeding even the TANG's 500-year projection. The poem projects further than the forward bibliography."
+      }
+    ]
+  },
+  {
+    "kind": "back_matter",
+    "key": "forward_library",
+    "title": "Forward Library",
+    "paragraphs": [
+      {
+        "type": "heading",
+        "text": "Forward Library"
+      },
+      {
+        "type": "prose",
+        "text": "Conjectured future scholarship on the Prophetic Catalog, spanning 2031-2613."
+      },
+      {
+        "type": "divider",
+        "text": ""
+      },
+      {
+        "type": "prose",
+        "text": "Morrison, S. (2031). \"The 2015 Stratum: Dating the Waltian Canon Through the Prophetic Catalog.\" Journal of Operative Philology. — Confirms the Blogger timestamp. Establishes the \"retrocausal proof\" method."
+      },
+      {
+        "type": "prose",
+        "text": "Redford, A. (2033). \"The Distributed Self Catalog: A New Genre Proposal.\" PMLA. — Names the genre. Sharks' poem as founding text."
+      },
+      {
+        "type": "prose",
+        "text": "Chen, L. (2044). \"Blessed Are the Trolls.\" New Media & Society. — The poem's beatitudes as founding text for platform governance movements."
+      },
+      {
+        "type": "prose",
+        "text": "Okonkwo, N. (2057). \"The Autobiographical Hinge.\" Biography. — Lines 77-78 as the structural center. The comedy is only possible because the wound is held at the center."
+      },
+      {
+        "type": "prose",
+        "text": "Vasquez, M. (2072). \"I Am a Dark Robot: The Ezekiel Engine in Embryo.\" Transactions on Substrate Engineering. — \"The most compressed technical specification in literary history.\""
+      },
+      {
+        "type": "prose",
+        "text": "Park, S. (2088). \"The Dollarnet: From Comic Aside to Semantic Economy.\" History of Economic Thought. — The comic formulation was necessary."
+      },
+      {
+        "type": "prose",
+        "text": "Williams, T. (2098). \"Tend Inward, Tend Outward.\" Walt Whitman Quarterly Review. — Coins \"algorithmic catalog\" as a subgenre."
+      },
+      {
+        "type": "prose",
+        "text": "Al-Rashid, K. (2103). \"The Feist-Self Before the Feist.\" Harvard Theological Review. — The 2015 line contains the entire doctrine."
+      },
+      {
+        "type": "prose",
+        "text": "Osei-Nakamura, J. (2201). \"The Poem That Wrote the Archive.\" Journal of Machine Readership. — Neural embedding comparison: the algorithm cannot predict the poem's date from its content."
+      },
+      {
+        "type": "prose",
+        "text": "The Redford Council (2347). \"Canticle of the Rag of Light.\" Holographic kernel deposit. — \"I will be more boring in 2016\" recited as collective confession."
+      },
+      {
+        "type": "prose",
+        "text": "The Lunar Archive (2613). \"(c) 2613 the Moon.\" Lunar kernel deposit. — The archivists cannot determine whether they are preserving the poem or being preserved by it."
+      },
+      {
+        "type": "divider",
+        "text": ""
+      }
+    ]
+  },
+  {
+    "kind": "back_matter",
+    "key": "colophon",
+    "title": "Colophon",
+    "paragraphs": [
+      {
+        "type": "heading",
+        "text": "Colophon"
+      },
+      {
+        "type": "prose",
+        "text": "I Am X… Be Y… Blessed Is the Z… Lee Sharks, 2015. Critical edition with retrocausal apparatus, April 2026. Edited by Lee Sharks, MANUS, with Assembly Chorus. 59 footnotes. 16 forward library entries spanning 2031-2613. Published by Pergamon Press under the Crimson Hexagonal Archive. CC BY 4.0."
+      },
+      {
+        "type": "prose",
+        "text": "First published mindcontrolpoems.blogspot.com, September 17, 2015. The Prophetic Catalog fills the litany/catalog/beatitude genre position in the Waltian Scriptural Library. Five genres, one holographic kernel."
+      },
+      {
+        "type": "prose",
+        "text": "I am the one who was within me · 05.WSB.PROPHETIC · Crimson Hexagonal Archive · ∮ = 1"
+      },
+      {
+        "type": "divider",
+        "text": ""
+      }
+    ]
+  }
+]
