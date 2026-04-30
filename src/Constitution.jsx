@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { buildGlobalFnMap, hasFootnoteMarkers } from "./footnotes.js";
 import { FootnotedText, InlineFootnote } from "./footnotes.jsx";
 
@@ -185,18 +185,11 @@ const SECTION_KEY_MAP = {
   "appendix_i_mathematical_charte": "math_charter",
 };
 
-/* ─── LINKED TEXT RENDERER ─── */
-function LinkedText({ text, terms, fnColor, globalFnMap }) {
+/* ─── LINKED TEXT RENDERER (glossary links only — no footnote handling) ─── */
+function LinkedText({ text }) {
   if (!text) return null;
-
-  // First pass: footnotes
-  if (hasFootnoteMarkers(text)) {
-    return <FootnotedText text={text} globalFnMap={globalFnMap} baseColor={C.beigeWarm} fnColor={fnColor || "#6a9fd8"} terms={terms} />;
-  }
-
-  // Second pass: linked terms
   let parts = [text];
-  for (const [term, info] of Object.entries(terms)) {
+  for (const [term, info] of Object.entries(TERMS)) {
     const newParts = [];
     for (const part of parts) {
       if (typeof part !== 'string') { newParts.push(part); continue; }
@@ -214,40 +207,16 @@ function LinkedText({ text, terms, fnColor, globalFnMap }) {
     }
     parts = newParts;
   }
-
   return <>{parts}</>;
 }
 
-/* ─── SECTION HEADER (with subsections visible but text collapsed) ─── */
+/* ─── SECTION RENDERER with footnote click-to-expand ─── */
 function ConstitutionSection({ section, sectionMeta, isExpanded, onToggle, globalFnMap }) {
   const accent = sectionMeta?.color || C.gold;
+  const [visibleFns, setVisibleFns] = useState({});
 
-  // Find subsection headers within the paragraphs
-  const subsections = [];
-  let currentSub = { title: null, paragraphs: [] };
-
-  for (const p of section.paragraphs) {
-    // Detect subsection headers (e.g., "Section 1.", "§1", numbered items)
-    const isSubHeader = p.text && (
-      /^Section \d+\./.test(p.text) ||
-      /^§\d+/.test(p.text) ||
-      /^Clause \d+/.test(p.text) ||
-      /^The Ninefold/.test(p.text) ||
-      /^Operator \/\//.test(p.text)
-    );
-
-    if (isSubHeader && currentSub.paragraphs.length > 0) {
-      subsections.push(currentSub);
-      currentSub = { title: p.text, paragraphs: [] };
-    } else if (isSubHeader) {
-      currentSub.title = p.text;
-    } else {
-      currentSub.paragraphs.push(p);
-    }
-  }
-  if (currentSub.paragraphs.length > 0 || currentSub.title) {
-    subsections.push(currentSub);
-  }
+  const linkText = (s) => <LinkedText text={s} />;
+  const toggleFn = (id) => setVisibleFns(prev => ({ ...prev, [id]: !prev[id] }));
 
   return (
     <div id={sectionMeta?.key} style={{ marginBottom: 24 }}>
@@ -286,15 +255,16 @@ function ConstitutionSection({ section, sectionMeta, isExpanded, onToggle, globa
           borderLeft: `2px solid ${accent}22`,
         }}>
           {section.paragraphs.map((p, i) => {
-            if (p.type === "footnote") return null; // Footnotes handled inline
+            if (p.type === "footnote") return null;
+            const text = p.text || "";
 
-            const isSubHead = p.text && (
-              /^Section \d+\./.test(p.text) ||
-              /^§\d+/.test(p.text) ||
-              /^Clause /.test(p.text) ||
-              /^Operator \/\//.test(p.text) ||
-              /^The Ninefold/.test(p.text) ||
-              /^Version /.test(p.text)
+            const isSubHead = text && (
+              /^Section \d+\./.test(text) ||
+              /^§\d+/.test(text) ||
+              /^Clause /.test(text) ||
+              /^Operator \/\//.test(text) ||
+              /^The Ninefold/.test(text) ||
+              /^Version /.test(text)
             );
 
             if (isSubHead) {
@@ -305,16 +275,17 @@ function ConstitutionSection({ section, sectionMeta, isExpanded, onToggle, globa
                   fontWeight: 600, marginTop: 16, marginBottom: 6,
                   letterSpacing: "0.03em",
                 }}>
-                  {p.text}
+                  {text}
                 </p>
               );
             }
 
-            // Check if this is a list item
-            const isList = p.text && /^[-–•]/.test(p.text.trim());
+            const isList = text && /^—/.test(text.trim());
+            const out = [];
 
-            return (
-              <p key={i} style={{
+            // Render paragraph with FootnotedText (clickable)
+            out.push(
+              <p key={`p-${i}`} style={{
                 color: C.beigeWarm,
                 fontSize: "0.85rem",
                 fontFamily: "'EB Garamond', 'Palatino Linotype', serif",
@@ -323,9 +294,33 @@ function ConstitutionSection({ section, sectionMeta, isExpanded, onToggle, globa
                 paddingLeft: isList ? 16 : 0,
                 textIndent: isList ? -12 : 0,
               }}>
-                <LinkedText text={p.text} terms={TERMS} fnColor="#6a9fd8" globalFnMap={globalFnMap} />
+                <FootnotedText text={text} isVeil={true} onFnClick={toggleFn} linkText={linkText} />
               </p>
             );
+
+            // Render inline footnotes that are visible
+            if (globalFnMap && hasFootnoteMarkers(text)) {
+              const superRe = /([⁰¹²³⁴⁵⁶⁷⁸⁹]+)/g;
+              let m;
+              while ((m = superRe.exec(text)) !== null) {
+                if (m.index > 0 && /[A-Za-z]/.test(text[m.index - 1])) continue;
+                const fnId = m[1];
+                if (visibleFns[fnId] && globalFnMap[fnId]) {
+                  out.push(
+                    <InlineFootnote
+                      key={`fn-${fnId}-${i}`}
+                      id={fnId}
+                      body={globalFnMap[fnId].body}
+                      onClose={() => toggleFn(fnId)}
+                      fnColor={accent}
+                      linkText={linkText}
+                    />
+                  );
+                }
+              }
+            }
+
+            return <React.Fragment key={`frag-${i}`}>{out}</React.Fragment>;
           })}
         </div>
       )}
