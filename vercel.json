@@ -3,6 +3,12 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" }
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/constitution", "destination": "/index.html" },
+    { "source": "/antioch", "destination": "/index.html" },
+    { "source": "/tang", "destination": "/index.html" },
+    { "source": "/epistle", "destination": "/index.html" },
+    { "source": "/catalog", "destination": "/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

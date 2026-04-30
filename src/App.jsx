@@ -1553,13 +1553,45 @@ function FnLeaf({ text, fnColor, isVeil, depth }) {
 }
 
 /* ─── APP ─── */
+const PATH_TO_VIEW = {
+  "/constitution": "constitution",
+  "/antioch": "antioch",
+  "/tang": "tang",
+  "/epistle": "epistle",
+  "/catalog": "catalog",
+};
+const VIEW_TO_PATH = Object.fromEntries(
+  Object.entries(PATH_TO_VIEW).map(([k, v]) => [v, k])
+);
+
 export default function App() {
-  const [view, setView] = useState("splash");
-  const [splashSeen, setSplashSeen] = useState(false);
+  // Read initial view from URL path
+  const initialView = PATH_TO_VIEW[window.location.pathname] || "splash";
+  const [view, setView] = useState(initialView);
+  const [splashSeen, setSplashSeen] = useState(initialView !== "splash");
   const [fullData, setFullData] = useState(null);
   const [treeData, setTreeData] = useState(null);
   const [versedData, setVersedData] = useState(null);
   const [loadError, setLoadError] = useState(null);
+
+  // Sync URL when view changes
+  const navigate = useCallback((v) => {
+    setView(v);
+    const path = VIEW_TO_PATH[v] || "/";
+    if (window.location.pathname !== path) {
+      window.history.pushState({ view: v }, "", path);
+    }
+  }, []);
+
+  // Handle browser back/forward
+  useEffect(() => {
+    const onPop = (e) => {
+      const v = e.state?.view || PATH_TO_VIEW[window.location.pathname] || "splash";
+      setView(v);
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
 
   useEffect(() => {
     Promise.all([
@@ -1590,14 +1622,14 @@ export default function App() {
 
   const handleEnter = useCallback(() => {
     setSplashSeen(true);
-    setView("reading");
-  }, []);
+    navigate("reading");
+  }, [navigate]);
 
   // Expose navigation for ArchivePanel
   useEffect(() => {
-    window.__sbwNavigate = (v) => setView(v);
+    window.__sbwNavigate = (v) => navigate(v);
     return () => { delete window.__sbwNavigate; };
-  }, []);
+  }, [navigate]);
 
   return (
     <>
@@ -1640,15 +1672,15 @@ export default function App() {
       `}</style>
 
       {view === "constitution" ? (
-        <Constitution onBack={() => setView("reading")} />
+        <Constitution onBack={() => navigate("reading")} />
       ) : view === "tang" ? (
-        <Tang onBack={() => setView("reading")} />
+        <Tang onBack={() => navigate("reading")} />
       ) : view === "antioch" ? (
-        <Antioch onBack={() => setView("reading")} />
+        <Antioch onBack={() => navigate("reading")} />
       ) : view === "epistle" ? (
-        <Epistle onBack={() => setView("reading")} />
+        <Epistle onBack={() => navigate("reading")} />
       ) : view === "catalog" ? (
-        <Catalog onBack={() => setView("reading")} />
+        <Catalog onBack={() => navigate("reading")} />
       ) : view === "splash" ? (
         <Splash onEnter={handleEnter} imgSrc={waltImg} hornSrc={hornImg} skipAnimation={splashSeen} />
       ) : loadError ? (
@@ -1667,7 +1699,7 @@ export default function App() {
           </div>
         </div>
       ) : (
-        <ReadingSpine fullData={fullData} treeData={treeData} versedData={versedData} onBack={() => setView("splash")} />
+        <ReadingSpine fullData={fullData} treeData={treeData} versedData={versedData} onBack={() => navigate("splash")} />
       )}
     </>
   );
