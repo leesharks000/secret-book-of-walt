@@ -2,13 +2,9 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/constitution", "destination": "/index.html" },
-    { "source": "/antioch", "destination": "/index.html" },
-    { "source": "/tang", "destination": "/index.html" },
-    { "source": "/epistle", "destination": "/index.html" },
-    { "source": "/catalog", "destination": "/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
