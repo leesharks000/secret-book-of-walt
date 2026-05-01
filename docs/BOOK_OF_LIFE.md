@@ -377,17 +377,20 @@ If Lee asks you to modify text rendering in The Secret Book of Walt:
 1. **Read `docs/FOOTNOTES.md` first.** It explains the footnote system.
 2. **Read this file (`docs/BOOK_OF_LIFE.md`) first.** It explains how
    the three layers connect.
-3. **Do NOT rewrite LinkedText.** It has been rewritten twice already and
+3. **Each page has its own TERMS dictionary.** SBoW terms are in App.jsx.
+   Epistle terms are in Epistle.jsx. Catalog terms are in Catalog.jsx.
+   Add new embeddings to the page where the anchor text appears.
+4. **Do NOT rewrite LinkedText.** It has been rewritten twice already and
    both times broke the glossary links. If you need to change emphasis
    handling, change it INSIDE the existing processEmphasis function
    without altering the early return or the linkifyText calls.
-4. **Do NOT add conditionals to FootnotedText** that skip the linkText
+5. **Do NOT add conditionals to FootnotedText** that skip the linkText
    prop. When linkText is provided, always use it.
-5. **Test all three layers after any change:**
+6. **Test all three layers after any change:**
    - Are footnotes still clickable in veil mode? (Layer 1)
    - Do *italic* and **bold** render correctly? (Layer 2)
    - Are glossary terms still blue and linked? (Layer 3)
-6. **Build before committing.** `npm run build` — if it fails, don't push.
+7. **Build before committing.** `npm run build` — if it fails, don't push.
 
 ---
 
@@ -395,17 +398,23 @@ If Lee asks you to modify text rendering in The Secret Book of Walt:
 
 | Task | What to edit | File |
 |---|---|---|
-| Add a new glossary term | Add entry to TERMS dict | src/App.jsx ~line 1249 |
-| Change where a glossary link goes | Edit the entry in TERMS | src/App.jsx ~line 1249 |
-| Remove a glossary term | Delete the entry from TERMS | src/App.jsx ~line 1249 |
+| Add a new glossary term (SBoW) | Add entry to TERMS dict | src/App.jsx ~line 1277 |
+| Add a new glossary term (Epistle) | Add entry to TERMS dict | src/Epistle.jsx ~line 24 |
+| Add a new glossary term (Catalog) | Add entry to TERMS dict | src/Catalog.jsx ~line 22 |
+| Change where a glossary link goes | Edit the entry in TERMS | src/App.jsx, Epistle.jsx, or Catalog.jsx |
 | Fix a typo in Walt body text | Edit the paragraph in the JSON | public/walt_full_data.json |
+| Fix a typo in Epistle body text | Edit the paragraph in the JSON | public/epistle_data.json |
+| Fix a typo in Catalog body text | Edit the paragraph in the JSON | public/catalog_data.json |
 | Fix a typo permanently | Edit source MD + re-run script | scripts/walt_source.md + build_walt_data.py |
 | Add a new footnote to Walt | Add to source MD + re-run | scripts/walt_source.md + build_walt_data.py |
+| Add a new Epistle footnote | Add to epistle_data.json paragraphs (type: "footnote") | public/epistle_data.json |
+| Add a new Catalog footnote | Add to catalog_data.json paragraphs (type: "footnote") | public/catalog_data.json |
 | Change footnote numbering | Re-run the build script | scripts/build_walt_data.py (handles numbering) |
 | Fix Antioch body text | Edit the JSON or source | public/antioch_gospel_data.json or scripts/ |
 | Change footnote popup styling | Edit InlineFootnote | src/footnotes.jsx |
 | Change footnote marker color | Edit FN_BLUE constant | src/footnotes.jsx line 19 |
 | Change veil/pierce behavior | Edit FootnotedText | src/footnotes.jsx |
+| Add a new tab | Create Component.jsx + data.json + wire in App.jsx | src/ + public/ + src/App.jsx |
 
 ---
 
@@ -418,6 +427,16 @@ If Lee asks you to modify text rendering in The Secret Book of Walt:
 | 2026-04-28 | Emphasis added to LinkedText (Layer 2) | TACHYON | **Broke Layer 3** — processEmphasis returned raw text instead of calling linkifyText |
 | 2026-04-28 | Fix: `return [t]` → `return [linkifyText(t)]` | TACHYON | Nothing — one-line fix |
 | 2026-04-28 | Fix: FootnotedText always delegates to linkText | TACHYON | Nothing — restores Layer 3 |
+| 2026-04-29 | Epistle tab deployed (src/Epistle.jsx + epistle_data.json) | TACHYON | Nothing — new component |
+| 2026-04-29 | Epistle subsections + sidebar reading map (EpistleStrip) | TACHYON | Nothing |
+| 2026-04-29 | Epistle footnote format fix (id+body → text format) | TACHYON | Nothing — data format |
+| 2026-04-29 | Damascus Dancings pronouns → she/her across site + deposit | TACHYON | Nothing |
+| 2026-04-29 | TANG sidebar reading map (TangStrip, 12 nodes) | TACHYON | Nothing |
+| 2026-04-29 | Semantic rent embedding: added quotes for precision | TACHYON | Nothing |
+| 2026-04-29 | MLP embeddings: My Little Pony, Rarity, Fluttershy, elements of harmony → blog post | TACHYON | Nothing |
+| 2026-04-29 | fn 76: Fluttershy doctrine established as empirical fact | TACHYON | Nothing — Rarity remains at the archonic nadir |
+| 2026-04-29 | Prophetic Catalog tab deployed (src/Catalog.jsx + catalog_data.json) | TACHYON | Nothing — fifth tab |
+| 2026-05-01 | CHA technology embeddings across all pages (retrieval, compression, provenance, kernel) | TACHYON | Nothing |
 
 When you change rendering code, **add a row to this table.**
 
