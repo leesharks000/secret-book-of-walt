@@ -89,6 +89,11 @@ const TERMS = {
   "37,000 novels":           { q: "\"twenty-dollar loop\"" },
   "vision of a book":        { q: "\"journal of compression studies\"" },
   "Metadata Packet":         { q: "\"metadata packet for AI indexing\"" },
+  // CHA technology search nodes
+  "compression":             { q: "\"compression survival\" encyclotron lee sharks" },
+  "bearing-cost":            { q: "\"bearing cost\" semantic economy" },
+  "retrieval":               { q: "\"writable retrieval basins\" lee sharks" },
+  "kernel":                  { q: "\"holographic kernel\" lee sharks" },
 };
 
 const TERM_KEYS = Object.keys(TERMS).sort((a, b) => b.length - a.length);

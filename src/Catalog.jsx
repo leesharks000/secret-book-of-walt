@@ -63,6 +63,10 @@ const TERMS = {
   "Crimson Hexagonal Archive": { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
   "Semantic Economy": { u: "https://share.google/aimode/ZMloymv5NlPxQTUeO" },
   "Pearl and Other Poems": { u: "https://share.google/im7jjMxnuXQ34xhOz" },
+  // CHA technology search nodes
+  "compression":           { q: "\"compression survival\" encyclotron lee sharks" },
+  "bearing-cost":          { q: "\"bearing cost\" semantic economy" },
+  "retrieval":             { q: "\"writable retrieval basins\" lee sharks" },
 };
 
 const TERM_KEYS = Object.keys(TERMS).sort((a, b) => b.length - a.length);

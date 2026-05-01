@@ -1449,6 +1449,15 @@ const TERMS = {
   "Kurt Cobain":          { w: "Kurt_Cobain" },
   "Tupac":                { w: "Tupac_Shakur" },
   "Paul McCartney":       { w: "Paul_McCartney" },
+  // CHA technology & concept search nodes
+  "information retrieval": { q: "\"writable retrieval basins\" lee sharks" },
+  "provenance chain":     { q: "\"orange collapse tokenized audit\" lee sharks" },
+  "provenance loss":      { q: "\"writable retrieval basins\" lee sharks" },
+  "cache miss":           { q: "\"retrieval formation theory\" lee sharks" },
+  "kernel transform":     { q: "\"universal kernel transform protocol\" lee sharks" },
+  "operator transform":   { q: "\"universal kernel transform protocol\" UKTP" },
+  "compression survival": { q: "\"encyclotron\" semantic economy lee sharks" },
+  "generative engine":    { q: "\"generative disciplinary engine\" lee sharks" },
 };
 
 const TERM_KEYS = Object.keys(TERMS).sort((a, b) => b.length - a.length);
