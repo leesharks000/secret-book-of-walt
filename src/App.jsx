@@ -1289,9 +1289,9 @@ function TreeNode({ nodeKey, label, depth, expanded, toggle, isVeil, accent, fnC
 /* ─── INSTALLED NODES — VERIFIED search terms, AI mode links, Wikipedia ─── */
 const TERMS = {
   // Direct AI mode links (overviews stopped for some terms)
-  "Crimson Hexagonal Archive": { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
-  "Crimson Hexagon":      { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
-  "Deep Web":             { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
+  "Crimson Hexagonal Archive": { q: "crimson hexagonal archive" },
+  "Crimson Hexagon":      { q: "crimson hexagonal archive" },
+  "Deep Web":             { q: "crimson hexagonal archive" },
   "Jack Feist":           { u: "https://share.google/aimode/iSUkGLnCCYfFQkS22" },
   // VERIFIED Google search AI Overview nodes
   "Lee Sharks":           { q: "Lee Sharks semantic economy" },
@@ -1303,7 +1303,7 @@ const TERMS = {
   "retrocausal":          { q: "retrocausal canon formation" },
   "retrocausally":        { q: "retrocausal canon formation" },
   "Pergamon Press":       { q: "pergamon press retrocausal" },
-  "Secret Book of Walt":  { q: "secret book of walt" },
+  "Secret Book of Walt":  { q: "\"secret book of walt\"" },
   "logotic programming":  { q: "logotic programming" },
   "logotic operation":    { q: "logotic programming" },
   "logotic labor":        { q: "logotic programming" },
@@ -1334,7 +1334,7 @@ const TERMS = {
   "weapon":                { q: "autonomous semantic warfare" },
   "weapons":               { q: "autonomous semantic warfare" },
   "products":              { q: "\"operative numismatics\"" },
-  "brain powers":         { u: "https://share.google/aimode/CwnykyzxNCfWLN9jA" },
+  "brain powers":         { q: "johannes sigil philosopher" },
   "Martian language":     { q: "operative philology" },
   "male and female":      { q: "operative feminism" },
   // Proof Dossier nodes — verified 2026-04-23, queries per Proof Dossier spec

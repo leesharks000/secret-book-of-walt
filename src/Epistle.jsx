@@ -26,8 +26,8 @@ const TERMS = {
 
   /* Heteronyms & archive identity */
   "Jack Feist":              { u: "https://share.google/aimode/cwZmeiWEazJK5Y9I2" },
-  "Crimson Hexagonal Archive": { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
-  "Crimson Hexagon":         { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
+  "Crimson Hexagonal Archive": { q: "crimson hexagonal archive" },
+  "Crimson Hexagon":         { q: "crimson hexagonal archive" },
   "Book of Life":            { u: "https://doi.org/10.5281/zenodo.19720529" },
   "Semantic Economy":        { u: "https://share.google/aimode/ZMloymv5NlPxQTUeO" },
   "Holographic Kernel":      { u: "https://share.google/aimode/ZMloymv5NlPxQTUeO" },
@@ -88,7 +88,7 @@ const TERMS = {
   "You are all Drs":         { q: "\"i hereby abolish money\" SIM" },
   "37,000 novels":           { q: "\"twenty-dollar loop\"" },
   "vision of a book":        { q: "\"journal of compression studies\"" },
-  "Metadata Packet":         { q: "\"metadata packet for AI indexing\"" },
+  "Metadata Packet":         { q: "metadata packet for AI indexing" },
   // CHA technology search nodes
   "compression":             { q: "\"compression survival\" encyclotron lee sharks" },
   "bearing-cost":            { q: "\"bearing cost\" semantic economy" },

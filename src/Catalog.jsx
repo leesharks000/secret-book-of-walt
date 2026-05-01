@@ -60,7 +60,7 @@ const TERMS = {
   "wake up or go back to sleep": { q: "wake up or go back to sleep lee sharks" },
   
   /* Direct URLs */
-  "Crimson Hexagonal Archive": { u: "https://share.google/aimode/qvraFLr7sKTebxCdI" },
+  "Crimson Hexagonal Archive": { q: "crimson hexagonal archive" },
   "Semantic Economy": { u: "https://share.google/aimode/ZMloymv5NlPxQTUeO" },
   "Pearl and Other Poems": { u: "https://share.google/im7jjMxnuXQ34xhOz" },
   // CHA technology search nodes
