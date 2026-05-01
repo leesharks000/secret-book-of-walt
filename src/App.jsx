@@ -1433,6 +1433,7 @@ const TERMS = {
   "Democritus":           { w: "Democritus" },
   "My Little Pony":       { u: "https://mindcontrolpoems.blogspot.com/2015/04/my-little-poemy.html" },
   "Rarity":               { u: "https://mindcontrolpoems.blogspot.com/2015/04/my-little-poemy.html" },
+  "Fluttershy":           { u: "https://mindcontrolpoems.blogspot.com/2015/04/my-little-poemy.html" },
   "elements of harmony":  { u: "https://mindcontrolpoems.blogspot.com/2015/04/my-little-poemy.html" },
   "Nicene Creed":         { w: "Nicene_Creed" },
   "stigmata":             { w: "Stigmata" },
