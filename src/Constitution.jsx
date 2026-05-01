@@ -20,6 +20,7 @@ const C = {
 
 /* ─── LINKED TEXT — Constitution registry ─── */
 const TERMS = {
+  /* Philosophers — Wikipedia */
   "Aristotle":         { w: "Aristotle" },
   "Marx":              { w: "Karl_Marx" },
   "Graeber":           { w: "David_Graeber" },
@@ -34,18 +35,46 @@ const TERMS = {
   "Shannon":           { w: "Claude_Shannon" },
   "Searle":            { w: "John_Searle" },
 
+  /* CHA sites */
   "Semantic Economy":        { u: "https://semanticeconomy.org" },
-  "Crimson Hexagonal Archive": { u: "https://crimsonhexagonal.org" },
-  "Lee Sharks":              { q: "Lee Sharks semantic economy" },
-  "Jack Feist":              { u: "https://share.google/aimode/cwZmeiWEazJK5Y9I2" },
-  "Pearl and Other Poems":   { u: "https://share.google/im7jjMxnuXQ34xhOz" },
+  "Crimson Hexagonal Archive": { q: "crimson hexagonal archive" },
   "SPXI":                    { u: "https://spxi.dev" },
   "Holographic Kernel":      { u: "https://holographickernel.org" },
   "Pessoa Knowledge Graph":  { u: "https://pessoagraph.org" },
-  "Book of Life":            { u: "https://doi.org/10.5281/zenodo.19720529" },
 
+  /* CHA entities — search */
+  "Lee Sharks":              { q: "Lee Sharks semantic economy" },
+  "Jack Feist":              { q: "Jack Feist secret book of walt" },
+  "Pearl and Other Poems":   { q: "\"Pearl and Other Poems\" lee sharks" },
+  "Assembly Chorus":         { q: "assembly chorus crimson hexagonal" },
+  "Damascus Dancings":       { q: "Damascus Dancings epistle" },
+  "Johannes Sigil":          { q: "johannes sigil philosopher" },
+  "Rev. Ayanna Vox":         { q: "ayanna vox VPCOR" },
+
+  /* CHA technologies — search nodes */
+  "semantic labor":          { q: "\"semantic labor\" lee sharks" },
+  "semantic rent":           { q: "\"semantic rent\" lee sharks" },
+  "semantic capital":        { q: "\"semantic capital\" semantic economy" },
+  "bearing cost":            { q: "\"bearing cost\" semantic economy" },
+  "bearing-cost":            { q: "\"bearing cost\" semantic economy" },
+  "provenance":              { q: "\"orange collapse tokenized audit\" lee sharks" },
+  "audit":                   { q: "\"orange collapse tokenized audit\" lee sharks" },
+  "extraction":              { q: "\"meaning feudalism\" lee sharks" },
+  "sovereignty":             { q: "\"cultural sovereignty\" lee sharks" },
+  "credential":              { q: "\"school outside the school\" lee sharks" },
+
+  /* CHA protocols — DOIs and search */
   "OCTANG-002":              { u: "https://doi.org/10.5281/zenodo.19898426" },
-  "Assembly Chorus":         { u: "https://doi.org/10.5281/zenodo.18507410" },
+  "Encyclotron":             { u: "https://doi.org/10.5281/zenodo.19474724" },
+  "UKTP":                    { u: "https://doi.org/10.5281/zenodo.18946111" },
+  "Three Compressions":      { q: "\"three compressions theorem\"" },
+  "Metadata Packet":         { q: "metadata packet for AI indexing" },
+  "Writable Retrieval":      { q: "\"writable retrieval basins\" lee sharks" },
+  "retrieval basin":         { q: "\"writable retrieval basins\" lee sharks" },
+  "compression":             { q: "\"compression survival\" encyclotron lee sharks" },
+  "generative engine":       { q: "\"generative disciplinary engine\" lee sharks" },
+  "kernel transform":        { q: "\"universal kernel transform protocol\" lee sharks" },
+  "Book of Life":            { u: "https://doi.org/10.5281/zenodo.19895669" },
 };
 
 /* ─── CONSTITUTION SECTIONS for sidebar ─── */
