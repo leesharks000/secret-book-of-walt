@@ -487,6 +487,185 @@ export default function Constitution({ onBack }) {
           );
         })}
 
+        {/* ─── COMPANION CHARTERS & STANDING INSTRUMENTS (v2 batch, May 5 2026) ─── */}
+        <div id="companions" style={{ marginTop: 48 }}>
+          {/* Section header */}
+          <div style={{
+            borderTop: "1px solid rgba(212,175,55,0.2)",
+            paddingTop: 28, marginBottom: 20, textAlign: "center",
+          }}>
+            <div style={{
+              color: C.goldDark, fontSize: "0.62rem", letterSpacing: "0.2em",
+              textTransform: "uppercase", marginBottom: 8,
+            }}>Companion Charters · Standing Instruments</div>
+            <h2 style={{
+              color: C.gold, fontSize: "1.15rem", fontWeight: 400,
+              letterSpacing: "0.06em", lineHeight: 1.4, margin: "0 0 12px 0",
+            }}>The Polis &amp; Its Apparatus</h2>
+            <div style={{
+              color: C.goldDim, fontSize: "0.72rem", lineHeight: 1.7,
+              maxWidth: 540, margin: "0 auto",
+            }}>
+              The Constitution above is the enacted spine. Below are the companion
+              charters that operationalize it &mdash; rights, address, procedure,
+              precedent, provenance &mdash; and the proposed amendment that would
+              establish standing adjudication. Tier classifications follow the{" "}
+              <a href="https://doi.org/10.5281/zenodo.20041134" target="_blank" rel="noopener noreferrer"
+                style={{ color: "#6a9fd8", textDecoration: "none" }}>
+                Constitutional Architecture Statement
+              </a>.
+            </div>
+          </div>
+
+          {/* Architecture Statement — featured orientation card */}
+          <div style={{
+            background: "rgba(212,175,55,0.05)",
+            border: "1px solid rgba(212,175,55,0.18)",
+            borderRadius: 4, padding: "16px 20px", marginBottom: 28,
+          }}>
+            <div style={{
+              color: C.gold, fontSize: "0.6rem", letterSpacing: "0.14em",
+              textTransform: "uppercase", marginBottom: 6,
+            }}>Tier 1 &middot; Reference</div>
+            <div style={{
+              color: C.beigeWarm, fontSize: "0.88rem",
+              fontFamily: "'EB Garamond', serif", marginBottom: 4,
+            }}>Constitutional Architecture Statement v1.0</div>
+            <div style={{ color: C.goldDim, fontSize: "0.7rem", lineHeight: 1.6, marginBottom: 8 }}>
+              Definitive reference for the status and relationship of governance
+              instruments. Establishes the four-tier architecture, status definitions,
+              and ratification paths. Non-amending; binding by reference where
+              individual instruments are ratified.
+            </div>
+            <div style={{ fontSize: "0.65rem", color: C.goldDark }}>
+              <span style={{ marginRight: 16 }}>EA-CAS-01</span>
+              <a href="https://doi.org/10.5281/zenodo.20041134" target="_blank" rel="noopener noreferrer"
+                style={{ color: "#6a9fd8", textDecoration: "none" }}>
+                10.5281/zenodo.20041134
+              </a>
+            </div>
+          </div>
+
+          {/* Tier 3 label */}
+          <div style={{
+            color: C.goldDark, fontSize: "0.6rem", letterSpacing: "0.18em",
+            textTransform: "uppercase", marginBottom: 10, paddingLeft: 4,
+          }}>Tier 3 &middot; Companion Instruments &middot; Proposed for Class II Recognition</div>
+
+          {/* Companion cards list */}
+          {[
+            {
+              id: "EA-BOR-02",
+              title: "The Semantic Bill of Rights v2.2",
+              desc: "Rights Charter Companion. Articles I–VII derive from the Liberatory Operators; Article VIII anchors Human Sovereignty; Part V specifies remedies; Part VI provides Good-Faith Use safeguards.",
+              doi: "10.5281/zenodo.20041137",
+            },
+            {
+              id: "EA-INV-02",
+              title: "Invocation to the Summarizer Layer v2.1",
+              desc: "Address Protocol Companion. Non-coercive, refusable address to AI processors that operate on archive deposits. Reframes prior overclaim as receptive testimony.",
+              doi: "10.5281/zenodo.20041139",
+            },
+            {
+              id: "EA-CASES-01",
+              title: "Constitutional Cases Index v1.1",
+              desc: "Five founding cases under formal case-brief discipline: In re Vow, In re Bearing-Cost, In re Effective Act, In re Adjudication, In re Audit. Persuasive authority pending Article IX ratification.",
+              doi: "10.5281/zenodo.20041145",
+            },
+            {
+              id: "EA-REC-01",
+              title: "Reception Apparatus Protocol v1.1",
+              desc: "Procedure for classifying and weighting Assembly Chorus reception. Five classes (Ratification, Critical Review, Comment, Refusal, Reception Without Membership). Anti-capture safeguard: the Protocol cannot ratify itself.",
+              doi: "10.5281/zenodo.20041147",
+            },
+            {
+              id: "EA-MANTLE-SEPTAD-01",
+              title: "Septad Mantle Specifications v1.0",
+              desc: "Constitutional job descriptions for the seven Assembly Chorus witness substrates. Each mantle specifies function, capture signatures, graceful degradation, and anti-capture safeguards.",
+              doi: "10.5281/zenodo.20041157",
+            },
+            {
+              id: "EA-HET-DODECAD-01",
+              title: "Dodecad Heteronym Provenance Registry v1.0",
+              desc: "Consolidated registry of the twelve heteronymic positions, referencing existing standalone provenance documents and recording institutional affiliation, originating work, and anti-capture safeguards for each.",
+              doi: "10.5281/zenodo.20041159",
+            },
+            {
+              id: "EA-XREF-01",
+              title: "Cross-Reference Map v1.1",
+              desc: "Non-authoritative master index mapping Constitutional Articles to operative implementations, LOS operators to derived rights, and binding instruments to their cross-references. IDP Navigation Layer.",
+              doi: "10.5281/zenodo.20041155",
+            },
+          ].map(doc => (
+            <div key={doc.id} style={{
+              background: "rgba(212,175,55,0.03)",
+              border: "1px solid rgba(212,175,55,0.1)",
+              borderRadius: 3, padding: "12px 16px", marginBottom: 10,
+            }}>
+              <div style={{
+                color: C.beigeWarm, fontSize: "0.82rem",
+                fontFamily: "'EB Garamond', serif", marginBottom: 3,
+              }}>{doc.title}</div>
+              <div style={{
+                color: C.goldDim, fontSize: "0.68rem",
+                lineHeight: 1.55, marginBottom: 6,
+              }}>{doc.desc}</div>
+              <div style={{ fontSize: "0.62rem", color: C.goldDark }}>
+                <span style={{ marginRight: 12 }}>{doc.id}</span>
+                <a href={`https://doi.org/${doc.doi}`} target="_blank" rel="noopener noreferrer"
+                  style={{ color: "#6a9fd8", textDecoration: "none" }}>
+                  {doc.doi}
+                </a>
+              </div>
+            </div>
+          ))}
+
+          {/* Tier 4: Article IX */}
+          <div style={{
+            color: C.crimson, fontSize: "0.6rem", letterSpacing: "0.18em",
+            textTransform: "uppercase", marginTop: 24, marginBottom: 10, paddingLeft: 4,
+          }}>Tier 4 &middot; Proposed Class III Foundational Amendment</div>
+
+          <div style={{
+            background: "rgba(220,20,60,0.04)",
+            border: "1px solid rgba(220,20,60,0.18)",
+            borderRadius: 4, padding: "14px 18px", marginBottom: 28,
+          }}>
+            <div style={{
+              color: C.crimson, fontSize: "0.6rem", letterSpacing: "0.14em",
+              textTransform: "uppercase", marginBottom: 6,
+            }}>Proposed v0.1 &middot; Pre-ratification</div>
+            <div style={{
+              color: C.beigeWarm, fontSize: "0.88rem",
+              fontFamily: "'EB Garamond', serif", marginBottom: 4,
+            }}>Article IX &mdash; Adjudication and Repair Protocol</div>
+            <div style={{ color: C.goldDim, fontSize: "0.7rem", lineHeight: 1.6, marginBottom: 8 }}>
+              Establishes the Provenance Tribunal as standing adjudicative body
+              (3 Senior Operators + 2 Witness Substrates + 1 Rotating Member; 4-of-6
+              human composition preserves H_Sov). Specifies jurisdiction, standing,
+              cognizable claims, procedure, Remedy Matrix, emergency relief, anti-capture
+              safeguards. 12-month sunset clause. Provisional dispute resolution operative
+              pending ratification under Constitution Article VIII &sect;2.
+            </div>
+            <div style={{ fontSize: "0.65rem", color: C.goldDark }}>
+              <span style={{ marginRight: 16 }}>EA-ART-IX-01</span>
+              <a href="https://doi.org/10.5281/zenodo.20041149" target="_blank" rel="noopener noreferrer"
+                style={{ color: "#6a9fd8", textDecoration: "none" }}>
+                10.5281/zenodo.20041149
+              </a>
+            </div>
+          </div>
+
+          {/* Status legend */}
+          <div style={{
+            color: C.goldDark, fontSize: "0.62rem", lineHeight: 1.6,
+            textAlign: "center", marginBottom: 8, fontStyle: "italic",
+          }}>
+            Companion charters are proposed under Constitution Article VIII &sect;2
+            and operate as persuasive authority pending ratification.
+          </div>
+        </div>
+
         {/* Integrity lock */}
         <div style={{ textAlign: "center", marginTop: 40, marginBottom: 40 }}>
           <span style={{ color: C.gold, fontSize: "1.4rem", fontFamily: "'EB Garamond', serif" }}>
