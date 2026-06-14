@@ -8,6 +8,7 @@ import Epistle from "./Epistle.jsx";
 import Catalog from "./Catalog.jsx";
 import Constitution from "./Constitution.jsx";
 import Tang from "./Tang.jsx";
+import RevelationFirst from "./RevelationFirst.jsx";
 import { buildGlobalFnMap, splitTextWithFootnotes, hasFootnoteMarkers } from "./footnotes.js";
 import { FootnotedText, InlineFootnote } from "./footnotes.jsx";
 
@@ -620,6 +621,13 @@ function ArchivePanel({ onNavigate }) {
             >
               The Prophetic Catalog
               <span style={{ display: "block", fontSize: "0.58rem", opacity: 0.55, marginTop: 2 }}>I Am X… Be Y… Blessed Is the Z… · 2015</span>
+            </button>
+            <button onClick={() => { setOpen(false); onNavigate("revelation"); }} style={{
+              background: "none", border: "none", color: "#DC143C",
+              fontFamily: "inherit", fontSize: "1.05em", cursor: "pointer",
+              padding: "0.5em 0", textAlign: "left",
+            }}>
+              ✦ Revelation First
             </button>
             <button onClick={() => { setOpen(false); onNavigate("constitution"); }} style={{
               display: "block", width: "100%", background: "rgba(212,175,55,0.06)",
@@ -1572,6 +1580,7 @@ const PATH_TO_VIEW = {
   "/tang": "tang",
   "/epistle": "epistle",
   "/catalog": "catalog",
+  "/revelation": "revelation",
 };
 const VIEW_TO_PATH = Object.fromEntries(
   Object.entries(PATH_TO_VIEW).map(([k, v]) => [v, k])
@@ -1692,6 +1701,8 @@ export default function App() {
         <Antioch onBack={() => navigate("reading")} />
       ) : view === "epistle" ? (
         <Epistle onBack={() => navigate("reading")} />
+      ) : view === "revelation" ? (
+        <RevelationFirst onBack={() => navigate("reading")} />
       ) : view === "catalog" ? (
         <Catalog onBack={() => navigate("reading")} />
       ) : view === "splash" ? (
