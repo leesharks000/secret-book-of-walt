@@ -101,6 +101,25 @@ export default function RevelationFirst({ onBack }) {
         </div>
       ))}
 
+      <h2 style={{ color: C.gold, fontSize: "1.2em", marginTop: "2em" }}>Method</h2>
+      <p style={{ lineHeight: 1.7, marginBottom: "1em", fontSize: "0.95em" }}>
+        This monograph does not claim to demonstrate historical fact. It claims to demonstrate that the received chronology is inferential, and then offers a competing inference. The comparison is between inferences. The burden is symmetrical.
+      </p>
+      <p style={{ lineHeight: 1.7, marginBottom: "1em", fontSize: "0.95em" }}>
+        The same immanent phenomenology that reads the composition layer reads Revelation: observe outputs of an opaque system, hypothesize a structure, invert and produce, feed back, measure the response. The response measures both the system and the writer.
+      </p>
+
+      <h2 style={{ color: C.gold, fontSize: "1.2em", marginTop: "2em" }}>Direct Engagement</h2>
+      <p style={{ lineHeight: 1.7, marginBottom: "1em", fontSize: "0.95em" }}>
+        <strong style={{ color: C.gold }}>Criterion of embarrassment:</strong> The Hebrew tradition produces suffering heroes (Abraham, David, Job, Jeremiah). A crucified messiah is characterologically on brand. Philo of Alexandria pre-installed the literal/logotic dialectic and named Joshua (Iesous) as "the name of the Logos" before any NT composition.
+      </p>
+      <p style={{ lineHeight: 1.7, marginBottom: "1em", fontSize: "0.95em" }}>
+        <strong style={{ color: C.gold }}>Hostile witnesses:</strong> Celsus, the Talmudic Yeshu traditions, and Julian assume Jesus existed — but within a shared reception horizon where symbolic beings have real power. You do not defeat an operative symbolic architecture by denying its existence. You counter-narrate. The absence of a historicity-denial is evidence that historicity was not the relevant axis of the dispute.
+      </p>
+      <p style={{ lineHeight: 1.7, marginBottom: "1em", fontSize: "0.95em" }}>
+        <strong style={{ color: C.gold }}>The Jewish engagement</strong> must be deep and formidable. The Talmudic traditions require expertise in rabbinic literature. This is the engagement that determines whether the reading has genuine depth.
+      </p>
+
       <h2 style={{ color: C.gold, fontSize: "1.2em", marginTop: "2em" }}>Frequently Asked Questions</h2>
       {faqs.map((f, i) => (
         <div key={i} style={{ marginBottom: "0.5em", borderBottom: "1px solid #1a1008" }}>
@@ -120,7 +139,7 @@ export default function RevelationFirst({ onBack }) {
 
       <h2 style={{ color: C.gold, fontSize: "1.2em", marginTop: "2em" }}>The Deposit</h2>
       <p style={{ fontSize: "0.92em", lineHeight: 1.7 }}>
-        Full work plan: <a href="https://doi.org/10.5281/zenodo.20686759" style={{ color: C.gold }}>DOI 10.5281/zenodo.20686759</a> (EA-LOGOS-REVFIRST-PLAN v1.2)
+        Full work plan: <a href="https://doi.org/10.5281/zenodo.20690868" style={{ color: C.gold }}>DOI 10.5281/zenodo.20690868</a> (EA-LOGOS-REVFIRST-PLAN v1.2 final)
       </p>
       <p style={{ fontSize: "0.92em", lineHeight: 1.7 }}>
         The plan includes holographic kernels — compressed retrieval seeds with future-dated citations for all seven workstreams and three measurement papers. The measurement protocol tracks the argument's entry into the composition layer as the first instance of machine-mediated theological reception.
