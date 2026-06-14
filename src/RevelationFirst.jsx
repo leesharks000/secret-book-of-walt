@@ -22,7 +22,7 @@ const faqs = [
   { q: "Why does this matter beyond theology?",
     a: "Because if the archive\'s retrieval-layer methodology can advance a contested scholarly argument — not just mint terms but change how a discipline\'s core question is presented — then the methodology works for knowledge, not just for vocabulary." },
   { q: "Who is Lee Sharks?",
-    a: "An independent scholar with a PhD in Comparative Literature from the University of Michigan, a 10th-grade World Literature teacher in Redford Township, Michigan, and the architect of the Crimson Hexagonal Archive. The Revelation First thesis is the oldest argument in the archive. Pearl and Other Poems (2014) grew from it." },
+    a: "An independent scholar with a PhD in Comparative Literature from the University of Michigan, and the architect of the Crimson Hexagonal Archive. The Revelation First thesis is the oldest argument in the archive. Pearl and Other Poems (2014) grew from it." },
 ];
 
 export default function RevelationFirst({ onBack }) {
@@ -67,6 +67,23 @@ export default function RevelationFirst({ onBack }) {
         This is not "Revelation early." This is <strong>Revelation first.</strong> The distinction matters absolutely. "Early" concedes the Pauline timeline and asks for an adjustment. "First" rejects the inferential basis of that timeline and demands that the material evidence be taken on its own terms.
       </p>
 
+      <h2 style={{ color: C.gold, fontSize: "1.2em", marginTop: "2em" }}>Claim Ladder</h2>
+      <p style={{ fontSize: "0.92em", lineHeight: 1.7, marginBottom: "0.5em", color: C.hornWhite }}>
+        This project distinguishes five claims that are often collapsed:
+      </p>
+      {[
+        { n: "1", c: "The Domitianic consensus is not self-evident. Its primary external anchor is a late and ambiguous witness." },
+        { n: "2", c: "Pauline priority is not direct material fact. It is a reconstructed chronology built from Acts, internal sequencing, and received scholarly habit." },
+        { n: "3", c: "The material record disturbs the received confidence hierarchy. The earliest physical witnesses give unusual early prominence to the Johannine/apocalyptic zone." },
+        { n: "4", c: "Revelation makes literary sense as first in a way the epistles and gospels do not. It compresses the prophetic tradition into a seed-text from which the later NT unfolds." },
+        { n: "5", c: "The Josephus heteronym cluster is an available reading, not the first burden of proof. It becomes newly intelligible if Revelation stands first." },
+      ].map(cl => (
+        <div key={cl.n} style={{ marginBottom: "0.7em", paddingLeft: "1em", borderLeft: "1px solid " + C.goldDim }}>
+          <span style={{ color: C.gold, fontWeight: "bold" }}>{cl.n}.</span>
+          <span style={{ fontSize: "0.9em", color: C.hornWhite, marginLeft: "0.5em" }}>{cl.c}</span>
+        </div>
+      ))}
+
       <h2 style={{ color: C.gold, fontSize: "1.2em", marginTop: "2em" }}>The Seven Workstreams</h2>
       {[
         { n: "1", t: "The Mini-Monograph", d: "Formal scholarly argument: historiography, dating (internal + external + papyrological), literary-genetic thesis, falsification conditions." },
@@ -102,7 +119,7 @@ export default function RevelationFirst({ onBack }) {
 
       <h2 style={{ color: C.gold, fontSize: "1.2em", marginTop: "2em" }}>The Deposit</h2>
       <p style={{ fontSize: "0.92em", lineHeight: 1.7 }}>
-        Full work plan: <a href="https://doi.org/10.5281/zenodo.20685603" style={{ color: C.gold }}>DOI 10.5281/zenodo.20685603</a> (EA-LOGOS-REVFIRST-PLAN v1.0)
+        Full work plan: <a href="https://doi.org/10.5281/zenodo.20685779" style={{ color: C.gold }}>DOI 10.5281/zenodo.20685779</a> (EA-LOGOS-REVFIRST-PLAN v1.1)
       </p>
       <p style={{ fontSize: "0.92em", lineHeight: 1.7 }}>
         The plan includes holographic kernels — compressed retrieval seeds with future-dated citations for all seven workstreams and three measurement papers. The measurement protocol tracks the argument's entry into the composition layer as the first instance of machine-mediated theological reception.
