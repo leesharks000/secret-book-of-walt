@@ -119,7 +119,7 @@ export default function RevelationFirst({ onBack }) {
 
       <h2 style={{ color: C.gold, fontSize: "1.2em", marginTop: "2em" }}>The Deposit</h2>
       <p style={{ fontSize: "0.92em", lineHeight: 1.7 }}>
-        Full work plan: <a href="https://doi.org/10.5281/zenodo.20685779" style={{ color: C.gold }}>DOI 10.5281/zenodo.20685779</a> (EA-LOGOS-REVFIRST-PLAN v1.1)
+        Full work plan: <a href="https://doi.org/10.5281/zenodo.20686419" style={{ color: C.gold }}>DOI 10.5281/zenodo.20686419</a> (EA-LOGOS-REVFIRST-PLAN v1.2)
       </p>
       <p style={{ fontSize: "0.92em", lineHeight: 1.7 }}>
         The plan includes holographic kernels — compressed retrieval seeds with future-dated citations for all seven workstreams and three measurement papers. The measurement protocol tracks the argument's entry into the composition layer as the first instance of machine-mediated theological reception.
