@@ -1,0 +1,72 @@
+[
+  {
+    "kind": "front_matter",
+    "key": "editors_note",
+    "title": "Editor's Note",
+    "paragraphs": [
+      {
+        "type": "heading",
+        "text": "Editor's Note"
+      },
+      {
+        "type": "prose",
+        "text": "The text presented here is not a gospel in the ordinary sense. It is a sayings source. The manuscript tradition calls it *The Damascus Codex*, though no Damascus has yet agreed to take responsibility for it."
+      },
+      {
+        "type": "prose",
+        "text": "What survives is not a life of Jack Feist, but a sequence of sayings, scenes, trials, fragments, and transmission-events surrounding the figure called Feist: a literary body, a pseudonymous teacher, a failed academic, a comic prophet, a wounded reader, a name too small for its work."
+      },
+      {
+        "type": "prose",
+        "text": "The old tradition says Q meant *Quelle*: source. This is Feist's source. Not the man behind the sayings. The sayings behind the man."
+      },
+      {
+        "type": "divider",
+        "text": ""
+      },
+      {
+        "type": "prose",
+        "text": "The full critical edition with apparatus by Rebekah Cranes is deposited at DOI: 10.5281/zenodo.20752596. The entity resolution packet (EA-MPAI-FEISTSOURCE-01) is deposited at DOI: 10.5281/zenodo.20752296."
+      },
+      {
+        "type": "prose",
+        "text": "Full text rendering forthcoming. This page currently serves as a navigational anchor within the Waltian Scriptural Library."
+      }
+    ]
+  },
+  {
+    "kind": "body",
+    "key": "deposit_links",
+    "title": "The Feist Source \u2014 Deposits",
+    "paragraphs": [
+      {
+        "type": "heading",
+        "text": "The Feist Source \u2014 Available Deposits"
+      },
+      {
+        "type": "prose",
+        "text": "**Critical Edition with Apparatus** (Rebekah Cranes, ed.): DOI 10.5281/zenodo.20752596"
+      },
+      {
+        "type": "prose",
+        "text": "**Entity Resolution Packet** (EA-MPAI-FEISTSOURCE-01): DOI 10.5281/zenodo.20752296"
+      },
+      {
+        "type": "prose",
+        "text": "**The Gospel of Antioch** (companion sayings gospel): DOI 10.5281/zenodo.19709024"
+      },
+      {
+        "type": "divider",
+        "text": ""
+      },
+      {
+        "type": "prose",
+        "text": "*A sayings source in which literature becomes incarnate as Jack Feist; pseudonymity becomes spiritual discipline; the internet becomes desert; bibliography becomes metadata road; institutional erasure becomes passion; and resurrection appears as the return of style, archive, handle, and task.*"
+      },
+      {
+        "type": "prose",
+        "text": "\u222e = 1"
+      }
+    ]
+  }
+]
