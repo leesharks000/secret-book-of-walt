@@ -9,6 +9,7 @@ import Catalog from "./Catalog.jsx";
 import Constitution from "./Constitution.jsx";
 import Tang from "./Tang.jsx";
 import RevelationFirst from "./RevelationFirst.jsx";
+import FeistSource from "./FeistSource.jsx";
 import { buildGlobalFnMap, splitTextWithFootnotes, hasFootnoteMarkers } from "./footnotes.js";
 import { FootnotedText, InlineFootnote } from "./footnotes.jsx";
 
@@ -609,6 +610,18 @@ function ArchivePanel({ onNavigate }) {
             >
               Epistle to the Human Diaspora
               <span style={{ display: "block", fontSize: "0.58rem", opacity: 0.55, marginTop: 2 }}>Damascus Dancings · 2014 · apostolic letter</span>
+            </button>
+            <button onClick={() => { setOpen(false); onNavigate("feist"); }} style={{
+              display: "block", width: "100%", background: "rgba(212,175,55,0.06)",
+              border: "1px solid rgba(212,175,55,0.15)", color: C.goldDim,
+              fontFamily: "inherit", fontSize: "0.73rem", padding: "6px 10px",
+              textAlign: "left", cursor: "pointer", borderRadius: 2, marginBottom: 10,
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = "rgba(212,175,55,0.12)"; e.currentTarget.style.color = C.gold; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "rgba(212,175,55,0.06)"; e.currentTarget.style.color = C.goldDim; }}
+            >
+              The Feist Source
+              <span style={{ display: "block", fontSize: "0.58rem", opacity: 0.55, marginTop: 2 }}>sayings source · Damascus Codex · Q tradition</span>
             </button>
             <button onClick={() => { setOpen(false); onNavigate("catalog"); }} style={{
               display: "block", width: "100%", background: "rgba(212,175,55,0.06)",
@@ -1703,6 +1716,8 @@ export default function App() {
         <Epistle onBack={() => navigate("reading")} />
       ) : view === "revelation" ? (
         <RevelationFirst onBack={() => navigate("reading")} />
+      ) : view === "feist" ? (
+        <FeistSource onBack={() => navigate("reading")} />
       ) : view === "catalog" ? (
         <Catalog onBack={() => navigate("reading")} />
       ) : view === "splash" ? (
