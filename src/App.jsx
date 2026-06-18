@@ -1594,6 +1594,7 @@ const PATH_TO_VIEW = {
   "/epistle": "epistle",
   "/catalog": "catalog",
   "/revelation": "revelation",
+  "/feist": "feist",
 };
 const VIEW_TO_PATH = Object.fromEntries(
   Object.entries(PATH_TO_VIEW).map(([k, v]) => [v, k])
