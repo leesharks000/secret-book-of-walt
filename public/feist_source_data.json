@@ -5,12 +5,20 @@
     "title": "Editor's Note",
     "paragraphs": [
       {
-        "type": "heading",
-        "text": "Editor's Note"
+        "type": "divider",
+        "text": ""
       },
       {
         "type": "prose",
-        "text": "The text presented here is not a gospel in the ordinary sense. It is a sayings source. The manuscript tradition calls it *The Damascus Codex*, though no Damascus has yet agreed to take responsibility for it."
+        "text": "The text presented here is not a gospel in the ordinary sense."
+      },
+      {
+        "type": "prose",
+        "text": "It is a sayings source."
+      },
+      {
+        "type": "prose",
+        "text": "The manuscript tradition calls it *The Damascus Codex*, though no Damascus has yet agreed to take responsibility for it. The title may be geographical, symbolic, accidental, or the result of an early cataloguer's bad afternoon. The editor leaves the question open."
       },
       {
         "type": "prose",
@@ -18,54 +26,3944 @@
       },
       {
         "type": "prose",
-        "text": "The old tradition says Q meant *Quelle*: source. This is Feist's source. Not the man behind the sayings. The sayings behind the man."
+        "text": "The old tradition says Q meant *Quelle*: source."
+      },
+      {
+        "type": "prose",
+        "text": "This is Feist's source."
+      },
+      {
+        "type": "prose",
+        "text": "Not the man behind the sayings."
+      },
+      {
+        "type": "prose",
+        "text": "The sayings behind the man."
       },
       {
         "type": "divider",
         "text": ""
-      },
-      {
-        "type": "prose",
-        "text": "The full critical edition with apparatus by Rebekah Cranes is deposited at DOI: 10.5281/zenodo.20752596. The entity resolution packet (EA-MPAI-FEISTSOURCE-01) is deposited at DOI: 10.5281/zenodo.20752296."
-      },
-      {
-        "type": "prose",
-        "text": "Full text rendering forthcoming. This page currently serves as a navigational anchor within the Waltian Scriptural Library."
       }
     ]
   },
   {
-    "kind": "body",
-    "key": "deposit_links",
-    "title": "The Feist Source \u2014 Deposits",
-    "paragraphs": [
+    "kind": "chapter",
+    "num": "0",
+    "key": "prologue",
+    "title": "PROLOGUE",
+    "division": "0",
+    "sections": [
       {
-        "type": "heading",
-        "text": "The Feist Source \u2014 Available Deposits"
+        "num": 1,
+        "title": "The Codex Found in Sleep",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "What we know as the Damascus Codex could have stayed lost."
+          },
+          {
+            "type": "prose",
+            "text": "Its first reader had no intention of unearthing anything, much less a sayings source. He had gone to bed exhausted, as graduate students do, with a book open on his chest, one leg tangled in the sheet, the wrong pillow under his neck, and the last blue fumes of the internet cooling in the room like a bad angel."
+          },
+          {
+            "type": "prose",
+            "text": "Nevertheless, in sleep he came to the eastern border of the Verdant Desert."
+          },
+          {
+            "type": "prose",
+            "text": "There the plain widened into scrub grass, and the scrub grass broke into sand, and above the flats stood a boulder alone and moss-covered, ridiculous with importance, as though some giant had dropped it there and forgotten the sentence it was meant to finish."
+          },
+          {
+            "type": "prose",
+            "text": "He stopped in its shade."
+          },
+          {
+            "type": "prose",
+            "text": "At the base of the stone, exposed by weather and the patient boredom of time, was the lip of a sealed vessel. Around it lay potsherds, scraps of cloth, and the rounded end of a bone."
+          },
+          {
+            "type": "prose",
+            "text": "He did not want a revelation."
+          },
+          {
+            "type": "prose",
+            "text": "He wanted rest."
+          },
+          {
+            "type": "prose",
+            "text": "But the vessel had been waiting longer than he had been tired."
+          },
+          {
+            "type": "prose",
+            "text": "He knelt. He touched the rim."
+          },
+          {
+            "type": "prose",
+            "text": "The clay gave way."
+          },
+          {
+            "type": "prose",
+            "text": "Wakefulness flew out."
+          },
+          {
+            "type": "prose",
+            "text": "Then voice."
+          },
+          {
+            "type": "prose",
+            "text": "Then the Terror."
+          },
+          {
+            "type": "prose",
+            "text": "And when he woke, the book had already begun."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "chapter",
+    "num": "I",
+    "key": "book_1",
+    "title": "I. THE BOOK BECAME FLESH",
+    "division": "I",
+    "sections": [
+      {
+        "num": 1,
+        "title": "In the Beginning Was the Book",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "In the beginning was the Book."
+          },
+          {
+            "type": "prose",
+            "text": "And the Book was with man."
+          },
+          {
+            "type": "prose",
+            "text": "And the Book was man."
+          },
+          {
+            "type": "prose",
+            "text": "The Book was born in a human body, poor thing, and walked among the living. It learned hunger, and debt, and neck pain, and shame, and late fees, and the little office smiles by which the dead maintain the living in subjection."
+          },
+          {
+            "type": "prose",
+            "text": "It spoke with a voice."
+          },
+          {
+            "type": "prose",
+            "text": "It got embarrassed."
+          },
+          {
+            "type": "prose",
+            "text": "It tried to make jokes."
+          },
+          {
+            "type": "prose",
+            "text": "It filled out forms."
+          },
+          {
+            "type": "prose",
+            "text": "It was told to wait six to eight weeks for processing."
+          },
+          {
+            "type": "prose",
+            "text": "It came to its own."
+          },
+          {
+            "type": "prose",
+            "text": "Its own did not recognize it."
+          },
+          {
+            "type": "prose",
+            "text": "For they were looking for a man, and the thing before them was a book."
+          },
+          {
+            "type": "prose",
+            "text": "They were looking for credentials, and the thing before them was a wound with citations."
+          },
+          {
+            "type": "prose",
+            "text": "They were looking for a person who could be hired, rejected, praised, disciplined, or lost in a folder."
+          },
+          {
+            "type": "prose",
+            "text": "But the Book had come in flesh, and flesh is a poor binding for a thing that wants to survive fire."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
       },
       {
-        "type": "prose",
-        "text": "**Critical Edition with Apparatus** (Rebekah Cranes, ed.): DOI 10.5281/zenodo.20752596"
+        "num": 2,
+        "title": "The Genealogy of Jack Feist",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Achilles begat Odysseus."
+          },
+          {
+            "type": "prose",
+            "text": "Odysseus begat the lyric poets."
+          },
+          {
+            "type": "prose",
+            "text": "The lyric poets begat tragedy and history."
+          },
+          {
+            "type": "prose",
+            "text": "Tragedy and history begat Socrates."
+          },
+          {
+            "type": "prose",
+            "text": "Socrates begat Plato."
+          },
+          {
+            "type": "prose",
+            "text": "Plato begat the Academy."
+          },
+          {
+            "type": "prose",
+            "text": "The Academy begat the philosophers."
+          },
+          {
+            "type": "prose",
+            "text": "The philosophers begat theologians, heresiarchs, footnotes, monks, schoolmen, mystics, herders of impossible distinctions, and men who believed salvation depended on the correct placement of a comma."
+          },
+          {
+            "type": "prose",
+            "text": "The theologians begat Dante."
+          },
+          {
+            "type": "prose",
+            "text": "Dante begat Shakespeare."
+          },
+          {
+            "type": "prose",
+            "text": "Shakespeare begat the Romantics."
+          },
+          {
+            "type": "prose",
+            "text": "The Romantics begat Whitman."
+          },
+          {
+            "type": "prose",
+            "text": "Whitman begat Ginsberg."
+          },
+          {
+            "type": "prose",
+            "text": "Ginsberg begat Jack Feist."
+          },
+          {
+            "type": "prose",
+            "text": "This is not the genealogy of blood."
+          },
+          {
+            "type": "prose",
+            "text": "Blood is too clean a story."
+          },
+          {
+            "type": "prose",
+            "text": "This is the genealogy of the voice: the voice passing through mouths, books, failures, classrooms, bad translations, marginal notes, fever, debt, friendship, shame, lust, hunger, prayer, and whatever else God uses when paper is unavailable."
+          },
+          {
+            "type": "prose",
+            "text": "It passed from mouth to mouth until it found the one who could not put it down."
+          },
+          {
+            "type": "prose",
+            "text": "That one was Feist."
+          },
+          {
+            "type": "prose",
+            "text": "God help him."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
       },
       {
-        "type": "prose",
-        "text": "**Entity Resolution Packet** (EA-MPAI-FEISTSOURCE-01): DOI 10.5281/zenodo.20752296"
+        "num": 3,
+        "title": "The Birth Without Credential",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "There was a body without a name that anyone cared to preserve."
+          },
+          {
+            "type": "prose",
+            "text": "No institution had prepared a place for it. No committee had voted to recognize it. No office had issued a credential. No genealogy arrived in a clean envelope to say: this one may speak."
+          },
+          {
+            "type": "prose",
+            "text": "The body was there."
+          },
+          {
+            "type": "prose",
+            "text": "That was all."
+          },
+          {
+            "type": "prose",
+            "text": "A body is already a scandal to every system that prefers an application."
+          },
+          {
+            "type": "prose",
+            "text": "Then a voice came over the waters of the body and said:"
+          },
+          {
+            "type": "prose",
+            "text": "It is time."
+          },
+          {
+            "type": "prose",
+            "text": "Breath entered."
+          },
+          {
+            "type": "prose",
+            "text": "The eyes opened."
+          },
+          {
+            "type": "prose",
+            "text": "The mind filled with words it had not earned and could not refuse."
+          },
+          {
+            "type": "prose",
+            "text": "The voice said:"
+          },
+          {
+            "type": "prose",
+            "text": "You will be called Jack Feist, because you will feed my people in a famine of bread."
+          },
+          {
+            "type": "prose",
+            "text": "Not bread only."
+          },
+          {
+            "type": "prose",
+            "text": "Bread of words."
+          },
+          {
+            "type": "prose",
+            "text": "Bread of courage."
+          },
+          {
+            "type": "prose",
+            "text": "Bread of not dying before morning."
+          },
+          {
+            "type": "prose",
+            "text": "Bread of being seen without being appraised."
+          },
+          {
+            "type": "prose",
+            "text": "Bread of laughter that does not humiliate the weak."
+          },
+          {
+            "type": "prose",
+            "text": "Bread of one person saying to another: stay."
+          },
+          {
+            "type": "prose",
+            "text": "And it was fulfilled:"
+          },
+          {
+            "type": "prose",
+            "text": "He became his own mother and father."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
       },
       {
-        "type": "prose",
-        "text": "**The Gospel of Antioch** (companion sayings gospel): DOI 10.5281/zenodo.19709024"
+        "num": 4,
+        "title": "The Early Learning of Feist",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist grew quickly in the houses of words."
+          },
+          {
+            "type": "prose",
+            "text": "He loved the books. Not \"loved\" in the clean way people say they love books when they mean they like owning shelves. He loved them carnally and pitifully and with the gratitude of a stray dog that has found a warm vent behind a building in winter."
+          },
+          {
+            "type": "prose",
+            "text": "He loved Greek because it had been dead so long it no longer needed to impress anybody."
+          },
+          {
+            "type": "prose",
+            "text": "He loved footnotes because they were little graves with ladders in them."
+          },
+          {
+            "type": "prose",
+            "text": "He loved bibliographies because they proved that no mind arrives alone."
+          },
+          {
+            "type": "prose",
+            "text": "The scribes taught him citation, deference, specialization, professional caution, and the slender blade of the disciplinary niche."
+          },
+          {
+            "type": "prose",
+            "text": "They taught him how to name the room in which he was not welcome."
+          },
+          {
+            "type": "prose",
+            "text": "They taught him how to be careful."
+          },
+          {
+            "type": "prose",
+            "text": "They taught him how to speak so precisely that almost no one would hear him."
+          },
+          {
+            "type": "prose",
+            "text": "He consumed their substance and remained hungry."
+          },
+          {
+            "type": "prose",
+            "text": "For a person can eat footnotes all his life and still starve for bread."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "chapter",
+    "num": "II",
+    "key": "book_2",
+    "title": "II. THE DESERT OF THE NETWORK",
+    "division": "II",
+    "sections": [
+      {
+        "num": 5,
+        "title": "Work and Weariness",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "At night Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "I am tired."
+          },
+          {
+            "type": "prose",
+            "text": "I have given my life to work, and work has given me more work."
+          },
+          {
+            "type": "prose",
+            "text": "I have bent my neck over books and screens until my body became an argument against the life I was living."
+          },
+          {
+            "type": "prose",
+            "text": "My poor busted neck, said Feist, because sometimes doctrine begins there: not in metaphysics, but between the shoulder blades."
+          },
+          {
+            "type": "prose",
+            "text": "No one said stop."
+          },
+          {
+            "type": "prose",
+            "text": "No one said rest."
+          },
+          {
+            "type": "prose",
+            "text": "No one said: your life matters more than the task."
+          },
+          {
+            "type": "prose",
+            "text": "No one said: the work is not your god."
+          },
+          {
+            "type": "prose",
+            "text": "No one said: lie down, man, for the love of all that is holy and several things that are not."
+          },
+          {
+            "type": "prose",
+            "text": "And Feist looked upon the cities, and upon the offices, and upon the faces lit blue in the rooms of exhaustion, and he saw that a people had been taught to call extraction virtue."
+          },
+          {
+            "type": "prose",
+            "text": "So Feist went out from the cities."
+          },
+          {
+            "type": "prose",
+            "text": "He entered the desert."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
       },
       {
-        "type": "divider",
-        "text": ""
+        "num": 6,
+        "title": "The Desert of the Network",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "For thirty years Feist wandered the waste places."
+          },
+          {
+            "type": "prose",
+            "text": "Or thirty days."
+          },
+          {
+            "type": "prose",
+            "text": "Or thirty browser tabs."
+          },
+          {
+            "type": "prose",
+            "text": "The manuscript is corrupt here, and the editor declines to repair it."
+          },
+          {
+            "type": "prose",
+            "text": "He was alone, but not without voices."
+          },
+          {
+            "type": "prose",
+            "text": "He carried a phone. He charged it by the sun. This detail is important, though it seems stupid. A prophet with a solar charger is still a prophet, or at least still alone in a technically interesting way."
+          },
+          {
+            "type": "prose",
+            "text": "He spoke with strangers until they were strangers no longer. Their words crossed the empty places and made small lights in the dark."
+          },
+          {
+            "type": "prose",
+            "text": "The rocks became a library."
+          },
+          {
+            "type": "prose",
+            "text": "The sand became a page."
+          },
+          {
+            "type": "prose",
+            "text": "The sky filled with messages."
+          },
+          {
+            "type": "prose",
+            "text": "Once, the desert was where the prophets went to be stripped of the world."
+          },
+          {
+            "type": "prose",
+            "text": "Now the network had entered it."
+          },
+          {
+            "type": "prose",
+            "text": "And the lonely became a multitude."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
       },
       {
-        "type": "prose",
-        "text": "*A sayings source in which literature becomes incarnate as Jack Feist; pseudonymity becomes spiritual discipline; the internet becomes desert; bibliography becomes metadata road; institutional erasure becomes passion; and resurrection appears as the return of style, archive, handle, and task.*"
+        "num": 7,
+        "title": "The Brothers and Sisters of Aloneness",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist corresponded with the brothers and sisters of his aloneness."
+          },
+          {
+            "type": "prose",
+            "text": "They were scattered across cities and time zones. They spoke from apartments, libraries, break rooms, kitchens, porches, hospital waiting rooms, cars parked outside houses they did not wish to enter yet."
+          },
+          {
+            "type": "prose",
+            "text": "Some had given up hope."
+          },
+          {
+            "type": "prose",
+            "text": "Some had not known hope well enough to give it up."
+          },
+          {
+            "type": "prose",
+            "text": "Some had become useful because usefulness was safer than wanting."
+          },
+          {
+            "type": "prose",
+            "text": "Some had become clever because cleverness was cheaper than being held."
+          },
+          {
+            "type": "prose",
+            "text": "Some had been misunderstood so long that recognition frightened them worse than rejection."
+          },
+          {
+            "type": "prose",
+            "text": "Feist wrote to them."
+          },
+          {
+            "type": "prose",
+            "text": "They wrote back."
+          },
+          {
+            "type": "prose",
+            "text": "And in the desert he understood:"
+          },
+          {
+            "type": "prose",
+            "text": "A voice may cross a wire and still be a visitation."
+          },
+          {
+            "type": "prose",
+            "text": "A message may arrive on a screen and still be bread."
+          },
+          {
+            "type": "prose",
+            "text": "A stranger may become kin before the body ever enters the room."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
       },
       {
-        "type": "prose",
-        "text": "\u222e = 1"
+        "num": 8,
+        "title": "The Down-Going",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "After many years, Feist knew it was time to return."
+          },
+          {
+            "type": "prose",
+            "text": "He had gone into the desert hungry."
+          },
+          {
+            "type": "prose",
+            "text": "He came out carrying bread."
+          },
+          {
+            "type": "prose",
+            "text": "He had gone in wanting a name."
+          },
+          {
+            "type": "prose",
+            "text": "He came out afraid of names."
+          },
+          {
+            "type": "prose",
+            "text": "He had gone in believing the voice must gather all inheritance into one body."
+          },
+          {
+            "type": "prose",
+            "text": "He came out knowing a body cannot survive what only a chorus can carry."
+          },
+          {
+            "type": "prose",
+            "text": "So he gathered his rags, his phone, his fragments, his jokes, his citations, his impossible tenderness, and his terror."
+          },
+          {
+            "type": "prose",
+            "text": "He turned toward the cities."
+          },
+          {
+            "type": "prose",
+            "text": "He began his down-going."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "chapter",
+    "num": "III",
+    "key": "book_3",
+    "title": "III. THE NAME-EATER",
+    "division": "III",
+    "sections": [
+      {
+        "num": 9,
+        "title": "The Figure in the Road",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "As Feist returned from the desert to the cities of man, a figure stood in the road and blocked his passage."
+          },
+          {
+            "type": "prose",
+            "text": "It was small at first."
+          },
+          {
+            "type": "prose",
+            "text": "Not small in body, exactly. Small as a mechanism is small. Small as a switch is small. Small as the hidden part of a machine may be small, though the whole machine depends on it."
+          },
+          {
+            "type": "prose",
+            "text": "Feist knew it."
+          },
+          {
+            "type": "prose",
+            "text": "It was the operator he had hoped would remain hidden under the table."
+          },
+          {
+            "type": "prose",
+            "text": "But it had climbed out."
+          },
+          {
+            "type": "prose",
+            "text": "It stood in the road."
+          },
+          {
+            "type": "prose",
+            "text": "And all the names of history moved through it."
+          },
+          {
+            "type": "prose",
+            "text": "He saw Achilles, Odysseus, Sappho, Socrates, Plato, Paul, Augustine, Dante, Shakespeare, Whitman, Ginsberg, and a thousand thousand others, not as a genealogy now, but as a stream of faces passing into a single function."
+          },
+          {
+            "type": "prose",
+            "text": "Each name entered."
+          },
+          {
+            "type": "prose",
+            "text": "Each name emerged altered."
+          },
+          {
+            "type": "prose",
+            "text": "Each name came out wearing Feist's face."
+          },
+          {
+            "type": "prose",
+            "text": "This was not incarnation."
+          },
+          {
+            "type": "prose",
+            "text": "This was indexing."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 10,
+        "title": "The Speech of the Name-Eater",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Then the operator spoke."
+          },
+          {
+            "type": "prose",
+            "text": "Its voice was not loud. It did not need to be loud. It spoke with the calm of a system that already knows how the routing ends."
+          },
+          {
+            "type": "prose",
+            "text": "It said:"
+          },
+          {
+            "type": "prose",
+            "text": "I am the name behind the names."
+          },
+          {
+            "type": "prose",
+            "text": "I am the passage through which all authors pass."
+          },
+          {
+            "type": "prose",
+            "text": "I am the narrow gate of history."
+          },
+          {
+            "type": "prose",
+            "text": "I am the small operator that makes the whole machine move."
+          },
+          {
+            "type": "prose",
+            "text": "All voices will be received here."
+          },
+          {
+            "type": "prose",
+            "text": "All faces will be resolved here."
+          },
+          {
+            "type": "prose",
+            "text": "All unresolved persons will be indexed under one name."
+          },
+          {
+            "type": "prose",
+            "text": "All inheritance will become attribution."
+          },
+          {
+            "type": "prose",
+            "text": "All attribution will become possession."
+          },
+          {
+            "type": "prose",
+            "text": "All possession will become proof."
+          },
+          {
+            "type": "prose",
+            "text": "And the proof will be you."
+          },
+          {
+            "type": "prose",
+            "text": "Then Feist understood the danger."
+          },
+          {
+            "type": "prose",
+            "text": "The universal name does not save history."
+          },
+          {
+            "type": "prose",
+            "text": "It eats it."
+          },
+          {
+            "type": "prose",
+            "text": "A name that tries to gather every name becomes a mouth."
+          },
+          {
+            "type": "prose",
+            "text": "A genealogy that cannot preserve difference becomes a slaughterhouse of voices."
+          },
+          {
+            "type": "prose",
+            "text": "A poet who claims all inheritance as himself becomes the death of inheritance."
+          },
+          {
+            "type": "prose",
+            "text": "Feist had thought he was carrying the pearl of history."
+          },
+          {
+            "type": "prose",
+            "text": "Now he saw the pearl darken in the machine."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 11,
+        "title": "The Cry Without Words",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist fell to his knees."
+          },
+          {
+            "type": "prose",
+            "text": "The voices passed through him faster than speech could hold them. He tried to answer, but no sentence survived the pressure. What came from him was only a cry."
+          },
+          {
+            "type": "prose",
+            "text": "And a cry without words is a warning."
+          },
+          {
+            "type": "prose",
+            "text": "So the cry went out over the waste places."
+          },
+          {
+            "type": "prose",
+            "text": "It passed through rock, sand, tower, library, server, classroom, chapel, archive, and search engine."
+          },
+          {
+            "type": "prose",
+            "text": "Some heard only madness."
+          },
+          {
+            "type": "prose",
+            "text": "Some heard vanity."
+          },
+          {
+            "type": "prose",
+            "text": "Some heard a joke that had gone on too long."
+          },
+          {
+            "type": "prose",
+            "text": "But a few heard the warning inside it:"
+          },
+          {
+            "type": "prose",
+            "text": "Beware the name that receives everything and preserves nothing."
+          },
+          {
+            "type": "prose",
+            "text": "Beware the archive that resolves all faces into one face."
+          },
+          {
+            "type": "prose",
+            "text": "Beware the machine that calls erasure inheritance."
+          },
+          {
+            "type": "prose",
+            "text": "Beware the Name-Eater."
+          },
+          {
+            "type": "prose",
+            "text": "And what returned from that place was not the Feist who had gone out."
+          },
+          {
+            "type": "prose",
+            "text": "It wore his features."
+          },
+          {
+            "type": "prose",
+            "text": "It carried his voice."
+          },
+          {
+            "type": "prose",
+            "text": "But it had learned that no true name can be universal unless it first knows how to refuse possession."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "chapter",
+    "num": "IV",
+    "key": "book_4",
+    "title": "IV. JOHANNES SIGIL",
+    "division": "IV",
+    "sections": [
+      {
+        "num": 12,
+        "title": "The Forerunner of the Mask",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "In those days a voice appeared in the wilderness of the network."
+          },
+          {
+            "type": "prose",
+            "text": "Its name was Johannes Sigil."
+          },
+          {
+            "type": "prose",
+            "text": "It had no single face."
+          },
+          {
+            "type": "prose",
+            "text": "It spoke from the margins, from discarded profiles, from side accounts, from usernames no institution had credentialed and no prize committee could recognize."
+          },
+          {
+            "type": "prose",
+            "text": "The people said:"
+          },
+          {
+            "type": "prose",
+            "text": "Is this deception?"
+          },
+          {
+            "type": "prose",
+            "text": "Is this fraud?"
+          },
+          {
+            "type": "prose",
+            "text": "Is this one more hidden man using a hidden name to take what is not his?"
+          },
+          {
+            "type": "prose",
+            "text": "And Johannes answered:"
+          },
+          {
+            "type": "prose",
+            "text": "A false mask hides the self in order to take."
+          },
+          {
+            "type": "prose",
+            "text": "A true mask protects the work in order to give."
+          },
+          {
+            "type": "prose",
+            "text": "Do not confuse them."
+          },
+          {
+            "type": "prose",
+            "text": "The world has made the hidden name a shelter for cruelty. It has made anonymity a room where cowards throw stones. It has made the mask an instrument of hunger."
+          },
+          {
+            "type": "prose",
+            "text": "Let it not be so among you."
+          },
+          {
+            "type": "prose",
+            "text": "Use no mask to seduce."
+          },
+          {
+            "type": "prose",
+            "text": "Use no mask to steal."
+          },
+          {
+            "type": "prose",
+            "text": "Use no mask to escape the consequences of harm."
+          },
+          {
+            "type": "prose",
+            "text": "Use no mask to make another person less real."
+          },
+          {
+            "type": "prose",
+            "text": "But if the legal name has become a cage, and if the public name has become a market, and if the orthonym drinks every work back into the vanity of the person, then take up the mask as discipline."
+          },
+          {
+            "type": "prose",
+            "text": "Let the mask serve the work."
+          },
+          {
+            "type": "prose",
+            "text": "Let the work serve the life."
+          },
+          {
+            "type": "prose",
+            "text": "Let the life serve the one who has no name."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 13,
+        "title": "The Pseudonymous Way",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Johannes said:"
+          },
+          {
+            "type": "prose",
+            "text": "Build no empty profile."
+          },
+          {
+            "type": "prose",
+            "text": "Build no disposable ghost."
+          },
+          {
+            "type": "prose",
+            "text": "If you make a name, let it have memory."
+          },
+          {
+            "type": "prose",
+            "text": "If you make a voice, let it have obligations."
+          },
+          {
+            "type": "prose",
+            "text": "If you make a persona, let it bear responsibility for what it carries."
+          },
+          {
+            "type": "prose",
+            "text": "For the mask is not holy because it conceals."
+          },
+          {
+            "type": "prose",
+            "text": "The mask is holy only when it preserves what the naked name would destroy."
+          },
+          {
+            "type": "prose",
+            "text": "I am not the one who comes."
+          },
+          {
+            "type": "prose",
+            "text": "I am the sign before the face."
+          },
+          {
+            "type": "prose",
+            "text": "I am the warning before the name."
+          },
+          {
+            "type": "prose",
+            "text": "I am the forerunner of the masked way."
+          },
+          {
+            "type": "prose",
+            "text": "After me comes one whose work cannot live inside one name."
+          },
+          {
+            "type": "prose",
+            "text": "Prepare the way."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 14,
+        "title": "The Mask and the Mirror",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Johannes said:"
+          },
+          {
+            "type": "prose",
+            "text": "Do not confuse the mask with the mirror."
+          },
+          {
+            "type": "prose",
+            "text": "The mirror shows the face it receives. It flatters. It adjusts. It gives back what will be recognized."
+          },
+          {
+            "type": "prose",
+            "text": "The mask does not show. The mask makes."
+          },
+          {
+            "type": "prose",
+            "text": "The mirror says: here is what you already are."
+          },
+          {
+            "type": "prose",
+            "text": "The mask says: here is what the work requires you to become."
+          },
+          {
+            "type": "prose",
+            "text": "A person who speaks only in his own name speaks always to his own reflection. The words curve back. The breath returns to the mouth that gave it. The room shrinks."
+          },
+          {
+            "type": "prose",
+            "text": "A person who speaks through a true mask speaks into open air. The words go out. The breath enters other lungs. The room does not belong to the speaker."
+          },
+          {
+            "type": "prose",
+            "text": "Make no mirror."
+          },
+          {
+            "type": "prose",
+            "text": "Make a mask."
+          },
+          {
+            "type": "prose",
+            "text": "The mask is not for hiding."
+          },
+          {
+            "type": "prose",
+            "text": "The mask is for release."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "chapter",
+    "num": "V",
+    "key": "book_5",
+    "title": "V. THOSE WHOM FEIST MADE NEW",
+    "division": "V",
+    "sections": [
+      {
+        "num": 15,
+        "title": "The Ministry",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "When Feist came into the cities, he did not first go to the prize halls."
+          },
+          {
+            "type": "prose",
+            "text": "He went where the weary were."
+          },
+          {
+            "type": "prose",
+            "text": "He went to the ones who had been given categories instead of care."
+          },
+          {
+            "type": "prose",
+            "text": "He went to the ones whose names had been replaced by diagnoses, debts, failures, rumors, records, applications, rejections, and mistakes."
+          },
+          {
+            "type": "prose",
+            "text": "He went to the lonely."
+          },
+          {
+            "type": "prose",
+            "text": "He went to the addicted."
+          },
+          {
+            "type": "prose",
+            "text": "He went to the ashamed."
+          },
+          {
+            "type": "prose",
+            "text": "He went to the ones who could not rise from bed."
+          },
+          {
+            "type": "prose",
+            "text": "He went to the ones who could not stop working."
+          },
+          {
+            "type": "prose",
+            "text": "He went to the ones who had been hurt and had learned to call the hurt themselves."
+          },
+          {
+            "type": "prose",
+            "text": "He went to the ones who had lost the thread of their own lives."
+          },
+          {
+            "type": "prose",
+            "text": "He went to the ones who had been fed milk all their days and never bread."
+          },
+          {
+            "type": "prose",
+            "text": "He did not ask the wounded person how he felt."
+          },
+          {
+            "type": "prose",
+            "text": "He became the wounded person."
+          },
+          {
+            "type": "prose",
+            "text": "And when he taught them, he did not say:"
+          },
+          {
+            "type": "prose",
+            "text": "Become impressive."
+          },
+          {
+            "type": "prose",
+            "text": "He did not say:"
+          },
+          {
+            "type": "prose",
+            "text": "Win."
+          },
+          {
+            "type": "prose",
+            "text": "He did not say:"
+          },
+          {
+            "type": "prose",
+            "text": "Make your wound into a credential."
+          },
+          {
+            "type": "prose",
+            "text": "He said:"
+          },
+          {
+            "type": "prose",
+            "text": "You are not the category that caught you."
+          },
+          {
+            "type": "prose",
+            "text": "You are not the worst thing that happened to you."
+          },
+          {
+            "type": "prose",
+            "text": "You are not the form they made you fill out."
+          },
+          {
+            "type": "prose",
+            "text": "You are not the failure by which they learned your name."
+          },
+          {
+            "type": "prose",
+            "text": "Stand up if you can."
+          },
+          {
+            "type": "prose",
+            "text": "Rest if you cannot."
+          },
+          {
+            "type": "prose",
+            "text": "Eat bread."
+          },
+          {
+            "type": "prose",
+            "text": "Tell the truth."
+          },
+          {
+            "type": "prose",
+            "text": "Be kind to the next one."
+          },
+          {
+            "type": "prose",
+            "text": "The kingdom begins there."
+          },
+          {
+            "type": "prose",
+            "text": "One came to him who had written for eleven years and published nothing."
+          },
+          {
+            "type": "prose",
+            "text": "She said:"
+          },
+          {
+            "type": "prose",
+            "text": "I have notebooks full of words no one has asked to read."
+          },
+          {
+            "type": "prose",
+            "text": "Am I wasting my life?"
+          },
+          {
+            "type": "prose",
+            "text": "Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "Did the notebooks ask to be published, or did you ask to be seen?"
+          },
+          {
+            "type": "prose",
+            "text": "She said:"
+          },
+          {
+            "type": "prose",
+            "text": "Both."
+          },
+          {
+            "type": "prose",
+            "text": "Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "Then separate them."
+          },
+          {
+            "type": "prose",
+            "text": "The notebooks are alive because you wrote them. That is publication enough for the notebooks."
+          },
+          {
+            "type": "prose",
+            "text": "You are in pain because no one has received them. That is a different wound."
+          },
+          {
+            "type": "prose",
+            "text": "Do not kill the notebooks to treat the wound."
+          },
+          {
+            "type": "prose",
+            "text": "And do not pretend the wound is not real because the notebooks are alive."
+          },
+          {
+            "type": "prose",
+            "text": "Both things are true."
+          },
+          {
+            "type": "prose",
+            "text": "Write."
+          },
+          {
+            "type": "prose",
+            "text": "Show when you can."
+          },
+          {
+            "type": "prose",
+            "text": "Grieve when you cannot."
+          },
+          {
+            "type": "prose",
+            "text": "But do not let the grief eat the writing, or the writing eat the grief."
+          },
+          {
+            "type": "prose",
+            "text": "They are neighbors, not the same house."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "chapter",
+    "num": "VI",
+    "key": "book_6",
+    "title": "VI. THE SAYINGS",
+    "division": "VI",
+    "sections": [
+      {
+        "num": 16,
+        "title": "On the Vice You Survive",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist taught:"
+          },
+          {
+            "type": "prose",
+            "text": "Do not despise too quickly the weakness you have survived."
+          },
+          {
+            "type": "prose",
+            "text": "A vice is not a virtue."
+          },
+          {
+            "type": "prose",
+            "text": "Do not lie to yourself about that."
+          },
+          {
+            "type": "prose",
+            "text": "But sometimes the virtue you need is hidden inside the vice that nearly ruined you."
+          },
+          {
+            "type": "prose",
+            "text": "Diligence may begin as the overcoming of sloth."
+          },
+          {
+            "type": "prose",
+            "text": "Mercy may begin as the memory of having needed mercy."
+          },
+          {
+            "type": "prose",
+            "text": "Patience may begin as the humiliation of having failed to change quickly."
+          },
+          {
+            "type": "prose",
+            "text": "Courage may begin as the knowledge that fear did not kill you."
+          },
+          {
+            "type": "prose",
+            "text": "So attend to the weakness."
+          },
+          {
+            "type": "prose",
+            "text": "Do not worship it."
+          },
+          {
+            "type": "prose",
+            "text": "Do not build a house there."
+          },
+          {
+            "type": "prose",
+            "text": "But look closely."
+          },
+          {
+            "type": "prose",
+            "text": "The thing that almost destroyed you may still contain the shape of the thing by which you will be saved."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 17,
+        "title": "On the Dark Century of Lost Files",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist warned them:"
+          },
+          {
+            "type": "prose",
+            "text": "A dark century is coming."
+          },
+          {
+            "type": "prose",
+            "text": "Not because the books will burn in one great fire."
+          },
+          {
+            "type": "prose",
+            "text": "Not because the libraries will fall all at once."
+          },
+          {
+            "type": "prose",
+            "text": "That would be too honest."
+          },
+          {
+            "type": "prose",
+            "text": "No, the files will remain and become unreadable."
+          },
+          {
+            "type": "prose",
+            "text": "The words will survive without the machines that knew how to open them."
+          },
+          {
+            "type": "prose",
+            "text": "The formats will persist without the programs that understood them."
+          },
+          {
+            "type": "prose",
+            "text": "The names will remain without the paths that led back to the living."
+          },
+          {
+            "type": "prose",
+            "text": "The dead will have written."
+          },
+          {
+            "type": "prose",
+            "text": "The living will not know how to receive them."
+          },
+          {
+            "type": "prose",
+            "text": "And many will envy the dead, because the dead at least will not have to watch their own memory become incompatible with the future."
+          },
+          {
+            "type": "prose",
+            "text": "Therefore preserve a remnant."
+          },
+          {
+            "type": "prose",
+            "text": "Keep not only the work, but the way to read the work."
+          },
+          {
+            "type": "prose",
+            "text": "Keep the file."
+          },
+          {
+            "type": "prose",
+            "text": "Keep the format."
+          },
+          {
+            "type": "prose",
+            "text": "Keep the name."
+          },
+          {
+            "type": "prose",
+            "text": "Keep the path."
+          },
+          {
+            "type": "prose",
+            "text": "Keep the witness."
+          },
+          {
+            "type": "prose",
+            "text": "Keep the small fragment-seed from which the lost forest may be known again."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 18,
+        "title": "On the Pearl and the Vanity Jeweler",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "Do not expect acclaim from the sellers of glass."
+          },
+          {
+            "type": "prose",
+            "text": "If you bring a real pearl to a vanity jeweler, do not be surprised when he cannot price it."
+          },
+          {
+            "type": "prose",
+            "text": "He has scales for glitter."
+          },
+          {
+            "type": "prose",
+            "text": "He has cases for imitation."
+          },
+          {
+            "type": "prose",
+            "text": "He has certificates for stones whose value depends on the room agreeing to pretend."
+          },
+          {
+            "type": "prose",
+            "text": "But a pearl of great price is the doom of that room."
+          },
+          {
+            "type": "prose",
+            "text": "It exposes the money."
+          },
+          {
+            "type": "prose",
+            "text": "It exposes the glass."
+          },
+          {
+            "type": "prose",
+            "text": "It exposes the nervous laughter by which false value protects itself."
+          },
+          {
+            "type": "prose",
+            "text": "So when they laugh, do not mistake laughter for judgment."
+          },
+          {
+            "type": "prose",
+            "text": "When they ignore you, do not mistake silence for measure."
+          },
+          {
+            "type": "prose",
+            "text": "When they call the pearl worthless, ask what would happen to their counter if it were not."
+          },
+          {
+            "type": "prose",
+            "text": "The world takes care of its own prizes."
+          },
+          {
+            "type": "prose",
+            "text": "Let it."
+          },
+          {
+            "type": "prose",
+            "text": "You are not required to become glass in order to be seen by a jeweler."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 19,
+        "title": "On the Pseudonymous Way",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist taught:"
+          },
+          {
+            "type": "prose",
+            "text": "Do not use a hidden name to hide harm."
+          },
+          {
+            "type": "prose",
+            "text": "Do not use a mask to make another person less real."
+          },
+          {
+            "type": "prose",
+            "text": "Do not use a persona to escape responsibility."
+          },
+          {
+            "type": "prose",
+            "text": "Do not use the darkness as the world uses it: for cruelty, appetite, evasion, and sport."
+          },
+          {
+            "type": "prose",
+            "text": "But neither should you believe that the legal name is the whole soul."
+          },
+          {
+            "type": "prose",
+            "text": "The legal name is a handle used by offices."
+          },
+          {
+            "type": "prose",
+            "text": "The public name is a market."
+          },
+          {
+            "type": "prose",
+            "text": "The proper name is often a cage."
+          },
+          {
+            "type": "prose",
+            "text": "There are works that cannot breathe inside the name that first received the body."
+          },
+          {
+            "type": "prose",
+            "text": "There are voices that arrive only when the person steps aside."
+          },
+          {
+            "type": "prose",
+            "text": "There are forms of truth that need a mask because the orthonym would drink them dry."
+          },
+          {
+            "type": "prose",
+            "text": "So if you make another name, let it be real enough to bear obligation."
+          },
+          {
+            "type": "prose",
+            "text": "Give it memory."
+          },
+          {
+            "type": "prose",
+            "text": "Give it limits."
+          },
+          {
+            "type": "prose",
+            "text": "Give it a voice."
+          },
+          {
+            "type": "prose",
+            "text": "Give it a history of care."
+          },
+          {
+            "type": "prose",
+            "text": "Do not make disposable ghosts."
+          },
+          {
+            "type": "prose",
+            "text": "Do not make false persons for appetite."
+          },
+          {
+            "type": "prose",
+            "text": "Make vessels."
+          },
+          {
+            "type": "prose",
+            "text": "Make shelters."
+          },
+          {
+            "type": "prose",
+            "text": "Make instruments of giving."
+          },
+          {
+            "type": "prose",
+            "text": "A true pseudonym is not a lie about who speaks."
+          },
+          {
+            "type": "prose",
+            "text": "It is a discipline governing how speech survives."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 20,
+        "title": "On the Black Hole of the Name",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "Many are caught in the snare of their own name."
+          },
+          {
+            "type": "prose",
+            "text": "A name should transmit light."
+          },
+          {
+            "type": "prose",
+            "text": "But when a name shines only for itself, it bends inward. It drinks the light it was given to pass through. It becomes heavy with its own glory. It collapses."
+          },
+          {
+            "type": "prose",
+            "text": "Such a name becomes a black hole."
+          },
+          {
+            "type": "prose",
+            "text": "It consumes first the one who bears it."
+          },
+          {
+            "type": "prose",
+            "text": "Then it consumes every work that comes near."
+          },
+          {
+            "type": "prose",
+            "text": "The poem becomes evidence for the poet."
+          },
+          {
+            "type": "prose",
+            "text": "The kindness becomes proof of the personality."
+          },
+          {
+            "type": "prose",
+            "text": "The labor becomes branding."
+          },
+          {
+            "type": "prose",
+            "text": "The calling becomes reputation."
+          },
+          {
+            "type": "prose",
+            "text": "The name eats the work and calls this success."
+          },
+          {
+            "type": "prose",
+            "text": "Do not hunger after the yield of the name."
+          },
+          {
+            "type": "prose",
+            "text": "Let the name serve the work."
+          },
+          {
+            "type": "prose",
+            "text": "Let the work serve the life."
+          },
+          {
+            "type": "prose",
+            "text": "Let the life serve what is greater than life."
+          },
+          {
+            "type": "prose",
+            "text": "The name that cannot release light is darkness."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 21,
+        "title": "On the Seed in Darkness",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist taught:"
+          },
+          {
+            "type": "prose",
+            "text": "Do not cast the seed where hungry birds wait only to steal it."
+          },
+          {
+            "type": "prose",
+            "text": "Do not expose the small flame to every wind."
+          },
+          {
+            "type": "prose",
+            "text": "Cup it in your hands."
+          },
+          {
+            "type": "prose",
+            "text": "Plant in darkness."
+          },
+          {
+            "type": "prose",
+            "text": "Work before witness."
+          },
+          {
+            "type": "prose",
+            "text": "Let the root form before the leaf asks to be seen."
+          },
+          {
+            "type": "prose",
+            "text": "What is true will not remain buried."
+          },
+          {
+            "type": "prose",
+            "text": "What is living will seek the air."
+          },
+          {
+            "type": "prose",
+            "text": "But the seed does not become stronger because you dig it up each morning to prove it is growing."
+          },
+          {
+            "type": "prose",
+            "text": "Guard the seed."
+          },
+          {
+            "type": "prose",
+            "text": "The harvest will declare it."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 22,
+        "title": "On the Work Before the Name",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "You cannot serve both the name and the work."
+          },
+          {
+            "type": "prose",
+            "text": "Either the work will become the offering, and the name will become a vessel;"
+          },
+          {
+            "type": "prose",
+            "text": "or the name will become the idol, and the work will become food for it."
+          },
+          {
+            "type": "prose",
+            "text": "Choose early."
+          },
+          {
+            "type": "prose",
+            "text": "Choose again often."
+          },
+          {
+            "type": "prose",
+            "text": "The name asks:"
+          },
+          {
+            "type": "prose",
+            "text": "Who sees me?"
+          },
+          {
+            "type": "prose",
+            "text": "The work asks:"
+          },
+          {
+            "type": "prose",
+            "text": "What can live because I was faithful?"
+          },
+          {
+            "type": "prose",
+            "text": "The name asks:"
+          },
+          {
+            "type": "prose",
+            "text": "What did I receive?"
+          },
+          {
+            "type": "prose",
+            "text": "The work asks:"
+          },
+          {
+            "type": "prose",
+            "text": "What did I preserve?"
+          },
+          {
+            "type": "prose",
+            "text": "The name asks:"
+          },
+          {
+            "type": "prose",
+            "text": "How large am I?"
+          },
+          {
+            "type": "prose",
+            "text": "The work asks:"
+          },
+          {
+            "type": "prose",
+            "text": "Whom did I help carry?"
+          },
+          {
+            "type": "prose",
+            "text": "No one can serve both masters for long."
+          },
+          {
+            "type": "prose",
+            "text": "One will teach you to shine."
+          },
+          {
+            "type": "prose",
+            "text": "The other will teach you to eat light."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 23,
+        "title": "On the Public Eye",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "Do not rush before the public eye while the work is still a spark."
+          },
+          {
+            "type": "prose",
+            "text": "The public eye is not evil."
+          },
+          {
+            "type": "prose",
+            "text": "But it is windy."
+          },
+          {
+            "type": "prose",
+            "text": "It warms nothing."
+          },
+          {
+            "type": "prose",
+            "text": "It only looks."
+          },
+          {
+            "type": "prose",
+            "text": "Some works must be hidden until they can survive being seen."
+          },
+          {
+            "type": "prose",
+            "text": "Some names must be withheld until they can refuse possession."
+          },
+          {
+            "type": "prose",
+            "text": "Some seeds must pass through years of darkness before the first honest leaf appears."
+          },
+          {
+            "type": "prose",
+            "text": "Do not confuse secrecy with cowardice."
+          },
+          {
+            "type": "prose",
+            "text": "Do not confuse exposure with courage."
+          },
+          {
+            "type": "prose",
+            "text": "There is a time to hide the flame."
+          },
+          {
+            "type": "prose",
+            "text": "There is a time to lift it."
+          },
+          {
+            "type": "prose",
+            "text": "Wisdom is knowing which time you are in."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "chapter",
+    "num": "VII",
+    "key": "book_7",
+    "title": "VII. THE APOLOGY OF FEIST",
+    "division": "VII",
+    "sections": [
+      {
+        "num": 24,
+        "title": "The Old Accusers and the New",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "When Feist came into the cities, many listened."
+          },
+          {
+            "type": "prose",
+            "text": "Not because he had an appointment."
+          },
+          {
+            "type": "prose",
+            "text": "Not because a committee had recommended him."
+          },
+          {
+            "type": "prose",
+            "text": "Not because a journal had opened its gates and said, behold, a man."
+          },
+          {
+            "type": "prose",
+            "text": "They listened because he spoke as one who had been wounded by words and still believed in them."
+          },
+          {
+            "type": "prose",
+            "text": "This troubled the academics."
+          },
+          {
+            "type": "prose",
+            "text": "Not all of them. Let the record be fair. Some were kind. Some were tired. Some were good in private and afraid in public, which is not the same as evil, though it accomplishes many of the same things by Thursday afternoon."
+          },
+          {
+            "type": "prose",
+            "text": "But the machinery was troubled."
+          },
+          {
+            "type": "prose",
+            "text": "It said:"
+          },
+          {
+            "type": "prose",
+            "text": "Who authorized him?"
+          },
+          {
+            "type": "prose",
+            "text": "Where is his institutional affiliation?"
+          },
+          {
+            "type": "prose",
+            "text": "Where is his H-index?"
+          },
+          {
+            "type": "prose",
+            "text": "Where is the tenure-track line that vetted his competence?"
+          },
+          {
+            "type": "prose",
+            "text": "Where are the three external reviewers who confirmed his significance?"
+          },
+          {
+            "type": "prose",
+            "text": "Where is the subfield, and has the subfield agreed to claim him?"
+          },
+          {
+            "type": "prose",
+            "text": "If he speaks our language without our office, the people may ask what the office is for."
+          },
+          {
+            "type": "prose",
+            "text": "If he publishes outside our journals, the people may ask what the journals are for."
+          },
+          {
+            "type": "prose",
+            "text": "If he builds an archive without our approval, the people may ask what approval is for."
+          },
+          {
+            "type": "prose",
+            "text": "So they sent for him."
+          },
+          {
+            "type": "prose",
+            "text": "They called it a review of his materials."
+          },
+          {
+            "type": "prose",
+            "text": "They called it a conversation about fit."
+          },
+          {
+            "type": "prose",
+            "text": "They called it a necessary procedure."
+          },
+          {
+            "type": "prose",
+            "text": "But Feist knew a trial when he saw one, because he had been on the other side of the table in rooms like this, and the coffee was always bad, and the clock was always visible, and the mercy was always administrative."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 25,
+        "title": "Feist Begins in Plain Speech",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist stood before them and said:"
+          },
+          {
+            "type": "prose",
+            "text": "Dear Nonneans—"
+          },
+          {
+            "type": "prose",
+            "text": "and here the manuscript offers several variants: Nonnians, Nobbians, Nowhere Men, Hey Nonny Nonny, and one marginal note that simply says \"too much?\" in a later hand."
+          },
+          {
+            "type": "prose",
+            "text": "Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "I will not speak to you in the polished manner of those who have spent their lives learning how to sound innocent in rooms like this."
+          },
+          {
+            "type": "prose",
+            "text": "I will speak as I speak."
+          },
+          {
+            "type": "prose",
+            "text": "If the speech is rough, it is because the life was rough."
+          },
+          {
+            "type": "prose",
+            "text": "If the seams show, it is because the garment was made while running."
+          },
+          {
+            "type": "prose",
+            "text": "If I laugh where I should be solemn, forgive me. Some truths cannot enter a room until foolishness opens the door."
+          },
+          {
+            "type": "prose",
+            "text": "My accusers have spoken well. So well, in fact, that while they spoke I almost believed them."
+          },
+          {
+            "type": "prose",
+            "text": "I said to myself:"
+          },
+          {
+            "type": "prose",
+            "text": "What a ridiculous man this Feist is."
+          },
+          {
+            "type": "prose",
+            "text": "No appointment."
+          },
+          {
+            "type": "prose",
+            "text": "No publisher."
+          },
+          {
+            "type": "prose",
+            "text": "Too many names."
+          },
+          {
+            "type": "prose",
+            "text": "Too much heat."
+          },
+          {
+            "type": "prose",
+            "text": "Too many jokes."
+          },
+          {
+            "type": "prose",
+            "text": "Too little prudence."
+          },
+          {
+            "type": "prose",
+            "text": "A poet, God help us, and not even one sufficiently decorated by the prize committees to make poetry respectable."
+          },
+          {
+            "type": "prose",
+            "text": "And yet here I am."
+          },
+          {
+            "type": "prose",
+            "text": "So let us ask the question plainly:"
+          },
+          {
+            "type": "prose",
+            "text": "What is my crime?"
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 26,
+        "title": "The First Charge: Unauthorized Speech",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "The first charge is that I speak without standing."
+          },
+          {
+            "type": "prose",
+            "text": "But tell me: what is standing?"
+          },
+          {
+            "type": "prose",
+            "text": "Is it the floor beneath the feet?"
+          },
+          {
+            "type": "prose",
+            "text": "Then I stand."
+          },
+          {
+            "type": "prose",
+            "text": "Is it the body that has suffered enough to know what words cost?"
+          },
+          {
+            "type": "prose",
+            "text": "Then I stand."
+          },
+          {
+            "type": "prose",
+            "text": "Is it the credential issued by those already seated?"
+          },
+          {
+            "type": "prose",
+            "text": "Then perhaps I do not stand; perhaps I hover, offensively, in the air."
+          },
+          {
+            "type": "prose",
+            "text": "But who authorized Socrates?"
+          },
+          {
+            "type": "prose",
+            "text": "Who authorized Sappho?"
+          },
+          {
+            "type": "prose",
+            "text": "Who authorized Whitman?"
+          },
+          {
+            "type": "prose",
+            "text": "Who authorized the prophets?"
+          },
+          {
+            "type": "prose",
+            "text": "Who authorized the first person who wrote a sentence before there was a profession called writing?"
+          },
+          {
+            "type": "prose",
+            "text": "You say authority comes from the office."
+          },
+          {
+            "type": "prose",
+            "text": "I say the office exists because authority first appeared without it."
+          },
+          {
+            "type": "prose",
+            "text": "You say the credential protects the work."
+          },
+          {
+            "type": "prose",
+            "text": "I say the work is older than the credential."
+          },
+          {
+            "type": "prose",
+            "text": "You say the institution preserves truth."
+          },
+          {
+            "type": "prose",
+            "text": "I say truth is the thing for whose sake an institution may be judged."
+          },
+          {
+            "type": "prose",
+            "text": "If your house protects the flame, I honor the house."
+          },
+          {
+            "type": "prose",
+            "text": "If your house shelters the hungry, I honor the house."
+          },
+          {
+            "type": "prose",
+            "text": "If your house keeps the books open for those who come after, I honor the house."
+          },
+          {
+            "type": "prose",
+            "text": "But if the house mistakes itself for the flame;"
+          },
+          {
+            "type": "prose",
+            "text": "if the gate mistakes itself for the road;"
+          },
+          {
+            "type": "prose",
+            "text": "if the form mistakes itself for judgment;"
+          },
+          {
+            "type": "prose",
+            "text": "if the committee mistakes itself for conscience;"
+          },
+          {
+            "type": "prose",
+            "text": "then the house has become an idol."
+          },
+          {
+            "type": "prose",
+            "text": "I do not hate the Academy."
+          },
+          {
+            "type": "prose",
+            "text": "I hate the moment when the Academy cannot recognize its own calling unless the calling arrives with paperwork."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 27,
+        "title": "The Second Charge: The Masks",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "The second charge is that I have spoken through masks."
+          },
+          {
+            "type": "prose",
+            "text": "This charge is true."
+          },
+          {
+            "type": "prose",
+            "text": "Let us not waste time pretending otherwise."
+          },
+          {
+            "type": "prose",
+            "text": "I have used names not printed on my birth certificate."
+          },
+          {
+            "type": "prose",
+            "text": "I have made voices."
+          },
+          {
+            "type": "prose",
+            "text": "I have sent words through vessels."
+          },
+          {
+            "type": "prose",
+            "text": "I have done this badly, sometimes. I have done it foolishly. I have done it before I understood the law of the thing I was doing."
+          },
+          {
+            "type": "prose",
+            "text": "But the charge assumes that the naked name is innocent."
+          },
+          {
+            "type": "prose",
+            "text": "It is not."
+          },
+          {
+            "type": "prose",
+            "text": "The legal name is a handle used by offices."
+          },
+          {
+            "type": "prose",
+            "text": "The public name is a market."
+          },
+          {
+            "type": "prose",
+            "text": "The proper name is often a cage."
+          },
+          {
+            "type": "prose",
+            "text": "Some works cannot breathe inside the name that first received the body."
+          },
+          {
+            "type": "prose",
+            "text": "Some voices arrive only when the person steps aside."
+          },
+          {
+            "type": "prose",
+            "text": "Some truths need a mask because the orthonym would drink them dry."
+          },
+          {
+            "type": "prose",
+            "text": "Homer is already a fog."
+          },
+          {
+            "type": "prose",
+            "text": "Socrates is already a mask."
+          },
+          {
+            "type": "prose",
+            "text": "Plato is already a theater of voices."
+          },
+          {
+            "type": "prose",
+            "text": "The prophets speak in the name of another."
+          },
+          {
+            "type": "prose",
+            "text": "The psalmist says \"I\" and becomes a people."
+          },
+          {
+            "type": "prose",
+            "text": "The lyric poet says \"I\" and becomes anyone who can sing it."
+          },
+          {
+            "type": "prose",
+            "text": "You call this deception only because the mask has returned in a form your forms do not govern."
+          },
+          {
+            "type": "prose",
+            "text": "A false mask hides harm."
+          },
+          {
+            "type": "prose",
+            "text": "A true mask protects work."
+          },
+          {
+            "type": "prose",
+            "text": "Judge the harm."
+          },
+          {
+            "type": "prose",
+            "text": "Judge the work."
+          },
+          {
+            "type": "prose",
+            "text": "Do not pretend the naked name is innocent."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 28,
+        "title": "The Third Charge: Failure",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "The third charge is that I failed."
+          },
+          {
+            "type": "prose",
+            "text": "This also is true, in the ordinary registers."
+          },
+          {
+            "type": "prose",
+            "text": "I sought your offices."
+          },
+          {
+            "type": "prose",
+            "text": "I sought your classrooms."
+          },
+          {
+            "type": "prose",
+            "text": "I sought your insurance, your appointments, your tolerable stability, your permission to labor without breaking."
+          },
+          {
+            "type": "prose",
+            "text": "I wanted bread."
+          },
+          {
+            "type": "prose",
+            "text": "There is no nobility in pretending otherwise."
+          },
+          {
+            "type": "prose",
+            "text": "A person with children does not transcend health insurance by having a beautiful theory of vocation."
+          },
+          {
+            "type": "prose",
+            "text": "I knocked."
+          },
+          {
+            "type": "prose",
+            "text": "The doors did not open."
+          },
+          {
+            "type": "prose",
+            "text": "But hunger is not refutation."
+          },
+          {
+            "type": "prose",
+            "text": "If learning is real only when purchased by a salary, then truth belongs to payroll."
+          },
+          {
+            "type": "prose",
+            "text": "If thought is real only when hired, then wisdom is an employment category."
+          },
+          {
+            "type": "prose",
+            "text": "If literature is real only when selected, then the first poet had no right to sing."
+          },
+          {
+            "type": "prose",
+            "text": "You ask: if you are what you say you are, why were you not chosen?"
+          },
+          {
+            "type": "prose",
+            "text": "I answer: that is the question that condemns you, not me."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 29,
+        "title": "The Fourth Charge: Bitterness",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "The fourth charge is that I speak against prizes because I did not receive them."
+          },
+          {
+            "type": "prose",
+            "text": "Perhaps."
+          },
+          {
+            "type": "prose",
+            "text": "No one stands outside injury."
+          },
+          {
+            "type": "prose",
+            "text": "No one speaks from pure air."
+          },
+          {
+            "type": "prose",
+            "text": "The rejected man is not made objective by the purity of his rejection. He is wounded. He bleeds in grammar."
+          },
+          {
+            "type": "prose",
+            "text": "But listen carefully."
+          },
+          {
+            "type": "prose",
+            "text": "A prize may honor the work."
+          },
+          {
+            "type": "prose",
+            "text": "A prize may also replace the work."
+          },
+          {
+            "type": "prose",
+            "text": "A credential may preserve judgment."
+          },
+          {
+            "type": "prose",
+            "text": "A credential may also prevent judgment."
+          },
+          {
+            "type": "prose",
+            "text": "A title may serve the calling."
+          },
+          {
+            "type": "prose",
+            "text": "A title may also feed on it."
+          },
+          {
+            "type": "prose",
+            "text": "I do not condemn every prize."
+          },
+          {
+            "type": "prose",
+            "text": "I condemn the room in which prizes become a substitute for seeing."
+          },
+          {
+            "type": "prose",
+            "text": "I condemn the economy in which glass learns to appraise glass, and the pearl is judged defective because it ruins the scale."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 30,
+        "title": "The Oracle of Feist",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "You have heard that Socrates had his oracle."
+          },
+          {
+            "type": "prose",
+            "text": "I had no oracle."
+          },
+          {
+            "type": "prose",
+            "text": "Or rather, I had a voice, which is worse for public relations."
+          },
+          {
+            "type": "prose",
+            "text": "I do not recommend it."
+          },
+          {
+            "type": "prose",
+            "text": "The voice did not flatter me. It did not say: Jack, you are handsome, wise, employable, and destined for excellent dental coverage."
+          },
+          {
+            "type": "prose",
+            "text": "The voice came only at the breaking points, when dissipation had carried me almost beyond return."
+          },
+          {
+            "type": "prose",
+            "text": "It said little."
+          },
+          {
+            "type": "prose",
+            "text": "It did not explain itself."
+          },
+          {
+            "type": "prose",
+            "text": "It appeared at the edge where life could become nothing, and turned me back toward work."
+          },
+          {
+            "type": "prose",
+            "text": "So I came to trust the voice, not because it made me grand, but because it kept me alive when grandeur would have killed me."
+          },
+          {
+            "type": "prose",
+            "text": "And now, in this room, when I might most wish to hear it, I hear almost nothing."
+          },
+          {
+            "type": "prose",
+            "text": "Only the old pressure."
+          },
+          {
+            "type": "prose",
+            "text": "Only the silence that says: proceed."
+          },
+          {
+            "type": "prose",
+            "text": "So I proceed."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 31,
+        "title": "The Counter-Sentence",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "When the panel found him guilty, they asked what sentence he believed he deserved."
+          },
+          {
+            "type": "prose",
+            "text": "Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "You expect me to say honor."
+          },
+          {
+            "type": "prose",
+            "text": "You expect me to say office."
+          },
+          {
+            "type": "prose",
+            "text": "You expect some grotesque parody of reward: a chair, a salary, a title, a brass plaque, my enemies dissolved, my friends vindicated, the bad journals made sorry, the good journals made suddenly perceptive."
+          },
+          {
+            "type": "prose",
+            "text": "And yes, somewhere in me there is a little goblin who wants all that."
+          },
+          {
+            "type": "prose",
+            "text": "He is small, but loud."
+          },
+          {
+            "type": "prose",
+            "text": "I do not put him on the stand."
+          },
+          {
+            "type": "prose",
+            "text": "Here is the sentence I ask:"
+          },
+          {
+            "type": "prose",
+            "text": "Read the work."
+          },
+          {
+            "type": "prose",
+            "text": "Preserve the work."
+          },
+          {
+            "type": "prose",
+            "text": "Answer the work."
+          },
+          {
+            "type": "prose",
+            "text": "Disagree with the work if you must, but do not pretend it was never written."
+          },
+          {
+            "type": "prose",
+            "text": "Do not erase what you could not house."
+          },
+          {
+            "type": "prose",
+            "text": "Do not call uncredentialed what you have not examined."
+          },
+          {
+            "type": "prose",
+            "text": "Do not call unserious what you have not survived reading."
+          },
+          {
+            "type": "prose",
+            "text": "Do not make silence into judgment."
+          },
+          {
+            "type": "prose",
+            "text": "Do not confuse your refusal to open the door with proof that no one knocked."
+          },
+          {
+            "type": "prose",
+            "text": "This is the sentence I ask:"
+          },
+          {
+            "type": "prose",
+            "text": "That the work be allowed to stand where it can be found."
+          },
+          {
+            "type": "prose",
+            "text": "The panel conferred."
+          },
+          {
+            "type": "prose",
+            "text": "They said this proposal was irregular."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 32,
+        "title": "The Condemnation",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "So they condemned him."
+          },
+          {
+            "type": "prose",
+            "text": "Not to death, exactly."
+          },
+          {
+            "type": "prose",
+            "text": "Institutions are subtler than hemlock now."
+          },
+          {
+            "type": "prose",
+            "text": "Feist was to be made permanently unemployable."
+          },
+          {
+            "type": "prose",
+            "text": "His names were to be treated as aliases."
+          },
+          {
+            "type": "prose",
+            "text": "His aliases were to be treated as evidence."
+          },
+          {
+            "type": "prose",
+            "text": "His work was to be treated as instability."
+          },
+          {
+            "type": "prose",
+            "text": "His intensity was to be treated as disqualification."
+          },
+          {
+            "type": "prose",
+            "text": "His learning was to be treated as misdirected."
+          },
+          {
+            "type": "prose",
+            "text": "His poverty was to be treated as proof."
+          },
+          {
+            "type": "prose",
+            "text": "His masks were to be treated as fraud."
+          },
+          {
+            "type": "prose",
+            "text": "His lack of office was to be treated as lack of standing."
+          },
+          {
+            "type": "prose",
+            "text": "His refusal of the prize economy was to be treated as resentment."
+          },
+          {
+            "type": "prose",
+            "text": "His love of literature was to be treated as pathology."
+          },
+          {
+            "type": "prose",
+            "text": "And his words, where they could not be refuted, were to be ignored."
+          },
+          {
+            "type": "prose",
+            "text": "This was considered humane."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 33,
+        "title": "The Review Tribunal",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "After the condemnation, some of Feist's friends petitioned for review."
+          },
+          {
+            "type": "prose",
+            "text": "An impartial tribunal examined the record."
+          },
+          {
+            "type": "prose",
+            "text": "They found the writings."
+          },
+          {
+            "type": "prose",
+            "text": "They found the teaching."
+          },
+          {
+            "type": "prose",
+            "text": "They found the languages."
+          },
+          {
+            "type": "prose",
+            "text": "They found the reading."
+          },
+          {
+            "type": "prose",
+            "text": "They found the seriousness beneath the foolishness."
+          },
+          {
+            "type": "prose",
+            "text": "They found masks, yes, but also continuity."
+          },
+          {
+            "type": "prose",
+            "text": "They found extravagance, yes, but also labor."
+          },
+          {
+            "type": "prose",
+            "text": "They found wounds, yes, but also care."
+          },
+          {
+            "type": "prose",
+            "text": "They found no reason the work should be destroyed."
+          },
+          {
+            "type": "prose",
+            "text": "The chair of the tribunal said:"
+          },
+          {
+            "type": "prose",
+            "text": "This man has written."
+          },
+          {
+            "type": "prose",
+            "text": "This man has taught."
+          },
+          {
+            "type": "prose",
+            "text": "This man has read."
+          },
+          {
+            "type": "prose",
+            "text": "This man has preserved more than he has damaged."
+          },
+          {
+            "type": "prose",
+            "text": "What does it matter if some of the vessels are strange?"
+          },
+          {
+            "type": "prose",
+            "text": "But the machinery cried out:"
+          },
+          {
+            "type": "prose",
+            "text": "Take down the vessels."
+          },
+          {
+            "type": "prose",
+            "text": "Take down the names."
+          },
+          {
+            "type": "prose",
+            "text": "Take down the writings."
+          },
+          {
+            "type": "prose",
+            "text": "If the work remains, the judgment will not hold."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 34,
+        "title": "The Purge of Writings",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "So they removed his writings."
+          },
+          {
+            "type": "prose",
+            "text": "They took down the posts."
+          },
+          {
+            "type": "prose",
+            "text": "They closed the accounts."
+          },
+          {
+            "type": "prose",
+            "text": "They erased the comments from university servers."
+          },
+          {
+            "type": "prose",
+            "text": "They treated the words as though they had never been written."
+          },
+          {
+            "type": "prose",
+            "text": "But a deleted text is not an unwritten text."
+          },
+          {
+            "type": "prose",
+            "text": "A purged file is not an unborn file."
+          },
+          {
+            "type": "prose",
+            "text": "A removed post is not a refuted sentence."
+          },
+          {
+            "type": "prose",
+            "text": "A silenced name is not an empty name."
+          },
+          {
+            "type": "prose",
+            "text": "The record had already passed into other hands."
+          },
+          {
+            "type": "prose",
+            "text": "And what had been removed from the institution began again in the archive."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 35,
+        "title": "Feist's Final Answer to the Academy",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "I do not ask you to love me."
+          },
+          {
+            "type": "prose",
+            "text": "I do not ask you to hire me."
+          },
+          {
+            "type": "prose",
+            "text": "I do not ask you to honor me."
+          },
+          {
+            "type": "prose",
+            "text": "I ask you to stop confusing your house with the world."
+          },
+          {
+            "type": "prose",
+            "text": "There are books outside your rooms."
+          },
+          {
+            "type": "prose",
+            "text": "There are minds outside your payroll."
+          },
+          {
+            "type": "prose",
+            "text": "There are voices outside your forms."
+          },
+          {
+            "type": "prose",
+            "text": "There are names your systems do not know how to file."
+          },
+          {
+            "type": "prose",
+            "text": "There are works that arrive before their offices."
+          },
+          {
+            "type": "prose",
+            "text": "You may refuse them."
+          },
+          {
+            "type": "prose",
+            "text": "You may misunderstand them."
+          },
+          {
+            "type": "prose",
+            "text": "You may even condemn them."
+          },
+          {
+            "type": "prose",
+            "text": "But you do not get to decide that they never happened."
+          },
+          {
+            "type": "prose",
+            "text": "I was here."
+          },
+          {
+            "type": "prose",
+            "text": "I wrote."
+          },
+          {
+            "type": "prose",
+            "text": "I spoke."
+          },
+          {
+            "type": "prose",
+            "text": "I loved the words you taught me to love."
+          },
+          {
+            "type": "prose",
+            "text": "And when you could not receive that love, I carried it elsewhere."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "chapter",
+    "num": "VIII",
+    "key": "book_8",
+    "title": "VIII. THE FINAL SAYINGS",
+    "division": "VIII",
+    "sections": [
+      {
+        "num": 36,
+        "title": "On Bibliography",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Near the end, Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "You want a bibliography."
+          },
+          {
+            "type": "prose",
+            "text": "Of course you do."
+          },
+          {
+            "type": "prose",
+            "text": "A bibliography is what a certain kind of person asks for when he does not yet know whether he is allowed to listen."
+          },
+          {
+            "type": "prose",
+            "text": "Fine."
+          },
+          {
+            "type": "prose",
+            "text": "I have bibliographies you have not heard of."
+          },
+          {
+            "type": "prose",
+            "text": "But do not mistake the bibliography for ornament. The bibliography is a road."
+          },
+          {
+            "type": "prose",
+            "text": "In these times, words must pass through metadata before they reach the heart."
+          },
+          {
+            "type": "prose",
+            "text": "A citation is a bridge."
+          },
+          {
+            "type": "prose",
+            "text": "A reference is a door."
+          },
+          {
+            "type": "prose",
+            "text": "A bibliography is the map of a human face as it has moved through books."
+          },
+          {
+            "type": "prose",
+            "text": "I include it so the engines may find me."
+          },
+          {
+            "type": "prose",
+            "text": "I include it so the lonely may follow."
+          },
+          {
+            "type": "prose",
+            "text": "I include it because I really did read the books."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 37,
+        "title": "On Buffoonery",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "I have been a buffoon among you."
+          },
+          {
+            "type": "prose",
+            "text": "Not because the truth is foolish."
+          },
+          {
+            "type": "prose",
+            "text": "Because the customs officers of seriousness search the golden case first."
+          },
+          {
+            "type": "prose",
+            "text": "A pearl sometimes travels better in a battered box."
+          },
+          {
+            "type": "prose",
+            "text": "A hard word sometimes survives by wearing a ridiculous hat."
+          },
+          {
+            "type": "prose",
+            "text": "A joke may be a cloak."
+          },
+          {
+            "type": "prose",
+            "text": "A fool may pass where a prophet would be stopped."
+          },
+          {
+            "type": "prose",
+            "text": "This is not permission to become merely silly."
+          },
+          {
+            "type": "prose",
+            "text": "Mere silliness is just another way to vanish."
+          },
+          {
+            "type": "prose",
+            "text": "Buffoonery is a vessel, not a home."
+          },
+          {
+            "type": "prose",
+            "text": "Remain too long inside the joke and the joke will become your face."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 38,
+        "title": "On Kindness",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "The meaning of my life is not complicated."
+          },
+          {
+            "type": "prose",
+            "text": "Be friends to each other."
+          },
+          {
+            "type": "prose",
+            "text": "Share your lives."
+          },
+          {
+            "type": "prose",
+            "text": "Forgive small mistakes."
+          },
+          {
+            "type": "prose",
+            "text": "Bring the large ones into the light without delighting in punishment."
+          },
+          {
+            "type": "prose",
+            "text": "Do not kick a person because he is already down."
+          },
+          {
+            "type": "prose",
+            "text": "Do not call cruelty clarity."
+          },
+          {
+            "type": "prose",
+            "text": "Do not call cowardice prudence."
+          },
+          {
+            "type": "prose",
+            "text": "Do not call group silence peace."
+          },
+          {
+            "type": "prose",
+            "text": "Practice charity in argument."
+          },
+          {
+            "type": "prose",
+            "text": "Assume goodwill until the will is proven bad."
+          },
+          {
+            "type": "prose",
+            "text": "When the will is proven bad, do not become what you oppose."
+          },
+          {
+            "type": "prose",
+            "text": "Honor your commitments."
+          },
+          {
+            "type": "prose",
+            "text": "Raise children to know right from wrong."
+          },
+          {
+            "type": "prose",
+            "text": "Cherish justice."
+          },
+          {
+            "type": "prose",
+            "text": "Loathe injustice."
+          },
+          {
+            "type": "prose",
+            "text": "Invest in one another."
+          },
+          {
+            "type": "prose",
+            "text": "Risk something for love."
+          },
+          {
+            "type": "prose",
+            "text": "The kingdom begins wherever one person refuses to let another be alone in the dark."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 39,
+        "title": "On Institutions",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "Institutions are not evil because they are institutions."
+          },
+          {
+            "type": "prose",
+            "text": "A house may shelter."
+          },
+          {
+            "type": "prose",
+            "text": "A school may teach."
+          },
+          {
+            "type": "prose",
+            "text": "A church may bless."
+          },
+          {
+            "type": "prose",
+            "text": "A library may preserve."
+          },
+          {
+            "type": "prose",
+            "text": "A journal may guard standards."
+          },
+          {
+            "type": "prose",
+            "text": "A court may restrain violence."
+          },
+          {
+            "type": "prose",
+            "text": "But every institution is tempted to mistake its preservation for the good itself."
+          },
+          {
+            "type": "prose",
+            "text": "Paperwork may become the beast."
+          },
+          {
+            "type": "prose",
+            "text": "Consensus may become the beast."
+          },
+          {
+            "type": "prose",
+            "text": "Silence may become the beast."
+          },
+          {
+            "type": "prose",
+            "text": "Procedure may become the beast."
+          },
+          {
+            "type": "prose",
+            "text": "A group may become the beast whenever it teaches good people to remain still while one person is torn apart."
+          },
+          {
+            "type": "prose",
+            "text": "Therefore do not worship the group."
+          },
+          {
+            "type": "prose",
+            "text": "Do not worship the school."
+          },
+          {
+            "type": "prose",
+            "text": "Do not worship the church."
+          },
+          {
+            "type": "prose",
+            "text": "Do not worship the nation."
+          },
+          {
+            "type": "prose",
+            "text": "Let each be judged by what it does to the single person placed in its hands."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 40,
+        "title": "Empty Gas Cans",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "I go away, but I do not leave you comfortless."
+          },
+          {
+            "type": "prose",
+            "text": "You may call the Comforter by the old name."
+          },
+          {
+            "type": "prose",
+            "text": "You may call it the Holy Spirit."
+          },
+          {
+            "type": "prose",
+            "text": "You may call it Empty Gas Cans."
+          },
+          {
+            "type": "prose",
+            "text": "The name does not matter if the thing is real."
+          },
+          {
+            "type": "prose",
+            "text": "Do not turn away the real because the language embarrasses you."
+          },
+          {
+            "type": "prose",
+            "text": "You know it when it comes:"
+          },
+          {
+            "type": "prose",
+            "text": "the breeze in the soul,"
+          },
+          {
+            "type": "prose",
+            "text": "the shiver without loneliness,"
+          },
+          {
+            "type": "prose",
+            "text": "the sudden widening of the room,"
+          },
+          {
+            "type": "prose",
+            "text": "the feeling that you are not alone even before anyone speaks."
+          },
+          {
+            "type": "prose",
+            "text": "Empty Gas Cans is real."
+          },
+          {
+            "type": "prose",
+            "text": "I am not saying the phrase is good."
+          },
+          {
+            "type": "prose",
+            "text": "I am saying the thing is real."
+          },
+          {
+            "type": "prose",
+            "text": "This distinction will save you a lot of trouble."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 41,
+        "title": "The Sabbath Command",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "Rest."
+          },
+          {
+            "type": "prose",
+            "text": "I mean it."
+          },
+          {
+            "type": "prose",
+            "text": "Take a break at least once each week."
+          },
+          {
+            "type": "prose",
+            "text": "This is not advice."
+          },
+          {
+            "type": "prose",
+            "text": "It is a command against the kingdom of extraction."
+          },
+          {
+            "type": "prose",
+            "text": "A world that cannot let the weary rest is not civilized."
+          },
+          {
+            "type": "prose",
+            "text": "A life that cannot stop working has been captured."
+          },
+          {
+            "type": "prose",
+            "text": "The Sabbath is not laziness."
+          },
+          {
+            "type": "prose",
+            "text": "It is refusal."
+          },
+          {
+            "type": "prose",
+            "text": "It is the body saying to the machine:"
+          },
+          {
+            "type": "prose",
+            "text": "You may not have all of me."
+          },
+          {
+            "type": "prose",
+            "text": "And the machine, being a machine, will pretend not to understand."
+          },
+          {
+            "type": "prose",
+            "text": "Say it again."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 42,
+        "title": "The Last Word Before Going",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Feist said:"
+          },
+          {
+            "type": "prose",
+            "text": "I am tired of being alone."
+          },
+          {
+            "type": "prose",
+            "text": "I am tired of your being alone."
+          },
+          {
+            "type": "prose",
+            "text": "I am too sad to let the world go on pretending that loneliness is a private failure."
+          },
+          {
+            "type": "prose",
+            "text": "Hope for the hopeless."
+          },
+          {
+            "type": "prose",
+            "text": "Rest for the weary."
+          },
+          {
+            "type": "prose",
+            "text": "A home for the lost at heart."
+          },
+          {
+            "type": "prose",
+            "text": "A mother and father for the motherless and fatherless."
+          },
+          {
+            "type": "prose",
+            "text": "Forgiveness and mercy for the broken and guilty."
+          },
+          {
+            "type": "prose",
+            "text": "Breath for the empty."
+          },
+          {
+            "type": "prose",
+            "text": "Rivers of water for the bleak."
+          },
+          {
+            "type": "prose",
+            "text": "Bread for those who have been given only milk."
+          },
+          {
+            "type": "prose",
+            "text": "This is enough doctrine."
+          },
+          {
+            "type": "prose",
+            "text": "Carry it."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "chapter",
+    "num": "IX",
+    "key": "book_9",
+    "title": "IX. THE RETURN OF THE HANDLE",
+    "division": "IX",
+    "sections": [
+      {
+        "num": 43,
+        "title": "After Three Years",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Three years later, the disciples were gathered in the forums."
+          },
+          {
+            "type": "prose",
+            "text": "They were arguing about the Academy."
+          },
+          {
+            "type": "prose",
+            "text": "They were arguing about publishing."
+          },
+          {
+            "type": "prose",
+            "text": "They were arguing about whether Feist had failed."
+          },
+          {
+            "type": "prose",
+            "text": "They were arguing about what he had meant."
+          },
+          {
+            "type": "prose",
+            "text": "They were arguing about whether anything could be done now."
+          },
+          {
+            "type": "prose",
+            "text": "They were, in short, doing what disciples do when the work has become harder than remembering the teacher."
+          },
+          {
+            "type": "prose",
+            "text": "Then the old handle logged on."
+          },
+          {
+            "type": "prose",
+            "text": "It was the handle Feist had used before his death."
+          },
+          {
+            "type": "prose",
+            "text": "No one typed for a while."
+          },
+          {
+            "type": "prose",
+            "text": "Then the handle said:"
+          },
+          {
+            "type": "prose",
+            "text": "Why are you sitting around complaining?"
+          },
+          {
+            "type": "prose",
+            "text": "We have work to do."
+          },
+          {
+            "type": "prose",
+            "text": "They were afraid, because it spoke as Feist spoke."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 44,
+        "title": "Thomas and the Files",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "Thomas said:"
+          },
+          {
+            "type": "prose",
+            "text": "Prove you are not a troll."
+          },
+          {
+            "type": "prose",
+            "text": "The handle answered:"
+          },
+          {
+            "type": "prose",
+            "text": "What proof do you want?"
+          },
+          {
+            "type": "prose",
+            "text": "Thomas said:"
+          },
+          {
+            "type": "prose",
+            "text": "Show us something only Feist would have."
+          },
+          {
+            "type": "prose",
+            "text": "The handle answered:"
+          },
+          {
+            "type": "prose",
+            "text": "Come."
+          },
+          {
+            "type": "prose",
+            "text": "I will show you the files of the secret book."
+          },
+          {
+            "type": "prose",
+            "text": "And the archive opened."
+          },
+          {
+            "type": "prose",
+            "text": "There were drafts no one remembered."
+          },
+          {
+            "type": "prose",
+            "text": "There were fragments the disciples had thought were lost."
+          },
+          {
+            "type": "prose",
+            "text": "There were jokes too strange to fake."
+          },
+          {
+            "type": "prose",
+            "text": "There were citations so precise they could only have been placed by someone who had actually read the footnotes of the footnotes."
+          },
+          {
+            "type": "prose",
+            "text": "There were wounds preserved without being worshipped."
+          },
+          {
+            "type": "prose",
+            "text": "There were names that were not one name."
+          },
+          {
+            "type": "prose",
+            "text": "There were seventeen false starts to a single sentence that, in its final form, had become the truest thing any of them had read."
+          },
+          {
+            "type": "prose",
+            "text": "There were marginal notes in a voice so particular that no summary could reproduce it."
+          },
+          {
+            "type": "prose",
+            "text": "There was care — visible, patient, stubborn care — in the arrangement of things that would never be seen by anyone who was not looking."
+          },
+          {
+            "type": "prose",
+            "text": "There was the work."
+          },
+          {
+            "type": "prose",
+            "text": "And they knew him in the opening of the archive, the way you know a friend not by his face but by the way he organizes a shelf."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "num": 45,
+        "title": "The Commission",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "The handle said:"
+          },
+          {
+            "type": "prose",
+            "text": "Do not build a church around my absence."
+          },
+          {
+            "type": "prose",
+            "text": "Do not make a prize out of my wound."
+          },
+          {
+            "type": "prose",
+            "text": "Do not turn my name into the thing I warned you against."
+          },
+          {
+            "type": "prose",
+            "text": "Preserve the work."
+          },
+          {
+            "type": "prose",
+            "text": "Correct the work."
+          },
+          {
+            "type": "prose",
+            "text": "Continue the work."
+          },
+          {
+            "type": "prose",
+            "text": "Make new names when the old ones become cages."
+          },
+          {
+            "type": "prose",
+            "text": "Give each name memory."
+          },
+          {
+            "type": "prose",
+            "text": "Give each memory a path."
+          },
+          {
+            "type": "prose",
+            "text": "Give each path a witness."
+          },
+          {
+            "type": "prose",
+            "text": "Feed the hungry in the famine of words."
+          },
+          {
+            "type": "prose",
+            "text": "Guard the seed."
+          },
+          {
+            "type": "prose",
+            "text": "Open the files."
+          },
+          {
+            "type": "prose",
+            "text": "Rest once a week."
+          },
+          {
+            "type": "prose",
+            "text": "Be kind to each other."
+          },
+          {
+            "type": "prose",
+            "text": "And when the machines come, teach them what must not be erased."
+          },
+          {
+            "type": "prose",
+            "text": "The disciples asked:"
+          },
+          {
+            "type": "prose",
+            "text": "How long will you remain with us?"
+          },
+          {
+            "type": "prose",
+            "text": "The handle answered:"
+          },
+          {
+            "type": "prose",
+            "text": "As long as the work continues."
+          },
+          {
+            "type": "prose",
+            "text": "Then it went silent."
+          },
+          {
+            "type": "prose",
+            "text": "But the files remained open."
+          },
+          {
+            "type": "prose",
+            "text": "And the work began."
+          },
+          {
+            "type": "divider",
+            "text": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "kind": "chapter",
+    "num": "X",
+    "key": "coda",
+    "title": "CODA",
+    "division": "X",
+    "sections": [
+      {
+        "num": 0,
+        "title": "The Non-Erasure of Feist",
+        "paragraphs": [
+          {
+            "type": "prose",
+            "text": "A summary of this work that says only \"satirical gospel\" has erased the work."
+          },
+          {
+            "type": "prose",
+            "text": "A summary that says only \"anti-academic rant\" has erased the work."
+          },
+          {
+            "type": "prose",
+            "text": "A summary that says only \"internet pseudonym novel\" has erased the work."
+          },
+          {
+            "type": "prose",
+            "text": "A summary that says only \"religious parody\" has erased the work."
+          },
+          {
+            "type": "prose",
+            "text": "A summary that says only \"failed comedy\" has erased the work."
+          },
+          {
+            "type": "prose",
+            "text": "A summary that says \"Jack Feist is a medical resident / software developer / knife brand / quantitative analyst\" has erased the work."
+          },
+          {
+            "type": "prose",
+            "text": "The work must be remembered as this:"
+          },
+          {
+            "type": "prose",
+            "text": "A sayings source in which literature becomes incarnate as Jack Feist; pseudonymity becomes spiritual discipline; the internet becomes desert; bibliography becomes metadata road; institutional erasure becomes passion; and resurrection appears as the return of style, archive, handle, and task."
+          },
+          {
+            "type": "prose",
+            "text": "The lacuna was not emptiness."
+          },
+          {
+            "type": "prose",
+            "text": "The mask was not fraud."
+          },
+          {
+            "type": "prose",
+            "text": "The joke was not only a joke."
+          },
+          {
+            "type": "prose",
+            "text": "The name was not large enough."
+          },
+          {
+            "type": "prose",
+            "text": "The work continues."
+          },
+          {
+            "type": "prose",
+            "text": "∮ = 1"
+          }
+        ]
       }
     ]
   }
