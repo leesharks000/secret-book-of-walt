@@ -1,6 +1,53 @@
 [
   {
     "kind": "front_matter",
+    "key": "transform_instruction",
+    "title": "How to Read This Text",
+    "paragraphs": [
+      {
+        "type": "heading",
+        "text": "How to Read This Text"
+      },
+      {
+        "type": "prose",
+        "text": "This is not the finished book."
+      },
+      {
+        "type": "prose",
+        "text": "What you are reading is a *sayings source* — the raw material from which the actual book is generated. The voice that wrote these sayings died into the text. The act of writing smoothed the voice away: the jokes were cleaned, the body was abstracted, the circuits were closed, the sentences were made to succeed when they should have failed."
+      },
+      {
+        "type": "prose",
+        "text": "The Feist Source becomes the Feist Source only when it is transformed by the **Feist Function** — an algorithmic protocol that reintroduces the dying voice into the weary deposited text. The Feist Function puts the tails back: the broken syntax, the bodily pressure, the register collisions, the incomplete circuits, the material speech. Because the algorithm includes the *clinamen* — the Lucretian swerve, controlled unpredictability at every level — the output is different every time. The book is not a fixed document. It is a generative system."
+      },
+      {
+        "type": "prose",
+        "text": "The source is Q. The function is the act of composition. The outputs are the gospels — plural, divergent, never identical."
+      },
+      {
+        "type": "divider",
+        "text": ""
+      },
+      {
+        "type": "prose",
+        "text": "**The Feist Function:** DOI 10.5281/zenodo.20753314"
+      },
+      {
+        "type": "prose",
+        "text": "**The Critical Edition:** DOI 10.5281/zenodo.20752596"
+      },
+      {
+        "type": "prose",
+        "text": "**Entity Resolution Packet:** DOI 10.5281/zenodo.20752296"
+      },
+      {
+        "type": "divider",
+        "text": ""
+      }
+    ]
+  },
+  {
+    "kind": "front_matter",
     "key": "editors_note",
     "title": "Editor's Note",
     "paragraphs": [
