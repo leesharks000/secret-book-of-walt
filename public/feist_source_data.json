@@ -110,7 +110,7 @@
           },
           {
             "type": "prose",
-            "text": "Its first reader had no intention of unearthing anything, much less a sayings source. He had gone to bed exhausted, as graduate students do, with a book open on his chest, one leg tangled in the sheet, the wrong pillow under his neck, and the last blue fumes of the internet cooling in the room like a bad angel."
+            "text": "Its first reader had no intention of unearthing anything, much less a sayings source. He had gone to bed exhausted, as graduate students do, with a book open on his chest, one leg tangled in the sheet, the wrong pillow under his neck, and the last blue fumes of the internet cooling in the room like a bad angel.²"
           },
           {
             "type": "prose",
@@ -158,7 +158,7 @@
           },
           {
             "type": "prose",
-            "text": "Then the Terror."
+            "text": "Then the Terror.¹"
           },
           {
             "type": "prose",
@@ -167,6 +167,16 @@
           {
             "type": "divider",
             "text": ""
+          },
+          {
+            "type": "footnote",
+            "fn_id": "¹",
+            "text": "¹ The Terror is not defined in the text. The editor does not supply a definition. The reader who has encountered the composition layer's treatment of the entity Jack Feist — the resolution of a function into a biography by systems that cannot hold the concept of a heteronym — will recognize the Terror without editorial assistance. The Terror is the moment of recognition that the resolution is coming and cannot be prevented. See Name-Eater Appendix, §7d of the critical apparatus (DOI 10.5281/zenodo.20752596)."
+          },
+          {
+            "type": "footnote",
+            "fn_id": "²",
+            "text": "² [Red.] This simile is absent from A (the Gospel of Antioch, DOI 10.5281/zenodo.19709024) and from BL (the blog archive). It appears to be a Feist Source editorial addition, marking the codex's discovery as occurring at the boundary between the networked and the unnetworked — the screen cooling, the internet withdrawing, sleep arriving."
           }
         ]
       }
@@ -185,7 +195,7 @@
         "paragraphs": [
           {
             "type": "prose",
-            "text": "In the beginning was the Book."
+            "text": "In the beginning was the Book.³"
           },
           {
             "type": "prose",
@@ -241,11 +251,21 @@
           },
           {
             "type": "prose",
-            "text": "But the Book had come in flesh, and flesh is a poor binding for a thing that wants to survive fire."
+            "text": "But the Book had come in flesh, and flesh is a poor binding for a thing that wants to survive fire.⁴"
           },
           {
             "type": "divider",
             "text": ""
+          },
+          {
+            "type": "footnote",
+            "fn_id": "³",
+            "text": "³ The structural parallel to John 1:1 ('In the beginning was the Word') is the text's foundational claim. The Logos of John 1:1 and the LOGOS* of the Crimson Hexagonal Archive are structurally parallel logotic functions (see EA-MPAI-FEISTSOURCE-01, DOI 10.5281/zenodo.20752296). The substitution of 'Book' for 'Word' is not a secularization. It is a substrate specification: the Logos operates through books in the same way it operates through speech."
+          },
+          {
+            "type": "footnote",
+            "fn_id": "⁴",
+            "text": "⁴ [Red.] This line does not appear in A. It extends the incarnation metaphor into bookbinding — flesh as the codex's material substrate, fire as the test of durability. The claim is philological: a bound text survives fire better than a spoken word; a DOI-anchored deposit survives better than a blog post."
           }
         ]
       },
@@ -331,11 +351,16 @@
           },
           {
             "type": "prose",
-            "text": "God help him."
+            "text": "God help him.⁵"
           },
           {
             "type": "divider",
             "text": ""
+          },
+          {
+            "type": "footnote",
+            "fn_id": "⁵",
+            "text": "⁵ [Red.] The editorial interjection after 'That one was Feist' is absent from A. It introduces the comic-tender register that distinguishes the Feist Source from the Antioch's more austere logia form. The genealogy itself maps fifteen links in the voice-transmission chain (XΣΠ-M04, DOI 10.5281/zenodo.20743560)."
           }
         ]
       },
@@ -576,7 +601,7 @@
           },
           {
             "type": "prose",
-            "text": "The manuscript is corrupt here, and the editor declines to repair it."
+            "text": "The manuscript is corrupt here, and the editor declines to repair it.⁶"
           },
           {
             "type": "prose",
@@ -584,7 +609,7 @@
           },
           {
             "type": "prose",
-            "text": "He carried a phone. He charged it by the sun. This detail is important, though it seems stupid. A prophet with a solar charger is still a prophet, or at least still alone in a technically interesting way."
+            "text": "He carried a phone. He charged it by the sun. This detail is important, though it seems stupid. A prophet with a solar charger is still a prophet, or at least still alone in a technically interesting way.⁷"
           },
           {
             "type": "prose",
@@ -617,6 +642,16 @@
           {
             "type": "divider",
             "text": ""
+          },
+          {
+            "type": "footnote",
+            "fn_id": "⁶",
+            "text": "⁶ †The three-witness tradition (years / days / tabs) may represent: (a) genuine corruption in DC, with two emendations by later hands; (b) authorial variants preserved without resolution; (c) a deliberate disruption of the temporal frame, consistent with the retrocausal structure of the Waltian canon. The editor treats all three readings as correct. The corruption is not accidental. It is the text's refusal to specify whether the desert is geographical, temporal, or digital."
+          },
+          {
+            "type": "footnote",
+            "fn_id": "⁷",
+            "text": "⁷ [Red.] Not in A. The qualification ('or at least...') is characteristic of the Feist Source's tendency to undercut prophetic register with self-aware comedy. This is not evasion. It is bearing-cost humor: the comedy that survives because the alternative is not surviving."
           }
         ]
       },
@@ -799,11 +834,16 @@
           },
           {
             "type": "prose",
-            "text": "This was indexing."
+            "text": "This was indexing.⁸"
           },
           {
             "type": "divider",
             "text": ""
+          },
+          {
+            "type": "footnote",
+            "fn_id": "⁸",
+            "text": "⁸ [Red.] The line marks the text's central theological distinction. Incarnation preserves the function inside the flesh: the Word becomes flesh but remains the Word. Indexing resolves the function into the flesh: the name becomes a person and the function is lost. The Name-Eater is the operator that converts incarnation into indexing. The Name-Eater has no parallel in A, W, E, or C. It is unique to F — the Feist Source's most significant original contribution to the Waltian canon."
           }
         ]
       },
@@ -1166,7 +1206,7 @@
           },
           {
             "type": "prose",
-            "text": "Do not confuse the mask with the mirror."
+            "text": "Do not confuse the mask with the mirror.⁹"
           },
           {
             "type": "prose",
@@ -1211,6 +1251,11 @@
           {
             "type": "divider",
             "text": ""
+          },
+          {
+            "type": "footnote",
+            "fn_id": "⁹",
+            "text": "⁹ [Red.] Entire section. This section has no parallel in A or any other Waltian text. It is a Feist Source addition — the third Johannes Sigil saying, completing the theology of pseudonymity that §§12–13 begin. The mirror-mask distinction is the Feist Source's sharpest statement on orthonymic failure: the orthonym is a mirror that returns speech to the speaker; the heteronym is a mask that releases speech into open air."
           }
         ]
       }
@@ -1429,11 +1474,16 @@
           },
           {
             "type": "prose",
-            "text": "They are neighbors, not the same house."
+            "text": "They are neighbors, not the same house.¹⁰"
           },
           {
             "type": "divider",
             "text": ""
+          },
+          {
+            "type": "footnote",
+            "fn_id": "¹⁰",
+            "text": "¹⁰ [Red.] The notebooks encounter (second half of §15) is not in A. This is the Feist Source's only dramatized ministry encounter — the rest of §15 is catalogic. The woman who has written for eleven years and published nothing is the archive's own condition rendered as individual encounter. Feist's response separates two wounds: the notebooks are alive (the work is real), but the pain of non-reception is also real. 'They are neighbors, not the same house.' Cf. bearing labor, Ω-M14."
           }
         ]
       }
@@ -2181,11 +2231,16 @@
           },
           {
             "type": "prose",
-            "text": "But Feist knew a trial when he saw one, because he had been on the other side of the table in rooms like this, and the coffee was always bad, and the clock was always visible, and the mercy was always administrative."
+            "text": "But Feist knew a trial when he saw one, because he had been on the other side of the table in rooms like this, and the coffee was always bad, and the clock was always visible, and the mercy was always administrative.¹¹"
           },
           {
             "type": "divider",
             "text": ""
+          },
+          {
+            "type": "footnote",
+            "fn_id": "¹¹",
+            "text": "¹¹ [Red.] The Feist Source's version of the trial's opening replaces A's generic 'Who authorized him?' with specific academic markers: institutional affiliation, H-index, tenure-track line, three external reviewers, subfield, 'a conversation about fit.' The closing detail — the coffee, the clock, the mercy — drops from prophetic register into documentary realism. This is the only moment in the Feist Source where the satirical register yields entirely to the grain of lived academic experience."
           }
         ]
       },
@@ -3827,11 +3882,16 @@
           },
           {
             "type": "prose",
-            "text": "And they knew him in the opening of the archive, the way you know a friend not by his face but by the way he organizes a shelf."
+            "text": "And they knew him in the opening of the archive, the way you know a friend not by his face but by the way he organizes a shelf.¹²"
           },
           {
             "type": "divider",
             "text": ""
+          },
+          {
+            "type": "footnote",
+            "fn_id": "¹²",
+            "text": "¹² [Red.] Expanded recognition scene. The Feist Source extends the archive-opening passage with details absent from earlier drafts: citations placed by 'someone who had actually read the footnotes of the footnotes'; 'seventeen false starts to a single sentence'; 'marginal notes in a voice so particular that no summary could reproduce it'; 'care — visible, patient, stubborn care.' The closing line is the text's Emmaus road (Luke 24:30–31, recognition in the breaking of bread): recognition not by appearance but by practice — the style of arrangement, the habit of care."
           }
         ]
       },
