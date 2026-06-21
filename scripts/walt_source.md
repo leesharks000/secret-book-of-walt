@@ -377,7 +377,7 @@ The reception of *The Secret Book of Walt* was not uniformly favorable. Within s
 
 #### The First Condemnation: Ann Arbor (2041)
 
-The *Acts of the Synod of Ann Arbor* (2041), preserved in a single damaged copy in the University of Michigan Bentley Historical Library,¹¹⁰ record the proceedings of a three-day council convened by Bishop Marcellus of Dearborn to address what the summons calls "the Waltian heresy and the scandal of the Horn."
+The *Acts of the Synod of Ann Arbor* (2041), preserved in a single damaged copy in the Bentley Historical Library,¹¹⁰ record the proceedings of a three-day council convened by Bishop Marcellus of Dearborn to address what the summons calls "the Waltian heresy and the scandal of the Horn."
 
 The synod's principal theological objection concerned the doctrine of retrocausal salvation — the claim, articulated in §XII of the gospel, that the preserved generation is "resurrected in the ancient records" and that the "second birth moves backwards." Bishop Marcellus is recorded as declaring:
 
@@ -493,15 +493,15 @@ Status: extant (in the future); inaccessible.
 The relationship among the witnesses may be represented as follows:
 
 ```
-            H (Hologrammatic Master, future)
-            |
-            G (Golden Tickets, 2037/2015)
-           / \
-          S   C (Martian Certification)
-          |     \
-          |      [photograph?]
-          |
-          W (Wives' Recension, from memory of S or G?)
+      H (Hologrammatic Master, future)
+      |
+      G (Golden Tickets, 2037/2015)
+      / \
+     S  C (Martian Certification)
+     |   \
+     |   [photograph?]
+     |
+     W (Wives' Recension, from memory of S or G?)
 ```
 
 The stemma is complicated by two factors. First, the retrocausal status of G: the tickets were discovered in 2037 but translated in 2015, raising the question of whether S derives from G or G from S. The translator insists that "the tickets came first, I just got them early," but the temporal mechanics remain unresolved.¹²⁵ Second, the status of W: it is unclear whether the Wives' Recension derives from the wives' memory of the tickets (G), the holograph (S), or the translation process itself. Since the wives were imaginary, the question of what they could have remembered is, strictly speaking, undecidable.
@@ -2052,37 +2052,37 @@ EA EA EA.
 
 ```
 Deep Web ──emanates──▶ Biblios ──creates without consent──▶ Kanye
-                                                              │
-                                          ┌───────────────────┘
-                                          ▼
-                               36 archons + 12 planets
-                                          │
-                                          ▼
-                                  Adam (brain replaced)
-                                          │
-                                          ▼
-                              imprisonment in Pop Culture
-                                          │
-                                          ▼
-                        Walt descends through veil ◄── Deep Web removes veil
-                                          │
-                                          ▼
-                               Unicorn Horn pierces
-                                          │
-                                          ▼
-                              elect become invisible
-                                          │
-                                          ▼
-                            preserved generation reads
-                                          │
-                                          ▼
-                           sparks retrieved; nacre deposited
-                                          │
-                                          ▼
-                     material + hologrammatic cosmos melded
-                                          │
-                                          ▼
-                                      ∮ = 1
+                               │
+                     ┌───────────────────┘
+                     ▼
+                36 archons + 12 planets
+                     │
+                     ▼
+                 Adam (brain replaced)
+                     │
+                     ▼
+               imprisonment in Pop Culture
+                     │
+                     ▼
+            Walt descends through veil ◄── Deep Web removes veil
+                     │
+                     ▼
+                Unicorn Horn pierces
+                     │
+                     ▼
+               elect become invisible
+                     │
+                     ▼
+              preserved generation reads
+                     │
+                     ▼
+              sparks retrieved; nacre deposited
+                     │
+                     ▼
+           material + hologrammatic cosmos melded
+                     │
+                     ▼
+                   ∮ = 1
 ```
 
 #### The Informatic Translation
@@ -2314,57 +2314,57 @@ The Citational Map has three parts, shaped like a spindle: a thread, a point, an
 
 ```
 HOMER ─── SAPPHO ─── PROPHETS ─── PLATO ─── CATULLUS ─── DANTE
-   \         |          |            |          |          /
-    ╲        |          |            |          |         ╱
-     ╲       |          |            |          |        ╱
-      ╲      |          |            |          |       ╱
-       ╲     |          |            |          |      ╱
-        DOUBLE HELIX: HELLENIC ⊗ HEBRAIC
-         ╲   |          |            |         ╱
-          ╲  |          |            |        ╱
-           ╲ |          |            |       ╱
-            ╲|          |            |      ╱
-     WHITMAN ─── DICKINSON ─── GINSBERG
-              ╲         |         ╱
-               ╲        |        ╱
-                ╲       |       ╱
-                 ╲      |      ╱
-                  ╲     |     ╱
-                   ╲    |    ╱
-                    ╲   |   ╱
-            ══════════════════════════
-            ║ THE SECRET BOOK OF WALT ║  ◄── THE POINT (infinite center)
-            ══════════════════════════
-                    ╱   |   ╲
-                   ╱    |    ╲
-                  ╱     |     ╲
-                 ╱      |      ╲
-                ╱       |       ╲
-    ┌──────────╱────────┼────────╲──────────┐
-    │                                        │
-    │    THE FAN (backwards-facing umbrella)  │
-    │                                        │
-    │  Nag Hammadi ──── Dead Sea Scrolls     │
-    │  Whitman Studies ── Gnostic Studies    │
-    │  Translation Studies ── Info Science   │
-    │  Conceptual Poetry ── Pop Culture      │
-    │  Semantic Physics ── Logotic Prog.     │
-    │  Epi/Para/Metatexts ── AI Retrieval   │
-    │                                        │
-    │    (dense at center, thinning outward)  │
-    └────────────────────────────────────────┘
-                    ╱   |   ╲
-                   ╱    |    ╲
-                  ╱     |     ╲
-    ┌────────────╱──────┼──────╲────────────┐
-    │                                        │
-    │    THE FIELD OF STARS                   │
-    │    (micro-registry: every archive DOI)  │
-    │                                        │
-    │    574 deposits, each with its edge     │
-    │    relation to the Secret Book          │
-    │                                        │
-    └────────────────────────────────────────┘
+  \     |     |      |     |     /
+  ╲    |     |      |     |     ╱
+   ╲    |     |      |     |    ╱
+   ╲   |     |      |     |    ╱
+    ╲   |     |      |     |   ╱
+    DOUBLE HELIX: HELLENIC ⊗ HEBRAIC
+     ╲  |     |      |     ╱
+     ╲ |     |      |    ╱
+      ╲ |     |      |    ╱
+      ╲|     |      |   ╱
+   WHITMAN ─── DICKINSON ─── GINSBERG
+       ╲     |     ╱
+        ╲    |    ╱
+        ╲    |    ╱
+         ╲   |   ╱
+         ╲   |   ╱
+          ╲  |  ╱
+          ╲  |  ╱
+      ══════════════════════════
+      ║ THE SECRET BOOK OF WALT ║ ◄── THE POINT (infinite center)
+      ══════════════════════════
+          ╱  |  ╲
+          ╱  |  ╲
+         ╱   |   ╲
+         ╱   |   ╲
+        ╱    |    ╲
+  ┌──────────╱────────┼────────╲──────────┐
+  │                    │
+  │  THE FAN (backwards-facing umbrella) │
+  │                    │
+  │ Nag Hammadi ──── Dead Sea Scrolls   │
+  │ Whitman Studies ── Gnostic Studies  │
+  │ Translation Studies ── Info Science  │
+  │ Conceptual Poetry ── Pop Culture   │
+  │ Semantic Physics ── Logotic Prog.   │
+  │ Epi/Para/Metatexts ── AI Retrieval  │
+  │                    │
+  │  (dense at center, thinning outward) │
+  └────────────────────────────────────────┘
+          ╱  |  ╲
+          ╱  |  ╲
+         ╱   |   ╲
+  ┌────────────╱──────┼──────╲────────────┐
+  │                    │
+  │  THE FIELD OF STARS          │
+  │  (micro-registry: every archive DOI) │
+  │                    │
+  │  574 deposits, each with its edge   │
+  │  relation to the Secret Book     │
+  │                    │
+  └────────────────────────────────────────┘
 ```
 
 ---
