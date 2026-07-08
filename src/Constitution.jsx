@@ -570,7 +570,7 @@ export default function Constitution({ onBack }) {
               id: "EA-CASES-01",
               title: "Constitutional Cases Index v1.1",
               desc: "Five founding cases under formal case-brief discipline: In re Vow, In re Bearing-Cost, In re Effective Act, In re Adjudication, In re Audit. Persuasive authority pending Article IX ratification.",
-              doi: "10.5281/zenodo.20041144",
+              doi: "10.5281/zenodo.20041145",
             },
             {
               id: "EA-REC-01",
