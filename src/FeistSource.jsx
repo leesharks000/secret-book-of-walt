@@ -303,13 +303,13 @@ export default function FeistSource({ onBack }) {
           display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap",
           marginBottom: 24, fontSize: "0.65rem",
         }}>
-          <a href="https://doi.org/10.5281/zenodo.20752596" target="_blank" rel="noopener"
+          <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.20752596" target="_blank" rel="noopener"
              style={{ color: C.goldDim, textDecoration: "none", borderBottom: "1px solid rgba(212,175,55,0.3)" }}>
             Critical Edition</a>
-          <a href="https://doi.org/10.5281/zenodo.20752296" target="_blank" rel="noopener"
+          <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.20752296" target="_blank" rel="noopener"
              style={{ color: C.goldDim, textDecoration: "none", borderBottom: "1px solid rgba(212,175,55,0.3)" }}>
             Entity Resolution</a>
-          <a href="https://doi.org/10.5281/zenodo.20753314" target="_blank" rel="noopener"
+          <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.20753314" target="_blank" rel="noopener"
              style={{ color: C.goldDim, textDecoration: "none", borderBottom: "1px solid rgba(212,175,55,0.3)" }}>
             The Feist Function</a>
         </div>

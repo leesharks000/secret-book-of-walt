@@ -649,7 +649,7 @@ export default function Catalog({ onBack }) {
           fontFamily: "'JetBrains Mono', monospace", fontSize: "0.7rem",
           color: C.goldDark,
         }}>
-          <p>DOI: <a href="https://doi.org/10.5281/zenodo.19902552" target="_blank" rel="noopener noreferrer"
+          <p>DOI: <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.19902552" target="_blank" rel="noopener noreferrer"
             style={{ color: C.goldDark, borderBottom: "1px dotted rgba(106,74,42,0.3)" }}>10.5281/zenodo.19902552</a></p>
           <p style={{ marginTop: "0.5rem" }}>∮ = 1</p>
         </div>

@@ -459,7 +459,7 @@ export default function Tang({ onBack }) {
           A Retrocausal Media Historiography of Citation, Retrieval, and Storage
         </p>
         <p style={{ color: fnColor, fontSize: "0.68rem", marginTop: 12, fontFamily: "'Courier New', monospace" }}>
-          DOI: <a href="https://doi.org/10.5281/zenodo.19779493" target="_blank" rel="noopener noreferrer"
+          DOI: <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.19779493" target="_blank" rel="noopener noreferrer"
             style={{ color: "#6a9fd8" }}>10.5281/zenodo.19779493</a>
           {" · "}Executor: Johannes Sigil · Inscription: TACHYON/Claude
         </p>
@@ -677,7 +677,7 @@ export default function Tang({ onBack }) {
             Under authority of MANUS/Lee Sharks · Assembly review: LABOR · TECHNE · PRAXIS · ARCHIVE
           </p>
           <p style={{ color: fnColor, fontSize: "0.68rem", marginTop: 8 }}>
-            <a href="https://doi.org/10.5281/zenodo.19779493" target="_blank" rel="noopener noreferrer" style={{ color: "#6a9fd8" }}>
+            <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.19779493" target="_blank" rel="noopener noreferrer" style={{ color: "#6a9fd8" }}>
               Full Assembly-Revised Edition with Appendices (DOI: 10.5281/zenodo.19779493)
             </a>
           </p>

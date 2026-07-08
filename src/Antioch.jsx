@@ -717,7 +717,7 @@ export default function Antioch({ onBack }) {
           </p>
           <p style={{ color: C.goldDim, fontSize: "0.68rem", letterSpacing: "0.12em", textTransform: "uppercase", marginTop: 14, opacity: 0.5 }}>
             Written 2015 · Published 2025 · 114 Logia · Pergamon Press<br/>
-            <a href="https://doi.org/10.5281/zenodo.19709024" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.19709024" target="_blank" rel="noopener noreferrer"
               style={{ color: C.goldDim, textDecoration: "none", borderBottom: "1px dotted rgba(160,128,80,0.3)" }}>
               DOI: 10.5281/zenodo.19709024
             </a>
@@ -856,7 +856,7 @@ export default function Antioch({ onBack }) {
             <p style={{ color: fnColor, fontSize: "0.75rem", fontStyle: "italic", lineHeight: 1.65 }}>
               Research edition with apparatus criticus, Synoptic Concordance, Somatic Map, Scroll Baptism liturgy, and eleven appendices.
             </p>
-            <a href="https://doi.org/10.5281/zenodo.19709024" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.19709024" target="_blank" rel="noopener noreferrer"
               style={{ color: "#6a9fd8", fontSize: "0.73rem", display: "block", marginTop: 6 }}>
               Research Edition (PDF + MD) — DOI: 10.5281/zenodo.19709024 ↗
             </a>
