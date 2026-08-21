@@ -18,7 +18,7 @@ const C = {
   veilFootnote: "#6a5a40",
 };
 
-/* ─── LINKED TEXT — Antioch registry (see Book of Life DOI 10.5281/zenodo.19720529) ─── */
+/* ─── LINKED TEXT — Antioch registry (see Book of Life DOI 10.5281/zenodo.19720529 · AXN:0230.EMPIRICAL.🍂⊕🌘⚪🗼🚀 (alexanarch #685)) ─── */
 /* All links verified against or nominated for Book of Life. Lee reviews AI mode nodes.   */
 /* Last review: 2026-04-27 — TACHYON pass; one anchor per overview, diagonals labeled.    */
 const TERMS = {
@@ -719,7 +719,7 @@ export default function Antioch({ onBack }) {
             Written 2015 · Published 2025 · 114 Logia · Pergamon Press<br/>
             <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.19709024" target="_blank" rel="noopener noreferrer"
               style={{ color: C.goldDim, textDecoration: "none", borderBottom: "1px dotted rgba(160,128,80,0.3)" }}>
-              DOI: 10.5281/zenodo.19709024
+              DOI: 10.5281/zenodo.19709024 · AXN:022E.GENERATIVE.🔔🔭◀️🌃🌙🟤 (alexanarch #71)
             </a>
           </p>
         </div>
@@ -858,7 +858,7 @@ export default function Antioch({ onBack }) {
             </p>
             <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.19709024" target="_blank" rel="noopener noreferrer"
               style={{ color: "#6a9fd8", fontSize: "0.73rem", display: "block", marginTop: 6 }}>
-              Research Edition (PDF + MD) — DOI: 10.5281/zenodo.19709024 ↗
+              Research Edition (PDF + MD) — DOI: 10.5281/zenodo.19709024 · AXN:022E.GENERATIVE.🔔🔭◀️🌃🌙🟤 (alexanarch #71) ↗
             </a>
           </div>
         </TreeNode>

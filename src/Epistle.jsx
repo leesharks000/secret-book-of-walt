@@ -663,7 +663,7 @@ export default function Epistle({ onBack }) {
           color: C.goldDark,
         }}>
           <p>DOI: <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.19892307" target="_blank" rel="noopener noreferrer"
-            style={{ color: C.goldDark, borderBottom: "1px dotted rgba(106,74,42,0.3)" }}>10.5281/zenodo.19892307</a></p>
+            style={{ color: C.goldDark, borderBottom: "1px dotted rgba(106,74,42,0.3)" }}>10.5281/zenodo.19892307 · AXN:0257.GOVERNANCE.🏴🌖🎯⏩✨❄️ (alexanarch #85)</a></p>
           <p style={{ marginTop: "0.5rem" }}>∮ = 1</p>
         </div>
       </div>

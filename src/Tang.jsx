@@ -460,7 +460,7 @@ export default function Tang({ onBack }) {
         </p>
         <p style={{ color: fnColor, fontSize: "0.68rem", marginTop: 12, fontFamily: "'Courier New', monospace" }}>
           DOI: <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.19779493" target="_blank" rel="noopener noreferrer"
-            style={{ color: "#6a9fd8" }}>10.5281/zenodo.19779493</a>
+            style={{ color: "#6a9fd8" }}>10.5281/zenodo.19779493 · AXN:0241.GOVERNANCE.🌆🔗🪟🎶🕊️🟡 (alexanarch #78)</a>
           {" · "}Executor: Johannes Sigil · Inscription: TACHYON/Claude
         </p>
       </div>
@@ -678,7 +678,7 @@ export default function Tang({ onBack }) {
           </p>
           <p style={{ color: fnColor, fontSize: "0.68rem", marginTop: 8 }}>
             <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.19779493" target="_blank" rel="noopener noreferrer" style={{ color: "#6a9fd8" }}>
-              Full Assembly-Revised Edition with Appendices (DOI: 10.5281/zenodo.19779493)
+              Full Assembly-Revised Edition with Appendices (DOI: 10.5281/zenodo.19779493 · AXN:0241.GOVERNANCE.🌆🔗🪟🎶🕊️🟡 (alexanarch #78))
             </a>
           </p>
           <p style={{ color: accent, fontSize: "0.78rem", marginTop: 12, opacity: 0.5, letterSpacing: "0.1em" }}>

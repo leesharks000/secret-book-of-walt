@@ -1,0 +1,305 @@
+{
+ "_note": "DOI → AXN crosswalk, from the canonical map at alexanarch. Zenodo DOIs were severed 2026-06-19. The AXN is the sovereign identifier and carries the live link; the DOI is retained as historical record.",
+ "_source": "https://www.alexanarch.org/api/doi-axn-map.json",
+ "_generated": "2026-08-20",
+ "_unresolved": [
+  "10.5281/zenodo.19578102"
+ ],
+ "map": {
+  "10.5281/zenodo.1": {
+   "axn": "AXN:019C.GOVERNANCE.⏹️🦋🔝🌳🍃📋",
+   "url": "",
+   "n": null
+  },
+  "10.5281/zenodo.14538882": {
+   "axn": "AXN:009A.GOVERNANCE.🌓✊📐🪟🌈🔄",
+   "url": "https://www.alexanarch.org/s/records/349/",
+   "n": "349"
+  },
+  "10.5281/zenodo.18174835": {
+   "axn": "AXN:003F.GOVERNANCE.🔔🕖🌗🔗🎲📏",
+   "url": "https://www.alexanarch.org/s/records/261/",
+   "n": "261"
+  },
+  "10.5281/zenodo.18190536": {
+   "axn": "AXN:0044.GOVERNANCE.✖️🌿🔖🌉♄♊",
+   "url": "https://www.alexanarch.org/s/records/266/",
+   "n": "266"
+  },
+  "10.5281/zenodo.18201565": {
+   "axn": "AXN:0506.UNCLASSIFIED.⊗❤️📏🏁⭐🌑",
+   "url": "https://www.alexanarch.org/s/records/1269/",
+   "n": "1269"
+  },
+  "10.5281/zenodo.18208069": {
+   "axn": "AXN:022B.EMPIRICAL.🗺️📦💚⏏️🦋🕒",
+   "url": "",
+   "n": null
+  },
+  "10.5281/zenodo.18305509": {
+   "axn": "AXN:0098.GENERATIVE.⏏️☉🔭🌄🕛🚀",
+   "url": "https://www.alexanarch.org/s/records/348/",
+   "n": "348"
+  },
+  "10.5281/zenodo.18320411": {
+   "axn": "AXN:025D.GOVERNANCE.∞🧫🏗️🜁🎨♣️",
+   "url": "https://www.alexanarch.org/s/records/87/",
+   "n": "87"
+  },
+  "10.5281/zenodo.18323735": {
+   "axn": "AXN:00AC.GOVERNANCE.☿💙☿🕚🔀♆",
+   "url": "https://www.alexanarch.org/s/records/8/",
+   "n": "8"
+  },
+  "10.5281/zenodo.18507410": {
+   "axn": "AXN:0112.EMPIRICAL.🔬⚓🔙🌔🔼🌠",
+   "url": "https://www.alexanarch.org/s/records/17/",
+   "n": "17"
+  },
+  "10.5281/zenodo.18522470": {
+   "axn": "AXN:0119.GOVERNANCE.🌸↙️🍀🌔☉✨",
+   "url": "https://www.alexanarch.org/s/records/463/",
+   "n": "463"
+  },
+  "10.5281/zenodo.18745265": {
+   "axn": "AXN:0148.GOVERNANCE.🦋▽🌹⚙️🔙✏️",
+   "url": "https://www.alexanarch.org/s/records/505/",
+   "n": "505"
+  },
+  "10.5281/zenodo.18946111": {
+   "axn": "AXN:0178.GENERATIVE.🔐🏠⚓🖊️🧱🌑",
+   "url": "https://www.alexanarch.org/s/records/547/",
+   "n": "547"
+  },
+  "10.5281/zenodo.19013315": {
+   "axn": "AXN:0184.GOVERNANCE.🎵💛🌙♅🕚🏷️",
+   "url": "https://www.alexanarch.org/s/records/558/",
+   "n": "558"
+  },
+  "10.5281/zenodo.19390843": {
+   "axn": "AXN:01DC.GOVERNANCE.⏳🔆⛳👁️▲🔀",
+   "url": "https://www.alexanarch.org/s/records/49/",
+   "n": "49"
+  },
+  "10.5281/zenodo.19412081": {
+   "axn": "AXN:01DD.GOVERNANCE.🤲🟢🟤📎🪦☉",
+   "url": "https://www.alexanarch.org/s/records/50/",
+   "n": "50"
+  },
+  "10.5281/zenodo.19431121": {
+   "axn": "AXN:01DF.GOVERNANCE.⏰🌱🕗🔒♉🪨",
+   "url": "https://www.alexanarch.org/s/records/626/",
+   "n": "626"
+  },
+  "10.5281/zenodo.19431129": {
+   "axn": "AXN:0392.PHILOLOGICAL.⏏️🧭♋🔔💫✖️",
+   "url": "https://www.alexanarch.org/s/records/902/",
+   "n": "902"
+  },
+  "10.5281/zenodo.19471256": {
+   "axn": "AXN:01F2.GOVERNANCE.🎲☿🧫🍀💥💡",
+   "url": "https://www.alexanarch.org/s/records/55/",
+   "n": "55"
+  },
+  "10.5281/zenodo.19474724": {
+   "axn": "AXN:01ED.GOVERNANCE.👉●➖♊♠️🌍",
+   "url": "https://www.alexanarch.org/s/records/637/",
+   "n": "637"
+  },
+  "10.5281/zenodo.19501454": {
+   "axn": "AXN:045E.GOVERNANCE.🍂🌓🏠↗️⛩️🔔",
+   "url": "https://www.alexanarch.org/s/records/1101/",
+   "n": "1101"
+  },
+  "10.5281/zenodo.19520783": {
+   "axn": "AXN:01F8.GOVERNANCE.🏗️🤲🧭🖊️👁️□",
+   "url": "https://www.alexanarch.org/s/records/645/",
+   "n": "645"
+  },
+  "10.5281/zenodo.19614870": {
+   "axn": "AXN:020B.GOVERNANCE.🟤🌄🪨🪝🧲✊",
+   "url": "https://www.alexanarch.org/s/records/660/",
+   "n": "660"
+  },
+  "10.5281/zenodo.19642664": {
+   "axn": "AXN:03DE.ARCHIVAL.▲♅🌈➕🪟🔴",
+   "url": "https://www.alexanarch.org/s/records/978/",
+   "n": "978"
+  },
+  "10.5281/zenodo.19643841": {
+   "axn": "AXN:021B.GOVERNANCE.🕔🔝🍂🕓👆🎨",
+   "url": "https://www.alexanarch.org/s/records/64/",
+   "n": "64"
+  },
+  "10.5281/zenodo.19655350": {
+   "axn": "AXN:022E.GENERATIVE.🔔🔭◀️🌃🌙🟤",
+   "url": "",
+   "n": null
+  },
+  "10.5281/zenodo.19655354": {
+   "axn": "AXN:022E.GENERATIVE.🔔🔭◀️🌃🌙🟤",
+   "url": "https://www.alexanarch.org/s/records/71/",
+   "n": "71"
+  },
+  "10.5281/zenodo.19655356": {
+   "axn": "AXN:022E.GENERATIVE.🔔🔭◀️🌃🌙🟤",
+   "url": "https://www.alexanarch.org/s/records/71/",
+   "n": "71"
+  },
+  "10.5281/zenodo.19655468": {
+   "axn": "AXN:055D.UNCLASSIFIED.🔜✏️📜🏔️🟣🏰",
+   "url": "https://www.alexanarch.org/s/records/1356/",
+   "n": "1356"
+  },
+  "10.5281/zenodo.19688490": {
+   "axn": "AXN:022D.GOVERNANCE.🪨🤝🤙🔼🔙💡",
+   "url": "https://www.alexanarch.org/s/records/70/",
+   "n": "70"
+  },
+  "10.5281/zenodo.19697080": {
+   "axn": "AXN:022C.ARCHIVAL.↙️☉🌑🌠⏬🪄",
+   "url": "https://www.alexanarch.org/s/records/684/",
+   "n": "684"
+  },
+  "10.5281/zenodo.19703009": {
+   "axn": "AXN:022B.EMPIRICAL.🗺️📦💚⏏️🦋🕒",
+   "url": "https://www.alexanarch.org/s/records/683/",
+   "n": "683"
+  },
+  "10.5281/zenodo.19709024": {
+   "axn": "AXN:022E.GENERATIVE.🔔🔭◀️🌃🌙🟤",
+   "url": "https://www.alexanarch.org/s/records/71/",
+   "n": "71"
+  },
+  "10.5281/zenodo.19720513": {
+   "axn": "AXN:0233.GENERATIVE.🀄♄🕗◇⭕🪸",
+   "url": "",
+   "n": null
+  },
+  "10.5281/zenodo.19720529": {
+   "axn": "AXN:0230.EMPIRICAL.🍂⊕🌘⚪🗼🚀",
+   "url": "https://www.alexanarch.org/s/records/685/",
+   "n": "685"
+  },
+  "10.5281/zenodo.19739494": {
+   "axn": "AXN:0563.UNCLASSIFIED.🧪🎲🔧✨🔵△",
+   "url": "https://www.alexanarch.org/s/records/1362/",
+   "n": "1362"
+  },
+  "10.5281/zenodo.19775900": {
+   "axn": "AXN:0241.GOVERNANCE.🌆🔗🪟🎶🕊️🟡",
+   "url": "",
+   "n": null
+  },
+  "10.5281/zenodo.19779493": {
+   "axn": "AXN:0241.GOVERNANCE.🌆🔗🪟🎶🕊️🟡",
+   "url": "https://www.alexanarch.org/s/records/78/",
+   "n": "78"
+  },
+  "10.5281/zenodo.19855300": {
+   "axn": "AXN:0251.GOVERNANCE.🌒🎯🔖♄✋⏪",
+   "url": "https://www.alexanarch.org/s/records/710/",
+   "n": "710"
+  },
+  "10.5281/zenodo.19892307": {
+   "axn": "AXN:0257.GOVERNANCE.🏴🌖🎯⏩✨❄️",
+   "url": "https://www.alexanarch.org/s/records/85/",
+   "n": "85"
+  },
+  "10.5281/zenodo.19895669": {
+   "axn": "AXN:0259.ARCHIVAL.🧱🟡⊗♄♋🧪",
+   "url": "https://www.alexanarch.org/s/records/712/",
+   "n": "712"
+  },
+  "10.5281/zenodo.19898426": {
+   "axn": "AXN:0256.GOVERNANCE.🔜🗺️🔅🔒🌍🏷️",
+   "url": "https://www.alexanarch.org/s/records/84/",
+   "n": "84"
+  },
+  "10.5281/zenodo.19902552": {
+   "axn": "AXN:0255.GOVERNANCE.🔼○🎺■🕙🌋",
+   "url": "https://www.alexanarch.org/s/records/83/",
+   "n": "83"
+  },
+  "10.5281/zenodo.19923120": {
+   "axn": "AXN:025E.GOVERNANCE.🧲♥️🃏🕚♋➕",
+   "url": "https://www.alexanarch.org/s/records/88/",
+   "n": "88"
+  },
+  "10.5281/zenodo.19923143": {
+   "axn": "AXN:025D.GOVERNANCE.∞🧫🏗️🜁🎨♣️",
+   "url": "https://www.alexanarch.org/s/records/87/",
+   "n": "87"
+  },
+  "10.5281/zenodo.20041134": {
+   "axn": "AXN:0269.GOVERNANCE.🕔◀️🔻🔧♆🌈",
+   "url": "https://www.alexanarch.org/s/records/94/",
+   "n": "94"
+  },
+  "10.5281/zenodo.20041137": {
+   "axn": "AXN:04D8.UNCLASSIFIED.🔵🌻🚪📎🌕🏷️",
+   "url": "",
+   "n": null
+  },
+  "10.5281/zenodo.20041139": {
+   "axn": "AXN:0267.GOVERNANCE.🔮🧡🌃📚🛤️☉",
+   "url": "https://www.alexanarch.org/s/records/719/",
+   "n": "719"
+  },
+  "10.5281/zenodo.20041145": {
+   "axn": "AXN:0266.GOVERNANCE.➖🕘🛡️🌠🏠☉",
+   "url": "https://www.alexanarch.org/s/records/718/",
+   "n": "718"
+  },
+  "10.5281/zenodo.20041147": {
+   "axn": "AXN:0265.GOVERNANCE.🚨🎶🫶🌉🔅➕",
+   "url": "https://www.alexanarch.org/s/records/93/",
+   "n": "93"
+  },
+  "10.5281/zenodo.20041149": {
+   "axn": "AXN:04D9.UNCLASSIFIED.💛🌈🗺️📎↖️∮",
+   "url": "",
+   "n": null
+  },
+  "10.5281/zenodo.20041155": {
+   "axn": "AXN:03EC.ARCHIVAL.🌅🤙⛩️◇📐🚩",
+   "url": "",
+   "n": null
+  },
+  "10.5281/zenodo.20041157": {
+   "axn": "AXN:04E2.UNCLASSIFIED.♋💙🏺🛡️🔺♃",
+   "url": "",
+   "n": null
+  },
+  "10.5281/zenodo.20041159": {
+   "axn": "AXN:0261.GOVERNANCE.♄🏺👋🔴🖊️↙️",
+   "url": "",
+   "n": null
+  },
+  "10.5281/zenodo.20293582": {
+   "axn": "AXN:0290.EMPIRICAL.🗂️♣️📌△🔚🔒",
+   "url": "https://www.alexanarch.org/s/records/740/",
+   "n": "740"
+  },
+  "10.5281/zenodo.20743560": {
+   "axn": "AXN:0368.GENERATIVE.🌉🪜🗿⌛🎪🔛",
+   "url": "https://www.alexanarch.org/s/records/859/",
+   "n": "859"
+  },
+  "10.5281/zenodo.20752296": {
+   "axn": "AXN:0362.GOVERNANCE.🌹🗿🍁🌌✨🌑",
+   "url": "https://www.alexanarch.org/s/records/853/",
+   "n": "853"
+  },
+  "10.5281/zenodo.20752596": {
+   "axn": "AXN:058D.UNCLASSIFIED.📐🛸△👐♉🧫",
+   "url": "https://www.alexanarch.org/s/records/1404/",
+   "n": "1404"
+  },
+  "10.5281/zenodo.20753314": {
+   "axn": "AXN:04EF.UNCLASSIFIED.👉🎹✨🌅⚡📌",
+   "url": "",
+   "n": null
+  }
+ }
+}

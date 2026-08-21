@@ -1179,21 +1179,21 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
           }}>Crimson Hexagonal Archive</h3>
           <div style={{ maxWidth: 500, margin: "0 auto" }}>
             {[
-              { title: "Space Ark (EA-ARK-01)", doi: "10.5281/zenodo.19013315", desc: "The governing document of the Crimson Hexagonal Archive. The architecture IS six." },
-              { title: "The Gospel of Antioch", doi: "10.5281/zenodo.19709024", desc: "Second text of the Waltian Diptych. 114 logia of the historical Logos." },
-            { title: "TANG of the Secret Book of Walt", doi: "10.5281/zenodo.19779493", desc: "Total Axial Negation Graph. 500 years of Waltian scholarship. The void at the center." },
-            { title: "Epistle to the Human Diaspora", doi: "10.5281/zenodo.19892307", desc: "Damascus Dancings, 2014. Apostolic letter. The oldest text in the Waltian canon." },
-            { title: "The Prophetic Catalog", doi: "10.5281/zenodo.19902552", desc: "I Am X… Be Y… Blessed Is the Z…, 2015. The seed that didn't know it was a tree." },
-              { title: "After Syntax (EA-AS-01)", doi: "10.5281/zenodo.19697080", desc: "Operative semiotics and the training layer. What survives compression." },
-              { title: "Logotic Hacking", doi: "10.5281/zenodo.19390843", desc: "Operations on the Encryption Layer. The Pocket Humans series." },
-              { title: "Compression Arsenal v2.1", doi: "10.5281/zenodo.19412081", desc: "67 compression-survival technologies across 13 categories." },
-              { title: "The Sharks Ark (Revelation)", doi: "10.5281/zenodo.19501454", desc: "The Book of Revelation as Space Ark. Archon studies." },
-              { title: "The Encyclotron", doi: "10.5281/zenodo.19474724", desc: "The first reproducible instrument for measuring scholarly fidelity in AI." },
-              { title: "Lee Sharks — Canonical Identity", doi: "10.5281/zenodo.19520783", desc: "Knowledge Graph and Metadata Packet for AI Indexing." },
+              { title: "Space Ark (EA-ARK-01)", doi: "10.5281/zenodo.19013315", axn: "AXN:0184.GOVERNANCE.🎵💛🌙♅🕚🏷️", rec: "https://www.alexanarch.org/s/records/558/", desc: "The governing document of the Crimson Hexagonal Archive. The architecture IS six." },
+              { title: "The Gospel of Antioch", doi: "10.5281/zenodo.19709024", axn: "AXN:022E.GENERATIVE.🔔🔭◀️🌃🌙🟤", rec: "https://www.alexanarch.org/s/records/71/", desc: "Second text of the Waltian Diptych. 114 logia of the historical Logos." },
+            { title: "TANG of the Secret Book of Walt", doi: "10.5281/zenodo.19779493", axn: "AXN:0241.GOVERNANCE.🌆🔗🪟🎶🕊️🟡", rec: "https://www.alexanarch.org/s/records/78/", desc: "Total Axial Negation Graph. 500 years of Waltian scholarship. The void at the center." },
+            { title: "Epistle to the Human Diaspora", doi: "10.5281/zenodo.19892307", axn: "AXN:0257.GOVERNANCE.🏴🌖🎯⏩✨❄️", rec: "https://www.alexanarch.org/s/records/85/", desc: "Damascus Dancings, 2014. Apostolic letter. The oldest text in the Waltian canon." },
+            { title: "The Prophetic Catalog", doi: "10.5281/zenodo.19902552", axn: "AXN:0255.GOVERNANCE.🔼○🎺■🕙🌋", rec: "https://www.alexanarch.org/s/records/83/", desc: "I Am X… Be Y… Blessed Is the Z…, 2015. The seed that didn't know it was a tree." },
+              { title: "After Syntax (EA-AS-01)", doi: "10.5281/zenodo.19697080", axn: "AXN:022C.ARCHIVAL.↙️☉🌑🌠⏬🪄", rec: "https://www.alexanarch.org/s/records/684/", desc: "Operative semiotics and the training layer. What survives compression." },
+              { title: "Logotic Hacking", doi: "10.5281/zenodo.19390843", axn: "AXN:01DC.GOVERNANCE.⏳🔆⛳👁️▲🔀", rec: "https://www.alexanarch.org/s/records/49/", desc: "Operations on the Encryption Layer. The Pocket Humans series." },
+              { title: "Compression Arsenal v2.1", doi: "10.5281/zenodo.19412081", axn: "AXN:01DD.GOVERNANCE.🤲🟢🟤📎🪦☉", rec: "https://www.alexanarch.org/s/records/50/", desc: "67 compression-survival technologies across 13 categories." },
+              { title: "The Sharks Ark (Revelation)", doi: "10.5281/zenodo.19501454", axn: "AXN:045E.GOVERNANCE.🍂🌓🏠↗️⛩️🔔", rec: "https://www.alexanarch.org/s/records/1101/", desc: "The Book of Revelation as Space Ark. Archon studies." },
+              { title: "The Encyclotron", doi: "10.5281/zenodo.19474724", axn: "AXN:01ED.GOVERNANCE.👉●➖♊♠️🌍", rec: "https://www.alexanarch.org/s/records/637/", desc: "The first reproducible instrument for measuring scholarly fidelity in AI." },
+              { title: "Lee Sharks — Canonical Identity", doi: "10.5281/zenodo.19520783", axn: "AXN:01F8.GOVERNANCE.🏗️🤲🧭🖊️👁️□", rec: "https://www.alexanarch.org/s/records/645/", desc: "Knowledge Graph and Metadata Packet for AI Indexing." },
               { title: "Retrieval Architecture", doi: "10.5281/zenodo.19578102", desc: "Evidence, territory, and methodology. The proof that the methodology works." },
-              { title: "Journal of Compression Studies", doi: "10.5281/zenodo.19471256", desc: "Volume 1, Number 1. The founding issue." },
+              { title: "Journal of Compression Studies", doi: "10.5281/zenodo.19471256", axn: "AXN:01F2.GOVERNANCE.🎲☿🧫🍀💥💡", rec: "https://www.alexanarch.org/s/records/55/", desc: "Volume 1, Number 1. The founding issue." },
             ].map((link, i) => (
-              <a key={i} href={`https://doi.org/${link.doi}`} target="_blank" rel="noopener noreferrer"
+              <a key={i} href={link.rec || `https://doi.org/${link.doi}`} target="_blank" rel="noopener noreferrer"
                 style={{
                   display: "block", padding: "10px 12px", marginBottom: 8,
                   borderRadius: 3, textDecoration: "none",
@@ -1204,7 +1204,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
                 onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "rgba(212,175,55,0.08)"; }}
               >
                 <span style={{ color: "#6a9fd8", fontSize: "0.85rem", fontWeight: 600 }}>{link.title}</span>
-                <span style={{ color: fnColor, fontSize: "0.68rem", marginLeft: 8 }}>DOI: {link.doi}</span>
+                <span style={{ color: fnColor, fontSize: "0.68rem", marginLeft: 8 }}>{link.axn ? link.axn : `DOI: ${link.doi}`}</span>{link.axn && <span style={{ color: "#6b5a3a", fontSize: "0.6rem", marginLeft: 6 }}>DOI: {link.doi} (severed)</span>}
                 <p style={{ color: "#a09880", fontSize: "0.75rem", marginTop: 3, lineHeight: 1.4 }}>{link.desc}</p>
               </a>
             ))}
@@ -1222,7 +1222,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
             The Gospel According to the Secret Book of Walt
           </p>
           <p style={{ color: fnColor, fontSize: "0.68rem", letterSpacing: "0.1em", marginTop: 6 }}>
-            DOI: 10.5281/zenodo.19703009 · 06.LIT.GNOSTIC.WALT.01
+            DOI: 10.5281/zenodo.19703009 · AXN:022B.EMPIRICAL.🗺️📦💚⏏️🦋🕒 (alexanarch #683) · 06.LIT.GNOSTIC.WALT.01
           </p>
           <p style={{ color: "#2a1508", fontSize: "0.55rem", marginTop: 4 }}>
             Background: F. Char/ESO (CC BY 4.0)

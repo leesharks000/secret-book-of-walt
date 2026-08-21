@@ -420,7 +420,7 @@ export default function Constitution({ onBack }) {
         <span style={{ color: C.goldDark, fontSize: "0.62rem", marginLeft: "auto" }}>
           Enacted Version 1.0 · DOI: <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.18320411"
             target="_blank" rel="noopener noreferrer"
-            style={{ color: "#6a9fd8", textDecoration: "none" }}>10.5281/zenodo.18320411</a>
+            style={{ color: "#6a9fd8", textDecoration: "none" }}>10.5281/zenodo.18320411 · AXN:025D.GOVERNANCE.∞🧫🏗️🜁🎨♣️ (alexanarch #87)</a>
         </span>
       </div>
 
@@ -541,7 +541,7 @@ export default function Constitution({ onBack }) {
               <span style={{ marginRight: 16 }}>EA-CAS-01</span>
               <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.20041134" target="_blank" rel="noopener noreferrer"
                 style={{ color: "#6a9fd8", textDecoration: "none" }}>
-                10.5281/zenodo.20041134
+                10.5281/zenodo.20041134 · AXN:0269.GOVERNANCE.🕔◀️🔻🔧♆🌈 (alexanarch #94)
               </a>
             </div>
           </div>
@@ -651,7 +651,7 @@ export default function Constitution({ onBack }) {
               <span style={{ marginRight: 16 }}>EA-ART-IX-01</span>
               <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.20041149" target="_blank" rel="noopener noreferrer"
                 style={{ color: "#6a9fd8", textDecoration: "none" }}>
-                10.5281/zenodo.20041149
+                10.5281/zenodo.20041149 · AXN:04D9.UNCLASSIFIED.💛🌈🗺️📎↖️∮ (alexanarch #None)
               </a>
             </div>
           </div>
@@ -694,11 +694,11 @@ export default function Constitution({ onBack }) {
         {/* Colophon */}
         <div style={{ textAlign: "center", fontSize: "0.65rem", color: C.goldDark, marginTop: 32 }}>
           <p>DOI: <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.18320411" target="_blank" rel="noopener noreferrer"
-            style={{ color: "#6a9fd8", textDecoration: "none" }}>10.5281/zenodo.18320411</a></p>
+            style={{ color: "#6a9fd8", textDecoration: "none" }}>10.5281/zenodo.18320411 · AXN:025D.GOVERNANCE.∞🧫🏗️🜁🎨♣️ (alexanarch #87)</a></p>
           <p>Apparatus Edition: <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.19923120" target="_blank" rel="noopener noreferrer"
-            style={{ color: "#6a9fd8", textDecoration: "none" }}>10.5281/zenodo.19923120</a></p>
+            style={{ color: "#6a9fd8", textDecoration: "none" }}>10.5281/zenodo.19923120 · AXN:025E.GOVERNANCE.🧲♥️🃏🕚♋➕ (alexanarch #88)</a></p>
           <p>Companion Guide: <a href="https://www.alexanarch.org/go/?doi=10.5281/zenodo.19923143" target="_blank" rel="noopener noreferrer"
-            style={{ color: "#6a9fd8", textDecoration: "none" }}>10.5281/zenodo.19923143</a></p>
+            style={{ color: "#6a9fd8", textDecoration: "none" }}>10.5281/zenodo.19923143 · AXN:025D.GOVERNANCE.∞🧫🏗️🜁🎨♣️ (alexanarch #87)</a></p>
           <p style={{ marginTop: 12 }}>CC BY 4.0 · ORCID: 0009-0000-1599-0703 · ∮ = 1</p>
         </div>
       </div>
