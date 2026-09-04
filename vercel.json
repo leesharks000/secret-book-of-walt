@@ -12,5 +12,19 @@
       "source": "/feist",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "secretbookofwalt.org"
+        }
+      ],
+      "destination": "https://www.secretbookofwalt.org/:path*",
+      "permanent": true
+    }
+  ],
+  "trailingSlash": false
 }

@@ -1619,6 +1619,20 @@ export default function App() {
     }
   }, []);
 
+  // One URL grammar (2026-09-04): every view serves this same index.html, so the head must
+  // follow the route or Google sees one canonical for seven pages. Keep <link rel=canonical>,
+  // og:url and <title> in step with the view; the sitemap lists exactly these paths.
+  useEffect(() => {
+    const path = VIEW_TO_PATH[view] || "/";
+    const url = "https://www.secretbookofwalt.org" + (path === "/" ? "/" : path);
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) { link = document.createElement("link"); link.setAttribute("rel", "canonical"); document.head.appendChild(link); }
+    link.setAttribute("href", url);
+    const og = document.querySelector('meta[property="og:url"]'); if (og) og.setAttribute("content", url);
+    const titles = { splash: "The Secret Book of Walt", constitution: "Constitution — The Secret Book of Walt", antioch: "Antioch — The Secret Book of Walt", tang: "Tang — The Secret Book of Walt", epistle: "Epistle — The Secret Book of Walt", catalog: "Catalog — The Secret Book of Walt", revelation: "Revelation First — The Secret Book of Walt", feist: "Feist Source — The Secret Book of Walt" };
+    if (titles[view]) document.title = titles[view];
+  }, [view]);
+
   // Handle browser back/forward
   useEffect(() => {
     const onPop = (e) => {

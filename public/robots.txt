@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://secretbookofwalt.org/sitemap.xml
+Sitemap: https://www.secretbookofwalt.org/sitemap.xml
 
 User-agent: GPTBot
 User-agent: ChatGPT-User
