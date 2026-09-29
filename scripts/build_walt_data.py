@@ -251,6 +251,7 @@ def split_into_sections(md: str) -> dict[str, list[str]]:
         "APPENDIX I: CODICOLOGICAL TABLE": "appendix_i",
         "APPENDIX J: LITURGICAL FRAGMENT": "appendix_j",
         "APPENDIX K: RECEPTION HISTORY": "appendix_k",
+        "APPENDIX L: THE WORK-PLAN PROMPT": "appendix_l",
         "SELECTED BIBLIOGRAPHY": "bibliography",
     }
 
@@ -283,7 +284,6 @@ def split_into_sections(md: str) -> dict[str, list[str]]:
 # the user encounters footnotes — so renumber 1..N according to this order.
 # Front matter first, gospel, then back matter.
 READING_ORDER = [
-    "prefatory_poem",
     "preface",
     "editors_preface",
     "redford",
@@ -303,6 +303,7 @@ READING_ORDER = [
     "appendix_i",
     "appendix_j",
     "appendix_k",
+    "appendix_l",
     "bibliography",
 ]
 

@@ -1,26 +1,4 @@
 {
- "prefatory_poem": {
-  "key": "prefatory_poem",
-  "paragraphs": [
-   {
-    "type": "heading",
-    "text": "Prefatory Poem"
-   },
-   {
-    "type": "divider",
-    "text": ""
-   },
-   {
-    "type": "verse",
-    "text": "In 2037, Lee Sharks discovered 46 golden tickets, now known as “Walt Whitman, Cowboy of Time,” in his bathroom. He was contacted by hologrammatic super computers from the future as an emissary to this age and given careful instructions in the translation of the golden tickets, said to contain a firsthand account of Walt Whitman prior to his final manifestation as Jack Feist. Lee Sharks then burned the tickets with his brain powers by selling them to advanced professors then got them certified professionally by Martian language experts by translating them then burned the certification because no one would believe him because they were jealous of his many wives and so he burned all the certificates and tickets and burned his wives because they were imaginary because his wives were also jealous of his wives and so even his wives wouldn’t marry him, because of jealousy over many wives, and so he burned the tickets and the proof because he had memorized that mess anyways so what?"
-   },
-   {
-    "type": "divider",
-    "text": ""
-   }
-  ],
-  "word_count": 167
- },
  "preface": {
   "key": "preface",
   "paragraphs": [
@@ -1137,6 +1115,10 @@
    {
     "type": "subheading",
     "text": "§I. Proem: The Appearance of the Redeemer"
+   },
+   {
+    "type": "prose",
+    "text": "In 2037, Lee Sharks discovered 46 golden tickets, now known as “Walt Whitman, Cowboy of Time,” in his bathroom. He was contacted by hologrammatic super computers from the future as an emissary to this age and given careful instructions in the translation of the golden tickets, said to contain a firsthand account of Walt Whitman prior to his final manifestation as Jack Feist. Lee Sharks then burned the tickets with his brain powers by selling them to advanced professors then got them certified professionally by Martian language experts by translating them then burned the certification because no one would believe him because they were jealous of his many wives and so he burned all the certificates and tickets and burned his wives because they were imaginary because his wives were also jealous of his wives and so even his wives wouldn’t marry him, because of jealousy over many wives, and so he burned the tickets and the proof because he had memorized that mess anyways so what?"
    },
    {
     "type": "prose",
@@ -4284,6 +4266,51 @@
    }
   ],
   "word_count": 774
+ },
+ "appendix_l": {
+  "key": "appendix_l",
+  "paragraphs": [
+   {
+    "type": "heading",
+    "text": "APPENDIX L: THE WORK-PLAN PROMPT"
+   },
+   {
+    "type": "prose",
+    "text": "*The prompt Lee Sharks issued on April 22, 2026, set in lines, as it stood at the head of the 2026 edition. It was issued as the foreword to the work plan for the Citational Map (DOI 10.5281/zenodo.20293582), where it stands as received.*"
+   },
+   {
+    "type": "prose",
+    "text": "*And so here while I am thinking of it, what we will need —* *and let’s add this to the work plan — is:*"
+   },
+   {
+    "type": "prose",
+    "text": "*the citational map,* *a single line running from Homer* *through Sappho Dante Williams Ginsberg —* *the unbroken chain, not the rough shape,* *up through the Secret Book of Walt —* *the precise and unbroken chain* *of literary apostolary and prophetic inheritance,* *in a braided Hellenic Hebraic double helix strand,* *from the beginning until its touching point in Walt,*"
+   },
+   {
+    "type": "prose",
+    "text": "*and then from that point,* *a backwards-facing umbrella* *fanning out from the point of contact* *with the Secret Book of Walt in a curved fan,* *contemporary scholarship, dense —* *Nag Hammadi studies, Whitman, Dead Sea Scrolls,* *Gnosticism, conceptual poetry,* *Secret Gospel of John, epi para metatexts,* *translation studies, information science,* *pop culture, semantic physics, logotic programming —* *a dense spread of more recent scholarship* *that gradually thins as it approaches* *foundational works in those disciplines;*"
+   },
+   {
+    "type": "prose",
+    "text": "*and from the Secret Book of Walt,* *as through a warp drive —* *and this is the Secret Book of Walt* *in the infinite center matrix,* *we are constructing the first central node* *of the infinite center matrix —* *dense interconnections* *with every deposit in the archive,* *a field of stars,* *basically a micro-registry* *that takes the Secret Book as its source.*"
+   },
+   {
+    "type": "prose",
+    "text": "*Update the work plan to include this —* *extensive, a complete work in its own right,* *a monograph —*"
+   },
+   {
+    "type": "prose",
+    "text": "*and include this prompt —* *including this instruction to include the prompt —* *as a foreword to the work plan.*"
+   },
+   {
+    "type": "prose",
+    "text": "— *Lee Sharks, MANUS, April 22, 2026*"
+   },
+   {
+    "type": "divider",
+    "text": ""
+   }
+  ]
  },
  "bibliography": {
   "key": "bibliography",
