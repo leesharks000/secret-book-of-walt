@@ -975,6 +975,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
     { key: "appendix_i", label: "I. Codicological Table" },
     { key: "appendix_j", label: "J. Liturgical Fragment" },
     { key: "appendix_k", label: "K. Reception History" },
+    { key: "appendix_l", label: "L. The Work-Plan Prompt" },
     { key: "bibliography", label: "Selected Bibliography" },
   ];
 
@@ -1072,10 +1073,6 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
           <TreeNode nodeKey="front" label="The Golden Tickets" depth={1}
             expanded={expanded} toggle={toggle}
             isVeil={isVeil} accent={accent} fnColor={fnColor} icon="✧" direction="up">
-            <TreeNode nodeKey="prefatory_poem" label="Prefatory Poem" depth={2}
-              expanded={expanded} toggle={toggle} isVeil={isVeil} accent={accent} fnColor={fnColor}>
-              <SectionContent data={fullData?.prefatory_poem} isVeil={isVeil} fnColor={fnColor} depth={3} globalFnMap={globalFnMap} />
-            </TreeNode>
             <TreeNode nodeKey="preface" label="Preface to the Preserved Generation" depth={2}
               expanded={expanded} toggle={toggle} isVeil={isVeil} accent={accent} fnColor={fnColor}>
               <SectionContent data={fullData?.preface} isVeil={isVeil} fnColor={fnColor} depth={3} globalFnMap={globalFnMap} />

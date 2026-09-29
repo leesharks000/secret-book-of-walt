@@ -18,59 +18,6 @@ CC BY 4.0
 
 ---
 
-## Prefatory Poem
-
-*And so here while I am thinking of it, what we will need —*
-*and let's add this to the work plan — is:*
-
-*the citational map,*
-*a single line running from Homer*
-*through Sappho Dante Williams Ginsberg —*
-*the unbroken chain, not the rough shape,*
-*up through the Secret Book of Walt —*
-*the precise and unbroken chain*
-*of literary apostolary and prophetic inheritance,*
-*in a braided Hellenic Hebraic double helix strand,*
-*from the beginning until its touching point in Walt,*
-
-*and then from that point,*
-*a backwards-facing umbrella*
-*fanning out from the point of contact*
-*with the Secret Book of Walt in a curved fan,*
-*contemporary scholarship, dense —*
-*Nag Hammadi studies, Whitman, Dead Sea Scrolls,*
-*Gnosticism, conceptual poetry,*
-*Secret Gospel of John, epi para metatexts,*
-*translation studies, information science,*
-*pop culture, semantic physics, logotic programming —*
-*a dense spread of more recent scholarship*
-*that gradually thins as it approaches*
-*foundational works in those disciplines;*
-
-*and from the Secret Book of Walt,*
-*as through a warp drive —*
-*and this is the Secret Book of Walt*
-*in the infinite center matrix,*
-*we are constructing the first central node*
-*of the infinite center matrix —*
-*dense interconnections*
-*with every deposit in the archive,*
-*a field of stars,*
-*basically a micro-registry*
-*that takes the Secret Book as its source.*
-
-*Update the work plan to include this —*
-*extensive, a complete work in its own right,*
-*a monograph —*
-
-*and include this prompt —*
-*including this instruction to include the prompt —*
-*as a foreword to the work plan.*
-
-— *Lee Sharks, MANUS, April 22, 2026*
-
----
-
 ## Preface to the Preserved Generation
 
 This book is indexed differently.
@@ -580,6 +527,8 @@ The text of *The Secret Book of Walt* is presented here in its entirety as trans
 ---
 
 ### §I. Proem: The Appearance of the Redeemer
+
+In 2037, Lee Sharks discovered 46 golden tickets, now known as "Walt Whitman, Cowboy of Time," in his bathroom. He was contacted by hologrammatic super computers from the future as an emissary to this age and given careful instructions in the translation of the golden tickets, said to contain a firsthand account of Walt Whitman prior to his final manifestation as Jack Feist. Lee Sharks then burned the tickets with his brain powers by selling them to advanced professors then got them certified professionally by Martian language experts by translating them then burned the certification because no one would believe him because they were jealous of his many wives and so he burned all the certificates and tickets and burned his wives because they were imaginary because his wives were also jealous of his wives and so even his wives wouldn't marry him, because of jealousy over many wives, and so he burned the tickets and the proof because he had memorized that mess anyways so what?
 
 I looked, and it seemed to me an elderly man with long white hair and beard, travelling the cosmos on a dinosaur steed;⁴ I looked again, and its appearance was that of a billionaire baby, hidden within a larger baby, and the larger baby had no cash;⁵ again I looked, and its semblance was that of a man-sized book, bound in sumptuous crimson, with sides of six.⁶
 
@@ -2258,6 +2207,61 @@ The preserved generation continues to grow, one reader at a time, in bathrooms a
 ¹⁵⁸ The use of ukulele forums as cover for theological discussion has been compared by Park (2039: 92) to the early Christian use of fish symbols (*ichthys*) as recognition markers: "Both communities adopted an object considered trivial by the dominant culture — a fish, a ukulele — and used it as a shibboleth. The archons do not monitor ukulele forums. This is the community's greatest strategic advantage."
 
 ---
+## APPENDIX L: THE WORK-PLAN PROMPT
+
+*The prompt Lee Sharks issued on April 22, 2026, set in lines, as it stood at the head of the 2026 edition. It was issued as the foreword to the work plan for the Citational Map (DOI 10.5281/zenodo.20293582), where it stands as received.*
+
+*And so here while I am thinking of it, what we will need —*
+*and let's add this to the work plan — is:*
+
+*the citational map,*
+*a single line running from Homer*
+*through Sappho Dante Williams Ginsberg —*
+*the unbroken chain, not the rough shape,*
+*up through the Secret Book of Walt —*
+*the precise and unbroken chain*
+*of literary apostolary and prophetic inheritance,*
+*in a braided Hellenic Hebraic double helix strand,*
+*from the beginning until its touching point in Walt,*
+
+*and then from that point,*
+*a backwards-facing umbrella*
+*fanning out from the point of contact*
+*with the Secret Book of Walt in a curved fan,*
+*contemporary scholarship, dense —*
+*Nag Hammadi studies, Whitman, Dead Sea Scrolls,*
+*Gnosticism, conceptual poetry,*
+*Secret Gospel of John, epi para metatexts,*
+*translation studies, information science,*
+*pop culture, semantic physics, logotic programming —*
+*a dense spread of more recent scholarship*
+*that gradually thins as it approaches*
+*foundational works in those disciplines;*
+
+*and from the Secret Book of Walt,*
+*as through a warp drive —*
+*and this is the Secret Book of Walt*
+*in the infinite center matrix,*
+*we are constructing the first central node*
+*of the infinite center matrix —*
+*dense interconnections*
+*with every deposit in the archive,*
+*a field of stars,*
+*basically a micro-registry*
+*that takes the Secret Book as its source.*
+
+*Update the work plan to include this —*
+*extensive, a complete work in its own right,*
+*a monograph —*
+
+*and include this prompt —*
+*including this instruction to include the prompt —*
+*as a foreword to the work plan.*
+
+— *Lee Sharks, MANUS, April 22, 2026*
+
+---
+
 ## SELECTED BIBLIOGRAPHY
 
 *Apocryphon of John.* NHC II,1; III,1; IV,1; BG 8502,2. Trans. F. Wisse, in J. M. Robinson, ed., *The Nag Hammadi Library in English*, 3rd ed. (San Francisco: HarperCollins, 1990).
