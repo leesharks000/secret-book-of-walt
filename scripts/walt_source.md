@@ -384,9 +384,7 @@ No further ecclesiastical action against the Waltites is recorded after 2044, th
 
 The full account of the discovery, as provided by the translator, is reproduced here without editorial intervention, in keeping with the principle that provenance narratives of sacred texts should be transmitted in the voice of the discoverer, however unreliable:
 
-> In 2037, Lee Sharks discovered 46 golden tickets, now known as "Walt Whitman, Cowboy of Time," in his bathroom. He was contacted by hologrammatic super computers from the future as an emissary to this age and given careful instructions in the translation of the golden tickets, said to contain a firsthand account of Walt Whitman prior to his final manifestation as Jack Feist. Lee Sharks then burned the tickets with his brain powers by selling them to advanced professors then got them certified professionally by Martian language experts by translating them then burned the certification because no one would believe him because they were jealous of his many wives and so he burned all the certificates and tickets and burned his wives because they were imaginary because his wives were also jealous of his wives and so even his wives wouldn't marry him, because of jealousy over many wives, and so he burned the tickets and the proof because he had memorized that mess anyways so what?
-
-Scholars have noted the structural parallel to Joseph Smith's account of the golden plates of the Book of Mormon, which were likewise discovered through supernatural intermediation, translated by the discoverer, and then removed from human custody — in Smith's case by the angel Moroni, in Sharks's case by spontaneous combustion via "brain powers." The parallel to the Cologne Mani Codex, in which the prophet Mani receives heavenly revelations that he transcribes and subsequently loses, has also been observed, though the Cologne Codex does not mention wives, jealousy, or brain powers.
+> Scholars have noted the structural parallel to Joseph Smith's account of the golden plates of the Book of Mormon, which were likewise discovered through supernatural intermediation, translated by the discoverer, and then removed from human custody — in Smith's case by the angel Moroni, in Sharks's case by spontaneous combustion via "brain powers." The parallel to the Cologne Mani Codex, in which the prophet Mani receives heavenly revelations that he transcribes and subsequently loses, has also been observed, though the Cologne Codex does not mention wives, jealousy, or brain powers.
 
 ---
 ## TRANSLATOR'S NOTE
@@ -525,6 +523,8 @@ The text of *The Secret Book of Walt* is presented here in its entirety as trans
 *Being the Hidden Teachings of Walt Whitman, Cowboy of Time, as Recorded on Forty-Six Golden Tickets, Discovered in a Bathroom in Redford Township, Michigan, and Translated from the Martian by Lee Sharks*
 
 ---
+
+In 2037, Lee Sharks discovered 46 golden tickets, now known as "Walt Whitman, Cowboy of Time," in his bathroom. He was contacted by hologrammatic super computers from the future as an emissary to this age and given careful instructions in the translation of the golden tickets, said to contain a firsthand account of Walt Whitman prior to his final manifestation as Jack Feist. Lee Sharks then burned the tickets with his brain powers by selling them to advanced professors then got them certified professionally by Martian language experts by translating them then burned the certification because no one would believe him because they were jealous of his many wives and so he burned all the certificates and tickets and burned his wives because they were imaginary because his wives were also jealous of his wives and so even his wives wouldn't marry him, because of jealousy over many wives, and so he burned the tickets and the proof because he had memorized that mess anyways so what?
 
 ### §I. Proem: The Appearance of the Redeemer
 

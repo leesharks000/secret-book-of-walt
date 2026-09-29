@@ -1133,6 +1133,25 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
           <TreeNode nodeKey="gospel_root" label="The Secret Book" depth={1}
             expanded={expanded} toggle={toggle}
             isVeil={isVeil} accent={accent} fnColor={fnColor} icon="☩">
+            {/* The account of the golden tickets: the gospel's preface, set apart
+                from the opening vision as in the 2015 text (italic, then a wide gap). */}
+            {(fullData?.gospel_preface || []).length > 0 && (
+              <div style={{ margin: "18px 0 0", padding: "0 10px" }}>
+                <div style={{ textAlign: "center", marginBottom: 22 }}>
+                  <img src={waltImg} alt="Walt Whitman on a dinosaur" style={{
+                    width: "min(300px, 70%)", height: "auto", borderRadius: 3, opacity: 0.9,
+                  }} />
+                </div>
+                {fullData.gospel_preface.map((p, i) => (
+                  <p key={i} style={{
+                    fontStyle: "italic", color: "#d8d0b8",
+                    fontSize: "clamp(0.88rem, 2.2vw, 0.98rem)", lineHeight: 1.8,
+                    maxWidth: 600, margin: "0 auto", textAlign: "justify",
+                  }}><LinkedText text={p.text} /></p>
+                ))}
+                <div aria-hidden="true" style={{ height: "7.5em" }} />
+              </div>
+            )}
             {gospelGroups.map(group => (
               <TreeNode key={group.key} nodeKey={group.key} label={group.label} depth={2}
                 expanded={expanded} toggle={toggle}
@@ -1660,6 +1679,7 @@ export default function App() {
         }
         if (current) sections.push(current);
         full.gospel_sections = sections;
+        full.gospel_preface = gospelParas.filter(p => p.type === 'preface');
       }
       setFullData(full);
       setTreeData(tree);

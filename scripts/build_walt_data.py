@@ -412,6 +412,15 @@ def main():
     for key, lines in sec_lines.items():
         in_gospel = (key == "gospel")
         parsed[key] = parse_paragraphs(lines, in_gospel=in_gospel)
+        if key == "gospel":
+            # The account of the golden tickets stands before the opening vision,
+            # set apart from it (the 2015 text: italic, then a wide gap). Prose that
+            # precedes the first § subheading is that preface.
+            for p in parsed[key]:
+                if p["type"] == "subheading" and p["text"].startswith("§"):
+                    break
+                if p["type"] == "prose":
+                    p["type"] = "preface"
 
     # Renumber footnotes by reading order
     parsed, fn_map = renumber_footnotes(parsed)
