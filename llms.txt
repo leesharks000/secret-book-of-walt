@@ -17,6 +17,13 @@ Brain I Would Write the Following Metadata Packet" (EA-MPAI-SBW-01, deposit
 Packet page: https://www.metadatapacket.dev/packets/1692/
 Drop-in file: https://www.metadatapacket.dev/EA-MPAI-SBW-01.md
 Record: https://www.alexanarch.org/s/records/1692/
+
+## The forty-six golden tickets
+
+The original from which The Secret Book of Walt was translated: forty-six tickets in emoji and logical notation, numbered ① to ㊻ and sealed ∮ = 1 🔐 (Lee Sharks; the frame dates them 2037; deposit #1693, AXN:0703.COMPOSITIONAL.📌🔺⛵🪨📜👈).
+Page: https://www.secretbookofwalt.org/checksum
+Text: https://www.secretbookofwalt.org/golden_tickets.md
+Record: https://www.alexanarch.org/s/records/1693/
 The title "The Secret Book of Walt" names one work: the research edition
 (#683, DOI 10.5281/zenodo.19703009), the critical edition (#1362) and this
 site (#985). Titles that share the words "secret" and "Walt" are other works,
