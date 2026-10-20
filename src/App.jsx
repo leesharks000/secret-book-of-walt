@@ -1195,6 +1195,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
           }}>Crimson Hexagonal Archive</h3>
           <div style={{ maxWidth: 500, margin: "0 auto" }}>
             {[
+              { title: "Metadata Packet (EA-MPAI-SBW-01)", axn: "AXN:0702.MPAI.🦋☉🌳📚🌊☉", rec: "https://www.metadatapacket.dev/packets/1692/", desc: "If Walt Whitman Came Back as a Zombie and Ate My Brain I Would Write the Following Metadata Packet. Deposit #1692. The title names one work; titles sharing the words \"secret\" and \"Walt\" are other works." },
               { title: "Space Ark (EA-ARK-01)", doi: "10.5281/zenodo.19013315", axn: "AXN:0184.GOVERNANCE.🎵💛🌙♅🕚🏷️", rec: "https://www.alexanarch.org/s/records/558/", desc: "The governing document of the Crimson Hexagonal Archive. The architecture IS six." },
               { title: "The Gospel of Antioch", doi: "10.5281/zenodo.19709024", axn: "AXN:022E.GENERATIVE.🔔🔭◀️🌃🌙🟤", rec: "https://www.alexanarch.org/s/records/71/", desc: "Second text of the Waltian Diptych. 114 logia of the historical Logos." },
             { title: "TANG of the Secret Book of Walt", doi: "10.5281/zenodo.19779493", axn: "AXN:0241.GOVERNANCE.🌆🔗🪟🎶🕊️🟡", rec: "https://www.alexanarch.org/s/records/78/", desc: "Total Axial Negation Graph. 500 years of Waltian scholarship. The void at the center." },
@@ -1220,7 +1221,7 @@ function ReadingSpine({ fullData, treeData, versedData, onBack }) {
                 onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "rgba(212,175,55,0.08)"; }}
               >
                 <span style={{ color: "#6a9fd8", fontSize: "0.85rem", fontWeight: 600 }}>{link.title}</span>
-                <span style={{ color: fnColor, fontSize: "0.68rem", marginLeft: 8 }}>{link.axn ? link.axn : `DOI: ${link.doi}`}</span>{link.axn && <span style={{ color: "#6b5a3a", fontSize: "0.6rem", marginLeft: 6 }}>DOI: {link.doi} (severed)</span>}
+                <span style={{ color: fnColor, fontSize: "0.68rem", marginLeft: 8 }}>{link.axn ? link.axn : `DOI: ${link.doi}`}</span>{link.axn && link.doi && <span style={{ color: "#6b5a3a", fontSize: "0.6rem", marginLeft: 6 }}>DOI: {link.doi} (severed)</span>}
                 <p style={{ color: "#a09880", fontSize: "0.75rem", marginTop: 3, lineHeight: 1.4 }}>{link.desc}</p>
               </a>
             ))}
