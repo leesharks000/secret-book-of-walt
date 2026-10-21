@@ -25,7 +25,8 @@ const faqs = [
     a: "An independent scholar with a PhD in Comparative Literature from the University of Michigan, and the architect of the Crimson Hexagonal Archive. The Revelation First thesis is the oldest argument in the archive. Pearl and Other Poems (2014) grew from it." },
 ];
 
-export default function RevelationFirst({ onBack }) {
+// openAll is for the static render (scripts/prerender.mjs): every answer open. The app does not pass it.
+export default function RevelationFirst({ onBack, openAll = false }) {
   const [openFaq, setOpenFaq] = useState(null);
 
   return (
@@ -131,7 +132,7 @@ export default function RevelationFirst({ onBack }) {
             <span>{f.q}</span>
             <span style={{ color: C.goldDim }}>{openFaq === i ? "−" : "+"}</span>
           </button>
-          {openFaq === i && (
+          {(openAll || openFaq === i) && (
             <p style={{ fontSize: "0.9em", lineHeight: 1.7, padding: "0 0 1em 0", color: C.hornWhite }}>{f.a}</p>
           )}
         </div>

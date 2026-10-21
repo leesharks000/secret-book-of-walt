@@ -395,14 +395,16 @@ function TangStrip({ expanded, setExpanded }) {
   );
 }
 
-export default function Tang({ onBack }) {
-  const [expanded, setExpanded] = useState({
+// expandAll and initialCitations are for the static render (scripts/prerender.mjs): every section open and the
+// citations in place, so the page's full text stands in its HTML. The app passes neither.
+export default function Tang({ onBack, expandAll = false, initialCitations = null }) {
+  const [expanded, setExpanded] = useState(expandAll ? new Proxy({}, { get: () => true }) : {
     protocol: true, void_sec: false, media: false,
     citations: false, era_I: false, era_II: false, era_III: false,
     era_IV: false, era_V: false, era_VI: false,
     saturn: false, retrocausal: false, negation: true,
   });
-  const [citations, setCitations] = useState([]);
+  const [citations, setCitations] = useState(initialCitations || []);
   const accent = C.gold;
   const fnColor = "#9a8a70";
 

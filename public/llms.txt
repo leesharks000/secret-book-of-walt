@@ -9,6 +9,25 @@ The constitution, the Antioch gospel, the TANG, the epistle, the catalog and
 the Revelation material — each with its AXN and, where one exists, the severed
 Zenodo DOI retained as historical record.
 
+## Full texts
+
+Each page serves its whole text in its HTML, readable without running the
+page's script, and names its record, DOI and AXN.
+
+https://www.secretbookofwalt.org/              The Secret Book of Walt, the whole book (record #683; critical edition #1362)
+https://www.secretbookofwalt.org/checksum      the forty-six golden tickets, the original (#1693)
+https://www.secretbookofwalt.org/antioch       The Gospel of Antioch, 114 logia with apparatus (#71)
+https://www.secretbookofwalt.org/feist         The Feist Source (#1404; #851)
+https://www.secretbookofwalt.org/tang          the TANG, with its 63 citations (#78)
+https://www.secretbookofwalt.org/constitution  the Constitution of the Semantic Economy, Enacted Version 1.0 (#87)
+https://www.secretbookofwalt.org/epistle       the Epistle to the Human Diaspora (#85)
+https://www.secretbookofwalt.org/catalog       The Prophetic Catalog (#83)
+https://www.secretbookofwalt.org/revelation    Revelation First
+
+The same texts as data: /walt_full_data.json, /antioch_gospel_data.json,
+/feist_source_data.json, /tang_citations.json, /constitution_data.json,
+/epistle_data.json, /catalog_data.json, /golden_tickets.md.
+
 ## Metadata packet
 
 The packet for this work: "If Walt Whitman Came Back as a Zombie and Ate My
