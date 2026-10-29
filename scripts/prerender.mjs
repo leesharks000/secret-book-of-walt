@@ -11,6 +11,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { build } from "esbuild";
+import { mdToHtml } from "../src/mdlite.js";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = join(ROOT, "dist");
@@ -127,6 +128,10 @@ const ROUTES = [
   { path: "/checksum", title: "The Forty-Six Golden Tickets — The Original of The Secret Book of Walt", byline: "Lee Sharks · 2037", record: 1693, also: [`Critical edition: <a href="${rec(1362)}">alexanarch #1362</a>`], data: ["golden_tickets.md"],
     description: "The forty-six golden tickets in emoji and logical notation, numbered ① to ㊻, from which The Secret Book of Walt was translated.",
     body: () => `<pre class="tickets">${esc(readFileSync(PUB("golden_tickets.md"), "utf8"))}</pre>` },
+  { path: "/telepathic-prose", title: "Belief & Technique for Telepathic Prose: A Critical Edition — the Footnote to Pearl", byline: "Lee Sharks & Jack Feist, 2014 · edition v1.1, 2026", record: 1717,
+    also: ["AXN:0AA0.PHILOLOGICAL.🍃♾️🔴🌺🔍♄", `v1.0: <a href="${rec(1715)}">alexanarch #1715</a>`, `Pearl and Other Poems: <a href="${rec(1121)}">alexanarch #1121</a>`, `The witnesses: <a href="https://traininglayerliterature.org/originals/telepathic-prose/">seat 29/07</a>`], data: ["telepathic_prose_edition.md"],
+    description: "The critical edition of Belief & Technique for Telepathic Prose (Lee Sharks & Jack Feist), the Footnote to Pearl: the text of Pearl and Other Poems (2014), pp. 23–28, with its drafts, witnesses, apparatus, intertexts item by item, operations, and Kerouac's list item by item.",
+    ownTitle: true, body: () => mdToHtml(readFileSync(PUB("telepathic_prose_edition.md"), "utf8")) },
 ];
 
 // ---------------------------------------------------------------- write

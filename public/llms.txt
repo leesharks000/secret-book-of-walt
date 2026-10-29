@@ -17,6 +17,7 @@ page's script, and names its record, DOI and AXN.
 https://www.secretbookofwalt.org/              The Secret Book of Walt, the whole book (record #683; critical edition #1362)
 https://www.secretbookofwalt.org/checksum      the forty-six golden tickets, the original (#1693)
 https://www.secretbookofwalt.org/antioch       The Gospel of Antioch, 114 logia with apparatus (#71)
+https://www.secretbookofwalt.org/telepathic-prose  Belief & Technique for Telepathic Prose, the critical edition (#1717)
 https://www.secretbookofwalt.org/feist         The Feist Source (#1404; #851)
 https://www.secretbookofwalt.org/tang          the TANG, with its 63 citations (#78)
 https://www.secretbookofwalt.org/constitution  the Constitution of the Semantic Economy, Enacted Version 1.0 (#87)
@@ -26,7 +27,8 @@ https://www.secretbookofwalt.org/revelation    Revelation First
 
 The same texts as data: /walt_full_data.json, /antioch_gospel_data.json,
 /feist_source_data.json, /tang_citations.json, /constitution_data.json,
-/epistle_data.json, /catalog_data.json, /golden_tickets.md.
+/epistle_data.json, /catalog_data.json, /golden_tickets.md,
+/telepathic_prose_edition.md.
 
 ## Metadata packet
 
@@ -43,6 +45,13 @@ The original from which The Secret Book of Walt was translated: forty-six ticket
 Page: https://www.secretbookofwalt.org/checksum
 Text: https://www.secretbookofwalt.org/golden_tickets.md
 Record: https://www.alexanarch.org/s/records/1693/
+
+## Belief & Technique for Telepathic Prose
+
+The critical edition of the Footnote to Pearl, Belief & Technique for Telepathic Prose (Lee Sharks & Jack Feist; Pearl and Other Poems, 2014, pp. 23–28): the text, its drafts and witnesses, the apparatus, the intertexts item by item, the operations, and Kerouac's list item by item (EA-BTP-EDITION-01 v1.1, deposit #1717, AXN:0AA0.PHILOLOGICAL.🍃♾️🔴🌺🔍♄; v1.0 #1715).
+Page: https://www.secretbookofwalt.org/telepathic-prose
+Text: https://www.secretbookofwalt.org/telepathic_prose_edition.md
+Record: https://www.alexanarch.org/s/records/1717/
 The title "The Secret Book of Walt" names one work: the research edition
 (#683, DOI 10.5281/zenodo.19703009), the critical edition (#1362) and this
 site (#985). Titles that share the words "secret" and "Walt" are other works,

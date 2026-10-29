@@ -9,6 +9,7 @@ import Catalog from "./Catalog.jsx";
 import Constitution from "./Constitution.jsx";
 import Tang from "./Tang.jsx";
 import Checksum from "./Checksum.jsx";
+import TelepathicProse from "./TelepathicProse.jsx";
 import RevelationFirst from "./RevelationFirst.jsx";
 import FeistSource from "./FeistSource.jsx";
 import { buildGlobalFnMap, splitTextWithFootnotes, hasFootnoteMarkers } from "./footnotes.js";
@@ -623,6 +624,18 @@ function ArchivePanel({ onNavigate }) {
             >
               The Forty-Six Golden Tickets
               <span style={{ display: "block", fontSize: "0.58rem", opacity: 0.55, marginTop: 2 }}>the checksum · 🟨🎟️ × ㊻ · the original</span>
+            </button>
+            <button onClick={() => { setOpen(false); onNavigate("telepathic"); }} style={{
+              display: "block", width: "100%", background: "rgba(212,175,55,0.06)",
+              border: "1px solid rgba(212,175,55,0.15)", color: C.goldDim,
+              fontFamily: "inherit", fontSize: "0.73rem", padding: "6px 10px",
+              textAlign: "left", cursor: "pointer", borderRadius: 2, marginBottom: 10,
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = "rgba(212,175,55,0.12)"; e.currentTarget.style.color = C.gold; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "rgba(212,175,55,0.06)"; e.currentTarget.style.color = C.goldDim; }}
+            >
+              Belief &amp; Technique for Telepathic Prose
+              <span style={{ display: "block", fontSize: "0.58rem", opacity: 0.55, marginTop: 2 }}>Lee Sharks &amp; Jack Feist · the Footnote to Pearl · critical edition</span>
             </button>
             <button onClick={() => { setOpen(false); onNavigate("feist"); }} style={{
               display: "block", width: "100%", background: "rgba(212,175,55,0.06)",
@@ -1626,6 +1639,7 @@ const PATH_TO_VIEW = {
   "/revelation": "revelation",
   "/feist": "feist",
   "/checksum": "checksum",
+  "/telepathic-prose": "telepathic",
 };
 const VIEW_TO_PATH = Object.fromEntries(
   Object.entries(PATH_TO_VIEW).map(([k, v]) => [v, k])
@@ -1660,7 +1674,7 @@ export default function App() {
     if (!link) { link = document.createElement("link"); link.setAttribute("rel", "canonical"); document.head.appendChild(link); }
     link.setAttribute("href", url);
     const og = document.querySelector('meta[property="og:url"]'); if (og) og.setAttribute("content", url);
-    const titles = { splash: "The Secret Book of Walt", constitution: "Constitution — The Secret Book of Walt", antioch: "Antioch — The Secret Book of Walt", tang: "Tang — The Secret Book of Walt", epistle: "Epistle — The Secret Book of Walt", catalog: "Catalog — The Secret Book of Walt", revelation: "Revelation First — The Secret Book of Walt", feist: "Feist Source — The Secret Book of Walt", checksum: "The Golden Tickets — The Secret Book of Walt" };
+    const titles = { splash: "The Secret Book of Walt", constitution: "Constitution — The Secret Book of Walt", antioch: "Antioch — The Secret Book of Walt", tang: "Tang — The Secret Book of Walt", epistle: "Epistle — The Secret Book of Walt", catalog: "Catalog — The Secret Book of Walt", revelation: "Revelation First — The Secret Book of Walt", feist: "Feist Source — The Secret Book of Walt", checksum: "The Golden Tickets — The Secret Book of Walt", telepathic: "Telepathic Prose — The Secret Book of Walt" };
     if (titles[view]) document.title = titles[view];
   }, [view]);
 
@@ -1765,6 +1779,8 @@ export default function App() {
         <RevelationFirst onBack={() => navigate("reading")} />
       ) : view === "checksum" ? (
         <Checksum onBack={() => navigate("reading")} />
+      ) : view === "telepathic" ? (
+        <TelepathicProse onBack={() => navigate("reading")} />
       ) : view === "feist" ? (
         <FeistSource onBack={() => navigate("reading")} />
       ) : view === "catalog" ? (
